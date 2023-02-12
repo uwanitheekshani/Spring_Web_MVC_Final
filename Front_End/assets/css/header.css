@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+}
+
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    position: relative;
+    height: 460px;
+    width: 100vw;
+    margin: 0;
+}
+
+.h1{
+    /*background:#30336b ;*/
+    background: #485460;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    height: 43px;
+    z-index: 5;
+}
+
+/* add icons in header */
+.h1 > img {
+    /*position: absolute;*/
+    height: 32px;
+    width: 38px;
+    padding-right: 8px;
+    right: 2px;
+    top: 2px;
+}
