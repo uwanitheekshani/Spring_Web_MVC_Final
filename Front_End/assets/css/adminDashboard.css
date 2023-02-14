@@ -9,7 +9,7 @@
     position: relative;
     background: #FFFFFF;
     z-index: 5;
-    height: 631px;
+    height: 663px;
     width: 98.7vw;
     margin: auto;
     top: 0px;
@@ -18,7 +18,7 @@
 #admindashli{
     position: absolute;
     width: 12px;
-    height: 631px;
+    height: 664px;
     background: url("../../assets/images/Line 23.png");
     background-size: cover;
     background-position: center;
@@ -69,4 +69,142 @@
     z-index: 2;
     top: 122px;
     left: 95px;
+}
+
+#dashbim{
+    position: absolute;
+    width: 35px;
+    height: 40px;
+    background: url("../../assets/images/icons8-dashboard-layout-48.png");
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+    top: 245px;
+    left: 43px;
+}
+
+#dashl{
+    position: absolute;
+    color: #000000;
+    font-weight: bold;
+    z-index: 2;
+    top: 255px;
+    left: 89px;
+    font-size: 19px;
+    margin: 0;
+}
+
+#custim{
+    position: absolute;
+    width: 35px;
+    height: 40px;
+    background: url("../../assets/images/icons8-customer-50.png");
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+    top: 318px;
+    left: 43px;
+}
+
+#cusl{
+    position: absolute;
+    color: #000000;
+    font-weight: bold;
+    z-index: 2;
+    top: 328px;
+    left: 89px;
+    font-size: 19px;
+    margin: 0;
+}
+
+#carim{
+    position: absolute;
+    width: 35px;
+    height: 40px;
+    background: url("../../assets/images/icons8-carpool-30.png");
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+    top: 391px;
+    left: 43px;
+}
+
+#carl{
+    position: absolute;
+    color: #000000;
+    font-weight: bold;
+    z-index: 2;
+    top: 401px;
+    left: 89px;
+    font-size: 19px;
+    margin: 0;
+}
+
+#reserim{
+    position: absolute;
+    width: 35px;
+    height: 40px;
+    background: url("../../assets/images/icons8-reservation-50.png");
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+    top: 464px;
+    left: 43px;
+}
+
+#resl{
+    position: absolute;
+    color: #000000;
+    font-weight: bold;
+    z-index: 2;
+    top: 474px;
+    left: 89px;
+    font-size: 19px;
+    margin: 0;
+}
+
+#payim{
+    position: absolute;
+    width: 35px;
+    height: 40px;
+    background: url("../../assets/images/icons8-card-payment-50.png");
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+    top: 537px;
+    left: 43px;
+}
+
+#payl{
+    position: absolute;
+    color: #000000;
+    font-weight: bold;
+    z-index: 2;
+    top: 547px;
+    left: 89px;
+    font-size: 19px;
+    margin: 0;
+}
+
+#emplim{
+    position: absolute;
+    width: 35px;
+    height: 40px;
+    background: url("../../assets/images/icons8-staff-30.png");
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+    top: 610px;
+    left: 43px;
+}
+
+#empl{
+    position: absolute;
+    color: #000000;
+    font-weight: bold;
+    z-index: 2;
+    top: 620px;
+    left: 89px;
+    font-size: 19px;
+    margin: 0;
 }
