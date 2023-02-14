@@ -11,6 +11,7 @@
     <link href="assets/css/logIn.css" rel="stylesheet">
     <link href="assets/css/cusRegister.css" rel="stylesheet">
     <link href="assets/css/selectCar.css" rel="stylesheet">
+    <link href="assets/css/checkOut.css" rel="stylesheet">
     <!-- font awesome cdn link  -->
     <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
           integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" rel="stylesheet">
@@ -471,6 +472,122 @@
 
 
 
+</main>
+
+<!--       ============================Check Out==================================-->
+<main class="checkOut">
+    <section class="checko">
+        <h2 id="checko1">Check Out --></h2>
+
+        <div class="card-body2">
+            <form>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-groupBC">
+                            <label for="txtFName">Suzuki Alto - Premium - Manual</label>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="col-6">
+                            <div class="form-groupFdc">
+                                <input class="form-control" id="txtfdc" placeholder="11/02/2023" type="date">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row-dt">
+                    <div class="col-6">
+                        <div class="form-groupDC">
+                            <label id="dailC">Daily</label>
+                            <label id="dailCp">2500</label>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="col-6">
+                            <div class="form-groupTdc">
+                                <input class="form-control" id="txtTdc" placeholder="11/02/2023" type="date">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-groupMC">
+                            <label id="montC">Monthly</label>
+                            <label id="montCp">64350</label>
+                        </div>
+                    </div>
+
+                    <select class="form-selectD" aria-label="Default select example" id="selectDriver">
+                        <option selected>Driver</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-groupLC">
+                            <label id="lossC">Loss Damage Waiver payment</label>
+                            <label id="lossCp">10000</label>
+                        </div>
+                    </div>
+                    <div class="col-6" id="uploadLIC">
+                        <label for="register-form-NIC-image" class="lossDPS">Upload
+                            Loss Damage Payment Slip</label>
+                        <input style="border: 1px solid gray" class="form-control  " type="file" id="lossDP2">
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-groupPl">
+                            <label for="txtFPickL">Pick Up Location</label>
+                            <input class="form-control" id="txtFPickL" type="text">
+                            <span class="control-error" id="lblpick"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-groupRl">
+                            <label for="txtReturnL">Return Location</label>
+                            <input class="form-control" id="txtReturnL" type="text">
+                            <span class="control-error" id="lblreturn"></span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-groupTR">
+                            <label for="txtTotalRent">Total Rent Amount</label>
+                            <input class="form-control" id="txtTotalRent" type="text">
+                            <span class="control-error" id="lbltotalrent"></span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-groupLDA">
+                            <label for="txtLossDwa">Loss Damage Waiver Amount</label>
+                            <input class="form-control" id="txtLossDwa" type="password">
+                            <span class="control-error" id="lbllossdma"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+            <button class="btnSendRent" type="submit">Send Rent</button>
+
+            </div>
+
+    </section>
 </main>
 <!--<script src="assets/js/jquery-3.6.1.min.js"></script>-->
 <!--<script src="assets/js/bootstrap.min.js"></script>-->

@@ -1,0 +1,172 @@
+.checkOut{
+    position: relative;
+    top: 140px;
+    /*margin-top: 460px;*/
+
+}
+.checko{
+    position: relative;
+    background: #D2DAE2;
+    z-index: 5;
+    height: 631px;
+    width: 98.7vw;
+    margin: auto;
+    top: 0px;
+}
+#checko1{
+    position: absolute;
+    color: #E74C3C;
+    top: 48px;
+    left: 125px;
+}
+
+.card-body2{
+    position: absolute;
+    top: 125px;
+    left: 127px;
+    margin: 0;
+}
+
+.form-groupBC{
+    position: absolute;
+    font-weight: bold;
+    width: 239px;
+}
+
+.form-groupFdc{
+    position: absolute;
+    left: 403px;
+    width: 246px;
+}
+
+.form-groupDC{
+    position: absolute;
+    top: 44px;
+}
+
+#dailC{
+    position: absolute;
+    left: 5px;
+    top: 25px;
+}
+
+#dailCp{
+    position: absolute;
+    left: 258px;
+    top: 25px;
+    color: #0a53be;
+}
+
+.form-groupTdc{
+    position: absolute;
+    left: 403px;
+    top: 61px;
+    width: 246px;
+}
+
+      /*/////////////////////*/
+
+.form-groupMC{
+    position: absolute;
+    top: 4px;
+}
+
+#montC{
+    position: absolute;
+    left: 5px;
+    top: 131px;
+}
+
+#montCp{
+    position: absolute;
+    left: 258px;
+    top: 131px;
+    color: #0a53be;
+}
+
+.form-selectD{
+    position: absolute;
+    left: 403px;
+    top: 131px;
+    width: 246px;
+    border-radius: 5px;
+    height: 31px;
+}
+
+/*/////////////////////*/
+
+.form-groupLC{
+    position: absolute;
+    top: 10px;
+}
+
+#lossC{
+    position: absolute;
+    left: 5px;
+    top: 217px;
+    width: 228px;
+}
+
+#lossCp{
+    position: absolute;
+    left: 258px;
+    top: 217px;
+    color: #0a53be;
+}
+
+.lossDPS{
+    position: absolute;
+    left: 403px;
+    top: 194px;
+    width: 268px;
+    height: 31px;
+}
+
+#lossDP2{
+    position: absolute;
+    left: 403px;
+    top: 221px;
+    width: 246px;
+    height: 31px;
+}
+
+
+   /*////////////////////////////////////////*/
+
+.form-groupPl{
+    position: absolute;
+    left: 4px;
+    top: 300px;
+    width: 273px;
+}
+
+.form-groupRl{
+    position: absolute;
+    left: 400px;
+    top: 300px;
+    width: 273px;
+}
+
+.form-groupTR{
+    position: absolute;
+    left: 4px;
+    top: 395px;
+    width: 273px;
+}
+
+.form-groupLDA{
+    position: absolute;
+    left: 400px;
+    top: 395px;
+    width: 273px;
+}
+
+.btnSendRent{
+    position: absolute;
+    top: 427px;
+    left: 800px;
+    background-color: #F3BF06;
+    width: 140px;
+}
+
+
