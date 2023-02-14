@@ -51,3 +51,53 @@
     left: 140px;
     font-size: 18px;
 }
+
+#editIm{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: url("../../assets/images/icons8-edit-property-50.png");
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+    top: 87px;
+    left: 130px;
+}
+
+#editIm2{
+    position: absolute;
+    color: #1e2125;
+    z-index: 2;
+    top: 88px;
+    left: 152px;
+    font-size: 18px;
+}
+
+      /*///////////////*/
+#acct{
+    position: absolute;
+    z-index: 2;
+    left: 20px;
+    top: 206px;
+    width: 1328px;
+}
+
+.btnUpdate{
+    position: absolute;
+    top: 181px;
+    left: 1000px;
+    border-radius: 5px;
+    background-color: #F3BF06;
+    width: 150px;
+}
+
+.btnCancel{
+    position: absolute;
+    top: 181px;
+    left: 1174px;
+    border-radius: 5px;
+    background-color: #E74C3C;
+    width: 150px;
+}
+
+
