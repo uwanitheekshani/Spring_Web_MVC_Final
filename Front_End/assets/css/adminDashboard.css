@@ -1,0 +1,15 @@
+.adminDash{
+    position: relative;
+    top: 140px;
+    /*margin-top: 460px;*/
+
+}
+.adminDash1{
+    position: relative;
+    background: #FFFFFF;
+    z-index: 5;
+    height: 631px;
+    width: 98.7vw;
+    margin: auto;
+    top: 0px;
+}
