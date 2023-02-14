@@ -1,0 +1,112 @@
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+/*::-webkit-scrollbar{*/
+/*    width: 0px;*/
+/*}*/
+
+main {
+    position: relative;
+    /*margin-top: 460px;*/
+
+}
+.wplt{
+    position: relative;
+    background: #FFFFFF;
+    z-index: 5;
+    height: 500px;
+    width: 98.7vw;
+    margin: auto;
+    top: 170px;
+}
+
+#wplt1{
+    position: absolute;
+    z-index: 4;
+    font-size: 35px;
+    top: 19px;
+    color: #000000;
+    font-family: 'Inter', sans-serif;
+    left: 484px;
+}
+
+#wp1{
+    position: absolute;
+    font-size: 28px;
+    color: #000000;
+    top: 136px;
+    left: 315px;
+    z-index: 4;
+    font-family: 'Encode Sans Expanded', sans-serif;
+}
+
+#wp2{
+    position: absolute;
+    font-size: 28px;
+    color: #000000;
+    top: 212px;
+    left: 315px;
+    z-index: 4;
+    font-family: 'Encode Sans Expanded', sans-serif;
+}
+
+#wp3{
+    position: absolute;
+    font-size: 28px;
+    color: #000000;
+    top: 288px;
+    left: 315px;
+    z-index: 4;
+    font-family: 'Encode Sans Expanded', sans-serif;
+}
+
+#wp4{
+    position: absolute;
+    font-size: 28px;
+    color: #000000;
+    top: 364px;
+    left: 315px;
+    z-index: 4;
+    font-family: 'Encode Sans Expanded', sans-serif;
+}
+
+#wp5{
+    position: absolute;
+    font-size: 28px;
+    color: #000000;
+    top: 136px;
+    left: 804px;
+    z-index: 4;
+    font-family: 'Encode Sans Expanded', sans-serif;
+}
+
+#wp6{
+    position: absolute;
+    font-size: 28px;
+    color: #000000;
+    top: 212px;
+    left: 804px;
+    z-index: 4;
+    font-family: 'Encode Sans Expanded', sans-serif;
+}
+
+#wp7{
+    position: absolute;
+    font-size: 28px;
+    color: #000000;
+    top: 288px;
+    left: 804px;
+    z-index: 4;
+    font-family: 'Encode Sans Expanded', sans-serif;
+}
+
+#wp8{
+    position: absolute;
+    font-size: 28px;
+    color: #000000;
+    top: 364px;
+    left: 804px;
+    z-index: 4;
+    font-family: 'Encode Sans Expanded', sans-serif;
+}

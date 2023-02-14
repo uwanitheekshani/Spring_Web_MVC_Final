@@ -1,0 +1,74 @@
+/*body {*/
+/*    margin: 0;*/
+/*    overflow-x: hidden;*/
+/*}*/
+/*!*::-webkit-scrollbar{*!*/
+/*!*    width: 0px;*!*/
+/*!*}*!*/
+
+.logInM{
+    position: relative;
+    top: 166px;
+    /*margin-top: 460px;*/
+
+}
+.lgms{
+    position: relative;
+    background: #D2DAE2;
+    z-index: 5;
+    height: 500px;
+    width: 98.7vw;
+    margin: auto;
+    top: 0px;
+}
+
+.col-2{
+    position: absolute;
+    top: 102px;
+    left: 580px;
+    margin: 0;
+}
+
+/*#lgm2{*/
+/*    position: absolute;*/
+/*}*/
+
+#lgm3{
+    position: absolute;
+    left: 105px;
+    width: 211px;
+    top: 57px;
+}
+
+.form-groupE1{
+    position: absolute;
+    top: 93px;
+    width: 362px;
+}
+
+.form-groupP2{
+    position: absolute;
+    top: 175px;
+    width: 362px
+}
+
+#btnLogIn{
+    position: absolute;
+    top: 268px;
+    width: 362px;
+}
+
+#lgImage{
+    position: absolute;
+    width: 30vw;
+    height: 302px;
+    background: url("../../assets/images/loginIm.jpg");
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+    top: 111px;
+    left: 100px;
+}
+
+
+

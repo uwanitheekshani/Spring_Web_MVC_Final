@@ -1,0 +1,60 @@
+.registerCM{
+    position: relative;
+    top: 166px;
+    /*margin-top: 460px;*/
+
+}
+.regi{
+    position: relative;
+    background: #D2DAE2;
+    z-index: 5;
+    height: 500px;
+    width: 98.7vw;
+    margin: auto;
+    top: 0px;
+}
+
+.card-body{
+    position: absolute;
+    top: 102px;
+    left: 331px;
+    margin: 0;
+}
+
+#regi1{
+    position: absolute;
+    left: 529px;
+    width: 335px;
+    top: 3px;
+}
+
+#btnLogIn2{
+    position: absolute;
+    left: 185px;
+    width: 362px;
+    top: 349px;
+}
+
+#regif{
+    position: absolute;
+    top: 30px;
+    left: 351px;
+    background: url("../../assets/images/Line 5.png");
+    background-size: cover;
+    background-position: center;
+    width: 153px;
+    height: 2px;
+    margin: 0;
+}
+
+#regil{
+    position: absolute;
+    top: 30px;
+    left: 896px;
+    background: url("../../assets/images/Line 5.png");
+    background-size: cover;
+    background-position: center;
+    width: 153px;
+    height: 2px;
+    margin: 0;
+}
