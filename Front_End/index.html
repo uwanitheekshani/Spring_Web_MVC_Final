@@ -10,6 +10,7 @@
     <link href="assets/css/footer.css" rel="stylesheet">
     <link href="assets/css/logIn.css" rel="stylesheet">
     <link href="assets/css/cusRegister.css" rel="stylesheet">
+    <link href="assets/css/selectCar.css" rel="stylesheet">
     <!-- font awesome cdn link  -->
     <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
           integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" rel="stylesheet">
@@ -62,10 +63,10 @@
         <div id="hn2">NOW</div>
 
         <ul class="list-group list-group-horizontal text-danger justify-content-end font-weight-bold">
-            <li class="text-white" id="lnkHome"><a href="#" id="home">Home</a></li>
-            <li class="text-white" id="lnkAccount"><a href="#" id="account">Account</a></li>
-            <li class="text-white" id="lnkStore"><a href="#" id="store">Store</a></li>
-            <li class="text-white" id="lnkCheckOut"><a href="#" id="checkout">Check out</a></li>
+            <li class="text-white" id="lnkHome"><a id="home">Home</a></li>
+            <li class="text-white" id="lnkAccount"><a id="account">Account</a></li>
+            <li class="text-white" id="lnkStore"><a id="store">Store</a></li>
+            <li class="text-white" id="lnkCheckOut"><a id="checkout">Check out</a></li>
         </ul>
 
         <section class="topic">
@@ -293,12 +294,12 @@
                         </div>
                     </div>
 
-                    <div class="col-6">
-                            <div class="choose">
-                                <label>NIC Image or Driver Licence Image </label>
-                                <input type="file" class="select" id="txtDLION" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                            </div>
+
+                    <div class="col-6" id="uploadIm">
+                        <label for="register-form-NIC-image" class="form-label ">NIC Image or Driving Licence Image</label>
+                        <input style="border: 1px solid gray" class="form-control  " type="file" id="register-form-NIC-image">
                     </div>
+
                 </div>
 
             </form>
@@ -309,6 +310,167 @@
 
 
     </section>
+</main>
+
+<!--       ============================Select Your Car==================================-->
+<main class="selectCar">
+
+    <section id="testimonials" class="testimonials">
+        <div class="container" data-aos="fade-up">
+            <div class="section-title">
+                <h2>Selecet Your Car</h2>
+            </div>
+
+<div>
+            <select class="form-select1" aria-label="Default select example" id="selectBrand">
+                <option selected>Brand</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+
+    <select class="form-select2" aria-label="Default select example" id="selectType">
+        <option selected>Type</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+    </select>
+
+    <select class="form-select3" aria-label="Default select example" id="selectFuelType">
+        <option selected>FuelType</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+    </select>
+
+    <select class="form-select4" aria-label="Default select example" id="selectTransmission">
+        <option selected>Transmission</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+    </select>
+
+    <select class="form-select5" aria-label="Default select example" id="selectPassengers">
+        <option selected>Passengers</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+    </select>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="form-groupFD">
+                <label>From :</label>
+                <input class="form-control" id="txtFromDate" type="date">
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="form-groupTD">
+                <label>To :</label>
+                <input class="form-control" id="txtToDate" type="date">
+            </div>
+        </div>
+
+    </div>
+
+    <form class="d-flexs" role="search">
+        <input class="searchCar" type="search" placeholder="Search Your car" aria-label="Search">
+        <button class="btnSearch" type="submit">Search</button>
+    </form>
+
+    <button class="btnClearAll" type="submit">Clear All</button>
+
+</div>
+
+            <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-wrap">
+                            <div class="testimonial-item">
+                                <img src="assets/images/photo_2023-02-11_09-33-08.jpg" class="testimonial-img" alt="">
+                                <h3>Suzuki Alto - Premium - Manual</h3>
+                                <div>
+                                <h4 id="Da">Daily</h4>
+                                <h4 id="Mo">Monthly</h4>
+                                <h4 id="Ldp">Loss Damage waiver Payment</h4>
+
+                                <h4 id="Dap">2500</h4>
+                                <h4 id="Mop">64350</h4>
+                                <h4 id="Ldpp">10000</h4>
+
+                                <button class="btnAddToCart" type="submit">Add To Cart</button>
+                                </div>
+
+                                <div class="carD">
+                                    <h4 id="Br">Brand</h4>
+                                    <h4 id="Ty">Type</h4>
+                                    <h4 id="Tr">Transmission</h4>
+                                    <h4 id="Fu">Fuel</h4>
+                                    <h4 id="Nop">No Of Passengers</h4>
+
+                                    <h4 id="Bri">Suzuki Alto</h4>
+                                    <h4 id="Tyi">General</h4>
+                                    <h4 id="Tri">Manual</h4>
+                                    <h4 id="Fui">Petrol</h4>
+                                    <h4 id="Nopf">04</h4>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div><!-- End testimonial item -->
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-wrap">
+                            <div class="testimonial-item">
+                                <img src="assets/images/photo_2023-02-11_10-16-00.jpg" class="testimonial-img" alt="">
+                                <h3>Toyota Prius C</h3>
+
+                                <div>
+                                    <h4 id="Da2">Daily</h4>
+                                    <h4 id="Mo2">Monthly</h4>
+                                    <h4 id="Ldp2">Loss Damage waiver Payment</h4>
+
+                                    <h4 id="Dap2">5000</h4>
+                                    <h4 id="Mop2">110330</h4>
+                                    <h4 id="Ldpp2">10000</h4>
+
+                                    <button class="btnAddToCart2" type="submit">Add To Cart</button>
+                                </div>
+
+                                <div class="carD2">
+                                    <h4 id="Br2">Brand</h4>
+                                    <h4 id="Ty2">Type</h4>
+                                    <h4 id="Tr2">Transmission</h4>
+                                    <h4 id="Fu2">Fuel</h4>
+                                    <h4 id="Nop2">No Of Passengers</h4>
+
+                                    <h4 id="Bri2">Toyota Prius</h4>
+                                    <h4 id="Tyi2">General</h4>
+                                    <h4 id="Tri2">Auto</h4>
+                                    <h4 id="Fui2">Petrol</h4>
+                                    <h4 id="Nopf2">06</h4>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div><!-- End testimonial item -->
+
+
+
+
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+        </div>
+    </section><!-- End Testimonials Section -->
+
+
+
 </main>
 <!--<script src="assets/js/jquery-3.6.1.min.js"></script>-->
 <!--<script src="assets/js/bootstrap.min.js"></script>-->

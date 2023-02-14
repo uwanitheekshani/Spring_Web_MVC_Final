@@ -8,7 +8,7 @@
     position: relative;
     background: #D2DAE2;
     z-index: 5;
-    height: 500px;
+    height: 535px;
     width: 98.7vw;
     margin: auto;
     top: 0px;
@@ -17,7 +17,7 @@
 .card-body{
     position: absolute;
     top: 102px;
-    left: 331px;
+    left: 471px;
     margin: 0;
 }
 
@@ -30,7 +30,7 @@
 
 #btnLogIn2{
     position: absolute;
-    left: 185px;
+    left: 57px;
     width: 362px;
     top: 349px;
 }
@@ -57,4 +57,17 @@
     width: 153px;
     height: 2px;
     margin: 0;
+}
+
+#uploadIm{
+    position: absolute;
+    top: 255px;
+    left: 234px;
+    width: 287px
+}
+
+.form-groupD{
+    position: absolute;
+    top: 261px;
+    width: 222px;
 }
