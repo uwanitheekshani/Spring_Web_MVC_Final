@@ -85,8 +85,8 @@
 }
 
 .form-selectD{
-    position: absolute;
-    left: 403px;
+    position: relative;
+    left: 414px;
     top: 131px;
     width: 246px;
     border-radius: 5px;

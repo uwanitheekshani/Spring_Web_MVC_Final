@@ -1,0 +1,53 @@
+.account{
+    position: relative;
+    top: 140px;
+    /*margin-top: 460px;*/
+
+}
+.account1{
+    position: relative;
+    background: #FFFFFF;
+    z-index: 5;
+    height: 631px;
+    width: 98.7vw;
+    margin: auto;
+    top: 0px;
+}
+
+#account2{
+    position: absolute;
+    color: #E74C3C;
+    top: 168px;
+    left: 97px;
+}
+
+#adminlg{
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    background: url("../../assets/images/icons8-user-50.png");
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+    top: 19px;
+    left: 81px;
+}
+
+#an{
+    position: absolute;
+    color: black;
+    font-weight: bold;
+    z-index: 2;
+    top: 33px;
+    left: 140px;
+    font-size: 20px;
+}
+
+#ae{
+    position: absolute;
+    color: black;
+    z-index: 2;
+    top: 57px;
+    left: 140px;
+    font-size: 18px;
+}
