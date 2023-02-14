@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon&display=swap');
 .adminDash{
     position: relative;
     top: 140px;
@@ -23,4 +24,49 @@
     background-position: center;
     z-index: 2;
     left: 259px;
+}
+
+#Acr{
+    position: absolute;
+    color: black;
+    font-weight: bold;
+    z-index: 2;
+    top: 5px;
+    left: 18px;
+    font-size: 20px;
+    font-family: 'IM Fell French Canon', serif;
+}
+
+#Acr1{
+    position: absolute;
+    color: #E74C3C;
+    font-weight: bold;
+    z-index: 2;
+    top: 70px;
+    left: 98px;
+    font-size: 24px;
+    margin: 0;
+}
+
+#Acr2{
+    position: absolute;
+    color: #000000;
+    font-weight: bold;
+    z-index: 2;
+    top: 97px;
+    left: 56px;
+    font-size: 18px;
+    margin: 0;
+}
+
+#admindashim{
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    background: url("../../assets/images/icons8-user-50.png");
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+    top: 122px;
+    left: 95px;
 }
