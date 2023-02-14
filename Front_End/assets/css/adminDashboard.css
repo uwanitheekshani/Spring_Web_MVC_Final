@@ -13,3 +13,14 @@
     margin: auto;
     top: 0px;
 }
+
+#admindashli{
+    position: absolute;
+    width: 12px;
+    height: 631px;
+    background: url("../../assets/images/Line 23.png");
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+    left: 259px;
+}
