@@ -32,8 +32,6 @@ public class JPAConfig {
 
     @Bean
     public DataSource dataSource(){
-        //we use this data source only for testing purpose(Development)
-        //if e are in (Production) we can use a DBCP pool
         DriverManagerDataSource ds =new DriverManagerDataSource();
         ds.setDriverClassName("com.mysql.jdbc.Driver");
         ds.setUrl("jdbc:mysql://localhost:3306/car_rental?createDatabaseIfNotExist=true");
