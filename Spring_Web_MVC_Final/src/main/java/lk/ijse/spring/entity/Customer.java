@@ -27,6 +27,6 @@ public class Customer {
     private String drivingLicenceNumber;
     private String imageLocation;
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "cusId")
     private List<Rental> rentalDetails;
 }
