@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon&display=swap');
-.adminDash{
+.adminDash2{
     position: relative;
     top: 140px;
     /*margin-top: 460px;*/
 
 }
-.adminDash1{
+.adminDash3{
     position: relative;
     background: #FFFFFF;
     z-index: 5;
@@ -15,7 +15,7 @@
     top: 0px;
 }
 
-#admindashli{
+#admindashli3{
     position: absolute;
     width: 12px;
     height: 664px;
@@ -26,7 +26,7 @@
     left: 259px;
 }
 
-#Acr{
+#Acr3{
     position: absolute;
     color: black;
     font-weight: bold;
@@ -37,7 +37,7 @@
     font-family: 'IM Fell French Canon', serif;
 }
 
-#Acr1{
+#Acr13{
     position: absolute;
     color: #E74C3C;
     font-weight: bold;
@@ -48,7 +48,7 @@
     margin: 0;
 }
 
-#Acr2{
+#Acr23{
     position: absolute;
     color: #000000;
     font-weight: bold;
@@ -59,7 +59,7 @@
     margin: 0;
 }
 
-#admindashim{
+#admindashim3{
     position: absolute;
     width: 65px;
     height: 65px;
@@ -71,7 +71,7 @@
     left: 95px;
 }
 
-#dashbim{
+#dashbim3{
     position: absolute;
     width: 35px;
     height: 40px;
@@ -83,7 +83,7 @@
     left: 43px;
 }
 
-#dashl{
+#dashl3{
     position: absolute;
     color: #000000;
     font-weight: bold;
@@ -94,7 +94,7 @@
     margin: 0;
 }
 
-#custim{
+#custim3{
     position: absolute;
     width: 35px;
     height: 40px;
@@ -106,7 +106,7 @@
     left: 43px;
 }
 
-#cusl{
+#cusl3{
     position: absolute;
     color: #000000;
     font-weight: bold;
@@ -117,7 +117,7 @@
     margin: 0;
 }
 
-#carim{
+#carim3{
     position: absolute;
     width: 35px;
     height: 40px;
@@ -129,7 +129,7 @@
     left: 43px;
 }
 
-#carl{
+#carl3{
     position: absolute;
     color: #000000;
     font-weight: bold;
@@ -140,7 +140,7 @@
     margin: 0;
 }
 
-#reserim{
+#reserim3{
     position: absolute;
     width: 35px;
     height: 40px;
@@ -152,7 +152,7 @@
     left: 43px;
 }
 
-#resl{
+#resl3{
     position: absolute;
     color: #000000;
     font-weight: bold;
@@ -163,7 +163,7 @@
     margin: 0;
 }
 
-#payim{
+#payim3{
     position: absolute;
     width: 35px;
     height: 40px;
@@ -175,7 +175,7 @@
     left: 43px;
 }
 
-#payl{
+#payl3{
     position: absolute;
     color: #000000;
     font-weight: bold;
@@ -186,7 +186,7 @@
     margin: 0;
 }
 
-#emplim{
+#emplim3{
     position: absolute;
     width: 35px;
     height: 40px;
@@ -198,7 +198,7 @@
     left: 43px;
 }
 
-#empl{
+#empl3{
     position: absolute;
     color: #000000;
     font-weight: bold;
@@ -209,7 +209,7 @@
     margin: 0;
 }
 
-#Ads{
+#Ads3{
     position: absolute;
     color: black;
     font-weight: bold;
@@ -220,7 +220,7 @@
     font-family: 'IM Fell French Canon', serif;
 }
 
-#dsl{
+#dsl3{
     position: absolute;
     top: 57px;
     left: 293px;
@@ -231,174 +231,3 @@
     height: 2px;
     margin: 0;
 }
-
-
-     /*///////////////////////////////////////////////*/
-
-/*--------------------------------------------------------------
-# DashBoard Details1
---------------------------------------------------------------*/
-#dbda{
-    position: absolute;
-    left: 330px;
-    top: 95px;
-}
-
-.services .icon-box {
-    box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
-    padding: 50px 30px;
-    transition: all ease-in-out 0.4s;
-    background: #cbb6b6;
-    height: 177px;
-}
-
-.services .icon-box h4 {
-    font-weight: 500;
-    margin-bottom: 15px;
-    font-size: 22px;
-}
-
-.services .icon-box h4 a {
-    color: #000000;
-    transition: ease-in-out 0.3s;
-}
-
-.services .icon-box h3 {
-    font-weight: 500;
-    margin-bottom: 15px;
-    font-size: 24px;
-}
-
-.services .icon-box h3 a {
-    color: #000000;
-    transition: ease-in-out 0.3s;
-    font-weight: bold;
-}
-
-.services .icon-box:hover {
-    transform: translateY(-10px);
-}
-
-.services .icon-box:hover h4 a {
-    color: #47b2e4;
-}
-
-/*--------------------------------------------------------------
-# DashBoard Details2
---------------------------------------------------------------*/
-#dbda2{
-    position: absolute;
-    left: 330px;
-    top: 291px;
-}
-
-.services2 .icon-box {
-    box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
-    padding: 50px 30px;
-    transition: all ease-in-out 0.4s;
-    background: #cbb6b6;
-    height: 177px;
-}
-
-.services2 .icon-box h4 {
-    font-weight: 500;
-    margin-bottom: 15px;
-    font-size: 22px;
-}
-
-.services2 .icon-box h4 a {
-    color: #000000;
-    transition: ease-in-out 0.3s;
-}
-
-.services2 .icon-box h3 {
-    font-weight: 500;
-    margin-bottom: 15px;
-    font-size: 24px;
-}
-
-.services2 .icon-box h3 a {
-    color: #000000;
-    transition: ease-in-out 0.3s;
-    font-weight: bold;
-}
-
-.services2 .icon-box:hover {
-    transform: translateY(-10px);
-}
-
-.services2 .icon-box:hover h4 a {
-    color: #47b2e4;
-}
-
-      /*////////////////////////////*/
-
-#Aic{
-    position: absolute;
-    color: black;
-    font-weight: bold;
-    z-index: 2;
-    top: 490px;
-    left: 290px;
-    font-size: 18px;
-    font-family: 'IM Fell French Canon', serif;
-}
-
-#dsl2{
-    position: absolute;
-    top: 511px;
-    left: 291px;
-    background: url("../../assets/images/Line 5.png");
-    background-size: cover;
-    background-position: center;
-    width: 35px;
-    height: 2px;
-    margin: 0;
-}
-
-.admin-dashboard-sub-container{
-    display: flex;
-    flex-direction: column;
-    width: 75%;
-    height: 95%;
-    margin-right: 1%;
-    align-items: center;
-    border-radius: 10px;
-}
-
-.row-1{
-    width: 100%;
-    height: 25%;
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 1%;
-}
-
-#inc{
-    position: absolute;
-    top: 100px;
-    left: 100px;
-}
-
-/*////////////////////////////////////*/
-
-.admin-dashboard-sub-container{
-    display: flex;
-    flex-direction: column;
-    width: 75%;
-    height: 95%;
-    /*margin-right: 1%;*/
-    left: 20px;
-    align-items: center;
-    border-radius: 10px;
-}
-
-.row-1{
-    width: 100%;
-    height: 10%;
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 90%;
-    margin-left: 317px;
-}
-
