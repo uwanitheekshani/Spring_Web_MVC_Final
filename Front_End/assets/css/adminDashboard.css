@@ -330,3 +330,28 @@
 .services2 .icon-box:hover h4 a {
     color: #47b2e4;
 }
+
+      /*////////////////////////////*/
+
+#Aic{
+    position: absolute;
+    color: black;
+    font-weight: bold;
+    z-index: 2;
+    top: 490px;
+    left: 290px;
+    font-size: 18px;
+    font-family: 'IM Fell French Canon', serif;
+}
+
+#dsl2{
+    position: absolute;
+    top: 511px;
+    left: 291px;
+    background: url("../../assets/images/Line 5.png");
+    background-size: cover;
+    background-position: center;
+    width: 35px;
+    height: 2px;
+    margin: 0;
+}
