@@ -21,18 +21,32 @@
     z-index: 2;
     top: 33px;
     left: 290px;
-    font-size: 18px;
+    font-size: 30px;
     font-family: 'IM Fell French Canon', serif;
 }
 
 #carhl{
     position: absolute;
-    top: 57px;
+    top: 65px;
     left: 293px;
     background: url("../../assets/images/Line 5.png");
     background-size: cover;
     background-position: center;
-    width: 25px;
+    width: 33px;
     height: 2px;
     margin: 0;
+}
+
+.card-body2{
+    position: absolute;
+    top: 102px;
+    left: 326px;
+    margin: 0;
+}
+
+#btnAddC2{
+    position: absolute;
+    left: 57px;
+    width: 362px;
+    top: 349px;
 }
