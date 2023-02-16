@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon&display=swap');
+/*.adminDash{*/
+/*    position: relative;*/
+/*    top: 140px;*/
+/*    !*margin-top: 460px;*!*/
+
+/*}*/
+.adminDash1{
+    position: relative;
+    background: #FFFFFF;
+    top: 140px;
+    z-index: 6;
+    height: 663px;
+    margin: auto;
+    width: 10vw;
+    left: -583px;
+}
+
+#admindashli{
+    position: absolute;
+    width: 12px;
+    height: 664px;
+    background: url("../../assets/images/Line 23.png");
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+    left: 259px;
+}
+
+#Acr{
+    position: absolute;
+    color: black;
+    font-weight: bold;
+    z-index: 2;
+    top: 5px;
+    left: 18px;
+    font-size: 20px;
+    font-family: 'IM Fell French Canon', serif;
+}
+
+#Acr1{
+    position: absolute;
+    color: #E74C3C;
+    font-weight: bold;
+    z-index: 2;
+    top: 70px;
+    left: 98px;
+    font-size: 24px;
+    margin: 0;
+}
+
+#Acr2{
+    position: absolute;
+    color: #000000;
+    font-weight: bold;
+    z-index: 2;
+    top: 97px;
+    left: 56px;
+    font-size: 18px;
+    margin: 0;
+    width: 199px;
+}
+
+#admindashim{
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    background: url("../../assets/images/icons8-user-50.png");
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+    top: 122px;
+    left: 95px;
+}
+
+#dashbim{
+    position: absolute;
+    width: 35px;
+    height: 40px;
+    background: url("../../assets/images/icons8-dashboard-layout-48.png");
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+    top: 245px;
+    left: 43px;
+}
+
+#dashl{
+    position: absolute;
+    color: #000000;
+    font-weight: bold;
+    z-index: 2;
+    top: 255px;
+    left: 89px;
+    font-size: 19px;
+    margin: 0;
+}
+
+#custim{
+    position: absolute;
+    width: 35px;
+    height: 40px;
+    background: url("../../assets/images/icons8-customer-50.png");
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+    top: 318px;
+    left: 43px;
+}
+
+#cusl{
+    position: absolute;
+    color: #000000;
+    font-weight: bold;
+    z-index: 2;
+    top: 328px;
+    left: 89px;
+    font-size: 19px;
+    margin: 0;
+}
+
+#carim{
+    position: absolute;
+    width: 35px;
+    height: 40px;
+    background: url("../../assets/images/icons8-carpool-30.png");
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+    top: 391px;
+    left: 43px;
+}
+
+#carl{
+    position: absolute;
+    color: #000000;
+    font-weight: bold;
+    z-index: 2;
+    top: 401px;
+    left: 89px;
+    font-size: 19px;
+    margin: 0;
+}
+
+#reserim{
+    position: absolute;
+    width: 35px;
+    height: 40px;
+    background: url("../../assets/images/icons8-reservation-50.png");
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+    top: 464px;
+    left: 43px;
+}
+
+#resl{
+    position: absolute;
+    color: #000000;
+    font-weight: bold;
+    z-index: 2;
+    top: 474px;
+    left: 89px;
+    font-size: 19px;
+    margin: 0;
+}
+
+#payim{
+    position: absolute;
+    width: 35px;
+    height: 40px;
+    background: url("../../assets/images/icons8-card-payment-50.png");
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+    top: 537px;
+    left: 43px;
+}
+
+#payl{
+    position: absolute;
+    color: #000000;
+    font-weight: bold;
+    z-index: 2;
+    top: 547px;
+    left: 89px;
+    font-size: 19px;
+    margin: 0;
+}
+
+#emplim{
+    position: absolute;
+    width: 35px;
+    height: 40px;
+    background: url("../../assets/images/icons8-staff-30.png");
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+    top: 610px;
+    left: 43px;
+}
+
+#empl{
+    position: absolute;
+    color: #000000;
+    font-weight: bold;
+    z-index: 2;
+    top: 620px;
+    left: 89px;
+    font-size: 19px;
+    margin: 0;
+}
