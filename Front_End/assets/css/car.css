@@ -8,7 +8,7 @@
     position: relative;
     background: #FFFFFF;
     z-index: 5;
-    height: 663px;
+    height: 741px;
     width: 98.7vw;
     margin: auto;
     top: 0px;
@@ -46,7 +46,10 @@
 
 #btnAddC2{
     position: absolute;
-    left: 57px;
-    width: 362px;
-    top: 349px;
+    left: 422px;
+    background-color: #F3BF06;
+    width: 150px;
+    top: 569px;
+    border-radius: 5px;
+    color: black;
 }
