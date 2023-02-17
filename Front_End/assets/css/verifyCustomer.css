@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon&display=swap');
+/*.adminDashM2{*/
+/*    position: relative;*/
+/*    top: -550px;*/
+/*    left: 19px;*/
+/*}*/
+.verifyCus{
+    position: relative;
+    background: #FFFFFF;
+    z-index: 5;
+    height: 663px;
+    width: 98.7vw;
+    margin: auto;
+    top: 0px;
+}
+
+#vrfyC{
+    position: absolute;
+    color: black;
+    font-weight: bold;
+    z-index: 2;
+    top: 33px;
+    left: 290px;
+    font-size: 30px;
+    font-family: 'IM Fell French Canon', serif;
+}
+
+#vrfyCu{
+    position: absolute;
+    top: 71px;
+    left: 293px;
+    background: url("../../assets/images/Line 5.png");
+    background-size: cover;
+    background-position: center;
+    width: 205px;
+    height: 2px;
+    margin: 0;
+}
+
+#verCus{
+    position: absolute;
+    left: 293px;
+    width: 1036px;
+    top: 126px;
+}
