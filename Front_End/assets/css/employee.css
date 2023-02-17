@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon&display=swap');
+.employee{
+    position: relative;
+    background: #FFFFFF;
+    z-index: 5;
+    height: 663px;
+    width: 98.7vw;
+    margin: auto;
+    top: 0px;
+}
+
+#empl1{
+    position: absolute;
+    color: black;
+    font-weight: bold;
+    z-index: 2;
+    top: 33px;
+    left: 290px;
+    font-size: 30px;
+    font-family: 'IM Fell French Canon', serif;
+}
+
+#emplI{
+    position: absolute;
+    top: 65px;
+    left: 293px;
+    background: url("../../assets/images/Line 5.png");
+    background-size: cover;
+    background-position: center;
+    width: 33px;
+    height: 2px;
+    margin: 0;
+}
+
+.card-body3{
+    position: absolute;
+    top: 102px;
+    left: 407px;
+    margin: 0;
+}
+
+.form-control{
+    border-color: black;
+}
+
+#btnAddAdmin{
+    position: absolute;
+    left: 316px;
+    background-color: #F3BF06;
+    width: 150px;
+    top: 116px;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+}
+
+     /*//////////////////////*/
+
+#edver1{
+    position: absolute;
+    color: black;
+    font-weight: bold;
+    z-index: 2;
+    top: 298px;
+    left: 290px;
+    font-size: 30px;
+    font-family: 'IM Fell French Canon', serif;
+}
+
+#edverI{
+    position: absolute;
+    top: 334px;
+    left: 293px;
+    background: url("../../assets/images/Line 5.png");
+    background-size: cover;
+    background-position: center;
+    width: 48px;
+    height: 2px;
+    margin: 0;
+}
+
+.card-body4{
+    position: absolute;
+    top: 375px;
+    left: 407px;
+    margin: 0;
+}
+
+#btnAddDriver{
+    position: absolute;
+    left: 316px;
+    background-color: #F3BF06;
+    width: 200px;
+    top: 116px;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+}
+
