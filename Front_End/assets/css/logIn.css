@@ -22,10 +22,10 @@
     top: 0px;
 }
 
-.col-2{
+#adlo{
     position: absolute;
     top: 102px;
-    left: 580px;
+    left: 727px;
     margin: 0;
 }
 
@@ -67,7 +67,7 @@
     background-position: center;
     z-index: 2;
     top: 111px;
-    left: 100px;
+    left: 268px
 }
 
 
