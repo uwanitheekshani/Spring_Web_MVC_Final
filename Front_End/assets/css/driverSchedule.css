@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon&display=swap');
+.driverSchedule{
+    position: relative;
+    background: #FFFFFF;
+    z-index: 5;
+    height: 663px;
+    width: 98.7vw;
+    margin: auto;
+    top: 0px;
+}
+
+#drivSch{
+    position: absolute;
+    color: black;
+    font-weight: bold;
+    z-index: 2;
+    top: 33px;
+    left: 290px;
+    font-size: 25px;
+    font-family: 'IM Fell French Canon', serif;
+}
+
+.form-selectDI{
+    position: absolute;
+    left: 292px;
+    top: 110px;
+    width: 246px;
+    border-radius: 5px;
+    height: 31px;
+}
+
+#dri1{
+    position: absolute;
+    left: 591px;
+    top: 104px;
+    width: 246px;
+}
+
+#DN{
+    position: absolute;
+    font-size: 15px;
+}
+
+#CDNs{
+    position: absolute;
+    font-size: 15px;
+    font-weight: bold;
+    top: 21px;
+}
+
+/*////////////////////////////*/
+#dri2{
+    position: absolute;
+    left: 810px;
+    top: 104px;
+    width: 246px;
+}
+
+#DNI{
+    position: absolute;
+    font-size: 15px;
+}
+
+#DNIs{
+    position: absolute;
+    font-size: 15px;
+    font-weight: bold;
+    top: 21px;
+}
+
+/*////////////////////////////*/
+#dri3{
+    position: absolute;
+    left: 955px;
+    top: 104px;
+    width: 246px;
+}
+
+#DLN{
+    position: absolute;
+    font-size: 15px;
+}
+
+#DLNs{
+    position: absolute;
+    font-size: 15px;
+    font-weight: bold;
+    top: 21px;
+}
