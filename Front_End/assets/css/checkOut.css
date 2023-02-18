@@ -20,118 +20,19 @@
     left: 125px;
 }
 
+#CheckRe{
+    position: absolute;
+    left: 130px;
+    width: 1036px;
+    top: 126px;
+}
+
 .card-body2{
     position: absolute;
-    top: 125px;
-    left: 127px;
+    top: 102px;
+    left: 288px;
     margin: 0;
 }
-
-.form-groupBC{
-    position: absolute;
-    font-weight: bold;
-    width: 239px;
-}
-
-.form-groupFdc{
-    position: absolute;
-    left: 403px;
-    width: 246px;
-}
-
-.form-groupDC{
-    position: absolute;
-    top: 44px;
-}
-
-#dailC{
-    position: absolute;
-    left: 5px;
-    top: 25px;
-}
-
-#dailCp{
-    position: absolute;
-    left: 258px;
-    top: 25px;
-    color: #0a53be;
-}
-
-.form-groupTdc{
-    position: absolute;
-    left: 403px;
-    top: 61px;
-    width: 246px;
-}
-
-      /*/////////////////////*/
-
-.form-groupMC{
-    position: absolute;
-    top: 4px;
-}
-
-#montC{
-    position: absolute;
-    left: 5px;
-    top: 131px;
-}
-
-#montCp{
-    position: absolute;
-    left: 258px;
-    top: 131px;
-    color: #0a53be;
-}
-
-.form-selectD{
-    position: relative;
-    left: 414px;
-    top: 131px;
-    width: 246px;
-    border-radius: 5px;
-    height: 31px;
-}
-
-/*/////////////////////*/
-
-.form-groupLC{
-    position: absolute;
-    top: 10px;
-}
-
-#lossC{
-    position: absolute;
-    left: 5px;
-    top: 217px;
-    width: 228px;
-}
-
-#lossCp{
-    position: absolute;
-    left: 258px;
-    top: 217px;
-    color: #0a53be;
-}
-
-.lossDPS{
-    position: absolute;
-    left: 403px;
-    top: 194px;
-    width: 268px;
-    height: 31px;
-}
-
-#lossDP2{
-    position: absolute;
-    left: 403px;
-    top: 221px;
-    width: 246px;
-    height: 31px;
-}
-
-
-   /*////////////////////////////////////////*/
 
 .form-groupPl{
     position: absolute;
@@ -142,7 +43,7 @@
 
 .form-groupRl{
     position: absolute;
-    left: 400px;
+    left: 326px;
     top: 300px;
     width: 273px;
 }
@@ -156,7 +57,7 @@
 
 .form-groupLDA{
     position: absolute;
-    left: 400px;
+    left: 326px;
     top: 395px;
     width: 273px;
 }

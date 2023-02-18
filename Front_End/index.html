@@ -492,71 +492,6 @@
             <form>
                 <div class="row">
                     <div class="col-6">
-                        <div class="form-groupBC">
-                            <label for="txtFName">Suzuki Alto - Premium - Manual</label>
-                        </div>
-                    </div>
-
-                    <div class="col-6">
-                        <div class="col-6">
-                            <div class="form-groupFdc">
-                                <input class="form-control" id="txtfdc" placeholder="11/02/2023" type="date">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="row-dt">
-                    <div class="col-6">
-                        <div class="form-groupDC">
-                            <label id="dailC">Daily</label>
-                            <label id="dailCp">2500</label>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="col-6">
-                            <div class="form-groupTdc">
-                                <input class="form-control" id="txtTdc" placeholder="11/02/2023" type="date">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-6">
-                        <div class="form-groupMC">
-                            <label id="montC">Monthly</label>
-                            <label id="montCp">64350</label>
-                        </div>
-                    </div>
-
-                    <select class="form-selectD" aria-label="Default select example" id="selectDriver">
-                        <option selected>Driver</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                </div>
-
-
-                <div class="row">
-                    <div class="col-6">
-                        <div class="form-groupLC">
-                            <label id="lossC">Loss Damage Waiver payment</label>
-                            <label id="lossCp">10000</label>
-                        </div>
-                    </div>
-                    <div class="col-6" id="uploadLIC">
-                        <label for="register-form-NIC-image" class="lossDPS">Upload
-                            Loss Damage Payment Slip</label>
-                        <input style="border: 1px solid gray" class="form-control  " type="file" id="lossDP2">
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="col-6">
                         <div class="form-groupPl">
                             <label for="txtFPickL">Pick Up Location</label>
                             <input class="form-control" id="txtFPickL" type="text">
@@ -584,7 +519,7 @@
                     </div>
                     <div class="col-6">
                         <div class="form-groupLDA">
-                            <label for="txtLossDwa">Loss Damage Waiver Amount</label>
+                            <label for="txtLossDwa">Total Damage Waiver Amount</label>
                             <input class="form-control" id="txtLossDwa" type="password">
                             <span class="control-error" id="lbllossdma"></span>
                         </div>
@@ -595,6 +530,48 @@
             <button class="btnSendRent" type="submit">Send Rent</button>
 
             </div>
+
+        <div class="col-md-12 mt-4" id="CheckRe" style="height:180px; overflow-y: scroll">
+            <table class="table table-bordered text-white">
+                <thead class="bg-primary">
+                <tr>
+                    <th>Car</th>
+                    <th>Daily</th>
+                    <th>Monthly</th>
+                    <th>On Hold</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Driver</th>
+                    <th>Payment Slip</th>
+                </tr>
+                </thead>
+                <tbody class="bg-light text-dark" id="CheckReTable">
+                <tr>
+
+                    <td>Suzuki Alto - Premium - Manual</td>
+                    <td>10000</td>
+                    <td>25000</td>
+                    <td>5000</td>
+                    <td>11/02/2023</td>
+                    <td>11/02/2023</td>
+                    <td>
+                        <select class="form-selectD" aria-label="Default select example" id="selectDriver">
+<!--                                  <option selected>Driver</option>-->
+                                  <option value="1">Driver</option>
+                                  <option value="2">None</option>
+                        </select>
+                    </td>
+                    <td>
+
+                        <div class="col-6" id="uploadLIC">
+                            <input style="width: 259px;border: 1px solid gray" class="form-control  " type="file" id="lossDP2">
+                            </div>
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
 
     </section>
 </main>
