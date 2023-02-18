@@ -85,16 +85,26 @@
     left: 43px;
 }
 
-#dashl{
+#dashl1{
     position: absolute;
-    color: #000000;
+    z-index: 2;
+    top: 245px;
+    left: 89px;
+    margin: 0;
+}
+
+#dashl2{
+    position: absolute;
+    color: #FFFFFF;
     font-weight: bold;
     z-index: 2;
-    top: 255px;
+    top: 245px;
     left: 89px;
     font-size: 19px;
     margin: 0;
 }
+
+       /*////////////////////////////////*/
 
 #custim{
     position: absolute;
@@ -108,7 +118,15 @@
     left: 43px;
 }
 
-#cusl{
+#cusl1{
+    position: absolute;
+    z-index: 2;
+    top: 316px;
+    left: 89px;
+    margin: 0;
+}
+
+#cusl2{
     position: absolute;
     color: #000000;
     font-weight: bold;
@@ -118,6 +136,8 @@
     font-size: 19px;
     margin: 0;
 }
+
+/*////////////////////////////////*/
 
 #carim{
     position: absolute;
@@ -131,7 +151,15 @@
     left: 43px;
 }
 
-#carl{
+#carim1{
+    position: absolute;
+    z-index: 2;
+    top: 390px;
+    left: 89px;
+    margin: 0;
+}
+
+#carim2{
     position: absolute;
     color: #000000;
     font-weight: bold;
@@ -141,6 +169,8 @@
     font-size: 19px;
     margin: 0;
 }
+
+/*////////////////////////////////*/
 
 #reserim{
     position: absolute;
@@ -154,7 +184,15 @@
     left: 43px;
 }
 
-#resl{
+#resl1{
+    position: absolute;
+    z-index: 2;
+    top: 464px;
+    left: 89px;
+    margin: 0;
+}
+
+#resl2{
     position: absolute;
     color: #000000;
     font-weight: bold;
@@ -164,6 +202,8 @@
     font-size: 19px;
     margin: 0;
 }
+
+/*////////////////////////////////*/
 
 #payim{
     position: absolute;
@@ -177,7 +217,15 @@
     left: 43px;
 }
 
-#payl{
+#payl1{
+    position: absolute;
+    z-index: 2;
+    top: 537px;
+    left: 89px;
+    margin: 0;
+}
+
+#payl2{
     position: absolute;
     color: #000000;
     font-weight: bold;
@@ -187,6 +235,8 @@
     font-size: 19px;
     margin: 0;
 }
+
+/*////////////////////////////////*/
 
 #emplim{
     position: absolute;
@@ -200,12 +250,20 @@
     left: 43px;
 }
 
-#empl{
+#emplo1{
+    position: absolute;
+    z-index: 2;
+    top: 620px;
+    left: 89px;
+    margin: 0;
+}
+
+#emplo2{
     position: absolute;
     color: #000000;
     font-weight: bold;
     z-index: 2;
-    top: 620px;
+    top: 611px;
     left: 89px;
     font-size: 19px;
     margin: 0;
