@@ -1359,6 +1359,26 @@
             </div>
         </div>
 
+        <div class=".sub-detail-container" style="position: absolute;top: 67px;width: 50%;left: 586px;">
+            <div class="w-100 d-flex justify-content-between">
+
+                <div class="btn-group d-flex ms-auto mb-5 w-25">
+                    <button class="btn btn-dark" type="button">Action</button>
+                    <button aria-expanded="false" class="btn btn-dark dropdown-toggle dropdown-toggle-split"
+                            data-bs-toggle="dropdown" type="button">
+                        <span class="visually-hidden">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" id="admin-car-underMaintain">Under Maintaining</a></li>
+                        <li><a class="dropdown-item" id="admin-car-needMaintain">Need Maintain</a></li>
+                        <li><a class="dropdown-item" id="admin-car-available">Available</a></li>
+                        <li><a class="dropdown-item" id="admin-car-unavailable">Unavailable</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
         <button class="btn btn-primary" id="btnUpdate">Update</button>
         <button class="btn btn-primary" id="btnDelete">Delete</button>
 
@@ -1377,7 +1397,6 @@
                     <th>CostExtrakm</th>
                     <th>Daily</th>
                     <th>Monthly</th>
-                    <th>Maintanance</th>
                 </tr>
                 </thead>
                 <tbody class="bg-light text-dark" id="carViewTable">
@@ -1393,7 +1412,6 @@
                     <td>49.50</td>
                     <td>5000</td>
                     <td>110330</td>
-                    <td>Maintanance</td>
                 </tr>
 
                 </tbody>
