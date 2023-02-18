@@ -20,6 +20,7 @@
     <link href="assets/css/employee.css" rel="stylesheet">
     <link href="assets/css/payments.css" rel="stylesheet">
     <link href="assets/css/verifyReservations.css" rel="stylesheet">
+    <link href="assets/css/viewCars.css" rel="stylesheet">
 
 
     <!-- font awesome cdn link  -->
@@ -1251,12 +1252,128 @@
         <h3 id="vwC">View Cars</h3>
         <div id="vwC1"></div>
 
-<!--        <select class="form-selectRI" aria-label="Default select example" id="selectReservation">-->
-<!--            <option selected>Reservation ID</option>-->
-<!--            <option value="1">One</option>-->
-<!--            <option value="2">Two</option>-->
-<!--            <option value="3">Three</option>-->
-<!--        </select>-->
+        <h3 id="viewshed"><a>View Driver Schedule</a></h3>
+
+        <div>
+            <select class="form-selectCT" aria-label="Default select example" id="selectCType">
+                <option selected>Type</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+
+            <select class="form-selectCB" aria-label="Default select example" id="selectCBrand">
+                <option selected>Brand</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+
+            <select class="form-selectCN" aria-label="Default select example" id="selectCNum">
+                <option selected>Car Num</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+        </div>
+
+        <div class="d-flex flex-row mb-3" id="v1" style="position: absolute;top: 180px;left: 285px;">
+            <div class="p-2">
+                <input class="form-control" id="txtVCbrnd" placeholder="Brand" type="text">
+                <span class="control-error" id="lblvcbrnd"></span>
+            </div>
+            <div class="p-2">
+                    <input class="form-control" id="txtVCTrans" placeholder="Transmission" type="text">
+                    <span class="control-error" id="lblvctrans"></span>
+            </div>
+            <div class="p-2">
+                    <input class="form-control" id="txtVCcperex" placeholder="Cost per extra km" type="text">
+                    <span class="control-error" id="lblvcperex"></span>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mb-3" id="v2" style="position: absolute;top: 241px;left: 285px;">
+            <div class="p-2">
+                <input class="form-control" id="txtCNu" placeholder="Car Num" type="text">
+                <span class="control-error" id="lblcnu"></span>
+            </div>
+            <div class="p-2">
+                <input class="form-control" id="txtNOP" placeholder="No Of Passengers" type="text">
+                <span class="control-error" id="lblnop"></span>
+            </div>
+            <div class="p-2">
+                <input class="form-control" id="txtDai" placeholder="Daily" type="text">
+                <span class="control-error" id="lbldai"></span>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mb-3" id="v3" style="position: absolute;top: 302px;left: 285px;">
+            <div class="p-2">
+                <input class="form-control" id="txtCT" placeholder="Type" type="text">
+                <span class="control-error" id="lblct"></span>
+            </div>
+            <div class="p-2">
+                <input class="form-control" id="txtFM" placeholder="Free Mileage" type="text">
+                <span class="control-error" id="lblfm"></span>
+            </div>
+            <div class="p-2">
+                <input class="form-control" id="txtMn" placeholder="Monthly" type="text">
+                <span class="control-error" id="lblmn"></span>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row mb-3" id="v4" style="position: absolute;top: 363px;left: 285px;">
+            <div class="p-2">
+                <input class="form-control" id="txtFT" placeholder="Fuel" type="text">
+                <span class="control-error" id="lblft"></span>
+            </div>
+            <div class="p-2">
+                <input class="form-control" id="txtLDW" placeholder="Loss Damage Waiver" type="text">
+                <span class="control-error" id="lblldw"></span>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" id="btnUpdate">Update</button>
+        <button class="btn btn-primary" id="btnDelete">Delete</button>
+
+        <div class="col-md-12 mt-4" id="carViewTb" style="height:180px; overflow-y: scroll">
+            <table class="table table-bordered text-white">
+                <thead class="bg-primary">
+                <tr>
+                    <th>Brand</th>
+                    <th>CarNum</th>
+                    <th>Type</th>
+                    <th>Fuel</th>
+                    <th>Transmission</th>
+                    <th>No_Passengers</th>
+                    <th>FreeMile</th>
+                    <th>LossDamage</th>
+                    <th>CostExtrakm</th>
+                    <th>Daily</th>
+                    <th>Monthly</th>
+                    <th>Maintanance</th>
+                </tr>
+                </thead>
+                <tbody class="bg-light text-dark" id="carViewTable">
+                <tr>
+                    <td>Suzuki Alto</td>
+                    <td>NB-6889</td>
+                    <td>General</td>
+                    <td>Petrol</td>
+                    <td>Auto</td>
+                    <td>6</td>
+                    <td>100</td>
+                    <td>15000</td>
+                    <td>49.50</td>
+                    <td>5000</td>
+                    <td>110330</td>
+                    <td>Maintanance</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+
     </section>
 
 </main>
