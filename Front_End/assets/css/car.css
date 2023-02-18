@@ -48,3 +48,12 @@
     border-radius: 5px;
     color: black;
 }
+
+#btnViewAllCars{
+    position: absolute;
+    left: 875px;
+    background-color: #E74C3C;
+    width: 125px;
+    top: 40px;
+    color: black;
+}
