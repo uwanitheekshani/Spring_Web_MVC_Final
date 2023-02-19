@@ -7,13 +7,17 @@ $("#home").click(function () {
     $("#accountContent").css('display','none');
 });
 
-// $("#account").click(function () {
-//     $("#headContent").css('display','none');
-//     $("#storeContent").css('display','none');
-//     $("#checkOutContent").css('display','none');
-//     $("#accountContent").css('display','block');
-// });
-//
+$("#account").click(function () {
+    $("#headContent").css('display','none');
+    $("#main3").css('display','none');
+    $("#foot").css('display','none');
+    $("#storeContent").css('display','none');
+    $("#checkOutContent").css('display','none');
+    $("#accountContent").css('display','block');
+    $("#CloginContext").css('display','none');
+    $("#cusRegiContent").css('display','none');
+});
+
 // $("#item").click(function () {
 //     $("#dashboardContent").css('display','none');
 //     $("#customerContent").css('display','none');
