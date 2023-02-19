@@ -5,6 +5,8 @@ $("#home").click(function () {
     $("#storeContent").css('display','none');
     $("#checkOutContent").css('display','none');
     $("#accountContent").css('display','none');
+    $("#CloginContext").css('display','none');
+    $("#cusRegiContent").css('display','none');
 });
 
 $("#account").click(function () {
@@ -18,16 +20,24 @@ $("#account").click(function () {
     $("#cusRegiContent").css('display','none');
 });
 
-// $("#item").click(function () {
-//     $("#dashboardContent").css('display','none');
-//     $("#customerContent").css('display','none');
-//     $("#itemContent").css('display','block');
-//     $("#orderContent").css('display','none');
-// });
-//
-// $("#order").click(function () {
-//     $("#dashboardContent").css('display','none');
-//     $("#customerContent").css('display','none');
-//     $("#itemContent").css('display','none');
-//     $("#orderContent").css('display','block');
-// });
+$("#store").click(function () {
+    $("#headContent").css('display','none');
+    $("#main3").css('display','none');
+    $("#foot").css('display','none');
+    $("#storeContent").css('display','block');
+    $("#checkOutContent").css('display','none');
+    $("#accountContent").css('display','none');
+    $("#CloginContent").css('display','none');
+    $("#cusRegiContent").css('display','none');
+});
+
+$("#checkout").click(function () {
+    $("#headContent").css('display','none');
+    $("#main3").css('display','none');
+    $("#foot").css('display','none');
+    $("#storeContent").css('display','none');
+    $("#checkOutContent").css('display','block');
+    $("#accountContent").css('display','none');
+    $("#CloginContent").css('display','none');
+    $("#cusRegiContent").css('display','none');
+});
