@@ -19,7 +19,7 @@
 #admindashli{
     position: absolute;
     width: 12px;
-    height: 664px;
+    height: 691px;
     background: url("../../assets/images/Line 23.png");
     background-size: cover;
     background-position: center;
@@ -267,4 +267,15 @@
     left: 89px;
     font-size: 19px;
     margin: 0;
+}
+
+#btnlogOut{
+    position: absolute;
+    top: 666px;
+    left: 42px;
+    background-color: #0a53be;
+    color: #FFFFFF;
+    width: 81px;
+    height: 28px;
+    font-size: 14px;
 }

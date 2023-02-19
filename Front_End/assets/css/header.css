@@ -10,7 +10,7 @@ body {
 
 header {
     position: relative;
-    height: 460px;
+    /*height: 460px;*/
     width: 100vw;
     margin: 0;
 }
@@ -35,44 +35,86 @@ header {
     top: 2px;
 }
 
-#tell>div:nth-child(1){
+/*#tell>div:nth-child(1){*/
+/*    position: absolute;*/
+/*    width: 36px;*/
+/*    height: 32px;*/
+/*    background: url("../../assets/images/phone.png");*/
+/*    background-size: cover;*/
+/*    background-position: center;*/
+/*    right: 414px;*/
+/*    top: 2px;*/
+/*}*/
+
+/*#tell>h3:nth-child(2)>a{*/
+/*    position: absolute;*/
+/*    right: 200px;*/
+/*    font-size: 10px;*/
+/*    top: 11px;*/
+/*    width: 213px;*/
+/*    color: #FFFFFF;*/
+/*}*/
+
+/*#mail>div:nth-child(1){*/
+/*    position: absolute;*/
+/*    width: 36px;*/
+/*    height: 32px;*/
+/*    background: url("../../assets/images/email.png");*/
+/*    background-size: cover;*/
+/*    background-position: center;*/
+/*    right: 220px;*/
+/*    top: 2px;*/
+/*}*/
+
+/*#mail>h3:nth-child(2)>a{*/
+/*    position: absolute;*/
+/*    right: 7px;*/
+/*    font-size: 10px;*/
+/*    width: 213px;*/
+/*    color: #FFFFFF;*/
+/*    top: 11px;*/
+/*}*/
+
+
+
+
+.list-group>li{
+    display: inline-block;
     position: absolute;
-    width: 36px;
-    height: 32px;
-    background: url("../../assets/images/phone.png");
-    background-size: cover;
-    background-position: center;
-    right: 414px;
-    top: 2px;
+    z-index: 10;
 }
 
-#tell>h3:nth-child(2)>a{
+#lnkHome{
+    right: 292px;
     position: absolute;
-    right: 200px;
-    font-size: 10px;
-    top: 11px;
-    width: 213px;
-    color: #FFFFFF;
+    top: 13px;
 }
 
-#mail>div:nth-child(1){
+#lnkAccount{
+    right: 217px;
     position: absolute;
-    width: 36px;
-    height: 32px;
-    background: url("../../assets/images/email.png");
-    background-size: cover;
-    background-position: center;
-    right: 220px;
-    top: 2px;
+    top: 13px;
 }
 
-#mail>h3:nth-child(2)>a{
+#lnkStore{
+    right: 154px;
     position: absolute;
-    right: 7px;
-    font-size: 10px;
-    width: 213px;
-    color: #FFFFFF;
-    top: 11px;
+    top: 13px;
+}
+
+#lnkCheckOut{
+    right: 63px;
+    position: absolute;
+    top: 13px;
+}
+
+    /*///////////////////////////*/
+
+.main1{
+    position: relative;
+    top: 0;
+    /*margin-top: 460px;*/
+
 }
 
 .home{
@@ -106,34 +148,16 @@ header {
     font-family: 'Berkshire Swash', cursive;
 }
 
-.list-group>li{
-    display: inline-block;
-    position: absolute;
-}
+/*.home{*/
+/*    position: relative;*/
+/*    background: #FFFFFF;*/
+/*    z-index: 5;*/
+/*    height: 631px;*/
+/*    width: 98.7vw;*/
+/*    margin: auto;*/
+/*    top: 0px;*/
+/*}*/
 
-#lnkHome{
-    right: 292px;
-    position: absolute;
-    top: 13px;
-}
-
-#lnkAccount{
-    right: 217px;
-    position: absolute;
-    top: 13px;
-}
-
-#lnkStore{
-    right: 154px;
-    position: absolute;
-    top: 13px;
-}
-
-#lnkCheckOut{
-    right: 63px;
-    position: absolute;
-    top: 13px;
-}
 
 #t1{
     position: absolute;
