@@ -1,6 +1,7 @@
 package lk.ijse.spring.config;
 
 //import lk.ijse.spring.repo.CustomerRepo;
+import lk.ijse.spring.repo.CustomerRepo;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -18,7 +19,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableTransactionManagement//aspect (Manage all my transactions automatically using transaction manage
-//@EnableJpaRepositories(basePackageClasses = {CustomerRepo.class})//link dao classes
+@EnableJpaRepositories(basePackageClasses = {CustomerRepo.class})//link dao classes
 public class JPAConfig {
 
     @Bean

@@ -17,16 +17,17 @@ import java.util.List;
 @Entity
 public class Customer {
     @Id
-    private String customerId;
-    private String cusName;
     private String nic;
+//    private String customerId;
+    private String cusName;
     private String contactNo;
     private String address;
     private String email;
+    private String user_name;
     private String password;
     private String drivingLicenceNumber;
     private String imageLocation;
 
-    @OneToMany(mappedBy = "cusId")
+    @OneToMany(mappedBy = "cusNic")
     private List<Rental> rentalDetails;
 }
