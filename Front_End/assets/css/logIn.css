@@ -1,14 +1,7 @@
-/*body {*/
-/*    margin: 0;*/
-/*    overflow-x: hidden;*/
-/*}*/
-/*!*::-webkit-scrollbar{*!*/
-/*!*    width: 0px;*!*/
-/*!*}*!*/
 
 .logInM{
     position: relative;
-    top: 166px;
+    top: 0px;
     /*margin-top: 460px;*/
 
 }

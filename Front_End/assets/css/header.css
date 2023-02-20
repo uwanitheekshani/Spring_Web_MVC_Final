@@ -35,49 +35,6 @@ header {
     top: 2px;
 }
 
-/*#tell>div:nth-child(1){*/
-/*    position: absolute;*/
-/*    width: 36px;*/
-/*    height: 32px;*/
-/*    background: url("../../assets/images/phone.png");*/
-/*    background-size: cover;*/
-/*    background-position: center;*/
-/*    right: 414px;*/
-/*    top: 2px;*/
-/*}*/
-
-/*#tell>h3:nth-child(2)>a{*/
-/*    position: absolute;*/
-/*    right: 200px;*/
-/*    font-size: 10px;*/
-/*    top: 11px;*/
-/*    width: 213px;*/
-/*    color: #FFFFFF;*/
-/*}*/
-
-/*#mail>div:nth-child(1){*/
-/*    position: absolute;*/
-/*    width: 36px;*/
-/*    height: 32px;*/
-/*    background: url("../../assets/images/email.png");*/
-/*    background-size: cover;*/
-/*    background-position: center;*/
-/*    right: 220px;*/
-/*    top: 2px;*/
-/*}*/
-
-/*#mail>h3:nth-child(2)>a{*/
-/*    position: absolute;*/
-/*    right: 7px;*/
-/*    font-size: 10px;*/
-/*    width: 213px;*/
-/*    color: #FFFFFF;*/
-/*    top: 11px;*/
-/*}*/
-
-
-
-
 .list-group>li{
     display: inline-block;
     position: absolute;
@@ -114,11 +71,10 @@ header {
     position: relative;
     top: 0;
     /*margin-top: 460px;*/
-
 }
 
 .home{
-    position: absolute;
+    position: relative;
     background: url("../../assets/images/28803.jpg");
     opacity: 0.9;
     background-size: cover;
@@ -127,14 +83,14 @@ header {
     z-index: 8;
     width: 100vw;
     margin: auto;
-    top: 42px;
+    top: 0;
 }
 
 #hn1 {
     font-size: 30px;
     -webkit-text-fill-color: #F3BF06;
     position: absolute;
-    top: 13px;
+    top: 43px;
     left: 10px;
     font-family: 'Berkshire Swash', cursive;
 }
@@ -143,7 +99,7 @@ header {
     font-size: 30px;
     -webkit-text-fill-color: #FFFFFF;
     position: absolute;
-    top: 13px;
+    top: 43px;
     left: 102px;
     font-family: 'Berkshire Swash', cursive;
 }
@@ -209,7 +165,7 @@ header {
 .btn-lg{
     position: absolute;
     right: 0;
-    left: 570px;
+    left: 660px;
     top: 438px;
     /*z-index: 5;*/
     z-index: 8;

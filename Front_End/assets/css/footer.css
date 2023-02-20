@@ -1,4 +1,4 @@
-footer{
+#foo{
     position: relative;
     background: url("../../assets/images/slide1.jpg");
     background-size: cover;
@@ -6,7 +6,7 @@ footer{
     z-index: 3;
     height: 420px;
     width: 100vw;
-    top: 168px;
+    top: 0px;
 }
 
 .f2{
