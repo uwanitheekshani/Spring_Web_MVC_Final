@@ -43,3 +43,14 @@ $("#checkout").click(function () {
     $("#CloginContext").css('display','none');
     $("#cusRegiContent").css('display','none');
 });
+
+$("#linkbtnBook").click(function () {
+    $("#mainh").css('display','none');
+    $("#main3").css('display','none');
+    $("#foot").css('display','none');
+    $("#storeContent").css('display','none');
+    $("#checkOutContent").css('display','none');
+    $("#accountContent").css('display','none');
+    $("#CloginContext").css('display','block');
+    $("#cusRegiContent").css('display','none');
+});

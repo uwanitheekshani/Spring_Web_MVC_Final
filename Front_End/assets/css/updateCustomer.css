@@ -1,0 +1,52 @@
+.updateCM{
+    position: relative;
+    top: 0px;
+    /*margin-top: 460px;*/
+
+}
+.updat{
+    position: relative;
+    background: #D2DAE2;
+    z-index: 5;
+    height: 535px;
+    width: 98.7vw;
+    margin: auto;
+    top: 0px;
+}
+
+.card-body9{
+    position: absolute;
+    top: 102px;
+    left: 471px;
+    margin: 0;
+}
+
+#updat1{
+    position: absolute;
+    left: 529px;
+    width: 335px;
+    top: 3px;
+}
+
+#btnUpCus{
+    position: absolute;
+    left: 57px;
+    width: 362px;
+    top: 267px;
+    background-color: #F3BF06;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#uploadUIm{
+    position: absolute;
+    top: 134px;
+    left: 244px;
+    width: 220px;
+}
+
+.form-groupUDLN{
+    position: absolute;
+    top: 166px;
+    /*width: 222px;*/
+}

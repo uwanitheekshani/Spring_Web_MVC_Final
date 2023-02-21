@@ -51,7 +51,6 @@ public class FileUploadController {
             return new ResponseEntity(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-
     }
 
     //Formalized end-point to upload files using Spring

@@ -23,6 +23,7 @@
     <link href="assets/css/viewCars.css" rel="stylesheet">
     <link href="assets/css/driverSchedule.css" rel="stylesheet">
     <link href="assets/css/adminLogin.css" rel="stylesheet">
+    <link href="assets/css/updateCustomer.css" rel="stylesheet">
 
 
     <!-- font awesome cdn link  -->
@@ -89,7 +90,7 @@
             <h2 align="center" class="classic-5" id="t4"><span>from over 100 premium locations</span></h2>
         </section>
 
-        <button class="btn btn-primary btn-lg" type="button">Book Now</button>
+        <button type="button" id="linkbtnBook">Book Now</button>
     </section>
 </main>
 
@@ -304,7 +305,6 @@
                         </div>
                     </div>
 
-
                     <div class="col-6" id="uploadIm">
                         <label for="register-form-NIC-image" class="form-label ">NIC Image or Driving Licence Image</label>
                         <input style="border: 1px solid gray" class="form-control  " type="file" id="register-form-NIC-image" name="myFile">
@@ -318,9 +318,79 @@
 
         </div>
 
+    </section>
+</main>
+
+
+<!--       ============================Update Customer==================================-->
+<main class="updateCM" id="cusUpdateContent">
+    <section class="updat">
+<!--        <div id="regif"></div>-->
+        <h1 id="updat1">Update Customer</h1>
+<!--        <div id="regil"></div>-->
+
+        <div class="card-body9">
+            <form id="cusUpdateForm">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-groupUUS">
+                            <label for="txtUUserName">User Name</label>
+                            <input class="form-control" id="txtUUserName" type="text">
+                            <span class="control-error" id="lbluusername"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-groupUPW">
+                            <label for="txtUPassword2">Password</label>
+                            <input class="form-control" id="txtUPassword2" type="password">
+                            <span class="control-error" id="lblupassword2"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-groupUPhone">
+                            <label for="txtUPhone">Phone</label>
+                            <input class="form-control" id="txtUPhone" type="text">
+                            <span class="control-error" id="lbluphone"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-groupUAddress">
+                            <label for="txtUAddress">Address</label>
+                            <input class="form-control" id="txtUAddress" type="text">
+                            <span class="control-error" id="lbluaddress"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-groupUDLN">
+                            <label for="txtUDLN">Driving Licence Number</label>
+                            <input class="form-control" id="txtUDLN" type="text">
+                            <span class="control-error" id="lbludln"></span>
+                        </div>
+
+                        <div class="col-6" id="uploadUIm">
+                            <label for="register-form-NIC-Uimage" class="form-label ">NIC Image or Driving Licence Image</label>
+                            <input style="border: 1px solid gray" class="form-control  " type="file" id="register-form-NIC-Uimage" name="myFile">
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+            <button class="btn btn-primary" id="btnUpCus">Update</button>
+
+        </div>
 
     </section>
 </main>
+
 
 <!--       ============================Select Your Car==================================-->
 <main class="selectCar" id="storeContent">

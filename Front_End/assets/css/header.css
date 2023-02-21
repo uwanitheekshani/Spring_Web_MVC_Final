@@ -162,7 +162,7 @@ header {
     font-size: 20px;
 }
 
-.btn-lg{
+#linkbtnBook{
     position: absolute;
     right: 0;
     left: 660px;
