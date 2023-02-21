@@ -1,6 +1,6 @@
 .checkOut{
     position: relative;
-    top: 30px;
+    top: 0px;
     /*margin-top: 460px;*/
 
 }
@@ -11,7 +11,7 @@
     height: 631px;
     width: 98.7vw;
     margin: auto;
-    top: 13px;
+    top: 0px;
 }
 #checko1{
     position: absolute;

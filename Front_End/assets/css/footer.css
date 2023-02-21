@@ -10,7 +10,7 @@
 }
 
 .f2{
-    position: absolute;
+    position: relative;
     background: black;
     background-size: cover;
     background-position: center;
