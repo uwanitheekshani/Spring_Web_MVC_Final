@@ -8,6 +8,7 @@ import lombok.ToString;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import java.time.LocalDate;
 import java.util.List;
 
 @NoArgsConstructor
@@ -23,6 +24,7 @@ public class Customer {
     private String contactNo;
     private String address;
     private String email;
+    private LocalDate date;
     private String user_name;
     private String password;
     private String drivingLicenceNumber;
