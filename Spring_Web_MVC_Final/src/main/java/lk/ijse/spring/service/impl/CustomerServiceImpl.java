@@ -39,12 +39,15 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void deleteCustomer(String id) {
-
+    public void deleteCustomer(String nic) {
+        if (!repo.existsById(nic)){
+            throw new RuntimeException("Customer "+nic+" Not Available to Delete..!");
+        }
+        repo.deleteById(nic);
     }
 
     @Override
-    public CustomerDTO getCustomerDetail(String id) {
+    public CustomerDTO getCustomerDetail(String nic) {
         return null;
     }
 

@@ -29,5 +29,10 @@ public class CustomerController {
         return new ResponseUtil("200"," Success",allCustomers);
     }
 
+    @DeleteMapping(params = "nic")
+    public ResponseUtil deleteCustomer(String nic){
+        service.deleteCustomer(nic);
+        return new ResponseUtil("200",nic+" Deleted",null);
+    }
 
 }
