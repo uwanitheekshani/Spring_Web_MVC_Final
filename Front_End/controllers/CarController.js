@@ -24,16 +24,24 @@ $("#btnAddC2").click(function () {
     let availability =$("#selectAvailable").val();
 
     var Customer = {
-        nic : nic,
-        address : address,
-        contactNo : contactNumber,
-        cusName : name,
-        date : date,
-        drivingLicenceNumber : drivingLicenceNumber,
-        email : email,
-        password : password,
-        user_name:user_name,
-        imageLocation : nicFileName
+        registrationId : registrationNum,
+        Brand : brand,
+        type : type,
+        model : model,
+        fuelType : fuelType,
+        transmissionType : transmission,
+        color : color,
+        noOfPassengers : noOfPassengers,
+        lastServiceMileage:lastServiceMileage,
+        freeMileage : freeMileage,
+        dailyRate : dailyRate,
+        monthlyRate:monthlyRate,
+        priceForExtraKm : prizeForExtrakm,
+        availability : availability,
+        image_1 : frontFileName,
+        image_2 : backFileName,
+        image_3 : sideFileName,
+        image_4 : interiorFileName
     }
 
     $.ajax({
