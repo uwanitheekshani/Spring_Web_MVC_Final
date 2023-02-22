@@ -900,9 +900,12 @@
                     <div class="col-6">
                         <div class="form-groupCF">
 <!--                            <label for="txtFName">B</label>-->
-                            <input class="form-control" id="txtCbrnd" placeholder="Brand" type="text">
-                            <span class="control-error" id="lblcbrnd"></span>
-                        </div>
+                            <div class="form-groupRNT">
+                                <input class="form-control" id="txtRNber" placeholder="Registration Number" type="text">
+                                <span class="control-error" id="lblrnber"></span>
+                            </div>
+
+                    </div>
                     </div>
 
                     <div class="col-6">
@@ -983,15 +986,13 @@
                     </div>
 
                 </div>
-                <br>
 
+                <br>
 
                 <div class="row">
                     <div class="col-6">
-                        <div class="form-groupRNT">
-                            <input class="form-control" id="txtRNber" placeholder="Registration Number" type="text">
-                            <span class="control-error" id="lblrnber"></span>
-                        </div>
+                        <input class="form-control" id="txtCbrnd" placeholder="Brand" type="text">
+                        <span class="control-error" id="lblcbrnd"></span>
                     </div>
 
                     <div class="col-6">
@@ -1001,12 +1002,13 @@
                         </div>
                     </div>
 
-                </div>
+                    </div>
+
                 <br>
 
                 <div class="row">
                     <div class="col-6">
-                        <div class="form-groupMDLT">
+                        <div class="form-groupMDLT" style="position: absolute;top: 400px;width: 328px;">
                             <input class="form-control" id="txtMdl" placeholder="Model" type="text">
                             <span class="control-error" id="lblmdl"></span>
                         </div>
@@ -1039,6 +1041,12 @@
                         <label for="register-form-NIC-image" class="form-label ">Upload Interior View</label>
                         <input style="border: 1px solid gray" class="form-control  " type="file" id="uploadUIV">
                     </div>
+
+                    <select class="form-selectAL" aria-label="Default select example" id="selectAvailable" style="position: absolute;width: 323px;height: 37px;left: 360px;top: 570px;border-radius: 5px;">
+                        <option selected>Availability</option>
+                        <option value="1">Available</option>
+                        <option value="2">Unavailable</option>
+                    </select>
 
                 </div>
 
