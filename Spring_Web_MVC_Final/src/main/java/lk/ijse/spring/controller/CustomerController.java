@@ -42,9 +42,5 @@ public class CustomerController {
         return new ResponseUtil("200",dto.toString()+" Updated",null);
     }
 
-    @GetMapping(params = {"address","salary"})
-    public String  testTwo(String address,String salary){
-        return "Test Two Invoked"+address+" : "+salary;
-    }
 
 }
