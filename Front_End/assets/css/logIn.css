@@ -15,7 +15,7 @@
     min-height: 100vh;
     width: 98.7vw;
     margin: auto;
-    top: 0px;
+    top: 43px;
 }
 
 #adlo{
@@ -30,6 +30,7 @@
     left: 105px;
     width: 211px;
     top: 57px;
+    cursor: pointer;
 }
 
 .form-groupEE1{

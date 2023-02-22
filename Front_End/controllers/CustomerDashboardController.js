@@ -7,6 +7,7 @@ $("#home").click(function () {
     $("#accountContent").css('display','none');
     $("#loginContent").css('display','none');
     $("#cusRegiContent").css('display','none');
+    $("#cusUpdateContent").css('display','none');
 
 });
 
@@ -19,6 +20,7 @@ $("#account").click(function () {
     $("#accountContent").css('display','block');
     $("#loginContent").css('display','none');
     $("#cusRegiContent").css('display','none');
+    $("#cusUpdateContent").css('display','none');
 });
 
 $("#store").click(function () {
@@ -30,6 +32,7 @@ $("#store").click(function () {
     $("#accountContent").css('display','none');
     $("#loginContent").css('display','none');
     $("#cusRegiContent").css('display','none');
+    $("#cusUpdateContent").css('display','none');
 });
 
 $("#checkout").click(function () {
@@ -41,6 +44,7 @@ $("#checkout").click(function () {
     $("#accountContent").css('display','none');
     $("#loginContent").css('display','none');
     $("#cusRegiContent").css('display','none');
+    $("#cusUpdateContent").css('display','none');
 });
 
 $("#linkbtnBook").click(function () {
@@ -52,6 +56,31 @@ $("#linkbtnBook").click(function () {
     $("#accountContent").css('display','none');
     $("#loginContent").css('display','block');
     $("#cusRegiContent").css('display','none');
+    $("#cusUpdateContent").css('display','none');
+});
+
+$("#createAccount").click(function () {
+    $("#mainh").css('display','none');
+    $("#main3").css('display','none');
+    $("#foot").css('display','none');
+    $("#storeContent").css('display','none');
+    $("#checkOutContent").css('display','none');
+    $("#accountContent").css('display','none');
+    $("#loginContent").css('display','none');
+    $("#cusRegiContent").css('display','block');
+    $("#cusUpdateContent").css('display','none');
+});
+
+$("#editUserInfo").click(function () {
+    $("#mainh").css('display','none');
+    $("#main3").css('display','none');
+    $("#foot").css('display','none');
+    $("#storeContent").css('display','none');
+    $("#checkOutContent").css('display','none');
+    $("#accountContent").css('display','none');
+    $("#loginContent").css('display','none');
+    $("#cusRegiContent").css('display','none');
+    $("#cusUpdateContent").css('display','block');
 });
 
 // function navMenu(nav) {
