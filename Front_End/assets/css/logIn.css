@@ -1,15 +1,18 @@
 
-.logInM{
+.logInME{
     position: relative;
-    top: 0px;
+    top: 43px;
+    min-height: 100vh;
+    background: #D2DAE2;
+    width: 98.7vw;
     /*margin-top: 460px;*/
 
 }
-.lgms{
+.lgmsE{
     position: relative;
     background: #D2DAE2;
     z-index: 5;
-    height: 500px;
+    min-height: 100vh;
     width: 98.7vw;
     margin: auto;
     top: 0px;
@@ -18,30 +21,30 @@
 #adlo{
     position: absolute;
     top: 102px;
-    left: 727px;
+    left: 784px;
     margin: 0;
 }
 
-#lgm3{
+#lgmE3{
     position: absolute;
     left: 105px;
     width: 211px;
     top: 57px;
 }
 
-.form-groupE1{
+.form-groupEE1{
     position: absolute;
     top: 93px;
     width: 362px;
 }
 
-.form-groupP2{
+.form-groupEP2{
     position: absolute;
     top: 175px;
     width: 362px
 }
 
-#btnLogIn{
+#btnLogInE{
     position: absolute;
     top: 268px;
     width: 362px;
@@ -58,6 +61,7 @@
     top: 111px;
     left: 268px
 }
+
 
 
 

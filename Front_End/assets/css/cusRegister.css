@@ -1,6 +1,7 @@
 .registerCM{
     position: relative;
-    top: 0px;
+    top: 43px;
+    min-height: 100vh;
     /*margin-top: 460px;*/
 
 }
@@ -8,7 +9,7 @@
     position: relative;
     background: #D2DAE2;
     z-index: 5;
-    height: 535px;
+    min-height: 100vh;
     width: 98.7vw;
     margin: auto;
     top: 0px;

@@ -63,4 +63,9 @@ public class CustomerServiceImpl implements CustomerService {
     public List<CustomerDTO> getTodayRegisteredCustomers() {
         return null;
     }
+
+    @Override
+    public CustomerDTO searchCustomerByPassword(String password) {
+        return mapper.map( repo.findCustomerByUserName(password),CustomerDTO.class);
+    }
 }

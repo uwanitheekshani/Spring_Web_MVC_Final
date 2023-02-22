@@ -18,4 +18,6 @@ public interface CustomerService {
     List<CustomerDTO> getAllCustomerDetail();
 
     List<CustomerDTO> getTodayRegisteredCustomers();
+
+    CustomerDTO searchCustomerByPassword(String password);
 }
