@@ -2,19 +2,26 @@ let baseURL="http://localhost:8080/Spring_Web_MVC_Final_war/";
 
 $("#btnAddC2").click(function () {
 
-    let nicFileName = $("#register-form-NIC-image")[0].files[0].name;
+    let frontFileName = $("#uploadFVI")[0].files[0].name;
+    let backFileName = $("#uploadBV")[0].files[0].name;
+    let sideFileName = $("#uploadUSV")[0].files[0].name;
+    let interiorFileName = $("#uploadUIV")[0].files[0].name;
 
 
-    let nic =  $("#txtNIC").val();
-    let address = $("#txtAddress").val();
-    let contactNumber =$("#txtPhone").val();
-    let name= $("#txtFName").val();
-    let date= $("#txtDate").val();
-    let drivingLicenceNumber= $("#txtDLN").val();
-    let email= $("#txtEmail2").val();
-    let password =$("#txtPassword2").val();
-    let user_name= $("#txtUserName").val();
-
+    let registrationNum =  $("#txtRNber").val();
+    let transmission = $("#txtTrnsm").val();
+    let type =$("#txtType").val();
+    let noOfPassengers= $("#txtNoOPass").val();
+    let fuelType= $("#txtFuel").val();
+    let monthlyRate= $("#txtMRt").val();
+    let dailyRate= $("#txtMnthlyR").val();
+    let prizeForExtrakm =$("#txtPfExk").val();
+    let freeMileage= $("#txtFmlg").val();
+    let lastServiceMileage =$("#txtLSrm").val();
+    let brand= $("#txtCbrnd").val();
+    let color =$("#txtClr").val();
+    let model= $("#txtMdl").val();
+    let availability =$("#selectAvailable").val();
 
     var Customer = {
         nic : nic,
@@ -38,7 +45,7 @@ $("#btnAddC2").click(function () {
             console.log(resp);
             alert(resp.message);
 
-            imagePath();
+            carimagePath();
 
         },
         error: function(error) {

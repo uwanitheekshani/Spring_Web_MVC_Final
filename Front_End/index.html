@@ -923,7 +923,7 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="form-groupTT">
-                            <input class="form-control" id="txtTyp" placeholder="Type" type="text">
+                            <input class="form-control" id="txtType" placeholder="Type" type="text">
                             <span class="control-error" id="lbltype"></span>
                         </div>
                     </div>
@@ -1008,45 +1008,49 @@
 
                 <div class="row">
                     <div class="col-6">
-                        <div class="form-groupMDLT" style="position: absolute;top: 400px;width: 328px;">
+                        <div class="form-groupMDLT">
                             <input class="form-control" id="txtMdl" placeholder="Model" type="text">
                             <span class="control-error" id="lblmdl"></span>
                         </div>
                     </div>
 
+                    <select class="form-selectAL" aria-label="Default select example" id="selectAvailable" style="position: absolute;width: 329px;height: 37px;left: 354px;top: 371px;border-radius: 5px;">
+                        <option selected>Availability</option>
+                        <option value="1">Available</option>
+                        <option value="2">Unavailable</option>
+                    </select>
 
-                    <div class="col-6" id="uploadFWI">
-                             <label for="register-form-NIC-image" class="form-label ">Upload Front View</label>
-                             <input style="border: 1px solid gray" class="form-control  " type="file" id="uploadFVI" name="myFile">
-                    </div>
 
                 </div>
 
                 <div class="row">
+
+                    <div class="col-6" id="uploadFWI">
+                        <label for="register-form-NIC-image" class="form-label ">Upload Front View</label>
+                        <input style="border: 1px solid gray" class="form-control  " type="file" id="uploadFVI" name="myFile">
+                    </div>
+
                     <div class="col-6" id="uploadUBFW">
                         <label for="register-form-NIC-image" class="form-label ">Upload Back View</label>
                         <input style="border: 1px solid gray" class="form-control  " type="file" id="uploadBV" name="myFile">
                     </div>
+
+
+
+                </div>
+                <br>
+
+                <div class="row">
 
                     <div class="col-6" id="uploadUSVT">
                         <label for="register-form-NIC-image" class="form-label ">Upload Side View</label>
                         <input style="border: 1px solid gray" class="form-control  " type="file" id="uploadUSV" name="myFile">
                     </div>
 
-                </div>
-                <br>
-
-                <div class="row">
                     <div class="col-6" id="uploadUIVT">
                         <label for="register-form-NIC-image" class="form-label ">Upload Interior View</label>
                         <input style="border: 1px solid gray" class="form-control  " type="file" id="uploadUIV" name="myFile">
                     </div>
-
-                    <select class="form-selectAL" aria-label="Default select example" id="selectAvailable" style="position: absolute;width: 323px;height: 37px;left: 360px;top: 570px;border-radius: 5px;">
-                        <option selected>Availability</option>
-                        <option value="1">Available</option>
-                        <option value="2">Unavailable</option>
-                    </select>
 
                 </div>
 
