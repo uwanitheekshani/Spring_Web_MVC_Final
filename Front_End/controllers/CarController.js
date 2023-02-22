@@ -1,4 +1,4 @@
-let baseURL="http://localhost:8080/Spring_Web_MVC_Final_war/";
+
 
 $("#btnAddC2").click(function () {
 
@@ -19,18 +19,18 @@ $("#btnAddC2").click(function () {
     let freeMileage= $("#txtFmlg").val();
     let lastServiceMileage =$("#txtLSrm").val();
     let brand= $("#txtCbrnd").val();
-    let color =$("#txtClr").val();
+    let colour =$("#txtClr").val();
     let model= $("#txtMdl").val();
     let availability =$("#selectAvailable").val();
 
-    var Customer = {
+    var Car = {
         registrationId : registrationNum,
         Brand : brand,
         type : type,
         model : model,
         fuelType : fuelType,
         transmissionType : transmission,
-        color : color,
+        colour : colour,
         noOfPassengers : noOfPassengers,
         lastServiceMileage:lastServiceMileage,
         freeMileage : freeMileage,
@@ -45,9 +45,9 @@ $("#btnAddC2").click(function () {
     }
 
     $.ajax({
-        url: baseURL+"customer",
+        url: baseURL+"car",
         method :"post",
-        data : JSON.stringify(Customer),
+        data : JSON.stringify(Car),
         contentType:"application/json",
         success: function (resp) {
             console.log(resp);

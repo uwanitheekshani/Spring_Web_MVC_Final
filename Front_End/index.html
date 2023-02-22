@@ -762,8 +762,8 @@
     </section>
 
 <!--       ============================Admin DashBoard====================================-->
-<main class="adminDashM2" style="display:block;">
-    <section class="adminDash2">
+<main class="adminDashM2" >
+    <section class="adminDash2" id="adminDash" style="display:block;">
 
         <h3 id="Ads">Daily Summery</h3>
         <div id="dsl"></div>
@@ -888,7 +888,7 @@
 
     <!--   ==============================Cars==================================-->
 
-    <section class="carDash" id="carContent" style="display:block;">
+    <section class="carDash" id="carContent" style="display:none;">
         <h3 id="carh">Cars</h3>
         <div id="carhl"></div>
 
@@ -1064,7 +1064,7 @@
 
     <!--   ==============================Verify Customer Details==================================-->
 
-    <section class="verifyCus">
+    <section class="verifyCus" id="veriCusDet" style="display: none">
         <h3 id="vrfyC">Verify customer details</h3>
         <div id="vrfyCu"></div>
 
@@ -1106,7 +1106,7 @@
 
     <!--   ==============================Employee==================================-->
 
-    <section class="employee">
+    <section class="employee" id="employeeAdd" style="display: none">
         <h3 id="empl1">Admin</h3>
         <div id="emplI"></div>
 
@@ -1200,7 +1200,7 @@
 
     <!--   ==============================Payments==================================-->
 
-    <section class="payments">
+    <section class="payments" id="paymentsDet" style="display: none">
         <h3 id="payment1">Payments</h3>
         <div id="paymentI"></div>
 
@@ -1313,7 +1313,7 @@
     </section>
 
     <!--   ==============================Reservations==================================-->
-    <section class="verifyRes">
+    <section class="verifyRes" id="reservDet" style="display: none">
         <h3 id="vrfyRes">Verify Reservations</h3>
         <div id="vrfyRes1"></div>
 
@@ -1356,7 +1356,7 @@
     </section>
 
     <!--   ==============================View Cars==================================-->
-    <section class="viewCar">
+    <section class="viewCar" id="viewCarDet" style="display: none">
         <h3 id="vwC">View Cars</h3>
         <div id="vwC1"></div>
 
@@ -1503,7 +1503,7 @@
     </section>
 
     <!--   ==============================Driver schedule==================================-->
-    <section class="driverSchedule">
+    <section class="driverSchedule" id="DriverSche" style="display: none">
         <h3 id="drivSch">Driver schedule</h3>
 
         <select class="form-selectDI" aria-label="Default select example" id="selectDriverId">
@@ -1567,6 +1567,7 @@
 <script src="controllers/CustomerDashboardController.js"></script>
 <script src="controllers/AdminDashboardController.js"></script>
 <script src="controllers/CustomerController.js"></script>
+<script src="controllers/CarController.js"></script>
 <!--<script src="controllers/PurchaseOrderController.js"></script>-->
 </body>
 </html>

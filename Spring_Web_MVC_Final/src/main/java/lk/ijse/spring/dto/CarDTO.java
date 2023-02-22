@@ -16,7 +16,7 @@ public class CarDTO {
     private String model;
     private String fuelType;
     private String transmissionType;
-    private String color;
+    private String colour;
     private int noOfPassengers;
     private String image_1;
     private String image_2;

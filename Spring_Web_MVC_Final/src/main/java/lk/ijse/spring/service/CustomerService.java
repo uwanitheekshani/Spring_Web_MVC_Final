@@ -19,5 +19,5 @@ public interface CustomerService {
 
     List<CustomerDTO> getTodayRegisteredCustomers();
 
-    CustomerDTO searchCustomerByPassword(String password);
+//    CustomerDTO searchCustomerByPassword(String password);
 }
