@@ -32,6 +32,7 @@ public class CustomerServiceImpl implements CustomerService {
         repo.save(entity);
     }
 
+
     @Override
     public void updateCustomer(CustomerDTO customerDTO) {
         if (!repo.existsById(customerDTO.getNic())){
