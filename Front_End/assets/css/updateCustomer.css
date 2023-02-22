@@ -39,14 +39,8 @@
     font-size: 20px;
 }
 
-#uploadUIm{
+.form-groupUEmail{
     position: absolute;
-    top: 134px;
-    left: 244px;
-    width: 220px;
-}
-
-.form-groupUDLN{
-    position: absolute;
-    top: 166px;
+    top: 138px;
+    left: 1px;
 }
