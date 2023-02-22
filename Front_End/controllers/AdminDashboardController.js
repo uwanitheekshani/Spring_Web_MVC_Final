@@ -64,4 +64,26 @@ $("#emplo1").click(function () {
     $("#DriverSche").css('display','none');
 });
 
+$("#btnViewAllCars").click(function () {
+    $("#adminDash").css('display','none');
+    $("#carContent").css('display','none');
+    $("#veriCusDet").css('display','none');
+    $("#employeeAdd").css('display','none');
+    $("#paymentsDet").css('display','none');
+    $("#reservDet").css('display','none');
+    $("#viewCarDet").css('display','block');
+    $("#DriverSche").css('display','none');
+});
+
+$("#linkViewDriSche").click(function () {
+    $("#adminDash").css('display','none');
+    $("#carContent").css('display','none');
+    $("#veriCusDet").css('display','none');
+    $("#employeeAdd").css('display','none');
+    $("#paymentsDet").css('display','none');
+    $("#reservDet").css('display','none');
+    $("#viewCarDet").css('display','none');
+    $("#DriverSche").css('display','block');
+});
+
 

@@ -32,13 +32,15 @@
     margin: 0;
 }
 
-#viewshed{
+#linkViewDriSche{
     position: absolute;
     top: 41px;
     left: 1096px;
     color: #0a53be;
     font-size: 15px;
     font-weight: 600;
+    cursor: pointer;
+
 }
 
 .form-selectCT{
@@ -98,7 +100,7 @@
 
 #carViewTb{
     position: absolute;
-    left: 234px;
+    left: 294px;
     width: 1116px;
     top: 458px;
 }
