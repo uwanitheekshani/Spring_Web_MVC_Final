@@ -29,9 +29,6 @@ $("#btnLogIn2").click(function () {
         imageLocation : nicFileName
     }
 
-
-    // console.log(formData);
-
     $.ajax({
         url: baseURL+"customer",
         method :"post",
@@ -55,7 +52,7 @@ function imagePath(){
     var data = new FormData();
     let nicFile = $("#register-form-NIC-image")[0].files[0];
     let nicFileName = $("#register-form-NIC-image")[0].files[0].name;
-    // data.append("myFile", file, fileName);
+
     data.append("myFile", nicFile, nicFileName);
 
     $.ajax({
@@ -74,3 +71,37 @@ function imagePath(){
         }
     });
 }
+
+//Update customer details
+$("#btnUpCus").click(function () {
+
+    let cusUserName = $("#txtUUserName").val();
+    let cusPassword = $("#txtUPassword2").val();
+    let cusPhone = $("#txtUPhone").val();
+    let cusAddress = $("#txtUAddress").val();
+    let cusEmail = $("#txtUEmail").val();
+
+    var customer = {
+        user_name: cusUserName,
+        password: cusPassword,
+        contactNo: cusPhone,
+        address: cusAddress,
+        email:cusEmail
+    }
+
+    $.ajax({
+        url: baseURL+'customer',
+        method: 'put',
+        contentType:"application/json",
+        data:JSON.stringify(customer),
+        dataType:"json",
+        success: function (res) {
+            alert(res.message);
+        },
+        error:function (error){
+            let cause= JSON.parse(error.responseText).message;
+            alert(cause);
+        }
+
+    });
+});
