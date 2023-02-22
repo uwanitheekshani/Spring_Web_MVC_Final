@@ -8,18 +8,18 @@
 .adminDash1{
     position: relative;
     background: #FFFFFF;
-    top: 140px;
+    top: 6px;
     z-index: 6;
-    height: 663px;
+    height: 676px;
     margin: auto;
     width: 10vw;
-    left: -583px;
+    left: -645px;
 }
 
 #admindashli{
     position: absolute;
     width: 12px;
-    height: 691px;
+    height: 705px;
     background: url("../../assets/images/Line 23.png");
     background-size: cover;
     background-position: center;
