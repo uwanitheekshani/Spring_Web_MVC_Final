@@ -4,12 +4,14 @@ $("#btnAddDriver").click(function () {
     let driverName = $("#txtDriverName").val();
     let driverNic =$("#txtDriverNic").val();
     let driverLicenceNum= $("#txtDriverLiNum").val();
+    let driverAvailable= $("#selectDriverAvailable").val();
 
     var driver={
         driverId:driverId,
         name:driverName,
         nic:driverNic,
-        drivingLicenceNum:driverLicenceNum
+        drivingLicenceNum:driverLicenceNum,
+        availability:driverAvailable
     }
 
     //send ajax request to the customer servlet
@@ -47,4 +49,5 @@ function clearDriverTextFields() {
     $('#txtDriverName').val("");
     $('#txtDriverNic').val("");
     $('#txtDriverLiNum').val("");
+    $('#selectDriverAvailable').val("");
 }
