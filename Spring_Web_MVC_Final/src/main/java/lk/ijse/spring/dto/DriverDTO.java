@@ -14,5 +14,4 @@ public class DriverDTO {
     private String name;
     private String nic;
     private String drivingLicenceNum;
-    private String availability;
 }
