@@ -1027,12 +1027,12 @@
 
                     <div class="col-6" id="uploadFWI">
                         <label for="register-form-NIC-image" class="form-label ">Upload Front View</label>
-                        <input style="border: 1px solid gray" class="form-control  " type="file" id="uploadFVI" name="myFile">
+                        <input style="border: 1px solid gray" class="form-control  " type="file" id="uploadFVI" name="carFrontView">
                     </div>
 
                     <div class="col-6" id="uploadUBFW">
                         <label for="register-form-NIC-image" class="form-label ">Upload Back View</label>
-                        <input style="border: 1px solid gray" class="form-control  " type="file" id="uploadBV" name="myFile">
+                        <input style="border: 1px solid gray" class="form-control  " type="file" id="uploadBV" name="carBackView">
                     </div>
 
 
@@ -1044,12 +1044,12 @@
 
                     <div class="col-6" id="uploadUSVT">
                         <label for="register-form-NIC-image" class="form-label ">Upload Side View</label>
-                        <input style="border: 1px solid gray" class="form-control  " type="file" id="uploadUSV" name="myFile">
+                        <input style="border: 1px solid gray" class="form-control  " type="file" id="uploadUSV" name="carSideView">
                     </div>
 
                     <div class="col-6" id="uploadUIVT">
                         <label for="register-form-NIC-image" class="form-label ">Upload Interior View</label>
-                        <input style="border: 1px solid gray" class="form-control  " type="file" id="uploadUIV" name="myFile">
+                        <input style="border: 1px solid gray" class="form-control  " type="file" id="uploadUIV" name="carInteriorView">
                     </div>
 
                 </div>
@@ -1112,7 +1112,7 @@
 
 
         <div class="card-body3">
-            <form>
+            <form id="adminForm">
                 <div class="row">
                     <div class="col-6">
                         <div class="form-groupAId">
@@ -1122,9 +1122,9 @@
                     </div>
 
                     <div class="col-6">
-                        <div class="form-groupANm">
-                            <input class="form-control" id="txtAdminName" placeholder="Admin Name" type="text">
-                            <span class="control-error" id="lbladminnme"></span>
+                        <div class="form-groupAEm">
+                            <input class="form-control" id="txtAdminEmail" placeholder="Email" type="text">
+                            <span class="control-error" id="lbladminemail"></span>
                         </div>
                     </div>
                 </div>
@@ -1568,6 +1568,8 @@
 <script src="controllers/AdminDashboardController.js"></script>
 <script src="controllers/CustomerController.js"></script>
 <script src="controllers/CarController.js"></script>
+<script src="controllers/AdminController.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.37/dist/sweetalert2.all.min.js"></script>
 <!--<script src="controllers/PurchaseOrderController.js"></script>-->
 </body>
 </html>

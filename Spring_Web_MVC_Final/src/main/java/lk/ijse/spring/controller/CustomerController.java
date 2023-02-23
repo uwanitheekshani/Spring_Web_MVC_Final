@@ -6,6 +6,7 @@ import lk.ijse.spring.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,7 @@ public class CustomerController {
         service.saveCustomer(dto);
         return new ResponseUtil("200",dto.toString()+ " Added",null);
     }
+
 
     @GetMapping
     public ResponseUtil getAllCustomer(){

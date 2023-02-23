@@ -1,7 +1,9 @@
 package lk.ijse.spring.service;
 
 import lk.ijse.spring.dto.AdminDTO;
+import lk.ijse.spring.dto.CustomerDTO;
 
 public interface AdminService {
-    AdminDTO checkAdminLogIn(String id, String password);
+    void saveAdmin(AdminDTO adminDTO);
+//    AdminDTO checkAdminLogIn(String id, String password);
 }
