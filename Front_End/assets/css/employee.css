@@ -97,3 +97,13 @@
     font-weight: bold;
 }
 
+#linkViewDriSche{
+    position: absolute;
+    top: 41px;
+    left: 1096px;
+    color: #0a53be;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+
+}

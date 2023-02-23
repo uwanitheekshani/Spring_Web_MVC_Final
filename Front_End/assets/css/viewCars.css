@@ -32,16 +32,16 @@
     margin: 0;
 }
 
-#linkViewDriSche{
-    position: absolute;
-    top: 41px;
-    left: 1096px;
-    color: #0a53be;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
+/*#linkViewDriSche{*/
+/*    position: absolute;*/
+/*    top: 41px;*/
+/*    left: 1096px;*/
+/*    color: #0a53be;*/
+/*    font-size: 15px;*/
+/*    font-weight: 600;*/
+/*    cursor: pointer;*/
 
-}
+/*}*/
 
 .form-selectCT{
     position: absolute;
