@@ -19,7 +19,6 @@ public class Driver {
     @Id
     private String driverId;
     private String name;
-    private String dob;
     private String nic;
     private String drivingLicenceNum;
     private String availability;
