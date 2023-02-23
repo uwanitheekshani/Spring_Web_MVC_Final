@@ -20,12 +20,24 @@ $("#btnAddAdmin").click(function () {
         contentType:"application/json",
         success: function (resp) {
             console.log(resp);
-            alert(resp.message);
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: "Admin Added Successfully",
+                showConfirmButton: false,
+                timer: 1500
+            });
 
         },
         error: function(error) {
             let prase = JSON.parse(error.responseText);
-            alert(prase.message);
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: "Admin Not Added Successfully",
+                showConfirmButton: false,
+                timer: 1500
+            });
         }
     });
 });
