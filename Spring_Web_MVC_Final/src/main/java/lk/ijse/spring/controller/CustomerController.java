@@ -64,8 +64,8 @@ public class CustomerController {
         return new ResponseUtil("200",nic+" Deleted",null);
     }
 
-    @PutMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil updateCustomer(CustomerDTO dto){
+    @PutMapping
+    public ResponseUtil updateCustomer(@RequestBody CustomerDTO dto){
         service.updateCustomer(dto);
         return new ResponseUtil("200",dto.toString()+" Updated",null);
     }

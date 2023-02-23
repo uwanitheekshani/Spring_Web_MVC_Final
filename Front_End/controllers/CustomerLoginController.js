@@ -20,6 +20,7 @@ $("#btnLogInE").click(function (){
                 $("#loginContent").css('display','none');
                 $("#cusRegiContent").css('display','none');
                 $("#cusUpdateContent").css('display','none');
+                $("#ae").text(email);
             }else {
                 alert("Invalid email or password")
             }
