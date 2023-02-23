@@ -9,7 +9,6 @@ import org.springframework.data.repository.query.Param;
 import javax.transaction.Transactional;
 
 public interface CarRepo extends JpaRepository<Car,String> {
-
     @Modifying
     @Transactional
     @Query(value = "UPDATE Car SET image_1=:image_1,image_2=:image_2,image_3=:image_3,image_4=:image_4 WHERE registrationId=:registrationId", nativeQuery = true)

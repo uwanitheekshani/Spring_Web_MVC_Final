@@ -35,10 +35,6 @@ $("#btnAddC2").click(function (){
             monthlyRate: monthlyRate,
             priceForExtraKm: prizeForExtrakm,
             availability: availability,
-            // image_1 : frontFileName,
-            // image_2 : backFileName,
-            // image_3 : sideFileName,
-            // image_4 : interiorFileName
         }
 
         $.ajax({

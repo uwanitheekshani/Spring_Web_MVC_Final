@@ -17,7 +17,7 @@ public class AdminController {
 
 
     @PostMapping
-    public ResponseUtil saveAdmin(@ModelAttribute AdminDTO dto){
+    public ResponseUtil saveAdmin(@RequestBody AdminDTO dto){
         service.saveAdmin(dto);
         return new ResponseUtil("200",dto.toString()+ " Added",null);
     }
