@@ -65,6 +65,15 @@ public class CustomerServiceImpl implements CustomerService {
         return null;
     }
 
+    @Override
+    public void uploadCustomerImages(String imageLocation, String nic) {
+        if (repo.existsById(nic)) {
+            repo.updateCustomerFilePaths(imageLocation, nic);
+        } else {
+            throw new RuntimeException("Customer Not Found");
+        }
+    }
+
 //    @Override
 //    public CustomerDTO searchCustomerByPassword(String password) {
 //        return mapper.map( repo.findCustomerByUserName(password),CustomerDTO.class);

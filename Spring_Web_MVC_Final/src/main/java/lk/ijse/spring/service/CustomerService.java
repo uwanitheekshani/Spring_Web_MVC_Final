@@ -19,7 +19,7 @@ public interface CustomerService {
 
     List<CustomerDTO> getTodayRegisteredCustomers();
 
-
+    void uploadCustomerImages(String imageLocation, String nic);
 
 //    CustomerDTO searchCustomerByPassword(String password);
 }
