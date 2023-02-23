@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -72,6 +71,11 @@ public class CustomerServiceImpl implements CustomerService {
         } else {
             throw new RuntimeException("Customer Not Found");
         }
+    }
+
+    @Override
+    public CustomerDTO searchCustomerByEmail(String email) {
+        return mapper.map( repo.getCustomerByEmail(email),CustomerDTO.class);
     }
 
 //    @Override

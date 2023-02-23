@@ -83,6 +83,18 @@ $("#editUserInfo").click(function () {
     $("#cusUpdateContent").css('display','block');
 });
 
+// $("#btnLogInE").click(function () {
+//     $("#mainh").css('display','none');
+//     $("#main3").css('display','none');
+//     $("#foot").css('display','none');
+//     $("#storeContent").css('display','block');
+//     $("#checkOutContent").css('display','none');
+//     $("#accountContent").css('display','none');
+//     $("#loginContent").css('display','none');
+//     $("#cusRegiContent").css('display','none');
+//     $("#cusUpdateContent").css('display','none');
+// });
+
 // function navMenu(nav) {
 //     switch (nav) {
 //         case 'home':

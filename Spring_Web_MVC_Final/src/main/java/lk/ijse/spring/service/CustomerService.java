@@ -1,7 +1,6 @@
 package lk.ijse.spring.service;
 
 import lk.ijse.spring.dto.CustomerDTO;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 //@Component
@@ -21,5 +20,5 @@ public interface CustomerService {
 
     void uploadCustomerImages(String imageLocation, String nic);
 
-//    CustomerDTO searchCustomerByPassword(String password);
+    CustomerDTO searchCustomerByEmail(String email);
 }
