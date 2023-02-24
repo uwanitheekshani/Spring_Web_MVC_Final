@@ -44,6 +44,16 @@ function addCustomer() {
                 timer: 1500
             });
             clearCustomerTextFields();
+            $("#storeContent").css('display','block');
+            $("#mainh").css('display','none');
+            $("#main3").css('display','none');
+            $("#foot").css('display','none');
+            $("#checkOutContent").css('display','none');
+            $("#accountContent").css('display','none');
+            $("#loginContent").css('display','none');
+            $("#cusRegiContent").css('display','none');
+            $("#cusUpdateContent").css('display','none');
+            $("#ae").text(email);
         },
         error: function (error) {
             let errorReason = JSON.parse(error.responseText);
@@ -124,8 +134,6 @@ $("#editUserInfo").click(function (){
         dataType:"json",
         success: function (res) {
 
-            // var i = resp.data
-            // nicImge=i.imageLocation
             console.log(res.data);
             let userNic = res.data.nic;
             let userName = res.data.user_name;
@@ -145,10 +153,6 @@ $("#editUserInfo").click(function (){
             $("#txtUPhone").val(phone);
             $("#txtUAddress").val(address);
             $("#txtUEmail").val(email);
-            // $("#txtUFName").val(name);
-            // $("#txtUDLN").val(licenceNum);
-            // $("#txtUDate").val(date);
-            // $("#register-form-NIC-Uimage").val(image);
 
         },
         error:function(error){
@@ -169,10 +173,6 @@ $("#btnUpCus").click(function () {
     let cusAddress = $("#txtUAddress").val();
     let cusEmail = $("#txtUEmail").val();
 
-    // let name = $("#txtUFName").val();
-    // let licenceNum = $("#txtUDLN").val();
-    // let date = $("#txtUDate").val();
-    // let image = $("#register-form-NIC-Uimage").val();
 
 
     var customer = {
@@ -206,102 +206,3 @@ $("#btnUpCus").click(function () {
 
     });
 });
-
-
-// $("#btn-edit-customer").click(function (){
-//
-//
-//     var customer={
-//         "custNICNumber":$("#txtCustNICNumber1").val(),
-//         "custName":$("#txtCustName1").val(),
-//         "custAddress":$("#txtCustAddress1").val(),
-//         "custNICImg":nicImg,
-//         "custdrivingImg":licenseImg,
-//         "custContact":$("#txtContactNumber1").val(),
-//         "custEmail":$("#txtCustEmail1").val(),
-//         "custPassword":$("#txtCustPassword1").val(),
-//         "custStatus":"Approved",
-//         "type":"Customer",
-//     }
-//
-//
-//
-//     $.ajax({
-//         url:"http://localhost:8080/Back_end_war_exploded/api/v1/customer",
-//         method:"put",
-//         contentType:"application/json",
-//
-//         data:JSON.stringify(customer),
-//         success(resp){
-//
-//             alert(resp.message)
-//
-//         }
-//     });
-// });
-
-
-
-// function loadAllCustomers() {
-//
-//
-//     // var customer = {
-//     //     nic : nicNum,
-//     //     address : address,
-//     //     contactNo : contactNumber,
-//     //     cusName : name,
-//     //     date : date,
-//     //     drivingLicenceNumber : drivingLicenceNumber,
-//     //     email : email,
-//     //     password : password,
-//     //     user_name:user_name,
-//     // }
-//
-//     $.ajax({
-//         url: baseURL+"customer",
-//         dataType: "json",
-//         success: function (resp) {
-//             console.log(resp);
-//             // for (let cus of resp.data) {
-//             //    cus.nic;
-//             // }
-//             resp.data.nic
-//             bindRowClickEvents();
-//             setTextFieldValues("","","","");
-//             $("#txtCustomerID").focus();
-//         }
-//     });
-//
-// }
-
-
-// function updateCustomer(){
-//
-//     var newDetails = {
-//         nic: $("#customer-profile-nic").val(),
-//         address: $("#customer-profile-address").val(),
-//         contactNumber: $("#customer-profile-mobile").val(),
-//         name: $("#customer-profile-name").val(),
-//         email: $("#customer-profile-email").val(),
-//         password: customer.password,
-//         user_name: customer.user_name,
-//         imageLocation: customer.imageLocation,
-//     }
-//
-//     $.ajax({
-//         url: baseUrl + "customer/updateCustomer",
-//         method: "PUT",
-//         contentType: "application/json",
-//         data: JSON.stringify(newDetails),
-//         success: function (res) {
-//             if (res.status === 200) {
-//                 alert(res.message)
-//             } else {
-//                 alert("Cant update your Details in this moment")
-//             }
-//         },
-//         error: function (ob) {
-//             console.log(ob.responseJSON.message);
-//         }
-//     });
-// }
