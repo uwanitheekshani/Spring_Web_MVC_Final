@@ -3,6 +3,7 @@ loadAllCars();
 
 $("#btnAddC2").click(function (){
     addCar();
+    loadAllCars();
 });
 
     function addCar() {
@@ -47,6 +48,7 @@ $("#btnAddC2").click(function (){
             success: function (resp) {
                 uploadCarImages(registrationNum);
                 loadAllCars();
+                bindCarRowClickEvents();
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
@@ -155,12 +157,13 @@ function loadAllCars() {
                 $("#carViewTable").append(row);
             }
             bindCarRowClickEvents();
-            // setTextFieldValues("","","","");
+            setCarTextFieldValues("","","","","","","","","","");
             // $("#txtCustomerID").focus();
         }
     });
 
 }
+
 
 //Event binding for table rows
 function bindCarRowClickEvents() {
@@ -175,20 +178,33 @@ function bindCarRowClickEvents() {
         let priceForExtraKm = $(this).children(":eq(7)").text();
         let dailyRate = $(this).children(":eq(8)").text();
         let monthlyRate = $(this).children(":eq(9)").text();
-        // console.log(id, name, address, salary);
+        // console.log(registrationId, brand, type, fuelType);
 
         //setting table details values to text fields
-        $("#txtRNber").val(registrationId);
-        $("#txtCbrnd").val(brand);
-        $("#txtType").val(type);
-        $("#txtFuel").val(fuelType);
-        $("#txtTrnsm").val(transmissionType);
-        $("#txtNoOPass").val(noOfPassengers);
-        $("#txtFmlg").val(freeMileage);
-        $("#txtPfExk").val(priceForExtraKm);
-        $("#txtMnthlyR").val(dailyRate);
-        $("#txtMRt").val(monthlyRate);
+        $("#txtCNu").val(registrationId);
+        $("#txtVCbrnd").val(brand);
+        $("#txtCT").val(type);
+        $("#txtFT").val(fuelType);
+        $("#txtVCTrans").val(transmissionType);
+        $("#txtNOP").val(noOfPassengers);
+        $("#txtFM").val(freeMileage);
+        $("#txtVCcperex").val(priceForExtraKm);
+        $("#txtDai").val(dailyRate);
+        $("#txtMn").val(monthlyRate);
     });
+}
+
+function setCarTextFieldValues(registrationId, brand, type, fuelType,transmissionType,noOfPassengers,freeMileage,priceForExtraKm,dailyRate,monthlyRate) {
+    $("#txtVCbrnd").val(brand);
+    $("#txtVCTrans").val(transmissionType);
+    $("#txtVCcperex").val(priceForExtraKm);
+    $("#txtCNu").val(registrationId);
+    $("#txtNOP").val(noOfPassengers);
+    $("#txtDai").val(dailyRate);
+    $("#txtCT").val(type);
+    $("#txtFM").val(freeMileage);
+    $("#txtMn").val(monthlyRate);
+    $("#txtFT").val(fuelType);
 }
 
 

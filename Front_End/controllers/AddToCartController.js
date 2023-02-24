@@ -1,8 +1,8 @@
 loadAllBrands();
 loadAllTypes();
-loadAllFuelTypes();
-loadAllTransmission();
-loadAllPassengers();
+// loadAllFuelTypes();
+// loadAllTransmission();
+// loadAllPassengers();
 
 // searchBrands();
 // searchTypes();
