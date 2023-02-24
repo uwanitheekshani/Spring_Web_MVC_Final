@@ -37,7 +37,11 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public void updateCar(CarDTO carDTO) {
-
+        if (!repo.existsById(carDTO.getRegistrationId())){
+            throw new RuntimeException("Car "+carDTO.getRegistrationId()+" Not Available to Update..!");
+        }
+        Car entity = mapper.map(carDTO, Car.class);
+        repo.save(entity);
     }
 
     @Override

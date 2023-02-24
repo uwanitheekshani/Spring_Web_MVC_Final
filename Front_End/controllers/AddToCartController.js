@@ -23,3 +23,18 @@ function loadAllBrands() {
         }
     });
 }
+
+function loadAllTypes() {
+    $("#selectType").empty();
+    $.ajax({
+        url: baseURL + "addToCart",
+        dataType: "json",
+        success: function (resp) {
+            console.log(resp);
+            for (let car of resp.data) {
+                $("#selectType").append(`<option value="${car.type}">${car.type}</option>`);
+            }
+        }
+    });
+}
+

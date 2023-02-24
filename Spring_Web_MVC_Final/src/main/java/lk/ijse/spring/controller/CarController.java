@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/car")
@@ -54,6 +55,19 @@ public class CarController {
             e.printStackTrace();
             return new ResponseUtil("500",e.getMessage(),null);
         }
+    }
+
+
+    @PutMapping
+    public ResponseUtil updateCar(@RequestBody CarDTO dto){
+        service.updateCar(dto);
+        return new ResponseUtil("200",dto.toString()+" Updated",null);
+    }
+
+    @GetMapping
+    public ResponseUtil getAllCars(){
+        ArrayList<CarDTO> allCars = service.getAllCarDetail();
+        return new ResponseUtil("200"," Success",allCars);
     }
 
 

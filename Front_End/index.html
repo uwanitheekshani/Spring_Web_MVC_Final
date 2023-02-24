@@ -41,7 +41,7 @@
 </head>
 <body>
 <!--          //////////////////// Home Page/////////////////////-->
-<header class="main ui" id="headContent" style="display: block">
+<header class="main ui" id="headContent" style="display: none">
 
 <!--    <section class="home">-->
 
@@ -76,7 +76,7 @@
 
 </header>
 
-<main class="main1" id="mainh" style="display: block" >
+<main class="main1" id="mainh" style="display: none" >
     <section class="home">
         <div id="hn1">RENT</div>
         <div id="hn2">NOW</div>
@@ -94,7 +94,7 @@
     </section>
 </main>
 
-<main class="main2" id="main3" style="display: block">
+<main class="main2" id="main3" style="display: none">
     <!--       why People Like Us?-->
     <section class="wplt">
         <h1 id="wplt1">Why People Like Us?</h1>
@@ -114,7 +114,7 @@
 </main>
 
              <!--=========================footer============================-->
-<section id="foot" style="display: block">
+<section id="foot" style="display: none">
     <footer id="foo">
         <section class="f2">
             <section class="ql">
@@ -407,38 +407,23 @@
 
 <div>
             <select class="form-select1" aria-label="Default select example" id="selectBrand">
-<!--                <option selected>Brand</option>-->
-<!--                <option value="1">One</option>-->
-<!--                <option value="2">Two</option>-->
-<!--                <option value="3">Three</option>-->
+
             </select>
 
     <select class="form-select2" aria-label="Default select example" id="selectType">
-        <option selected>Type</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+
     </select>
 
     <select class="form-select3" aria-label="Default select example" id="selectFuelType">
-        <option selected>FuelType</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+
     </select>
 
     <select class="form-select4" aria-label="Default select example" id="selectTransmission">
-        <option selected>Transmission</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+
     </select>
 
     <select class="form-select5" aria-label="Default select example" id="selectPassengers">
-        <option selected>Passengers</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+
     </select>
 
     <div class="row">
@@ -715,7 +700,7 @@
 </main>
 
 <!--       ============================Admin DashBoard Main====================================-->
-    <section class="adminDash1" style="display:none;">
+    <section class="adminDash1" style="display:block;">
         <div id="admindashli"></div>
         <h3 id="Acr">Car Rental</h3>
         <h4 id="Acr1">Admin</h4>
@@ -778,7 +763,7 @@
     </section>
 
 <!--       ============================Admin DashBoard====================================-->
-<main class="adminDashM2" style="display:none;">
+<main class="adminDashM2" style="display:block;">
     <section class="adminDash2" id="adminDash" style="display:block;">
 
         <h3 id="Ads">Daily Summery</h3>
@@ -1461,10 +1446,6 @@
                 <input class="form-control" id="txtFT" placeholder="Fuel" type="text">
                 <span class="control-error" id="lblft"></span>
             </div>
-            <div class="p-2">
-                <input class="form-control" id="txtLDW" placeholder="Loss Damage Waiver" type="text">
-                <span class="control-error" id="lblldw"></span>
-            </div>
         </div>
 
         <div class=".sub-detail-container" style="position: absolute;top: 67px;width: 50%;left: 586px;">
@@ -1494,33 +1475,32 @@
             <table class="table table-bordered text-white">
                 <thead class="bg-primary">
                 <tr>
-                    <th>Brand</th>
                     <th>CarNum</th>
+                    <th>Brand</th>
                     <th>Type</th>
                     <th>Fuel</th>
                     <th>Transmission</th>
                     <th>No_Passengers</th>
                     <th>FreeMile</th>
-                    <th>LossDamage</th>
                     <th>CostExtrakm</th>
                     <th>Daily</th>
                     <th>Monthly</th>
                 </tr>
                 </thead>
                 <tbody class="bg-light text-dark" id="carViewTable">
-                <tr>
-                    <td>Suzuki Alto</td>
-                    <td>NB-6889</td>
-                    <td>General</td>
-                    <td>Petrol</td>
-                    <td>Auto</td>
-                    <td>6</td>
-                    <td>100</td>
-                    <td>15000</td>
-                    <td>49.50</td>
-                    <td>5000</td>
-                    <td>110330</td>
-                </tr>
+<!--                <tr>-->
+<!--                    <td>Suzuki Alto</td>-->
+<!--                    <td>NB-6889</td>-->
+<!--                    <td>General</td>-->
+<!--                    <td>Petrol</td>-->
+<!--                    <td>Auto</td>-->
+<!--                    <td>6</td>-->
+<!--                    <td>100</td>-->
+<!--                    <td>15000</td>-->
+<!--                    <td>49.50</td>-->
+<!--                    <td>5000</td>-->
+<!--                    <td>110330</td>-->
+<!--                </tr>-->
 
                 </tbody>
             </table>
