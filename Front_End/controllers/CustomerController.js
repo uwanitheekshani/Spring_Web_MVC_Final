@@ -111,7 +111,10 @@ function clearCustomerTextFields() {
     $('#register-form-NIC-image').val("");
 }
 
-
+var name;
+var licenceNum;
+var date;
+var image;
 $("#editUserInfo").click(function (){
     let email =  $("#ae").text();
 
@@ -120,18 +123,32 @@ $("#editUserInfo").click(function (){
         method: "get",
         dataType:"json",
         success: function (res) {
+
+            // var i = resp.data
+            // nicImge=i.imageLocation
             console.log(res.data);
+            let userNic = res.data.nic;
             let userName = res.data.user_name;
             let password = res.data.password;
             let phone = res.data.contactNo;
             let address = res.data.address;
             let email = res.data.email;
 
+             name = res.data.cusName;
+            licenceNum = res.data.drivingLicenceNumber;
+            date = res.data.date;
+           image = res.data.imageLocation;
+
+            $("#txtUNic").val(userNic);
             $("#txtUUserName").val(userName);
             $("#txtUPassword2").val(password);
             $("#txtUPhone").val(phone);
             $("#txtUAddress").val(address);
             $("#txtUEmail").val(email);
+            // $("#txtUFName").val(name);
+            // $("#txtUDLN").val(licenceNum);
+            // $("#txtUDate").val(date);
+            // $("#register-form-NIC-Uimage").val(image);
 
         },
         error:function(error){
@@ -141,21 +158,35 @@ $("#editUserInfo").click(function (){
     });
 });
 
+
 // Update customer details
 $("#btnUpCus").click(function () {
 
+    let cusNic = $("#txtUNic").val();
     let cusUserName = $("#txtUUserName").val();
     let cusPassword = $("#txtUPassword2").val();
     let cusPhone = $("#txtUPhone").val();
     let cusAddress = $("#txtUAddress").val();
     let cusEmail = $("#txtUEmail").val();
 
+    // let name = $("#txtUFName").val();
+    // let licenceNum = $("#txtUDLN").val();
+    // let date = $("#txtUDate").val();
+    // let image = $("#register-form-NIC-Uimage").val();
+
+
     var customer = {
+        nic:cusNic,
         user_name: cusUserName,
         password: cusPassword,
         contactNo: cusPhone,
         address: cusAddress,
-        email:cusEmail
+        email:cusEmail,
+
+        cusName:name,
+        drivingLicenceNumber: licenceNum,
+        date:date,
+        imageLocation:image
     }
 
     $.ajax({
@@ -163,8 +194,9 @@ $("#btnUpCus").click(function () {
         method: 'put',
         contentType:"application/json",
         data:JSON.stringify(customer),
-        // dataType:"json",
+        dataType:"json",
         success: function (res) {
+
             alert(res.message);
         },
         error:function (error){
@@ -174,6 +206,41 @@ $("#btnUpCus").click(function () {
 
     });
 });
+
+
+// $("#btn-edit-customer").click(function (){
+//
+//
+//     var customer={
+//         "custNICNumber":$("#txtCustNICNumber1").val(),
+//         "custName":$("#txtCustName1").val(),
+//         "custAddress":$("#txtCustAddress1").val(),
+//         "custNICImg":nicImg,
+//         "custdrivingImg":licenseImg,
+//         "custContact":$("#txtContactNumber1").val(),
+//         "custEmail":$("#txtCustEmail1").val(),
+//         "custPassword":$("#txtCustPassword1").val(),
+//         "custStatus":"Approved",
+//         "type":"Customer",
+//     }
+//
+//
+//
+//     $.ajax({
+//         url:"http://localhost:8080/Back_end_war_exploded/api/v1/customer",
+//         method:"put",
+//         contentType:"application/json",
+//
+//         data:JSON.stringify(customer),
+//         success(resp){
+//
+//             alert(resp.message)
+//
+//         }
+//     });
+// });
+
+
 
 // function loadAllCustomers() {
 //
