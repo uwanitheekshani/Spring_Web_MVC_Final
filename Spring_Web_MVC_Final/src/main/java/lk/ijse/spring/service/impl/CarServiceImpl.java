@@ -90,4 +90,9 @@ public class CarServiceImpl implements CarService {
             throw new RuntimeException("User Not Found");
         }
     }
+
+    @Override
+    public CarDTO searchCar(String brand) {
+        return mapper.map(repo.findCarByBrand(brand), CarDTO.class);
+    }
 }
