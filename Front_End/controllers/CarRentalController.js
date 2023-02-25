@@ -3,10 +3,16 @@ carAppend();
 
 function carAppend(){
     $("#selectCar").empty();
+
     $.ajax({
         url: baseURL+"car",
         dataType: "json",
         success: function (resp) {
+
+            let i=resp.data.type;
+            // switch (){
+            //
+            // }
     for (let car of resp.data) {
     var d = `<div class="swiper-slide">
                         <div class="testimonial-wrap">
