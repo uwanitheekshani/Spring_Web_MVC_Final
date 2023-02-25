@@ -211,10 +211,7 @@ function setCarTextFieldValues(registrationId, brand, type, fuelType,transmissio
 }
 
 
-var model;
-var colour;
-var lastServiceMileage;
-var availability;
+
 // var frontImageView;
 // var backImageView;
 // var sideImageView;
@@ -240,6 +237,10 @@ var availability;
 //     });
 // }
 
+var model;
+var colour;
+var lastServiceMileage;
+var availability;
 // Update car details
 $("#btnUpdate").click(function () {
 
@@ -253,6 +254,10 @@ $("#btnUpdate").click(function () {
     let priceForExtraKm = $("#txtVCcperex").val();
     let dailyRate =  $("#txtDai").val();
     let monthlyRate = $("#txtMn").val();
+    // let frontView = $("#uploadUImFV").val();
+    // let backView = $("#uploadUImBV").val();
+    // let sideView =  $("#uploadUImSV").val();
+    // let interiorView = $("#uploadUIImV").val();
 
 
     var car = {
@@ -266,20 +271,15 @@ $("#btnUpdate").click(function () {
         priceForExtraKm: priceForExtraKm,
         dailyRate: dailyRate,
         monthlyRate: monthlyRate,
-
-
+        // image_1:frontView,
+        // image_2:backView,
+        // image_3:sideView,
+        // image_4:interiorView,
         model: model,
         colour: colour,
         lastServiceMileage: lastServiceMileage,
         availability: availability,
 
-
-
-
-        // cusName:name,
-        // drivingLicenceNumber: licenceNum,
-        // date:date,
-        // imageLocation:image
     }
 
     $.ajax({
@@ -287,8 +287,13 @@ $("#btnUpdate").click(function () {
         method: 'put',
         contentType:"application/json",
         data:JSON.stringify(car),
-        dataType:"json",
+        // dataType:"json",
         success: function (res) {
+            model=res.data.model;
+            colour= res.data.colour;
+            lastServiceMileage= res.data.lastServiceMileage;
+            availability= res.data.availability;
+            updateCarImages(registrationId);
             alert(res.message);
             loadAllCars();
         },
@@ -300,6 +305,63 @@ $("#btnUpdate").click(function () {
     });
 });
 
+
+function updateCarImages(registrationNum) {
+
+    let frontViewFile = $("#uploadUImFV")[0].files[0];
+    let backViewFile = $("#uploadUImBV")[0].files[0];
+    let sideViewFile = $("#uploadUImSV")[0].files[0];
+    let interiorViewFile = $("#uploadUIImV")[0].files[0];
+
+    let frontFileName = registrationNum + "-image_1-" + $("#uploadUImFV")[0].files[0].name;
+    let backFileName = registrationNum + "-image_2-" + $("#uploadUImBV")[0].files[0].name;
+    let sideFileName = registrationNum + "-image_3-" + $("#uploadUImSV")[0].files[0].name;
+    let interiorFileName = registrationNum + "-image_4-" + $("#uploadUIImV")[0].files[0].name;
+
+
+    var data = new FormData();
+
+    data.append("image_1", frontViewFile, frontFileName);
+    data.append("image_2", backViewFile, backFileName);
+    data.append("image_3", sideViewFile, sideFileName);
+    data.append("image_4", interiorViewFile, interiorFileName);
+
+
+    $.ajax({
+        url: baseURL + "car/uploadImg/" + registrationNum,
+        method: "PUT",
+        async: true,
+        contentType: false,
+        processData: false,
+        data: data,
+        success: function (res) {
+            console.log("Uploaded");
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: "Images Upload Successfully",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        },
+        error: function (error) {
+            let errorReason = JSON.parse(error.responseText);
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: "Images Not Upload Successfully",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
+    });
+}
+
+
+
+
+
+
 $("#btnDelete").click(function () {
     let registrationId = $("#txtCNu").val();
     $.ajax({
@@ -308,6 +370,7 @@ $("#btnDelete").click(function () {
         dataType:"json",
         success: function (resp) {
             alert(resp.message);
+            // resp.data.image_1;
             loadAllCars();
         },
         error:function (error){

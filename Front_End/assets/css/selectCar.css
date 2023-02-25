@@ -289,11 +289,12 @@
 
 #Ldp{
     position: absolute;
-    top: 131px;
-    left: 192px;
+    top: 118px;
+    left: 185px;
     border-radius: 5px;
     font-size: 15px;
     font-weight: bold;
+    width: 126px;
 }
 
 #Dap{

@@ -41,7 +41,7 @@
 </head>
 <body>
 <!--          //////////////////// Home Page/////////////////////-->
-<header class="main ui" id="headContent" style="display: none">
+<header class="main ui" id="headContent" style="display: block">
 
 <!--    <section class="home">-->
 
@@ -76,7 +76,7 @@
 
 </header>
 
-<main class="main1" id="mainh" style="display: none" >
+<main class="main1" id="mainh" style="display: block" >
     <section class="home">
         <div id="hn1">RENT</div>
         <div id="hn2">NOW</div>
@@ -94,7 +94,7 @@
     </section>
 </main>
 
-<main class="main2" id="main3" style="display: none">
+<main class="main2" id="main3" style="display: block">
     <!--       why People Like Us?-->
     <section class="wplt">
         <h1 id="wplt1">Why People Like Us?</h1>
@@ -114,7 +114,7 @@
 </main>
 
              <!--=========================footer============================-->
-<section id="foot" style="display: none">
+<section id="foot" style="display: block">
     <footer id="foo">
         <section class="f2">
             <section class="ql">
@@ -453,13 +453,13 @@
 </div>
 
             <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-                <div class="swiper-wrapper">
+                <div class="swiper-wrapper" id="selectCar" style="top: 178px;position: absolute;width: 339px;">
 
                     <div class="swiper-slide">
                         <div class="testimonial-wrap">
                             <div class="testimonial-item">
                                 <img src="assets/images/photo_2023-02-11_09-33-08.jpg" class="testimonial-img" alt="">
-                                <h3>Suzuki Alto - Premium - Manual</h3>
+                                <h3 id="hcarName">Suzuki Alto - Premium - Manual</h3>
                                 <div>
                                 <h4 id="Da">Daily</h4>
                                 <h4 id="Mo">Monthly</h4>
@@ -700,7 +700,7 @@
 </main>
 
 <!--       ============================Admin DashBoard Main====================================-->
-    <section class="adminDash1" style="display:block;">
+    <section class="adminDash1" style="display:none;">
         <div id="admindashli"></div>
         <h3 id="Acr">Car Rental</h3>
         <h4 id="Acr1">Admin</h4>
@@ -763,7 +763,7 @@
     </section>
 
 <!--       ============================Admin DashBoard====================================-->
-<main class="adminDashM2" style="display:block;">
+<main class="adminDashM2" style="display:none;">
     <section class="adminDash2" id="adminDash" style="display:block;">
 
         <h3 id="Ads">Daily Summery</h3>
@@ -1448,6 +1448,36 @@
             </div>
         </div>
 
+        <div class="row">
+
+            <div class="col-6" id="uploadUFV" style="position: absolute;left: 1003px;width: 273px;top: 158px;">
+                <label for="register-form-NIC-image" class="form-label ">Upload Front View</label>
+                <input style="border: 1px solid gray" class="form-control  " type="file" id="uploadUImFV" name="carSideView">
+            </div>
+
+            <div class="col-6" id="uploadUBV" style="position: absolute;left: 1003px;width: 273px;top: 234px;">
+                <label for="register-form-NIC-image" class="form-label ">Upload Back View</label>
+                <input style="border: 1px solid gray" class="form-control  " type="file" id="uploadUImBV" name="carInteriorView">
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-6" id="uploadUSIV" style="position: absolute;left: 1003px;width: 273px;top: 307px;">
+                <label for="register-form-NIC-image" class="form-label ">Upload Side View</label>
+                <input style="border: 1px solid gray" class="form-control  " type="file" id="uploadUImSV" name="carSideView">
+            </div>
+
+            <div class="col-6" id="uploadUImV" style="position: absolute;left: 519px;width: 273px;top: 349px;">
+                <label for="register-form-NIC-image" class="form-label ">Upload Interior View</label>
+                <input style="border: 1px solid gray" class="form-control  " type="file" id="uploadUIImV" name="carInteriorView">
+            </div>
+
+        </div>
+
+
+
         <div class=".sub-detail-container" style="position: absolute;top: 67px;width: 50%;left: 586px;">
             <div class="w-100 d-flex justify-content-between">
 
@@ -1578,6 +1608,7 @@
 <script src="controllers/DriverController.js"></script>
 <script src="controllers/CustomerLoginController.js"></script>
 <script src="controllers/AddToCartController.js"></script>
+<script src="controllers/CarRentalController.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.37/dist/sweetalert2.all.min.js"></script>
 <!--<script src="controllers/PurchaseOrderController.js"></script>-->
 </body>
