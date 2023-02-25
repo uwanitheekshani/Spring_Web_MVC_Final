@@ -32,6 +32,4 @@ public class Rental {
     @OneToMany(mappedBy = "rental",cascade = CascadeType.ALL)
     private List<RentDetails> rentDetails;
 
-
-
 }

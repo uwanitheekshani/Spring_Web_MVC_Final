@@ -30,6 +30,4 @@ public class Customer {
     private String drivingLicenceNumber;
     private String imageLocation;
 
-    @OneToMany(mappedBy = "cusNic")
-    private List<Rental> rentalDetails;
 }

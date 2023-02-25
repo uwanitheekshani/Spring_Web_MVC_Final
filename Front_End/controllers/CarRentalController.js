@@ -28,7 +28,7 @@ function carAppend(){
                                 <h4 id="Mop">${car.monthlyRate}</h4>
                                 <h4 id="Ldpp">${car.monthlyRate}</h4>
 
-                                <button class="btnAddToCart" type="submit">Add To Cart</button>
+                              <button class="cart1" id="${car.registrationId}" type="button">Add To Cart</button>
                                 </div>
 
                                 <div class="carD">
@@ -37,12 +37,14 @@ function carAppend(){
                                     <h4 id="Tr">Transmission</h4>
                                     <h4 id="Fu">Fuel</h4>
                                     <h4 id="Nop">No Of Passengers</h4>
+                                    <h4 id="cnumber">Car Num</h4>
 
                                     <h4 id="Bri">${car.brand}</h4>
                                     <h4 id="Tyi">${car.type}</h4>
                                     <h4 id="Tri">${car.transmissionType}</h4>
                                     <h4 id="Fui">${car.fuelType}</h4>
                                     <h4 id="Nopf">${car.noOfPassengers}</h4>
+                                    <h4 id="Cnum">${car.registrationId}</h4>
 
                                 </div>
 
@@ -51,8 +53,74 @@ function carAppend(){
                     </div>`;
     $("#selectCar").append(d);
              }
+            setCarFieldValues("","","","","", "", "", "","");
+        }
+        });
+}
+
+
+let carDetails = [];
+function setCarFieldValues(dailyRate, monthlyRate, lossDamageAmount, brand, type, transmission, Fuel, noOfPassengers, carNum) {
+
+    carDetails.push(dailyRate);
+    carDetails.push(monthlyRate);
+    carDetails.push(lossDamageAmount);
+    carDetails.push(brand);
+    carDetails.push(type);
+    carDetails.push(transmission);
+    carDetails.push(Fuel);
+    carDetails.push(noOfPassengers);
+    carDetails.push(carNum);
+
+}
+
+function loadCheckCars(id){
+    let from=$("#txtFromDate").val();
+    let to=$("#txtToDate").val();
+    let selectDri=$("#selectDriver").val();
+    let lossPaySlip=$("#lossDP2").val();
+
+    $.ajax({
+        url: baseURL+"car?registrationId="+id,
+        method :"get",
+        dataType:"json",
+        success: function (resp) {
+            console.log(resp);
+            console.log(resp.data);
+
+            let lossDamagePrice="";
+
+            if(resp.data.type=="General"){
+                lossDamagePrice=10000;
+            }else if (resp.data.type=="Premium"){
+                lossDamagePrice=15000;
+            }else{
+                lossDamagePrice=20000;
+            }
+
+            $("#CheckReTable").append("<tr><td>"+resp.data.brand+"</td><td>"+resp.data.dailyRate+"</td><td>"+resp.data.monthlyRate+"</td><td>"+lossDamagePrice+"</td><td>"+from+"</td><td>"+to+"</td><td>"+selectDri+"</td><td>"+lossPaySlip+"</td></tr>")
+
+
+        },
+        error: function(error) {
+            let prase = JSON.parse(error.responseText);
 
         }
         });
 
+    // for (let check of carDetails) {
+    //     var row= `<tr><td>${check.brand}</td><td>${check.dailyRate}</td>
+    //         <td>${check.monthlyRate}</td><td>""</td><td>${from}</td><td>${to}</td><td>${to}</td><td>${selectDri}</td><td>${lossPaySlip}</td></tr>`;
+    //     $("#CheckReTable").append(row);
+    // }
 }
+
+$('body').on('click', '.cart1', function() {
+    alert(this.id);
+    loadCheckCars(this.id);
+});
+
+// $("#c").click(function () {
+//     console.log("gdhwdvhw");
+//     loadCheckCars();
+// });

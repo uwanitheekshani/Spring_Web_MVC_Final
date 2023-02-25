@@ -10,20 +10,30 @@ import java.time.LocalDate;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
 @ToString
 @Data
+@IdClass(RentalDetails_PK.class)
+@Entity
 public class RentDetails {
     @Id
     String rentalId;
-    @ManyToOne
-    private Rental rental;
-    @ManyToOne
-    private Driver driver;
-    @ManyToOne
-    private Car car;
+    @Id
+    String registrationId;
+    @Id
+    String driver_id;
     private String rental_status;
     private String payment_slip;
     private LocalDate pickupDate;
     private LocalDate returnDate;
+
+    @ManyToOne
+    @JoinColumn(name = "driver_id",referencedColumnName = "driver_id",insertable = false,updatable = false)
+    private Driver driver;
+    @ManyToOne
+    @JoinColumn(name = "registrationId",referencedColumnName = "registrationId",insertable = false,updatable = false)
+    private Car car;
+
+    @ManyToOne
+    @JoinColumn(name = "rentalId",referencedColumnName = "rentalId",insertable = false,updatable = false)
+    private Rental rental;
 }

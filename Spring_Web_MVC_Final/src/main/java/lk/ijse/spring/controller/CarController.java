@@ -76,6 +76,13 @@ public class CarController {
         return new ResponseUtil("200",registrationId+" Deleted",null);
     }
 
+    @GetMapping(params = "registrationId")
+    public ResponseUtil getCarDetail(String registrationId){
+        CarDTO carDetail = service.getCarDetail(registrationId);
+        System.out.println(carDetail.toString());
+        return new ResponseUtil("200","Get",carDetail);
+    }
+
 //    @GetMapping(params = {"registrationId"},produces = MediaType.APPLICATION_JSON_VALUE)
 //    public ResponseUtil checkCar(String registrationId) {
 //        CarDTO carDTO = service.searchCarByRegistrationId(registrationId);

@@ -569,5 +569,24 @@
     color: #0a53be;
 }
 
+#cnumber{
+    position: absolute;
+    top: 131px;
+    left: 546px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    width: 67px;
+}
+
+#Cnum{
+    position: absolute;
+    top: 170px;
+    left: 551px;
+    font-size: 15px;
+    color: #0a53be;
+    width: 63px;
+}
+
 
 

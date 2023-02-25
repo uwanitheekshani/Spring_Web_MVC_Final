@@ -17,7 +17,7 @@ import java.util.List;
 @Entity
 public class Driver {
     @Id
-    private String driverId;
+    private String driver_id;
     private String name;
     private String nic;
     private String drivingLicenceNum;
