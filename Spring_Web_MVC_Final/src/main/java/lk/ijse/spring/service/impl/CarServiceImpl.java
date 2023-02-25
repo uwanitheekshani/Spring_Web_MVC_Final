@@ -46,7 +46,10 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public void deleteCar(String id) {
-
+        if (!repo.existsById(id)){
+            throw new RuntimeException("Car "+id+" Not Available to Delete..!");
+        }
+        repo.deleteById(id);
     }
 
     @Override
@@ -96,6 +99,11 @@ public class CarServiceImpl implements CarService {
         } else {
             throw new RuntimeException("User Not Found");
         }
+    }
+
+    @Override
+    public CarDTO searchCarByRegistrationId(String registrationId) {
+        return mapper.map( repo.getCarByRegistrationId(registrationId),CarDTO.class);
     }
 
 //    @Override

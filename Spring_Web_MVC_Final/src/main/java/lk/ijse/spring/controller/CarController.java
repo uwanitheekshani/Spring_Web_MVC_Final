@@ -70,6 +70,16 @@ public class CarController {
         return new ResponseUtil("200"," Success",allCars);
     }
 
+    @DeleteMapping(params = "registrationId")
+    public ResponseUtil deleteCar(String registrationId){
+        service.deleteCar(registrationId);
+        return new ResponseUtil("200",registrationId+" Deleted",null);
+    }
 
+//    @GetMapping(params = {"registrationId"},produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseUtil checkCar(String registrationId) {
+//        CarDTO carDTO = service.searchCarByRegistrationId(registrationId);
+//        return new ResponseUtil("200", "Ok", carDTO);
+//    }
 
 }

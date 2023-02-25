@@ -71,6 +71,7 @@ $("#btnAddC2").click(function (){
         })
     }
 
+
     function uploadCarImages(registrationNum) {
 
         let frontViewFile = $("#uploadFVI")[0].files[0];
@@ -151,10 +152,12 @@ function loadAllCars() {
         url: baseURL+"car",
         dataType: "json",
         success: function (resp) {
+
             console.log(resp);
             for (let car of resp.data) {
                 var row = '<tr><td>' + car.registrationId + '</td><td>' + car.brand + '</td><td>' + car.type + '</td><td>' + car.fuelType + '</td><td>' + car.transmissionType + '</td><td>' + car.noOfPassengers + '</td><td>' + car.freeMileage + '</td><td>' + car.priceForExtraKm + '</td><td>' + car.dailyRate + '</td><td>' + car.monthlyRate + '</td></tr>';
                 $("#carViewTable").append(row);
+
             }
             bindCarRowClickEvents();
             setCarTextFieldValues("","","","","","","","","","");
@@ -206,6 +209,113 @@ function setCarTextFieldValues(registrationId, brand, type, fuelType,transmissio
     $("#txtMn").val(monthlyRate);
     $("#txtFT").val(fuelType);
 }
+
+
+var model;
+var colour;
+var lastServiceMileage;
+var availability;
+// var frontImageView;
+// var backImageView;
+// var sideImageView;
+// var interiorImageView;
+
+
+
+// function getCarDetails(){
+//     let registrationId =  $("#txtCNu").text();
+//     $.ajax({
+//         url: baseURL+"car?registrationId=" + registrationId,
+//         method: "get",
+//         success(resp) {
+//
+//             frontImageView=resp.data.image_1;
+//             backImageView=resp.data.image_2;
+//
+//             $("#txtBManageCustomerID").val(resp.data.customer.custNICNumber);
+//             $("#txtBManageCustomerName").val(resp.data.customer.custName);
+//
+//
+//         }
+//     });
+// }
+
+// Update car details
+$("#btnUpdate").click(function () {
+
+    let registrationId = $("#txtCNu").val();
+    let brand = $("#txtVCbrnd").val();
+    let type = $("#txtCT").val();
+    let fuelType =$("#txtFT").val();
+    let transmissionType = $("#txtVCTrans").val();
+    let noOfPassengers = $("#txtNOP").val();
+    let freeMileage = $("#txtFM").val();
+    let priceForExtraKm = $("#txtVCcperex").val();
+    let dailyRate =  $("#txtDai").val();
+    let monthlyRate = $("#txtMn").val();
+
+
+    var car = {
+        registrationId: registrationId,
+        brand: brand,
+        type: type,
+        fuelType: fuelType,
+        transmissionType: transmissionType,
+        noOfPassengers: noOfPassengers,
+        freeMileage: freeMileage,
+        priceForExtraKm: priceForExtraKm,
+        dailyRate: dailyRate,
+        monthlyRate: monthlyRate,
+
+
+        model: model,
+        colour: colour,
+        lastServiceMileage: lastServiceMileage,
+        availability: availability,
+
+
+
+
+        // cusName:name,
+        // drivingLicenceNumber: licenceNum,
+        // date:date,
+        // imageLocation:image
+    }
+
+    $.ajax({
+        url: baseURL+'car',
+        method: 'put',
+        contentType:"application/json",
+        data:JSON.stringify(car),
+        dataType:"json",
+        success: function (res) {
+            alert(res.message);
+            loadAllCars();
+        },
+        error:function (error){
+            let cause= JSON.parse(error.responseText).message;
+            alert(cause);
+        }
+
+    });
+});
+
+$("#btnDelete").click(function () {
+    let registrationId = $("#txtCNu").val();
+    $.ajax({
+        url: baseURL+"car?registrationId=" + registrationId + "",
+        method: "delete",
+        dataType:"json",
+        success: function (resp) {
+            alert(resp.message);
+            loadAllCars();
+        },
+        error:function (error){
+            alert(JSON.parse(error.responseText).message);
+        }
+    });
+});
+
 
 
 

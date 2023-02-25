@@ -15,5 +15,7 @@ public interface CarRepo extends JpaRepository<Car,String> {
     @Query(value = "UPDATE Car SET image_1=:image_1,image_2=:image_2,image_3=:image_3,image_4=:image_4 WHERE registrationId=:registrationId", nativeQuery = true)
     void updateCarFilePaths(@Param("image_1") String image_1, @Param("image_2") String image_2, @Param("image_3") String image_3, @Param("image_4") String image_4, @Param("registrationId") String registrationId);
 
+    Car getCarByRegistrationId(String registrationId);
+
 //    Car findCarByBrand(String brand);
 }

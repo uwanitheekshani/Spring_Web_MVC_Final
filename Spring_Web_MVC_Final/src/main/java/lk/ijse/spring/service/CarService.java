@@ -31,5 +31,7 @@ public interface CarService {
 
     void uploadCarImages(String frontPath, String backPath, String sidePath, String InteriorPath, String registrationNum);
 
+    CarDTO searchCarByRegistrationId(String registrationId);
+
 //    CarDTO searchCar(String brand);
 }
