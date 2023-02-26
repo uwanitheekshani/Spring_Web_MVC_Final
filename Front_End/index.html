@@ -448,7 +448,12 @@
         <button class="btnSearch" type="submit">Search</button>
     </form>
 
-    <button class="btnClearAll" type="submit">Clear All</button>
+    <button class="btnClearAll" type="button">Clear All</button>
+
+    <select class="form-selectD" aria-label="Default select example" id="selectDriver" style="position: absolute;width: 100px;height: 33px;left: 1018px;top: 147px;">
+        <option >Driver</option>
+        <option >None</option>
+    </select>
 
 </div>
 
@@ -541,7 +546,7 @@
 
 <!--       ============================Check Out==================================-->
 <main class="checkOut" id="checkOutContent" style="display:none;">
-    <section class="checko">
+    <section class="checko" id="checko2">
         <h2 id="checko1">Check Out --></h2>
 
         <div class="card-body2">
@@ -588,7 +593,7 @@
             </div>
 
         <div class="col-md-12 mt-4" id="CheckRe" style="height:180px; overflow-y: scroll">
-            <table class="table table-bordered text-white">
+            <table class="table table-bordered text-white" id="myTable">
                 <thead class="bg-primary">
                 <tr>
                     <th>Car</th>
@@ -598,29 +603,25 @@
                     <th>From</th>
                     <th>To</th>
                     <th>Driver</th>
-                    <th>Payment Slip</th>
+<!--                    <th>Payment Slip</th>-->
                 </tr>
                 </thead>
                 <tbody class="bg-light text-dark" id="CheckReTable">
-<!--                <tr>-->
 
-<!--                    <td>-->
-<!--                        <select class="form-selectD" aria-label="Default select example" id="selectDriver">-->
-<!--&lt;!&ndash;                                  <option selected>Driver</option>&ndash;&gt;-->
-<!--                                  <option value="1">Driver</option>-->
-<!--                                  <option value="2">None</option>-->
-<!--                        </select>-->
-<!--                    </td>-->
-<!--                    <td>-->
 
-<!--                        <div class="col-6" id="uploadLIC">-->
-<!--                            <input style="width: 259px;border: 1px solid gray" class="form-control  " type="file" id="lossDP2">-->
-<!--                            </div>-->
 
-<!--                    </td>-->
-<!--                </tr>-->
                 </tbody>
             </table>
+        </div>
+
+<!--        <select class="form-selectD" aria-label="Default select example" id="selectDriver" style="position: absolute;width: 100px;height: 33px;left: 1275px;top: 196px;">-->
+<!--            <option >Driver</option>-->
+<!--            <option >None</option>-->
+<!--        </select>-->
+
+        <div class="col-6" id="uploadLIC" style="position: absolute;left: 1002px;top: 66px;">
+            <label for="register-form-NIC-image" class="form-label ">Loss Damage Payment Slip</label>
+            <input style="width: 259px;border: 1px solid gray" class="form-control  " type="file" id="lossDP2">
         </div>
 
     </section>

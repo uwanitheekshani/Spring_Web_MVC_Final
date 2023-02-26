@@ -28,7 +28,7 @@ function carAppend(){
                                 <h4 id="Mop">${car.monthlyRate}</h4>
                                 <h4 id="Ldpp">${car.monthlyRate}</h4>
 
-                              <button class="cart1" id="${car.registrationId}" type="button">Add To Cart</button>
+                              <button class="cart1" id="${car.registrationId}" type="button" style="position: absolute;top: 205px;left: 109px;background-color: orange;">Add To Cart</button>
                                 </div>
 
                                 <div class="carD">
@@ -45,6 +45,8 @@ function carAppend(){
                                     <h4 id="Fui">${car.fuelType}</h4>
                                     <h4 id="Nopf">${car.noOfPassengers}</h4>
                                     <h4 id="Cnum">${car.registrationId}</h4>
+                                  
+
 
                                 </div>
 
@@ -80,6 +82,7 @@ function loadCheckCars(id){
     let selectDri=$("#selectDriver").val();
     let lossPaySlip=$("#lossDP2").val();
 
+
     $.ajax({
         url: baseURL+"car?registrationId="+id,
         method :"get",
@@ -98,29 +101,17 @@ function loadCheckCars(id){
                 lossDamagePrice=20000;
             }
 
-            $("#CheckReTable").append("<tr><td>"+resp.data.brand+"</td><td>"+resp.data.dailyRate+"</td><td>"+resp.data.monthlyRate+"</td><td>"+lossDamagePrice+"</td><td>"+from+"</td><td>"+to+"</td><td>"+selectDri+"</td><td>"+lossPaySlip+"</td></tr>")
-
+            $("#CheckReTable").append("<tr><td>"+resp.data.brand+"</td><td>"+resp.data.dailyRate+"</td><td>"+resp.data.monthlyRate+"</td><td>"+lossDamagePrice+"</td><td>"+from+"</td><td>"+to+"</td><td>"+selectDri+"</td></tr>")
 
         },
         error: function(error) {
             let prase = JSON.parse(error.responseText);
-
         }
         });
-
-    // for (let check of carDetails) {
-    //     var row= `<tr><td>${check.brand}</td><td>${check.dailyRate}</td>
-    //         <td>${check.monthlyRate}</td><td>""</td><td>${from}</td><td>${to}</td><td>${to}</td><td>${selectDri}</td><td>${lossPaySlip}</td></tr>`;
-    //     $("#CheckReTable").append(row);
-    // }
 }
 
 $('body').on('click', '.cart1', function() {
-    alert(this.id);
+    alert("Add to cart "+this.id);
     loadCheckCars(this.id);
 });
 
-// $("#c").click(function () {
-//     console.log("gdhwdvhw");
-//     loadCheckCars();
-// });
