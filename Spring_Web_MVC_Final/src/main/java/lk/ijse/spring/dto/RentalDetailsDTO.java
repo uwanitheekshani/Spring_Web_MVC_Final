@@ -22,7 +22,6 @@ public class RentalDetailsDTO{
     private Driver driver;
     private Car car;
     private String rental_status;
-    private String payment_slip;
     private LocalDate pickupDate;
     private LocalDate returnDate;
 }

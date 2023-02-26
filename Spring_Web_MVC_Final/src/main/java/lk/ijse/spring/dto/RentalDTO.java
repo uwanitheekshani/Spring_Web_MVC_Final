@@ -21,6 +21,7 @@ public class RentalDTO {
     private LocalDate date;
     private LocalDate pickUpDate;
     private LocalDate returnDate;
+    private String payment_slip;
     private double amount;
     private double total_damage_waiver_payment;
     private String pickupLocation;

@@ -22,7 +22,6 @@ public class RentDetails {
     @Id
     String driver_id;
     private String rental_status;
-    private String payment_slip;
     private LocalDate pickupDate;
     private LocalDate returnDate;
 

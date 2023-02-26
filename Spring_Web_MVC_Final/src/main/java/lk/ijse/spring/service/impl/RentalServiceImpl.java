@@ -1,6 +1,10 @@
 package lk.ijse.spring.service.impl;
 
+import lk.ijse.spring.dto.RentalDTO;
+import lk.ijse.spring.entity.Customer;
+import lk.ijse.spring.entity.Rental;
 import lk.ijse.spring.repo.CarRepo;
+import lk.ijse.spring.repo.RentalDetailsRepo;
 import lk.ijse.spring.repo.RentalRepo;
 import lk.ijse.spring.service.CarService;
 import lk.ijse.spring.service.PaymentService;
@@ -17,6 +21,9 @@ public class RentalServiceImpl implements RentalService {
 
     @Autowired
     RentalRepo repo;
+
+    @Autowired
+    RentalRepo rental;
 
     @Autowired
     ModelMapper mapper;
@@ -44,4 +51,31 @@ public class RentalServiceImpl implements RentalService {
         }
         return id;
     }
+
+    @Override
+    public void saveRental(RentalDTO rentalDTO) {
+        if (repo.existsById(rentalDTO.getRentalId())){
+            throw new RuntimeException("Rental "+rentalDTO.getRentalId()+" Already Exist..!");
+        }
+        Rental entity = mapper.map(rentalDTO, Rental.class);
+        repo.save(entity);
+    }
+
+    @Override
+    public void uploadRentalImages(String payment_slip, String rentalId) {
+        if (rental.existsById(rentalId)) {
+            rental.updatePaymentSlipFilePaths(payment_slip, rentalId);
+        } else {
+            throw new RuntimeException("Customer Not Found");
+        }
+    }
+
+//    @Override
+//    public void uploadRentalImages(String payment_slip, Rental rentalId) {
+//        if (rentalDetails.existsById(rentalId)) {
+//            rentalDetails.updatePaymentSlipFilePaths(payment_slip, rentalId);
+//        } else {
+//            throw new RuntimeException("Customer Not Found");
+//        }
+//    }
 }

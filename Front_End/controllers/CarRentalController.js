@@ -1,4 +1,4 @@
-
+generateRentId();
 carAppend();
 
 function carAppend(){
@@ -10,9 +10,7 @@ function carAppend(){
         success: function (resp) {
 
             let i=resp.data.type;
-            // switch (){
-            //
-            // }
+
     for (let car of resp.data) {
     var d = `<div class="swiper-slide">
                         <div class="testimonial-wrap">
@@ -80,7 +78,7 @@ function loadCheckCars(id){
     let from=$("#txtFromDate").val();
     let to=$("#txtToDate").val();
     let selectDri=$("#selectDriver").val();
-    let lossPaySlip=$("#lossDP2").val();
+    // let lossPaySlip=$("#lossDP2").val();
 
 
     $.ajax({
@@ -114,4 +112,18 @@ $('body').on('click', '.cart1', function() {
     alert("Add to cart "+this.id);
     loadCheckCars(this.id);
 });
+
+             // ======================================================================================================
+
+function generateRentId() {
+    $.ajax({
+        url: baseURL + "rental/generateRentalId",
+        method: "GET",
+        success: function (res) {
+            console.log(res)
+            $('#inputRentID').text(res.data);
+        }
+    })
+}
+
 
