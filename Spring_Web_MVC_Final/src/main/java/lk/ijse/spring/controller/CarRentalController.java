@@ -25,7 +25,8 @@ public class CarRentalController {
 
     @GetMapping(path = "/generateRentalId", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil generateRentalId() {
-        return new ResponseUtil("200", "Ok", service.generateRentalId());
+        String s = service.generateRentalId();
+        return new ResponseUtil("200", "Ok", s);
     }
 
 //    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
@@ -51,7 +52,6 @@ public class CarRentalController {
                 return new ResponseUtil("500", "Rental Failed.Try Again Latter", null);
             }
         }
-
 
         service.saveRental(rentalDTO);
         return new ResponseUtil("200", "Registration Successfully....", rentalDTO);

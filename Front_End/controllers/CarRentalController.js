@@ -19,7 +19,9 @@ function carAppend(){
     var d = `<div class="swiper-slide">
                         <div class="testimonial-wrap">
                             <div class="testimonial-item">
-                                <img src=${"http://localhost:8080/Spring_Web_MVC_Final_war/uploads/"+car.image_1} class="testimonial-img" alt="" style="position: relative;width: 200px;height: 200px;">
+                               <div>
+                                <img src=${"http://localhost:8080/Spring_Web_MVC_Final_war/uploads/"+car.image_1} class="testimonial-img" alt="" style="position: relative;width: 107px;top: -23px;height: 115px;">
+                                </div>
                                 <h3>${car.model}</h3>
                                 <div>
                                 <h4 id="Da">Daily</h4>
@@ -122,10 +124,12 @@ $('body').on('click', '.cart1', function() {
 function generateRentId() {
     $.ajax({
         url: baseURL + "rental/generateRentalId",
-        method: "GET",
+        dataType: "json",
         success: function (res) {
-            console.log(res)
-            $('#txtRentalId').text(res.data);
+            for (let rent of res.data){
+                $('#txtRentalId').val(res.data);
+            }
+
         }
     })
 }
@@ -139,15 +143,18 @@ $("#btnsendReq").click(function (){
 var driverId="";
 var array = [];
 var carDetailArray=[];
-
-getDamageWeiverTot();
+var carRegiId="";
+// getDamageWeiverTot();
 let onHoldAmount = 0;
-function getDamageWeiverTot(){
-    for (let i=0; i<carDetailArray.length; i++){
-        onHoldAmount +=  carDetailArray[i].onHold;
-    }
-    return onHoldAmount;
-}
+
+// function getDamageWeiverTot(){
+//     for (let i=0; i<carDetailArray.length; i++){
+//         onHoldAmount+=  carDetailArray[i].onHold;
+//         console.log(JSON.stringify(onHoldAmount));
+//     }
+//     //
+//     return onHoldAmount;
+// }
 
               // ==========================meka rental details ekata adala data tika yawanna=================================
 
@@ -166,15 +173,18 @@ function getRentDetails(rentalId) {
         let carStatus = $("#CheckReTable").children().eq(i).children(":eq(8)").text();
         array.push({rentalId:rentalId,registrationId:carNum,pickUpDate: from,returnDate: to,
             driverOption:driver,driverId:driverId});
+        //
+        carDetailArray.push({rentalId: rentalId,registrationId:carNum,pickUpDate:from,returnDate:to,
+           driverOption:driver,registrationId:carBrand,dailyRate: dailyRate,monthlyRate:monthlyRate,
+        rental_status:carStatus,onHold});
 
-        carDetailArray.push({rentalId:rentalId,registrationId:carNum,pickUpDate: from,returnDate: to,
-            driverOption:driver,driverId:driverId,brand:carBrand,dailyRate:dailyRate,monthlyRate:monthlyRate,
-        availability:carStatus,onHold});
+        // console.log(onHold);
+        // alert(carNum);
     }
     return array;
 }
 
-
+loadAllDrivers();
     //========================meka driver id eka ganna==========================
 //Load all drivers
 function loadAllDrivers() {
@@ -187,6 +197,7 @@ function loadAllDrivers() {
             for (let dri of resp.data){
                 if (dri.availability=="Available"){
                     driverId=dri.driver_id;
+                    // availability="Unvailable";
                     console.log(driverId);
                 }
             }
@@ -196,7 +207,7 @@ function loadAllDrivers() {
 }
 
 
-
+getCusNic();
 
 // =====================meka rental eke nic ekata yawanna ==========================
 var cNic;
@@ -254,7 +265,7 @@ function addRental() {
     let pickUpLocation= $("#txtFPickL").val();
     let returnLocation= $("#txtReturnL").val();
     let rentStat=$("#txtRentalStatus").val();
-    let totalDamageWaiverAmount= $("#txtLossDwa").val(onHoldAmount);
+    let totalDamageWaiverAmount= $("#txtLossDwa").val();
     let rentD = getRentDetails(rentalId);
 
 
@@ -283,10 +294,14 @@ function addRental() {
         contentType: false,
         processData: false,
         // contentType: "application/json",
+        // dataType:"json",
         data: Rdata,
+        // data:JSON.stringify(rent),
         success: function (resp) {
             updateDriverStatus();
-            uploadPaymentSlipImages(rentalId)
+            uploadPaymentSlipImages(rentalId);
+            getCarDet();
+            getDriDet();
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
@@ -308,7 +323,8 @@ function addRental() {
             // $("#ae").text(email);
         },
         error: function (error) {
-            let errorReason = JSON.parse(error.responseText);
+            // alert(JSON.parse(error.responseText).message);
+            // let errorReason = JSON.parse(error.responseText);
             Swal.fire({
                 position: 'top-end',
                 icon: 'error',
@@ -320,22 +336,72 @@ function addRental() {
     })
 }
 
-               // ==============car eke status eka update karanna================================
+// ==============car eke status eka update karanna================================
 
-function updateCarStatus(){
+function getCarId() {
+    for (let i = 0; i < carDetailArray.length; i++) {
+        if ( carRegiId = carDetailArray[i].registrationId){
+            return carRegiId;
+        }
+    }
+}
+function updateCarStatus(registationId,availability,brand,colour,dailyrate,freeMileage,fuelType,image_1,image_2,image_3,image_4,lastServiceMileage,model,monthlyRate,noOfpassengers,priceForExtraKm,transmissionType,type){
+    var upCarStat="";
+    if (carRegiId=registationId) {
+         upCarStat = {
+            registrationId: carRegiId,
+            availability: "Unvailable",
+            brand: brand,
+            colour: colour,
+            dailyRate: dailyrate,
+            freeMileage: freeMileage,
+            fuelType: fuelType,
+            image_1: image_1,
+            image_2: image_2,
+            image_3: image_3,
+            image_4: image_4,
+            lastServiceMileage: lastServiceMileage,
+            model: model,
+            monthlyRate: monthlyRate,
+            noOfpassengers: noOfpassengers,
+            priceForExtraKm: priceForExtraKm,
+            transmissionType: transmissionType,
+            type: type
+        }
+        return upCarStat;
+    }
+
     $.ajax({
         url: baseURL+'car',
         method: 'put',
         contentType:"application/json",
-        // data:JSON.stringify(customer),
+        data:JSON.stringify(upCarStat),
         dataType:"json",
         success: function (res) {
+            alert(res.message);
+            // loadAllCustomers();
+        },
+        error:function (error){
+            let cause= JSON.parse(error.responseText).message;
+            alert(cause);
+        }
 
-            for (let car of carDetailArray){
-               if (car.availability=res.availability){
-                   res.availability="Unavailable";
-               }
-            }
+    });
+
+}
+
+
+function getCarDet(){
+
+    $.ajax({
+        url: baseURL+'car',
+        method: 'get',
+        dataType:"json",
+        success: function (res) {
+             updateCarStatus(res.data.registrationId,res.data.availability,res.data.brand,res.colour,res.data.dailyRate,
+                 res.data.freeMileage,res.data.fuelType,res.data.image_1,res.data.image_2,res.data.image_3,res.data.image_4,res.data.lastServiceMileage,
+                 res.data.model,res.data.monthlyRate,res.data.noOfPassengers,res.data.priceForExtraKm,res.data.transmissionType,res.data.type);
+
             // alert(res.message);
         },
         error:function (error){
@@ -345,22 +411,62 @@ function updateCarStatus(){
     });
 }
 
+// var driStatus;
 
                 // ===============driver eke status eka upadate karanna==============================
-function updateDriverStatus(){
+
+function getDrId() {
+    for (let i = 0; i < carDetailArray.length; i++) {
+        if (driverId = carDetailArray[i].driverId) {
+            return driverId;
+        }
+    }
+}
+
+function updateDriverStatus(driver_id,availability,drivingLicenceNumber,name,nic){
+    var upDriStat="";
+
+    if (driverId=driver_id) {
+        upDriStat = {
+            driver_id:driverId,
+            availability:"Unavailable",
+            driverLicenceNum:drivingLicenceNumber,
+            name:name,
+            nic:nic
+        }
+        return upDriStat;
+    }
+
     $.ajax({
         url: baseURL+'driver',
         method: 'put',
         contentType:"application/json",
-        // data:JSON.stringify(customer),
+        data:JSON.stringify(upDriStat),
         dataType:"json",
         success: function (res) {
 
-            for (let dri of res.data){
-                if (dri.driver_id=driverId){
-                    dri.data.availability="Unavailable";
-                }
-            }
+            // for (let dri of res.data){
+            //     if (dri.driver_id=driverId){
+            //         dri.data.availability="Unavailable";
+            //     }
+            // }
+            alert(res.message);
+        },
+        error:function (error){
+            let cause= JSON.parse(error.responseText).message;
+            alert(cause);
+        }
+    });
+}
+
+function getDriDet(){
+
+    $.ajax({
+        url: baseURL+'driver',
+        method: 'get',
+        dataType:"json",
+        success: function (res) {
+            updateDriverStatus(res.data.driver_id,res.data.availability,res.data.drivingLicenceNumber,res.data.name,res.data.nic);
             // alert(res.message);
         },
         error:function (error){
