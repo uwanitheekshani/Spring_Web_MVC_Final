@@ -19,7 +19,7 @@ function carAppend(){
     var d = `<div class="swiper-slide">
                         <div class="testimonial-wrap">
                             <div class="testimonial-item">
-                                <img src=${"http://localhost:8080/Spring_Web_MVC_Final_war/"+car.image_1} class="testimonial-img" alt="" style="position: relative;width: 200px;height: 200px;">
+                                <img src=${"http://localhost:8080/Spring_Web_MVC_Final_war/uploads/"+car.image_1} class="testimonial-img" alt="" style="position: relative;width: 200px;height: 200px;">
                                 <h3>${car.model}</h3>
                                 <div>
                                 <h4 id="Da">Daily</h4>
@@ -235,44 +235,58 @@ function addRental() {
         dailR=sd.dailyRate;
     }
 
-    let rentalId =  $("#txtRentalId").val();
+    var Rdata = new FormData();
+
+    let paymentSlipName =$("#lossDP2")[0].files[0].name;
+
+    let paymentSlipFile = $("#lossDP2")[0].files[0];
+
     var pick = new Date(p);
     var ret = new Date(r);
     var rentAmount = (ret.getDate() - pick.getDate())*dailR;
     // alert(diffDays)
 
+    let rentalId =  $("#txtRentalId").val();
     let totalRent = $("#txtTotalRent").val(rentAmount);
-    let pickUpLocation= $("#txtFPickL").val();
-    let returnLocation= $("#txtReturnL").val();
-    let totalDamageWaiverAmount= $("#txtLossDwa").val(onHoldAmount);
+    let paymentSlipImage = paymentSlipName;
     let pickupD=p;
     let returnD=r;
+    let pickUpLocation= $("#txtFPickL").val();
+    let returnLocation= $("#txtReturnL").val();
     let rentStat=$("#txtRentalStatus").val();
+    let totalDamageWaiverAmount= $("#txtLossDwa").val(onHoldAmount);
     let rentD = getRentDetails(rentalId);
 
 
     var rent = {
         rentalId : rentalId,
-        amount : amount,
+        amount : totalRent,
         pickupLocation : pickUpLocation,
         returnLocation : returnLocation,
-        total_damage_waiver_payment : totaldamageWaiverAmount,
-        pickUpDate : drivingLicenceNumber,
-        nic:cNic
+        total_damage_waiver_payment : totalDamageWaiverAmount,
+        pickUpDate : pickupD,
+        returnDate : returnD,
+        rental_status:rentStat,
+        cusNic:cNic,
+        payment_slip:"uploads/"+ paymentSlipImage,
+        rentDetails:rentD
 
-        // returnDate : email,
-        // password : password,
-        // user_name:user_name,
     }
+
+    Rdata.append("rImageFile" , paymentSlipFile)
+    Rdata.append("rental", new Blob([JSON.stringify(rent)], {type: "application/json"}))
 
     $.ajax({
         url: baseURL + "rental",
-        method: "POST",
-        contentType: "application/json",
-        data: JSON.stringify(rent),
+        method: "post",
+        async: true,
+        contentType: false,
+        processData: false,
+        // contentType: "application/json",
+        data: Rdata,
         success: function (resp) {
             updateDriverStatus();
-            uploadCustomerImages(rentalId);
+            uploadPaymentSlipImages(rentalId)
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
@@ -364,19 +378,19 @@ function uploadPaymentSlipImages(rentalId) {
 
     let paymentFile = $("#lossDP2")[0].files[0];
 
-    let paymentFileName = nicNum + "-imageLocation-" + $("#lossDP2")[0].files[0].name;
+    let paymentFileName = rentalId + "-payment_slip-" + $("#lossDP2")[0].files[0].name;
 
-    var data = new FormData();
+    var dataP = new FormData();
 
-    data.append("imageLocation", nicFile, nicFileName);
+    dataP.append("payment_slip", paymentFile, paymentFileName);
 
     $.ajax({
-        url: baseURL + "customer/uploadImg/" + nicNum,
-        method: "PUT",
+        url: baseURL + "rental/uploadImg/" + rentalId,
+        method: "Post",
         async: true,
         contentType: false,
         processData: false,
-        data: data,
+        data: dataP,
         success: function (res) {
             console.log("Uploaded");
             Swal.fire({

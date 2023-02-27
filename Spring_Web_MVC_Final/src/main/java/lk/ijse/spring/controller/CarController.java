@@ -55,37 +55,6 @@ public class CarController {
     }
 
 
-
-
-//    @PostMapping(path = "/uploadImg/{registrationNum}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-//    public ResponseUtil uploadImagesAndPath(@RequestPart("image_1") MultipartFile image_1, @RequestPart("image_2") MultipartFile image_2, @RequestPart("image_3") MultipartFile image_3,@RequestPart("image_4") MultipartFile image_4, @PathVariable String registrationNum) {
-//        try {
-//
-//            String projectPath = String.valueOf(new File("E:\\imageSave\\uploads"));
-//            File uploadsDir = new File(projectPath + "\\carImage");
-//            uploadsDir.mkdir();
-//
-//            image_1.transferTo(new File(uploadsDir.getAbsolutePath() + "\\" + image_1.getOriginalFilename()));
-//            image_2.transferTo(new File(uploadsDir.getAbsolutePath() + "\\" + image_2.getOriginalFilename()));
-//            image_3.transferTo(new File(uploadsDir.getAbsolutePath() + "\\" + image_3.getOriginalFilename()));
-//            image_4.transferTo(new File(uploadsDir.getAbsolutePath() + "\\" + image_4.getOriginalFilename()));
-//
-//            String carFrontViewPath = projectPath + "\\carImage" + image_1.getOriginalFilename();
-//            String carBackViewPath = projectPath + "\\carImage" + image_2.getOriginalFilename();
-//            String carSideViewPath = projectPath + "\\carImage" + image_3.getOriginalFilename();
-//            String carInteriorViewPath = projectPath + "\\carImage" + image_4.getOriginalFilename();
-//
-//            service.uploadCarImages(carFrontViewPath, carBackViewPath, carSideViewPath, carInteriorViewPath, registrationNum);
-//
-//            return new ResponseUtil("200", "Uploaded", null);
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            return new ResponseUtil("500",e.getMessage(),null);
-//        }
-//    }
-
-
     @PostMapping(path = "/uploadImg/{registrationId}", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE}, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil uploadImagesAndPath(@RequestPart("image_1") MultipartFile image_1, @RequestPart("image_2") MultipartFile image_2, @RequestPart("image_3") MultipartFile image_3, @RequestPart("image_4") MultipartFile image_4, @PathVariable String registrationId) {
         try {
@@ -94,18 +63,18 @@ public class CarController {
             System.out.println(image_1.getOriginalFilename());
             System.out.println("Upload Image");
 
-            String projectPath = String.valueOf(new File("E:\\imageSave\\uploads"));
-            File uploadsDir = new File(projectPath + "\\carImage");
+            String projectPath = new File(this.getClass().getProtectionDomain().getCodeSource().getLocation().toURI()).getParentFile().getParentFile().getAbsolutePath();
+            File uploadsDir = new File(projectPath + "/uploads");
             uploadsDir.mkdir();
 
             image_1.transferTo(new File(uploadsDir.getAbsolutePath() + "\\" + image_1.getOriginalFilename()));
             image_2.transferTo(new File(uploadsDir.getAbsolutePath() + "\\" + image_2.getOriginalFilename()));
             image_3.transferTo(new File(uploadsDir.getAbsolutePath() + "\\" + image_3.getOriginalFilename()));
             image_4.transferTo(new File(uploadsDir.getAbsolutePath() + "\\" + image_4.getOriginalFilename()));
-            String carFrontViewPath = projectPath + "\\carImage" + image_1.getOriginalFilename();
-            String carBackViewPath = projectPath + "\\carImage" + image_2.getOriginalFilename();
-            String carSideViewPath = projectPath + "\\carImage" + image_3.getOriginalFilename();
-            String carInteriorViewPath = projectPath + "\\carImage" + image_4.getOriginalFilename();
+            String carFrontViewPath = image_1.getOriginalFilename();
+            String carBackViewPath = image_2.getOriginalFilename();
+            String carSideViewPath = image_3.getOriginalFilename();
+            String carInteriorViewPath = image_4.getOriginalFilename();
 
             service.uploadCarImages(carFrontViewPath, carBackViewPath, carSideViewPath, carInteriorViewPath, registrationId);
 
@@ -113,9 +82,11 @@ public class CarController {
 
         } catch (IOException e) {
             e.printStackTrace();
-            return new ResponseUtil("500",e.getMessage(),null);
+            return new ResponseUtil("500", e.getMessage(), null);
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
         }
-
+    return null;
     }
 
 
