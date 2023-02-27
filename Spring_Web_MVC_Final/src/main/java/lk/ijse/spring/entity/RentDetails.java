@@ -21,9 +21,9 @@ public class RentDetails {
     String registrationId;
     @Id
     String driver_id;
-    private String rental_status;
     private LocalDate pickupDate;
     private LocalDate returnDate;
+    private String driverOption;
 
     @ManyToOne
     @JoinColumn(name = "driver_id",referencedColumnName = "driver_id",insertable = false,updatable = false)

@@ -6,7 +6,7 @@ import lk.ijse.spring.entity.Rental;
 
 public interface RentalService {
 
-    public String generateRentalId();
+//    public String generateRentalId();
 
     void saveRental(RentalDTO rentalDTO);
 

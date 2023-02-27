@@ -550,7 +550,7 @@
         <h2 id="checko1">Check Out --></h2>
 
         <div class="form-groupRent" style="position: absolute;left: 754px;top: 74px;">
-            <label for="txtRentalId">RenatlId</label>
+            <label for="txtRentalId">RenatalId</label>
             <input class="form-control" id="txtRentalId" type="text">
             <span class="control-error" id="lblrentalid"></span>
         </div>
@@ -587,14 +587,19 @@
                     <div class="col-6">
                         <div class="form-groupLDA">
                             <label for="txtLossDwa">Total Damage Waiver Amount</label>
-                            <input class="form-control" id="txtLossDwa" type="password">
+                            <input class="form-control" id="txtLossDwa" type="text">
                             <span class="control-error" id="lbllossdma"></span>
                         </div>
                     </div>
                 </div>
 
+                <div class="form-groupRentStat" style="position: absolute;width: 141px;left: 797px;top: 335px;">
+                    <label for="txtRentalStatus">Rental Status</label>
+                    <input class="form-control" id="txtRentalStatus" type="text" value="pending">
+                </div>
+
             </form>
-            <button class="btnSendRent" type="submit">Send Rent</button>
+            <button class="btnSendRent" id="btnsendReq" type="button">Send Rent</button>
 
             </div>
 
@@ -602,6 +607,7 @@
             <table class="table table-bordered text-white" id="myTable">
                 <thead class="bg-primary">
                 <tr>
+                    <th>Car Num</th>
                     <th>Car</th>
                     <th>Daily</th>
                     <th>Monthly</th>
@@ -609,6 +615,7 @@
                     <th>From</th>
                     <th>To</th>
                     <th>Driver</th>
+                    <th>Car Status</th>
 <!--                    <th>Payment Slip</th>-->
                 </tr>
                 </thead>

@@ -71,4 +71,24 @@
     width: 140px;
 }
 
+#cStatus{
+    position: absolute;
+    top: 131px;
+    left: 680px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#cStatusV{
+    position: absolute;
+    top: 170px;
+    left: 680px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #0a53be;
+
+}
+
 

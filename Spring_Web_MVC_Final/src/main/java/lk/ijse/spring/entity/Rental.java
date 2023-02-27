@@ -17,14 +17,16 @@ import java.util.List;
 public class Rental {
     @Id
     private String rentalId;
-    private LocalDate date;
     private LocalDate pickUpDate;
     private LocalDate returnDate;
     private String payment_slip;
     private double amount;
+    private String rental_status;
     private double total_damage_waiver_payment;
     private String pickupLocation;
     private String returnLocation;
+
+
 
     @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
     @JoinColumn(name = "nic",referencedColumnName = "nic",nullable = false)

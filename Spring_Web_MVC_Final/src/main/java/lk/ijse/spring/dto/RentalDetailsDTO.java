@@ -17,11 +17,13 @@ import java.time.LocalDate;
 @Data
 @ToString
 public class RentalDetailsDTO{
-    String rentalId;
+    private String rentalId;
     private Rental rental;
-    private Driver driver;
+    private String registrationId;
+    private String driver_id;
+    private String driverOption;
     private Car car;
-    private String rental_status;
+    private Driver driver;
     private LocalDate pickupDate;
     private LocalDate returnDate;
 }

@@ -3,6 +3,7 @@ package lk.ijse.spring.config;
 import lk.ijse.spring.advicer.AppWideExceptionHandler;
 //import lk.ijse.spring.controller.CustomerController;
 import lk.ijse.spring.controller.CustomerController;
+import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -13,7 +14,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-@ComponentScan(basePackageClasses = {AppWideExceptionHandler.class, CustomerController.class})
+@ComponentScan(basePackages = "lk.ijse.spring")
 @EnableWebMvc
 public class WebAppConfig implements WebMvcConfigurer {
 
@@ -26,5 +27,10 @@ public class WebAppConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/uploads/**").addResourceLocations("/uploads/");
+    }
+
+    @Bean
+    public ModelMapper modelMapper(){
+        return new ModelMapper();
     }
 }

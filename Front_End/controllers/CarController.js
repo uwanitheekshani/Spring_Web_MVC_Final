@@ -8,6 +8,20 @@ $("#btnAddC2").click(function (){
 
     function addCar() {
 
+        var Vdata = new FormData();
+
+        let frontFileName =$("#uploadFVI")[0].files[0].name;
+        let backFileName = $("#uploadBV")[0].files[0].name;
+        let sideFileName = $("#uploadUSV")[0].files[0].name;
+        let interiorFileName =$("#uploadUIV")[0].files[0].name;
+
+        let frontViewFile = $("#uploadFVI")[0].files[0];
+        let backViewFile = $("#uploadBV")[0].files[0];
+        let sideViewFile = $("#uploadUSV")[0].files[0];
+        let interiorViewFile = $("#uploadUIV")[0].files[0];
+
+
+
         let registrationNum = $("#txtRNber").val();
         let transmission = $("#txtTrnsm").val();
         let type = $("#txtType").val();
@@ -22,6 +36,12 @@ $("#btnAddC2").click(function (){
         let colour = $("#txtClr").val();
         let model = $("#txtMdl").val();
         let availability = $("#selectAvailable").val();
+        let image_1 = frontFileName;
+        let image_2 = backFileName;
+        let image_3 = sideFileName;
+        let image_4 = interiorFileName;
+
+
 
         var car = {
             registrationId: registrationNum,
@@ -38,13 +58,27 @@ $("#btnAddC2").click(function (){
             monthlyRate: monthlyRate,
             priceForExtraKm: prizeForExtrakm,
             availability: availability,
+            image_1:"uploads/"+ image_1,
+            image_2:"uploads/"+ image_2,
+            image_3:"uploads/"+ image_3,
+            image_4:"uploads/"+ image_4
         }
+
+        Vdata.append("vImageFile" , frontViewFile)
+        Vdata.append("vImageFile" , backViewFile)
+        Vdata.append("vImageFile" , sideViewFile)
+        Vdata.append("vImageFile" , interiorViewFile)
+        Vdata.append("vehicle", new Blob([JSON.stringify(car)], {type: "application/json"}))
+
 
         $.ajax({
             url: baseURL + "car",
-            method: "POST",
-            contentType: "application/json",
-            data: JSON.stringify(car),
+            method: "post",
+            async: true,
+            contentType: false,
+            processData: false,
+            // contentType: "application/json",
+            data: Vdata,
             success: function (resp) {
                 uploadCarImages(registrationNum);
                 loadAllCars();
@@ -95,7 +129,7 @@ $("#btnAddC2").click(function (){
 
         $.ajax({
             url: baseURL + "car/uploadImg/" + registrationNum,
-            method: "PUT",
+            method: "Post",
             async: true,
             contentType: false,
             processData: false,

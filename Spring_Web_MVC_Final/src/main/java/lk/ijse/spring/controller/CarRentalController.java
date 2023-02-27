@@ -21,10 +21,10 @@ public class CarRentalController {
     @Autowired
     RentalService service;
 
-    @GetMapping(path = "/generateRentalId", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil generateRentalId() {
-        return new ResponseUtil("200", "Ok", service.generateRentalId());
-    }
+//    @GetMapping(path = "/generateRentalId", produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseUtil generateRentalId() {
+//        return new ResponseUtil("200", "Ok", service.generateRentalId());
+//    }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil saveRental(@RequestBody RentalDTO dto){

@@ -7,7 +7,7 @@ $("#btnAddDriver").click(function () {
     let driverAvailable= $("#selectDriverAvailable").val();
 
     var driver={
-        driverId:driverId,
+        driver_id:driverId,
         name:driverName,
         nic:driverNic,
         drivingLicenceNum:driverLicenceNum,

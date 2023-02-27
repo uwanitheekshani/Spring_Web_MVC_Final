@@ -10,7 +10,7 @@ public interface DriverService {
 
     void saveDriver(DriverDTO driverDTO);
 
-    void UpdateDriver(DriverDTO driverDTO);
+    void updateDriver(DriverDTO driverDTO);
 
     void deleteDriver(String id);
 
