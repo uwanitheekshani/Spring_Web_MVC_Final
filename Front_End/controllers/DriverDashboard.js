@@ -31,30 +31,30 @@ $("#btnDlogOut").click(function () {
 
 });
 
-$("#btnDLogIn").click(function () {
-    $("#mainh").css('display','none');
-    $("#main3").css('display','none');
-    $("#foot").css('display','none');
-    $("#storeContent").css('display','none');
-    $("#checkOutContent").css('display','none');
-    $("#accountContent").css('display','none');
-    $("#loginContent").css('display','none');
-    $("#cusRegiContent").css('display','none');
-    $("#cusUpdateContent").css('display','none');
-    $("#admindashMain2").css('display','none');
-    $("#headContent").css('display','none');
-    $("#driverDashLogin").css('display','none');
-    $("#drivershe2").css('display','block');
-
-    $("#adminDash").css('display','none');
-    $("#carContent").css('display','none');
-    $("#veriCusDet").css('display','none');
-    $("#employeeAdd").css('display','none');
-    $("#paymentsDet").css('display','none');
-    $("#reservDet").css('display','none');
-    $("#viewCarDet").css('display','none');
-
-});
+// $("#btnDLogIn").click(function () {
+//     $("#mainh").css('display','none');
+//     $("#main3").css('display','none');
+//     $("#foot").css('display','none');
+//     $("#storeContent").css('display','none');
+//     $("#checkOutContent").css('display','none');
+//     $("#accountContent").css('display','none');
+//     $("#loginContent").css('display','none');
+//     $("#cusRegiContent").css('display','none');
+//     $("#cusUpdateContent").css('display','none');
+//     $("#admindashMain2").css('display','none');
+//     $("#headContent").css('display','none');
+//     $("#driverDashLogin").css('display','none');
+//     $("#drivershe2").css('display','block');
+//
+//     $("#adminDash").css('display','none');
+//     $("#carContent").css('display','none');
+//     $("#veriCusDet").css('display','none');
+//     $("#employeeAdd").css('display','none');
+//     $("#paymentsDet").css('display','none');
+//     $("#reservDet").css('display','none');
+//     $("#viewCarDet").css('display','none');
+//
+// });
 
 $("#btnDSlogOut").click(function () {
     $("#mainh").css('display','block');

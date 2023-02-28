@@ -27,7 +27,7 @@ public class DriverController {
     }
 
     @GetMapping
-    public ResponseUtil getAllCustomer(){
+    public ResponseUtil getAllDrivers(){
         List<DriverDTO> allDrivers = service.getAllDriverDetail();
         return new ResponseUtil("200"," Success",allDrivers);
     }
@@ -36,5 +36,13 @@ public class DriverController {
     public ResponseUtil updateDriver(@RequestBody DriverDTO dto){
         service.updateDriver(dto);
         return new ResponseUtil("200",dto.toString()+" Updated",null);
+    }
+
+    @GetMapping(params = "drivingLiNum")
+    public ResponseUtil checkDriver(String drivingLiNum) {
+        System.out.println(drivingLiNum);
+        DriverDTO driverDTO = service.searchDriverBydriverLicenceNum(drivingLiNum);
+//        System.out.println(adminDTO);
+        return new ResponseUtil("200", "Login Success", driverDTO);
     }
 }

@@ -51,3 +51,74 @@ function clearDriverTextFields() {
     $('#txtDriverLiNum').val("");
     $('#selectDriverAvailable').val("");
 }
+
+
+$("#btnDLogIn").click(function (){
+
+    let drivingLiNum = $("#txtDdUsNa").val();
+    let name = $("#txtDdPass").val();
+
+    $.ajax({
+        url: baseURL+"driver?drivingLiNum="+drivingLiNum,
+        method: "get",
+        dataType:"json",
+        success: function (res) {
+            if (res.data.name==name){
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: "Login Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+
+                    $("#mainh").css('display','none');
+                    $("#main3").css('display','none');
+                    $("#foot").css('display','none');
+                    $("#storeContent").css('display','none');
+                    $("#checkOutContent").css('display','none');
+                    $("#accountContent").css('display','none');
+                    $("#loginContent").css('display','none');
+                    $("#cusRegiContent").css('display','none');
+                    $("#cusUpdateContent").css('display','none');
+                    $("#admindashMain2").css('display','none');
+                    $("#headContent").css('display','none');
+                    $("#driverDashLogin").css('display','none');
+                    $("#drivershe2").css('display','block');
+
+                    $("#adminDash").css('display','none');
+                    $("#carContent").css('display','none');
+                    $("#veriCusDet").css('display','none');
+                    $("#employeeAdd").css('display','none');
+                    $("#paymentsDet").css('display','none');
+                    $("#reservDet").css('display','none');
+                    $("#viewCarDet").css('display','none');
+
+            }else {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: "Invalid driver Id or name",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+            clearDriverLoginTextFields();
+        },
+        error:function(error){
+            var jsObject=JSON.parse(error.responseText);
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: "Invalid driver Id or name",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
+    });
+});
+
+function clearDriverLoginTextFields() {
+    $('#txtDdUsNa').val("");
+    $('#txtDdPass').val("");
+}
