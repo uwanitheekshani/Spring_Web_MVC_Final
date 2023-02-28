@@ -213,7 +213,7 @@ $("#btnUpCus").click(function () {
         dataType:"json",
         success: function (res) {
 
-            // alert(res.message);
+            alert(res.message);
         },
         error:function (error){
             let cause= JSON.parse(error.responseText).message;
