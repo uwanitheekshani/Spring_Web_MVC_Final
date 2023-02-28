@@ -4,6 +4,7 @@ import lk.ijse.spring.dto.RentalDTO;
 import lk.ijse.spring.entity.Customer;
 import lk.ijse.spring.entity.Rental;
 import lk.ijse.spring.repo.CarRepo;
+import lk.ijse.spring.repo.DriverRepo;
 import lk.ijse.spring.repo.RentalDetailsRepo;
 import lk.ijse.spring.repo.RentalRepo;
 import lk.ijse.spring.service.CarService;
@@ -23,7 +24,13 @@ public class RentalServiceImpl implements RentalService {
     RentalRepo repo;
 
     @Autowired
-    RentalRepo rental;
+    RentalDetailsRepo rentalDetailsRepo;
+
+    @Autowired
+    CarRepo carRepo;
+
+    @Autowired
+    DriverRepo driverRepo;
 
     @Autowired
     ModelMapper mapper;
@@ -63,8 +70,8 @@ public class RentalServiceImpl implements RentalService {
 
     @Override
     public void uploadRentalImages(String payment_slip, String rentalId) {
-        if (rental.existsById(rentalId)) {
-            rental.updatePaymentSlipFilePaths(payment_slip, rentalId);
+        if (repo.existsById(rentalId)) {
+            repo.updatePaymentSlipFilePaths(payment_slip, rentalId);
         } else {
             throw new RuntimeException("Customer Not Found");
         }

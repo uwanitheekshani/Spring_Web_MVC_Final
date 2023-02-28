@@ -106,7 +106,7 @@ $("#btnAddC2").click(function (){
     }
 
 
-    function uploadCarImages(registrationNum) {
+function uploadCarImages(registrationNum) {
 
         let frontViewFile = $("#uploadFVI")[0].files[0];
         let backViewFile = $("#uploadBV")[0].files[0];
@@ -186,6 +186,16 @@ function loadAllCars() {
         url: baseURL+"car",
         dataType: "json",
         success: function (resp) {
+
+            model=resp.model;
+            colour=resp.colour;
+            lastServiceMileage=resp.lastServiceMileage;
+            availability=resp.availability;
+            image_1=resp.image_1;
+            image_2=resp.image_2;
+            image_3=resp.image_3;
+            image_4=resp.image_4;
+
 
             console.log(resp);
             for (let car of resp.data) {
@@ -275,6 +285,11 @@ var model;
 var colour;
 var lastServiceMileage;
 var availability;
+var image_1;
+var image_2;
+var image_3;
+var image_4;
+
 // Update car details
 $("#btnUpdate").click(function () {
 
@@ -301,18 +316,21 @@ $("#btnUpdate").click(function () {
         fuelType: fuelType,
         transmissionType: transmissionType,
         noOfPassengers: noOfPassengers,
+
         freeMileage: freeMileage,
         priceForExtraKm: priceForExtraKm,
         dailyRate: dailyRate,
         monthlyRate: monthlyRate,
-        // image_1:frontView,
-        // image_2:backView,
-        // image_3:sideView,
-        // image_4:interiorView,
+
         model: model,
         colour: colour,
         lastServiceMileage: lastServiceMileage,
         availability: availability,
+
+        image_1:image_1,
+        image_2:image_2,
+        image_3:image_3,
+        image_4:image_4
 
     }
 
@@ -323,76 +341,29 @@ $("#btnUpdate").click(function () {
         data:JSON.stringify(car),
         // dataType:"json",
         success: function (res) {
-            model=res.data.model;
-            colour= res.data.colour;
-            lastServiceMileage= res.data.lastServiceMileage;
-            availability= res.data.availability;
-            updateCarImages(registrationId);
-            alert(res.message);
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: "Car Updated Successfully",
+                showConfirmButton: false,
+                timer: 1500
+            });
             loadAllCars();
         },
         error:function (error){
             let cause= JSON.parse(error.responseText).message;
             alert(cause);
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: "Car Updated Failed",
+                showConfirmButton: false,
+                timer: 1500
+            });
         }
 
     });
 });
-
-
-function updateCarImages(registrationNum) {
-
-    let frontViewFile = $("#uploadUImFV")[0].files[0];
-    let backViewFile = $("#uploadUImBV")[0].files[0];
-    let sideViewFile = $("#uploadUImSV")[0].files[0];
-    let interiorViewFile = $("#uploadUIImV")[0].files[0];
-
-    let frontFileName = registrationNum + "-image_1-" + $("#uploadUImFV")[0].files[0].name;
-    let backFileName = registrationNum + "-image_2-" + $("#uploadUImBV")[0].files[0].name;
-    let sideFileName = registrationNum + "-image_3-" + $("#uploadUImSV")[0].files[0].name;
-    let interiorFileName = registrationNum + "-image_4-" + $("#uploadUIImV")[0].files[0].name;
-
-
-    var data = new FormData();
-
-    data.append("image_1", frontViewFile, frontFileName);
-    data.append("image_2", backViewFile, backFileName);
-    data.append("image_3", sideViewFile, sideFileName);
-    data.append("image_4", interiorViewFile, interiorFileName);
-
-
-    $.ajax({
-        url: baseURL + "car/uploadImg/" + registrationNum,
-        method: "PUT",
-        async: true,
-        contentType: false,
-        processData: false,
-        data: data,
-        success: function (res) {
-            console.log("Uploaded");
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: "Images Upload Successfully",
-                showConfirmButton: false,
-                timer: 1500
-            });
-        },
-        error: function (error) {
-            let errorReason = JSON.parse(error.responseText);
-            Swal.fire({
-                position: 'top-end',
-                icon: 'error',
-                title: "Images Not Upload Successfully",
-                showConfirmButton: false,
-                timer: 1500
-            });
-        }
-    });
-}
-
-
-
 
 
 

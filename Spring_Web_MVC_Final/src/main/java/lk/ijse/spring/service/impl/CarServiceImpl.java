@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -40,8 +41,13 @@ public class CarServiceImpl implements CarService {
         if (!repo.existsById(carDTO.getRegistrationId())){
             throw new RuntimeException("Car "+carDTO.getRegistrationId()+" Not Available to Update..!");
         }
-        Car entity = mapper.map(carDTO, Car.class);
-        repo.save(entity);
+        Optional<Car> updateCar = repo.findById(carDTO.getRegistrationId());
+        Car car = updateCar.get();
+        car.setPriceForExtraKm(carDTO.getPriceForExtraKm());
+        car.setDailyRate(carDTO.getDailyRate());
+        car.setMonthlyRate(carDTO.getMonthlyRate());
+        car.setFreeMileage(carDTO.getFreeMileage());
+        repo.save(updateCar.get());
     }
 
     @Override

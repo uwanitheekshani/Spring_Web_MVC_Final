@@ -24,6 +24,7 @@
     <link href="assets/css/driverSchedule.css" rel="stylesheet">
     <link href="assets/css/adminLogin.css" rel="stylesheet">
     <link href="assets/css/updateCustomer.css" rel="stylesheet">
+    <link href="assets/css/driverLogin.css" rel="stylesheet">
 
 
     <!-- font awesome cdn link  -->
@@ -694,7 +695,7 @@
 
         <div class="col-2">
             <div class="form-groupA1">
-                <label for="txtAdUsNa">Admin Email Name</label>
+                <label for="txtAdUsNa">Admin Email</label>
                 <input class="form-control" id="txtAdUsNa" placeholder="Enter Email" required type="text">
                 <span class="control-error" id="lbladusna"></span>
             </div>
@@ -1549,9 +1550,73 @@
 
     </section>
 
-    <!--   ==============================Driver schedule==================================-->
-    <section class="driverSchedule" id="DriverSche" style="display: none">
+<!--    &lt;!&ndash;   ==============================Driver schedule==================================&ndash;&gt;-->
+<!--    <section class="driverSchedule" id="DriverSche" style="display: none">-->
+<!--        <h3 id="drivSch">Driver schedule</h3>-->
+
+<!--        <button class="btn btn-primary" id="btnDSlogOut" style="position: absolute;left: 43px;">LogOut</button>-->
+
+<!--        <select class="form-selectDI" aria-label="Default select example" id="selectDriverId">-->
+<!--            <option selected>Driver ID</option>-->
+<!--            <option value="1">One</option>-->
+<!--            <option value="2">Two</option>-->
+<!--            <option value="3">Three</option>-->
+<!--        </select>-->
+
+<!--        <div id="dri1">-->
+<!--            <h4 id="DN">Name</h4>-->
+<!--            <h4 id="CDNs">K.A.D. Uwani Theekshani</h4>-->
+<!--        </div>-->
+
+<!--        <div id="dri2">-->
+<!--            <h4 id="DNI">NIC</h4>-->
+<!--            <h4 id="DNIs">200061301471</h4>-->
+<!--        </div>-->
+
+<!--        <div id="dri3">-->
+<!--            <h4 id="DLN">Driver Licence Number</h4>-->
+<!--            <h4 id="DLNs">B4516562</h4>-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash;Driver Schedules table&ndash;&gt;-->
+<!--        <div class="col-md-12 mt-4" id="driSchedu" style="height:180px; overflow-y: scroll">-->
+<!--            <table class="table table-bordered text-white">-->
+<!--                <thead class="bg-primary">-->
+<!--                <tr>-->
+<!--                    <th>Customer</th>-->
+<!--                    <th>Driver</th>-->
+<!--                    <th>Car Num</th>-->
+<!--                    <th>Brand</th>-->
+<!--                    <th>Pick Up Date</th>-->
+<!--                    <th>Return Date</th>-->
+<!--                    <th>Pick Up Location</th>-->
+<!--                    <th>Return Location</th>-->
+<!--                </tr>-->
+<!--                </thead>-->
+<!--                <tbody class="bg-light text-dark" id="driScheduTable">-->
+<!--                <tr>-->
+
+<!--                    <td>C00-001</td>-->
+<!--                    <td>D00-001</td>-->
+<!--                    <td>NB-4523</td>-->
+<!--                    <td>Suzuki Alto</td>-->
+<!--                    <td>13/02/2023</td>-->
+<!--                    <td>13/02/2023</td>-->
+<!--                    <td>Store</td>-->
+<!--                    <td>Kaluthara</td>-->
+<!--                </tr>-->
+<!--                </tbody>-->
+<!--            </table>-->
+<!--        </div>-->
+<!--    </section>-->
+</main>
+
+<!--   ==============================Driver schedule==================================-->
+<main lass="driverShe" id="drivershe2" style="display:none;">
+    <section class="driverSchedule" id="DriverSche">
         <h3 id="drivSch">Driver schedule</h3>
+
+        <button class="btn btn-primary" id="btnDSlogOut" style="position: absolute;left: 43px; top: 24px">LogOut</button>
 
         <select class="form-selectDI" aria-label="Default select example" id="selectDriverId">
             <option selected>Driver ID</option>
@@ -1609,7 +1674,29 @@
 </main>
 
 <!--   ==============================Driver login==================================-->
+<main class="logInD" id="driverDashLogin" style="display:none;">
+    <section class="lgmsa">
+        <div id="lgDImage"></div>
+        <h1 id="lgmd1">Log In To Your Account</h1>
+        <button class="btn btn-primary" id="btnDlogOut" style="position: absolute;left: 43px;">LogOut</button>
 
+        <div class="col-2">
+            <div class="form-groupD1">
+                <label for="txtDdUsNa">Driver Id</label>
+                <input class="form-control" id="txtDdUsNa" placeholder="Enter driverId" required type="text">
+                <span class="control-error" id="lblddusna"></span>
+            </div>
+
+            <div class="form-groupD2">
+                <label for="txtDdPass" class="col-sm-2 col-form-label">Name</label>
+                <input type="password" class="form-control" id="txtDdPass" placeholder="Enter name">
+                <span class="control-error" id="lbldpassword"></span>
+            </div>
+            <button class="btn btn-primary" id="btnDLogIn" type="button">LOGIN</button>
+        </div>
+
+    </section>
+</main>
 <!--<main>-->
 <!--    -->
 <!--</main>-->
@@ -1626,6 +1713,7 @@
 <script src="controllers/CustomerLoginController.js"></script>
 <script src="controllers/AddToCartController.js"></script>
 <script src="controllers/CarRentalController.js"></script>
+<script src="controllers/DriverDashboard.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.37/dist/sweetalert2.all.min.js"></script>
 <!--<script src="controllers/PurchaseOrderController.js"></script>-->
 </body>

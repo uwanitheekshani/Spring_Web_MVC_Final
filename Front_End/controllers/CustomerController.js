@@ -212,13 +212,193 @@ $("#btnUpCus").click(function () {
         data:JSON.stringify(customer),
         dataType:"json",
         success: function (res) {
-
-            alert(res.message);
+            // alert(res.message);
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: "Customer Updated Successfully",
+                showConfirmButton: false,
+                timer: 1500
+            });
         },
         error:function (error){
             let cause= JSON.parse(error.responseText).message;
             alert(cause);
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: "Images Not Upload Successfully",
+                showConfirmButton: false,
+                timer: 1500
+            });
         }
 
     });
 });
+
+
+
+             // ===============================Customer validation===========================================
+
+$("#txtFName").focus();
+
+// customer reguler expressions
+const cusNameRegEx = /^[A-z ]{5,20}$/;
+const cusUserNameRegEx = /^[a-z ]{5,10}$/;
+const cusnicRegEx = /^[0-9/A-z. ,]{7,}$/;
+const cusPasswordRegEx = /^[0-9/A-z. ,]{3,}$/;
+const cusEmailRegEx = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/;
+const cusPhoneRegEx = /^07(7|6|8|1|2|5|0|4)-[0-9]{7}$/;
+const cusAddressRegEx = /^[A-z0-9 ,/]{4,20}$/;
+const cusDrivingLicNumdRegEx = /^[0-9]{1,}$/;
+
+let customerValidations = [];
+customerValidations.push({reg: cusNameRegEx, field: $('#txtFName'),error:'Customer Name Pattern is Wrong' });
+customerValidations.push({reg: cusUserNameRegEx, field: $('#txtUserName'),error:'Customer User Name Pattern is Wrong'});
+customerValidations.push({reg: cusnicRegEx, field: $('#txtNIC'),error:'Customer Nic Pattern is Wrong'});
+customerValidations.push({reg: cusPasswordRegEx, field: $('#txtPassword2'),error:'Customer Password Pattern is Wrong'});
+customerValidations.push({reg: cusEmailRegEx, field: $('#txtEmail2'),error:'Customer Email Pattern is Wrong'});
+customerValidations.push({reg: cusPhoneRegEx, field: $('#txtPhone'),error:'Customer Phone Pattern is Wrong'});
+customerValidations.push({reg: cusAddressRegEx, field: $('#txtAddress'),error:'Customer Address Pattern is Wrong'});
+customerValidations.push({reg: cusDrivingLicNumdRegEx, field: $('#txtDLN'),error:'Customer DriverLicenceId Pattern is Wrong'});
+
+
+//disable tab key of all four text fields using grouping selector in CSS
+$("#txtFName,#txtUserName,#txtNIC,#txtPassword2,#txtEmail2,#txtPhone,#txtAddress,#txtDLN,#txtDate,#register-form-NIC-image").on('keydown', function (event) {
+    if (event.key == "Tab") {
+        event.preventDefault();
+    }
+});
+
+
+$("#txtFName,#txtUserName,#txtNIC,#txtPassword2,#txtEmail2,#txtPhone,#txtAddress,#txtDLN").on('keyup', function (event) {
+    checkValidity();
+});
+
+$("#txtFName,#txtUserName,#txtNIC,#txtPassword2,#txtEmail2,#txtPhone,#txtAddress,#txtDLN").on('blur', function (event) {
+    checkValidity();
+});
+
+
+$("#txtFName").on('keydown', function (event) {
+    if (event.key == "Enter" && check(cusNameRegEx, $("#txtFName"))) {
+        $("#txtNIC").focus();
+    } else {
+        focusText($("#txtFName"));
+    }
+});
+
+
+$("#txtNIC").on('keydown', function (event) {
+    if (event.key == "Enter" && check(cusnicRegEx, $("#txtNIC"))) {
+        focusText($("#txtEmail2"));
+    }
+});
+
+
+$("#txtEmail2").on('keydown', function (event) {
+    if (event.key == "Enter" && check(cusEmailRegEx, $("#txtEmail2"))) {
+        focusText($("#txtAddress"));
+    }
+});
+
+$("#txtAddress").on('keydown', function (event) {
+    if (event.key == "Enter" && check(cusAddressRegEx, $("#txtAddress"))) {
+        focusText($("#txtUserName"));
+    }
+});
+
+// $("#txtDate").on('keydown', function (event) {
+//     if (event.key == "Enter" && check(cusAddressRegEx, $("#txtDate"))) {
+//         focusText($("#txtUserName"));
+//     }
+// });
+
+$("#txtUserName").on('keydown', function (event) {
+    if (event.key == "Enter" && check(cusUserNameRegEx, $("#txtUserName"))) {
+        focusText($("#txtPassword2"));
+    }
+});
+
+$("#txtPassword2").on('keydown', function (event) {
+    if (event.key == "Enter" && check(cusPasswordRegEx, $("#txtPassword2"))) {
+        focusText($("#txtPhone"));
+    }
+});
+
+$("#txtPhone").on('keydown', function (event) {
+    if (event.key == "Enter" && check(cusPhoneRegEx, $("#txtPhone"))) {
+        focusText($("#txtDLN"));
+    }
+});
+
+
+$("#txtDLN").on('keydown', function (event) {
+    if (event.key == "Enter" && check(cusDrivingLicNumdRegEx, $("#txtDLN"))) {
+        let res = confirm("Do you want to create.?");
+        if (res) {
+            clearAllTexts();
+        }
+    }
+});
+
+
+function checkValidity() {
+    let errorCount=0;
+    for (let validation of customerValidations) {
+        if (check(validation.reg,validation.field)) {
+            textSuccess(validation.field,"");
+        } else {
+            errorCount=errorCount+1;
+            setTextError(validation.field,validation.error);
+        }
+    }
+    setButtonState(errorCount);
+}
+
+function check(regex, txtField) {
+    let inputValue = txtField.val();
+    return regex.test(inputValue) ? true : false;
+}
+
+function setTextError(txtField,error) {
+    if (txtField.val().length <= 0) {
+        defaultText(txtField,"");
+    } else {
+        txtField.css('border', '2px solid red');
+        txtField.parent().children('span').text(error);
+    }
+}
+
+function textSuccess(txtField,error) {
+    if (txtField.val().length <= 0) {
+        defaultText(txtField,"");
+    } else {
+        txtField.css('border', '2px solid green');
+        txtField.parent().children('span').text(error);
+    }
+}
+
+function defaultText(txtField,error) {
+    txtField.css("border", "1px solid #ced4da");
+    txtField.parent().children('span').text(error);
+}
+
+function focusText(txtField) {
+    txtField.focus();
+}
+
+function setButtonState(value){
+    if (value>0){
+        $("#btnLogIn2").attr('disabled',true);
+    }else{
+        $("#btnLogIn2").attr('disabled',false);
+    }
+}
+
+function clearAllTexts() {
+    $("#txtFName").focus();
+    $("#txtFName,#txtUserName,#txtNIC,#txtPassword2,#txtEmail2,#txtPhone,#txtAddress,#txtDLN").val("");
+    checkValidity();
+}
+

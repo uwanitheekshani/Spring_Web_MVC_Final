@@ -1,0 +1,63 @@
+.logInD{
+    position: relative;
+    top: 0px;
+    min-height: 100vh;
+    background: #D2DAE2;
+    width: 100vw;
+    /*margin-top: 460px;*/
+
+}
+.lgmsa{
+    position: relative;
+    background: #D2DAE2;
+    z-index: 5;
+    min-height: 100vh;
+    width: 100vw;
+    margin: auto;
+    top: 43px;
+}
+
+#lgDImage{
+    position: absolute;
+    width: 115px;
+    height: 115px;
+    background: url("../../assets/images/icons8-administrator-male-80.png");
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+    top: 20px;
+    left: 600px;
+}
+
+.col-2{
+    position: absolute;
+    top: 102px;
+    left: 490px;
+    margin: 0;
+}
+
+#lgmd1{
+    position: absolute;
+    left: 549px;
+    font-size: 20px;
+    font-weight: bold;
+    top: 133px;
+}
+
+.form-groupD1{
+    position: absolute;
+    top: 93px;
+    width: 362px;
+}
+
+.form-groupD2{
+    position: absolute;
+    top: 175px;
+    width: 362px;
+}
+
+#btnDLogIn{
+    position: absolute;
+    top: 268px;
+    width: 362px;
+}
