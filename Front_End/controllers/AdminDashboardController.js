@@ -103,22 +103,22 @@ $("#hn1").click(function () {
 
 });
 
-$("#btnALogIn").click(function () {
-    $("#admindashMain1").css('display','block');
-    $("#admindashMain2").css('display','block');
-    $("#adminDashLogin").css('display','none');
-    $("#accountContent").css('display','none');
-    $("#checkOutContent").css('display','none');
-    $("#storeContent").css('display','none');
-    $("#cusUpdateContent").css('display','none');
-    $("#cusRegiContent").css('display','none');
-    $("#loginContent").css('display','none');
-    $("#foot").css('display','none');
-    $("#main3").css('display','none');
-    $("#mainh").css('display','none');
-    $("#headContent").css('display','none');
-
-});
+// $("#btnALogIn").click(function () {
+//     $("#admindashMain1").css('display','block');
+//     $("#admindashMain2").css('display','block');
+//     $("#adminDashLogin").css('display','none');
+//     $("#accountContent").css('display','none');
+//     $("#checkOutContent").css('display','none');
+//     $("#storeContent").css('display','none');
+//     $("#cusUpdateContent").css('display','none');
+//     $("#cusRegiContent").css('display','none');
+//     $("#loginContent").css('display','none');
+//     $("#foot").css('display','none');
+//     $("#main3").css('display','none');
+//     $("#mainh").css('display','none');
+//     $("#headContent").css('display','none');
+//
+// });
 
 $("#btnlogOut").click(function () {
     $("#admindashMain1").css('display','none');

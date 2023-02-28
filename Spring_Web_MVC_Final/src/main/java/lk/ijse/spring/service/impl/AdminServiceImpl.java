@@ -32,6 +32,11 @@ public class AdminServiceImpl implements AdminService {
         repo.save(entity);
     }
 
+    @Override
+    public AdminDTO searchAdminByEmail(String email) {
+        return mapper.map( repo.getAdminByEmail(email), AdminDTO.class);
+    }
+
 
 //    @Override
 //    public AdminDTO checkAdminLogIn(String id, String password) {

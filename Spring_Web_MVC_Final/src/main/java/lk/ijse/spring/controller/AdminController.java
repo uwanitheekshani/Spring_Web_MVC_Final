@@ -21,4 +21,12 @@ public class AdminController {
         service.saveAdmin(dto);
         return new ResponseUtil("200",dto.toString()+ " Added",null);
     }
+
+    @GetMapping(params = "email")
+    public ResponseUtil checkAdmin(String email) {
+        System.out.println(email);
+        AdminDTO adminDTO = service.searchAdminByEmail(email);
+//        System.out.println(adminDTO);
+        return new ResponseUtil("200", "Login Success", adminDTO);
+    }
 }
