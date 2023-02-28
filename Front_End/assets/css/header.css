@@ -95,6 +95,7 @@ header {
     top: 43px;
     left: 10px;
     font-family: 'Berkshire Swash', cursive;
+    cursor: pointer;
 }
 
 #hn2 {

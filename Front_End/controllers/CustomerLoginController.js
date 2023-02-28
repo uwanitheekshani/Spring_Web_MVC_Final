@@ -10,7 +10,13 @@ $("#btnLogInE").click(function (){
         success: function (res) {
 
             if (res.data.password==password){
-                alert(res.message);
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: "Login Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
                 $("#storeContent").css('display','block');
                 $("#mainh").css('display','none');
                 $("#main3").css('display','none');
@@ -21,14 +27,29 @@ $("#btnLogInE").click(function (){
                 $("#cusRegiContent").css('display','none');
                 $("#cusUpdateContent").css('display','none');
                 $("#ae").text(email);
+                $("#store").css('pointer-events','auto');
+                $("#checkout").css('pointer-events','auto');
+                $("#account").css('pointer-events','auto');
             }else {
-                alert("Invalid email or password")
+                Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: "Invalid email or password",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             }
             clearCustomerLoginTextFields();
         },
         error:function(error){
             var jsObject=JSON.parse(error.responseText);
-            alert("Invalid email or password");
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: "Invalid email or password",
+                showConfirmButton: false,
+                timer: 1500
+            });
         }
     });
 });

@@ -83,13 +83,15 @@ $("#editUserInfo").click(function () {
     $("#cusUpdateContent").css('display','block');
 });
 
-// $("#btnLogInE").click(function () {
+
+
+// $(".cart1").click(function () {
 //     $("#mainh").css('display','none');
 //     $("#main3").css('display','none');
 //     $("#foot").css('display','none');
 //     $("#storeContent").css('display','block');
-//     $("#checkOutContent").css('display','none');
-//     $("#accountContent").css('display','none');
+//     $("#checkOutContent").css('display','block');
+//     $("#accountContent").css('display','block');
 //     $("#loginContent").css('display','none');
 //     $("#cusRegiContent").css('display','none');
 //     $("#cusUpdateContent").css('display','none');

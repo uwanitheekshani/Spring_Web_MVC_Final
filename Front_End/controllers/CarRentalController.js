@@ -115,7 +115,7 @@ function loadCheckCars(id){
 }
 
 $('body').on('click', '.cart1', function() {
-    alert("Add to cart "+this.id);
+    // alert("Add to cart "+this.id);
     loadCheckCars(this.id);
 });
 
@@ -227,7 +227,7 @@ function getCusNic(){
         },
         error:function(error){
             var jsObject=JSON.parse(error.responseText);
-            alert("Invalid email or password");
+            // alert("Invalid email or password");
         }
     });
 }

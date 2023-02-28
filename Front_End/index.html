@@ -68,9 +68,9 @@
 
         <ul class="list-group list-group-horizontal text-danger justify-content-end font-weight-bold">
             <li class="text-white" id="lnkHome"><a id="home">Home</a></li>
-            <li class="text-white" id="lnkAccount"><a id="account">Account</a></li>
-            <li class="text-white" id="lnkStore"><a id="store">Store</a></li>
-            <li class="text-white" id="lnkCheckOut"><a id="checkout">Check out</a></li>
+            <li class="text-white" id="lnkAccount"><a id="account" style="pointer-events: none">Account</a></li>
+            <li class="text-white" id="lnkStore"><a id="store" style="pointer-events: none">Store</a></li>
+            <li class="text-white" id="lnkCheckOut"><a id="checkout" style="pointer-events: none">Check out</a></li>
         </ul>
 
 
@@ -307,7 +307,7 @@
 
             </form>
 
-            <button class="btn btn-primary" id="btnLogIn2">LOGIN</button>
+            <button class="btn btn-primary" id="btnLogIn2" type="button">LOGIN</button>
 
         </div>
 
@@ -686,15 +686,16 @@
 </main>
 
 <!--       ============================ Admin Log In==================================-->
-<main class="logInA" style="display:none;">
+<main class="logInA" id="adminDashLogin" style="display:none;">
     <section class="lgmsa">
         <div id="lgAImage"></div>
         <h1 id="lgma1">Log In To Your Account</h1>
+        <button class="btn btn-primary" id="btnAlogOut" style="position: absolute;left: 43px;">LogOut</button>
 
         <div class="col-2">
             <div class="form-groupA1">
-                <label for="txtAdUsNa">Admin User Name</label>
-                <input class="form-control" id="txtAdUsNa" placeholder="Enter Username" required type="text">
+                <label for="txtAdUsNa">Admin Email Name</label>
+                <input class="form-control" id="txtAdUsNa" placeholder="Enter Email" required type="text">
                 <span class="control-error" id="lbladusna"></span>
             </div>
 
@@ -703,14 +704,14 @@
                     <input type="password" class="form-control" id="txtAdPass" placeholder="Enter Password">
                 <span class="control-error" id="lblapassword"></span>
             </div>
-            <button class="btn btn-primary" id="btnALogIn">LOGIN</button>
+            <button class="btn btn-primary" id="btnALogIn" type="button">LOGIN</button>
         </div>
 
     </section>
 </main>
 
 <!--       ============================Admin DashBoard Main====================================-->
-    <section class="adminDash1" style="display:none;">
+    <section class="adminDash1" id="admindashMain1" style="display:none;">
         <div id="admindashli"></div>
         <h3 id="Acr">Car Rental</h3>
         <h4 id="Acr1">Admin</h4>
@@ -773,7 +774,7 @@
     </section>
 
 <!--       ============================Admin DashBoard====================================-->
-<main class="adminDashM2" style="display:none;">
+<main class="adminDashM2" id="admindashMain2" style="display:none;">
     <section class="adminDash2" id="adminDash" style="display:block;">
 
         <h3 id="Ads">Daily Summery</h3>

@@ -25,7 +25,7 @@ $("#btnAddDriver").click(function () {
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
-                title: "Admin Added Successfully",
+                title: "Driver Added Successfully",
                 showConfirmButton: false,
                 timer: 1500
             });
@@ -36,7 +36,7 @@ $("#btnAddDriver").click(function () {
             Swal.fire({
                 position: 'top-end',
                 icon: 'error',
-                title: "Admin Not Added Successfully",
+                title: "Driver Not Added Successfully",
                 showConfirmButton: false,
                 timer: 1500
             });

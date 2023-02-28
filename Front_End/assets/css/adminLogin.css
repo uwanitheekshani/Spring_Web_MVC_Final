@@ -8,7 +8,10 @@
 
 .logInA{
     position: relative;
-    top: 167px;
+    top: 0px;
+    min-height: 100vh;
+    background: #D2DAE2;
+    width: 100vw;
     /*margin-top: 460px;*/
 
 }
@@ -16,10 +19,10 @@
     position: relative;
     background: #D2DAE2;
     z-index: 5;
-    height: 500px;
-    width: 98.7vw;
+    min-height: 100vh;
+    width: 100vw;
     margin: auto;
-    top: 0px;
+    top: 43px;
 }
 
 #lgAImage{

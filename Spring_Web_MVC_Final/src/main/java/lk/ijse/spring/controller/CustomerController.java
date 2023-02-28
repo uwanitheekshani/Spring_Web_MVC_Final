@@ -1,5 +1,6 @@
 package lk.ijse.spring.controller;
 
+import lk.ijse.spring.dto.CarDTO;
 import lk.ijse.spring.dto.CustomerDTO;
 import lk.ijse.spring.service.CustomerService;
 import lk.ijse.spring.util.ResponseUtil;
@@ -10,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,30 +23,55 @@ public class CustomerController {
     CustomerService service;
 
 
-    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil saveCustomer(@RequestBody CustomerDTO dto){
-        service.saveCustomer(dto);
-        return new ResponseUtil("200",dto.toString()+ " Added",null);
+//    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseUtil saveCustomer(@RequestBody CustomerDTO dto){
+//        service.saveCustomer(dto);
+//        return new ResponseUtil("200",dto.toString()+ " Added",null);
+//    }
+
+    @PostMapping(consumes = {MediaType.MULTIPART_FORM_DATA_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseUtil addVehicle(@RequestPart("cImageFile") MultipartFile[] file, @RequestPart("user") CustomerDTO customerDTO) {
+
+
+        for (MultipartFile myFile : file) {
+
+            try {
+                String projectPath = new File(this.getClass().getProtectionDomain().getCodeSource().getLocation().toURI()).getParentFile().getParentFile().getAbsolutePath();
+                File uploadsDir = new File(projectPath + "/uploads");
+                uploadsDir.mkdir();
+                myFile.transferTo(new File(uploadsDir.getAbsolutePath() + "/" + myFile.getOriginalFilename()));
+                System.out.println(projectPath);
+            } catch (IOException | URISyntaxException e) {
+                e.printStackTrace();
+                return new ResponseUtil("500", "Registration Failed.Try Again Latter", null);
+            }
+        }
+
+
+
+
+        service.saveCustomer(customerDTO);
+        return new ResponseUtil("200", "Registration Successfully....", customerDTO);
     }
 
 
-    @PutMapping(path = "/uploadImg/{nicNum}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/uploadImg/{nicNum}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil uploadImagesAndPath(@RequestPart("imageLocation") MultipartFile imageLocation, @PathVariable String nicNum) {
         try {
 
-            String projectPath = String.valueOf(new File("E:\\imageSave\\uploads"));
-            File uploadsDir = new File(projectPath + "\\customerImage");
+            String projectPath = new File(this.getClass().getProtectionDomain().getCodeSource().getLocation().toURI()).getParentFile().getParentFile().getAbsolutePath();
+            File uploadsDir = new File(projectPath + "/uploads");
             uploadsDir.mkdir();
 
             imageLocation.transferTo(new File(uploadsDir.getAbsolutePath() + "\\" + imageLocation.getOriginalFilename()));
 
-            String customerImageLocationPath = projectPath + "\\customerImage" + imageLocation.getOriginalFilename();
+            String customerImageLocationPath = imageLocation.getOriginalFilename();
 
             service.uploadCustomerImages(customerImageLocationPath, nicNum);
 
             return new ResponseUtil("200", "Uploaded", null);
 
-        } catch (IOException e) {
+        } catch (IOException | URISyntaxException e) {
             e.printStackTrace();
             return new ResponseUtil("500",e.getMessage(),null);
         }

@@ -7,6 +7,12 @@ $("#btnLogIn2").click(function (){
 
 function addCustomer() {
 
+    var Cdata = new FormData();
+
+    let nicFile = $("#register-form-NIC-image")[0].files[0];
+    let nicFileName =$("#register-form-NIC-image")[0].files[0].name;
+
+
     let nicNum =  $("#txtNIC").val();
     let address = $("#txtAddress").val();
     let contactNumber =$("#txtPhone").val();
@@ -16,6 +22,7 @@ function addCustomer() {
     let email= $("#txtEmail2").val();
     let password =$("#txtPassword2").val();
     let user_name= $("#txtUserName").val();
+    let imageLocation = nicFileName;
 
     var customer = {
         nic : nicNum,
@@ -27,13 +34,22 @@ function addCustomer() {
         email : email,
         password : password,
         user_name:user_name,
+        imageLocation:"uploads/"+ imageLocation
     }
+
+    Cdata.append("cImageFile" , nicFile)
+    Cdata.append("user", new Blob([JSON.stringify(customer)], {type: "application/json"}))
 
     $.ajax({
         url: baseURL + "customer",
         method: "POST",
-        contentType: "application/json",
-        data: JSON.stringify(customer),
+        // contentType: "application/json",
+        // data: JSON.stringify(customer),
+        async: true,
+        contentType: false,
+        processData: false,
+        // contentType: "application/json",
+        data: Cdata,
         success: function (resp) {
             uploadCustomerImages(nicNum);
             Swal.fire({
@@ -80,7 +96,7 @@ function uploadCustomerImages(nicNum) {
 
     $.ajax({
         url: baseURL + "customer/uploadImg/" + nicNum,
-        method: "PUT",
+        method: "Post",
         async: true,
         contentType: false,
         processData: false,
@@ -197,7 +213,7 @@ $("#btnUpCus").click(function () {
         dataType:"json",
         success: function (res) {
 
-            alert(res.message);
+            // alert(res.message);
         },
         error:function (error){
             let cause= JSON.parse(error.responseText).message;
