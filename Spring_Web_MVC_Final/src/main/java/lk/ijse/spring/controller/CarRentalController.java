@@ -29,11 +29,11 @@ public class CarRentalController {
         return new ResponseUtil("200", "Ok", s);
     }
 
-//    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-//    public ResponseUtil saveRental(@RequestBody RentalDTO dto){
-//        service.saveRental(dto);
-//        return new ResponseUtil("200",dto.toString()+ " Added",null);
-//    }
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil saveRental(@RequestBody RentalDTO dto){
+        service.saveRental(dto);
+        return new ResponseUtil("200",dto.toString()+ " Added",null);
+    }
 
     @PostMapping(consumes = {MediaType.MULTIPART_FORM_DATA_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseUtil saveRental(@RequestPart("rImageFile") MultipartFile[] file, @RequestPart("rental") RentalDTO rentalDTO) {
@@ -80,3 +80,9 @@ public class CarRentalController {
         }
     }
 }
+
+
+
+//             ===============================================================================
+
+

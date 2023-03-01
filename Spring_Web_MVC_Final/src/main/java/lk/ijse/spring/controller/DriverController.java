@@ -45,4 +45,13 @@ public class DriverController {
 //        System.out.println(adminDTO);
         return new ResponseUtil("200", "Login Success", driverDTO);
     }
+
+
+    @GetMapping(path = "/availability/{available}")
+    public ResponseUtil getAllByAvailability(@PathVariable String available) {
+        System.out.println(available);
+
+//        System.out.println(adminDTO);
+        return new ResponseUtil("200", "Login Success", service.getAllByAvailability(available));
+    }
 }

@@ -1,5 +1,7 @@
 generateRentId();
 carAppend();
+getAllAvailableDriver();
+
 
 function carAppend(){
     $("#selectCar").empty();
@@ -120,77 +122,465 @@ function generateRentId() {
 }
          // ===================================================
 
-$("#btnsendReq").click(function (){
-    addRental();
-});
+// $("#btnsendReq").click(function (){
+//     addRental();
+// });
 
-// var lossDamage="";
-var driverId="";
-var array = [];
-var carDetailArray=[];
-var carRegiId="";
-getDamageWeiverTot();
-let onHoldAmount = 0;
+// // var lossDamage="";
+// var driverId="";
+// var array = [];
+// var carDetailArray=[];
+// var carRegiId="";
+// // getDamageWeiverTot();
+// // let onHoldAmount = 0;
+//
+// // function getDamageWeiverTot(){
+// //     for (let i=0; i<carDetailArray.length; i++){
+// //         onHoldAmount+=  carDetailArray[i].onHold;
+// //         console.log(JSON.stringify(onHoldAmount));
+// //     }
+// //     //
+// //     return onHoldAmount;
+// // }
+//
+//               // ==========================meka rental details ekata adala data tika yawanna=================================
+//
+// function getRentDetails(rentalId) {
+//     let rows = $("#CheckReTable").children().length;
+//     // let rentalId =  $("#txtRe").val();
+//     for (let i = 0; i < rows; i++) {
+//         let carNum = $("#CheckReTable").children().eq(i).children(":eq(0)").text();
+//         let carBrand = $("#CheckReTable").children().eq(i).children(":eq(1)").text();
+//         let dailyRate= $("#CheckReTable").children().eq(i).children(":eq(2)").text();
+//         let monthlyRate = $("#CheckReTable").children().eq(i).children(":eq(3)").text();
+//         let onHold= $("#CheckReTable").children().eq(i).children(":eq(4)").text();
+//         let from = $("#CheckReTable").children().eq(i).children(":eq(5)").text();
+//         let to= $("#CheckReTable").children().eq(i).children(":eq(6)").text();
+//         let driver = $("#CheckReTable").children().eq(i).children(":eq(7)").text();
+//         let carStatus = $("#CheckReTable").children().eq(i).children(":eq(8)").text();
+//         array.push({rentalId:rentalId,registrationId:carNum,pickUpDate: from,returnDate: to,
+//             driverOption:driver,driverId:driverId});
+//
+//         carDetailArray.push({rentalId: rentalId,registrationId:carNum,pickUpDate:from,returnDate:to,
+//            driverOption:driver,registrationId:carBrand,dailyRate: dailyRate,monthlyRate:monthlyRate,
+//         rental_status:carStatus,onHold});
+//              alert(driverId);
+//         console.log(driverId);
+//         alert(carNum);
+//     }
+//     return array;
+// }
+//
+// loadAllDrivers();
+//     //========================meka driver id eka ganna==========================
+// //Load all drivers
+// function loadAllDrivers() {
+//     $.ajax({
+//         url: baseURL+"driver",
+//         method:"Get",
+//         dataType: "json",
+//         success: function (resp) {
+//             console.log(resp.data );
+//             for (let dri of resp.data){
+//                 if (dri.availability=="Available"){
+//                     driverId=dri.driver_id;
+//                     // availability="Unvailable";
+//                   alert(driverId);
+//                 }
+//             }
+//         }
+//     });
+//
+// }
+//
+//
+// getCusNic();
+//
+// // =====================meka rental eke nic ekata yawanna ==========================
+// var cNic;
+// function getCusNic(){
+//     let email =  $("#ae").text();
+//
+//     $.ajax({
+//         url: baseURL+"customerLogin?email="+email,
+//         method: "get",
+//         dataType:"json",
+//         success: function (res) {
+//
+//             console.log(res.data);
+//             // let userNic = res.data.nic;
+//
+//             cNic=res.data.nic;
+//         },
+//         error:function(error){
+//             var jsObject=JSON.parse(error.responseText);
+//             // alert("Invalid email or password");
+//         }
+//     });
+//}
+
+
+          // =============================rental ekak add krnna meka===============================
+
+// var p;
+// var r;
+// var dailR;
+// function addRental() {
+//
+//     for(let sd of array){
+//         p=sd.pickUpDate;
+//         r=sd.returnDate;
+//         dailR=sd.dailyRate;
+//     }
+//     alert(p);
+//
+//     p = $("#txtFromDate").val();
+//     r = $("#txtToDate").val();
+//
+//     var Rdata = new FormData();
+//
+//     let paymentSlipName =$("#lossDP2")[0].files[0].name;
+//     let paymentSlipFile = $("#lossDP2")[0].files[0];
+//
+//     var pick = new Date(p);
+//     var ret = new Date(r);
+//     var rentAmount = parseFloat(ret.getDate() - parseFloat(pick.getDate())*dailR);
+//     // alert(diffDays)
+//
+//     let rentalId = $("#txtRentalId").val();
+//     let totalRent = $("#txtTotalRent").val(rentAmount);
+//     let paymentSlipImage = paymentSlipName;
+//     let pickupD = p;
+//     let returnD = r;
+//     let pickUpLocation = $("#txtFPickL").val();
+//     let returnLocation = $("#txtReturnL").val();
+//     let rentStat = $("#txtRentalStatus").val();
+//     let totalDamageWaiverAmount = $("#txtLossDwa").val();
+//     // let rentAmount= $("#txtTotalRent").val();
+//     let rentD = getRentDetails(rentalId);
+//
+//
+//     var rent = {
+//         rentalId: rentalId,
+//         amount: totalRent,
+//         pickupLocation: pickUpLocation,
+//         returnLocation: returnLocation,
+//         total_damage_waiver_payment: totalDamageWaiverAmount,
+//         pickUpDate: pickupD,
+//         returnDate: returnD,
+//         rental_status: rentStat,
+//         cusNic: cNic,
+//         payment_slip:"uploads/"+ paymentSlipImage,
+//         rentDetails: rentD
+//
+//     }
+//
+//     Rdata.append("rImageFile" , paymentSlipFile)
+//     Rdata.append("rental", new Blob([JSON.stringify(rent)], {type: "application/json"}))
+//
+//     $.ajax({
+//         url: baseURL + "rental",
+//         method: "post",
+//         async: true,
+//         contentType: false,
+//         processData: false,
+//         data: Rdata,
+//         // dataType: "json",
+//         //  contentType:"application/json",
+//         // data:JSON.stringify(rent),
+//
+//         // url: baseUrl + "rental",
+//         // method: "post",
+//         // dataType: "json",
+//         // data: JSON.stringify(rent),
+//         // contentType: "application/json",
+//
+//         success: function (resp) {
+//             // updateDriverStatus();
+//             // // uploadPaymentSlipImages(rentalId);
+//             // getCarDet();
+//             // getDriDet();
+//             Swal.fire({
+//                 position: 'top-end',
+//                 icon: 'success',
+//                 title: "Rental Added Successfully",
+//                 showConfirmButton: false,
+//                 timer: 1500
+//             });
+//         },
+//
+//         function(error) {
+//             // alert(JSON.parse(error.responseText).message);
+//             // let errorReason = JSON.parse(error.responseText);
+//             Swal.fire({
+//                 position: 'top-end',
+//                 icon: 'error',
+//                 title: "Rental Not Added Successfully",
+//                 showConfirmButton: false,
+//                 timer: 1500
+//             });
+//         }
+//
+//     })
+// }
+
+//==============car eke status eka update karanna================================
+
+// function getCarId() {
+//     for (let i = 0; i < carDetailArray.length; i++) {
+//         if ( carRegiId = carDetailArray[i].registrationId){
+//             return carRegiId;
+//         }
+//     }
+// }
+// function updateCarStatus(registationId,availability,brand,colour,dailyrate,freeMileage,fuelType,image_1,image_2,image_3,image_4,lastServiceMileage,model,monthlyRate,noOfpassengers,priceForExtraKm,transmissionType,type){
+//     var upCarStat="";
+//     if (carRegiId=registationId) {
+//          upCarStat = {
+//             registrationId: carRegiId,
+//             availability: "Unvailable",
+//             brand: brand,
+//             colour: colour,
+//             dailyRate: dailyrate,
+//             freeMileage: freeMileage,
+//             fuelType: fuelType,
+//             image_1: image_1,
+//             image_2: image_2,
+//             image_3: image_3,
+//             image_4: image_4,
+//             lastServiceMileage: lastServiceMileage,
+//             model: model,
+//             monthlyRate: monthlyRate,
+//             noOfpassengers: noOfpassengers,
+//             priceForExtraKm: priceForExtraKm,
+//             transmissionType: transmissionType,
+//             type: type
+//         }
+//         return upCarStat;
+//     }
+//
+//     $.ajax({
+//         url: baseURL+'car',
+//         method: 'put',
+//         contentType:"application/json",
+//         data:JSON.stringify(upCarStat),
+//         dataType:"json",
+//         success: function (res) {
+//             alert(res.message);
+//             // loadAllCustomers();
+//         },
+//         error:function (error){
+//             let cause= JSON.parse(error.responseText).message;
+//             alert(cause);
+//         }
+//
+//     });
+//
+// }
+
+
+// function getCarDet(){
+//
+//     $.ajax({
+//         url: baseURL+'car',
+//         method: 'get',
+//         dataType:"json",
+//         success: function (res) {
+//              updateCarStatus(res.data.registrationId,res.data.availability,res.data.brand,res.colour,res.data.dailyRate,
+//                  res.data.freeMileage,res.data.fuelType,res.data.image_1,res.data.image_2,res.data.image_3,res.data.image_4,res.data.lastServiceMileage,
+//                  res.data.model,res.data.monthlyRate,res.data.noOfPassengers,res.data.priceForExtraKm,res.data.transmissionType,res.data.type);
+//
+//             // alert(res.message);
+//         },
+//         error:function (error){
+//             let cause= JSON.parse(error.responseText).message;
+//             alert(cause);
+//         }
+//     });
+// }
+
+// var driStatus;
+
+                // ===============driver eke status eka upadate karanna==============================
+
+// function getDrId() {
+//     for (let i = 0; i < carDetailArray.length; i++) {
+//         if (driverId = carDetailArray[i].driverId) {
+//             return driverId;
+//         }
+//     }
+// }
+//
+// function updateDriverStatus(driver_id,availability,drivingLicenceNumber,name,nic){
+//     var upDriStat="";
+//
+//     if (driverId=driver_id) {
+//         upDriStat = {
+//             driver_id:driverId,
+//             availability:"Unavailable",
+//             driverLicenceNum:drivingLicenceNumber,
+//             name:name,
+//             nic:nic
+//         }
+//         return upDriStat;
+//     }
+//
+//     $.ajax({
+//         url: baseURL+'driver',
+//         method: 'put',
+//         contentType:"application/json",
+//         data:JSON.stringify(upDriStat),
+//         dataType:"json",
+//         success: function (res) {
+//
+//             for (let dri of res.data){
+//                 if (dri.driver_id=driverId){
+//                     dri.data.availability="Unavailable";
+//                 }
+//             }
+//             alert(res.message);
+//         },
+//         error:function (error){
+//             let cause= JSON.parse(error.responseText).message;
+//             alert(cause);
+//         }
+//     });
+// }
+
+// function getDriDet(){
+//
+//     $.ajax({
+//         url: baseURL+'driver',
+//         method: 'get',
+//         dataType:"json",
+//         success: function (res) {
+//             updateDriverStatus(res.data.driver_id,res.data.availability,res.data.drivingLicenceNumber,res.data.name,res.data.nic);
+//             // alert(res.message);
+//         },
+//         error:function (error){
+//             let cause= JSON.parse(error.responseText).message;
+//             alert(cause);
+//         }
+//     });
+// }
+
+
+
+// ===============*bank slip eka add karanna==============================
+
+// function uploadPaymentSlipImages(rentalId) {
+//
+//     let paymentFile = $("#lossDP2")[0].files[0];
+//     let paymentFileName = rentalId + "-payment_slip-" + $("#lossDP2")[0].files[0].name;
+//
+//     var dataP = new FormData();
+//
+//     dataP.append("payment_slip", paymentFile, paymentFileName);
+//
+//     $.ajax({
+//         url: baseURL + "rental/uploadImg/" + rentalId,
+//         method: "Post",
+//         async: true,
+//         contentType: false,
+//         processData: false,
+//         data: dataP,
+//         success: function (res) {
+//             console.log("Uploaded");
+//             Swal.fire({
+//                 position: 'top-end',
+//                 icon: 'success',
+//                 title: "Images Upload Successfully",
+//                 showConfirmButton: false,
+//                 timer: 1500
+//             });
+//         },
+//         error: function (error) {
+//             let errorReason = JSON.parse(error.responseText);
+//             Swal.fire({
+//                 position: 'top-end',
+//                 icon: 'error',
+//                 title: "Images Not Upload Successfully",
+//                 showConfirmButton: false,
+//                 timer: 1500
+//             });
+//         }
+//     });
+// }
+
+
+
+          // ===========================================================================
+
+let customerId = null;
+var driverId = "D005";
+// var Driver ={};
+var driverIds= [];
+
+var onHoldAmount = 0;
+var dailyRateAmount;
+var onHoldArray = [];
+var dailyRateArray = [];
 
 function getDamageWeiverTot(){
-    for (let i=0; i<carDetailArray.length; i++){
-        onHoldAmount+=  carDetailArray[i].onHold;
-        console.log(JSON.stringify(onHoldAmount));
+    for (let i=0; i<onHoldArray.length; i++){
+        onHoldAmount+=  onHoldArray[i].onHold;
+
     }
     //
     return onHoldAmount;
 }
 
-              // ==========================meka rental details ekata adala data tika yawanna=================================
+function getDailyRateTot(){
+    for (let i=0; i<dailyRateArray.length; i++){
+        dailyRateAmount+=  dailyRateArray.length[i].dailyRate;
 
-function getRentDetails(rentalId) {
-    let rows = $("#CheckReTable").children().length;
-    // let rentalId =  $("#txtRe").val();
-    for (let i = 0; i < rows; i++) {
-        let carNum = $("#CheckReTable").children().eq(i).children(":eq(0)").text();
-        let carBrand = $("#CheckReTable").children().eq(i).children(":eq(1)").text();
-        let dailyRate= $("#CheckReTable").children().eq(i).children(":eq(2)").text();
-        let monthlyRate = $("#CheckReTable").children().eq(i).children(":eq(3)").text();
-        let onHold= $("#CheckReTable").children().eq(i).children(":eq(4)").text();
-        let from = $("#CheckReTable").children().eq(i).children(":eq(5)").text();
-        let to= $("#CheckReTable").children().eq(i).children(":eq(6)").text();
-        let driver = $("#CheckReTable").children().eq(i).children(":eq(7)").text();
-        let carStatus = $("#CheckReTable").children().eq(i).children(":eq(8)").text();
-        array.push({rentalId:rentalId,registrationId:carNum,pickUpDate: from,returnDate: to,
-            driverOption:driver,driverId:driverId});
-
-        // carDetailArray.push({rentalId: rentalId,registrationId:carNum,pickUpDate:from,returnDate:to,
-        //    driverOption:driver,registrationId:carBrand,dailyRate: dailyRate,monthlyRate:monthlyRate,
-        // rental_status:carStatus,onHold});
-
-        // console.log(onHold);
-        // alert(carNum);
     }
+    return dailyRateAmount;
+}
+
+
+getAllAvailableDriver();
+var array =[];
+function getRentDetail(rentId) {
+    let rows = $("#CheckReTable").children().length;
+
+    /* let vid = "V001";*/
+    let pickUpDate = $("#txtFromDate").val();
+    let driverOption = $("#selectDriver").val();
+    let returnDate = $("#txtToDate").val();
+    // let driverOption = $("#driverOpSelector").val();
+    // console.log(driverOption);
+
+
+    if(driverOption == "Driver"){
+        for (let i = 0; i < rows; i++) {
+            let registrationId = $("#CheckReTable").children().eq(i).children(":eq(0)").text();
+            let onHold= $("#CheckReTable").children().eq(i).children(":eq(4)").text();
+            let dailyRate= $("#CheckReTable").children().eq(i).children(":eq(2)").text();
+            array.push({rentDetail:rentId,registrationId:registrationId,driverOption:driverOption,pickupDate:pickUpDate,returnDate:returnDate,driver_id:driverIds[i]});
+            a(driverIds[i]);//menna meka hadanna.// driver ids null
+
+            onHoldArray.push({onHold});
+            dailyRateArray.push({dailyRate});
+        }
+
+    }else {
+        driverId= "None";
+        for (let i = 0; i < rows; i++) {
+            let registrationId = $("#CheckReTable").children().eq(i).children(":eq(0)").text();
+            let onHold= $("#CheckReTable").children().eq(i).children(":eq(4)").text();
+            let dailyRate= $("#CheckReTable").children().eq(i).children(":eq(2)").text();
+            array.push({rentDetail:rentId,registrationId:registrationId,driverOption:driverOption,pickupDate:pickUpDate,returnDate:returnDate,driver_id:driver_id});
+
+            onHoldArray.push({onHold});
+            dailyRateArray.push({dailyRate});
+        }
+    }
+
+    getDamageWeiverTot();
+    getDailyRateTot();
     return array;
 }
-
-loadAllDrivers();
-    //========================meka driver id eka ganna==========================
-//Load all drivers
-function loadAllDrivers() {
-    $.ajax({
-        url: baseURL+"driver",
-        method:"Get",
-        dataType: "json",
-        success: function (resp) {
-            console.log(resp.data );
-            for (let dri of resp.data){
-                if (dri.availability=="Available"){
-                    driverId=dri.driver_id;
-                    // availability="Unvailable";
-                    console.log(driverId);
-                }
-            }
-        }
-    });
-
-}
-
 
 getCusNic();
 
@@ -218,281 +608,119 @@ function getCusNic(){
 }
 
 
-          // =============================rental ekak add krnna meka===============================
 
+    //===================================rental ekak danna=======================================
 var p;
 var r;
-var dailR;
-function addRental() {
+$("#btnsendReq").click(function (){
 
-    // for(let sd of array){
-    //     p=sd.pickUpDate;
-    //     r=sd.returnDate;
-    //     dailR=sd.dailyRate;
-    // }
-    // alert(p);
+                        //=======================Calculate rental==========================================
 
-    p=$("#txtFromDate").val();
-    r=$("#txtToDate").val();
+    p = $("#txtFromDate").val();
+    r = $("#txtToDate").val();
+
+    var pick = new Date(p);
+    var ret = new Date(r);
+    var rentAmount = (ret.getDate() - (pick.getDate())*dailyRateAmount);
+    let duration = ((ret.getDate()) - (pick.getDate()));
+
 
     var Rdata = new FormData();
 
     let paymentSlipName =$("#lossDP2")[0].files[0].name;
-
     let paymentSlipFile = $("#lossDP2")[0].files[0];
 
-    var pick = new Date(p);
-    var ret = new Date(r);
-    // var rentAmount = (ret.getDate() - pick.getDate())*dailR;
-    // alert(diffDays)
 
-    let rentalId =  $("#txtRentalId").val();
-    let totalRent = $("#txtTotalRent").val();
-    let paymentSlipImage = paymentSlipName;
-    let pickupD=p;
-    let returnD=r;
-    let pickUpLocation= $("#txtFPickL").val();
-    let returnLocation= $("#txtReturnL").val();
-    let rentStat=$("#txtRentalStatus").val();
-    let totalDamageWaiverAmount= $("#txtLossDwa").val();
-    // let rentAmount= $("#txtTotalRent").val();
-    let rentD = getRentDetails(rentalId);
+    let rentId = $("#txtRentalId").val();
+    let pickupLocation = $("#txtFPickL").val();
+    let returnLocation = $("#txtReturnL").val()
+    let slipImgPath =paymentSlipName;
+    let statusOfReq = "Pending";
+    let total = $("#txtTotalRent").val(rentAmount);
+    let cusId = cNic;
+    let totalDamageWaiverAmount = $("#txtLossDwa").val(onHoldAmount);
+    let rentDetail = getRentDetail(rentId);
+    // console.log("date "+$("#DatPickDate").val())
 
-
-    var rent = {
-        rentalId : rentalId,
-        amount : totalRent,
-        pickupLocation : pickUpLocation,
-        returnLocation : returnLocation,
+    let rent ={
+        rentalId : rentId,
+        pickUpDate : p,
+        returnDate : r,
+        pickupLocation :pickupLocation,
+        returnLocation :returnLocation,
+        rental_status : statusOfReq,
+        amount : total,
         total_damage_waiver_payment : totalDamageWaiverAmount,
-        pickUpDate : pickupD,
-        returnDate : returnD,
-        rental_status:rentStat,
-        cusNic:cNic,
-        payment_slip:"uploads/"+ paymentSlipImage,
-        rentDetails:rentD
+        duration : duration,
+        payment_slip : "uploads/"+ slipImgPath,
+        cusNic : cusId,
+        rentDetail:rentDetail
 
     }
 
     Rdata.append("rImageFile" , paymentSlipFile)
     Rdata.append("rental", new Blob([JSON.stringify(rent)], {type: "application/json"}))
 
+
     $.ajax({
         url: baseURL + "rental",
-        method: "post",
+        method:"post",
+        dataType: "json",
+        // data:JSON.stringify(rent),
+        // contentType:"application/json",
         async: true,
         contentType: false,
         processData: false,
-        // contentType: "application/json",
-        // dataType:"json",
         data: Rdata,
-        // data:JSON.stringify(rent),
-        // url: baseUrl + "purchase",
-        // method:"post",
-        // dataType: "json",
-        // data:JSON.stringify(rent),
-        // contentType:"application/json",
         success: function (resp) {
-            updateDriverStatus();
-            uploadPaymentSlipImages(rentalId);
-            getCarDet();
-            getDriDet();
+            sendRentImagePath(rentId);
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
-                title: "Rental Added Successfully",
+                title: "customer Added Successfully",
                 showConfirmButton: false,
                 timer: 1500
             });
-
-            // clearCustomerTextFields();
-            // $("#storeContent").css('display','block');
-            // $("#mainh").css('display','none');
-            // $("#main3").css('display','none');
-            // $("#foot").css('display','none');
-            // $("#checkOutContent").css('display','none');
-            // $("#accountContent").css('display','none');
-            // $("#loginContent").css('display','none');
-            // $("#cusRegiContent").css('display','none');
-            // $("#cusUpdateContent").css('display','none');
-            // $("#ae").text(email);
         },
-        error: function (error) {
-            // alert(JSON.parse(error.responseText).message);
-            // let errorReason = JSON.parse(error.responseText);
+        error:function (error){
+            alert(JSON.parse(error.responseText).message);
             Swal.fire({
                 position: 'top-end',
                 icon: 'error',
-                title: "Rental Not Added Successfully",
+                title: "customer Not Added Successfully",
                 showConfirmButton: false,
                 timer: 1500
             });
         }
-    })
-}
-
-//==============car eke status eka update karanna================================
-
-function getCarId() {
-    for (let i = 0; i < carDetailArray.length; i++) {
-        if ( carRegiId = carDetailArray[i].registrationId){
-            return carRegiId;
-        }
-    }
-}
-function updateCarStatus(registationId,availability,brand,colour,dailyrate,freeMileage,fuelType,image_1,image_2,image_3,image_4,lastServiceMileage,model,monthlyRate,noOfpassengers,priceForExtraKm,transmissionType,type){
-    var upCarStat="";
-    if (carRegiId=registationId) {
-         upCarStat = {
-            registrationId: carRegiId,
-            availability: "Unvailable",
-            brand: brand,
-            colour: colour,
-            dailyRate: dailyrate,
-            freeMileage: freeMileage,
-            fuelType: fuelType,
-            image_1: image_1,
-            image_2: image_2,
-            image_3: image_3,
-            image_4: image_4,
-            lastServiceMileage: lastServiceMileage,
-            model: model,
-            monthlyRate: monthlyRate,
-            noOfpassengers: noOfpassengers,
-            priceForExtraKm: priceForExtraKm,
-            transmissionType: transmissionType,
-            type: type
-        }
-        return upCarStat;
-    }
-
-    $.ajax({
-        url: baseURL+'car',
-        method: 'put',
-        contentType:"application/json",
-        data:JSON.stringify(upCarStat),
-        dataType:"json",
-        success: function (res) {
-            alert(res.message);
-            // loadAllCustomers();
-        },
-        error:function (error){
-            let cause= JSON.parse(error.responseText).message;
-            alert(cause);
-        }
-
     });
 
+});
+
+                  // =====================================================================
+
+function getCustomerId(id){
+    customerId = id;
+    console.log("b"+customerId);
 }
+function sendRentImagePath(rentId) {
+    var data = new FormData();
 
+    let file = $("#lossDP2")[0].files[0];
+    let fileName =rentId + "-payment_slip-" + $("#lossDP2")[0].files[0].name;
 
-function getCarDet(){
+    data.append("payment_slip", file, fileName);
+    // console.log("file name " + fileName);
 
     $.ajax({
-        url: baseURL+'car',
-        method: 'get',
-        dataType:"json",
-        success: function (res) {
-             updateCarStatus(res.data.registrationId,res.data.availability,res.data.brand,res.colour,res.data.dailyRate,
-                 res.data.freeMileage,res.data.fuelType,res.data.image_1,res.data.image_2,res.data.image_3,res.data.image_4,res.data.lastServiceMileage,
-                 res.data.model,res.data.monthlyRate,res.data.noOfPassengers,res.data.priceForExtraKm,res.data.transmissionType,res.data.type);
-
-            // alert(res.message);
-        },
-        error:function (error){
-            let cause= JSON.parse(error.responseText).message;
-            alert(cause);
-        }
-    });
-}
-
-// var driStatus;
-
-                // ===============driver eke status eka upadate karanna==============================
-
-function getDrId() {
-    for (let i = 0; i < carDetailArray.length; i++) {
-        if (driverId = carDetailArray[i].driverId) {
-            return driverId;
-        }
-    }
-}
-
-function updateDriverStatus(driver_id,availability,drivingLicenceNumber,name,nic){
-    var upDriStat="";
-
-    if (driverId=driver_id) {
-        upDriStat = {
-            driver_id:driverId,
-            availability:"Unavailable",
-            driverLicenceNum:drivingLicenceNumber,
-            name:name,
-            nic:nic
-        }
-        return upDriStat;
-    }
-
-    $.ajax({
-        url: baseURL+'driver',
-        method: 'put',
-        contentType:"application/json",
-        data:JSON.stringify(upDriStat),
-        dataType:"json",
-        success: function (res) {
-
-            for (let dri of res.data){
-                if (dri.driver_id=driverId){
-                    dri.data.availability="Unavailable";
-                }
-            }
-            alert(res.message);
-        },
-        error:function (error){
-            let cause= JSON.parse(error.responseText).message;
-            alert(cause);
-        }
-    });
-}
-
-function getDriDet(){
-
-    $.ajax({
-        url: baseURL+'driver',
-        method: 'get',
-        dataType:"json",
-        success: function (res) {
-            updateDriverStatus(res.data.driver_id,res.data.availability,res.data.drivingLicenceNumber,res.data.name,res.data.nic);
-            // alert(res.message);
-        },
-        error:function (error){
-            let cause= JSON.parse(error.responseText).message;
-            alert(cause);
-        }
-    });
-}
-
-
-
-// ===============*bank slip eka add karanna==============================
-
-function uploadPaymentSlipImages(rentalId) {
-
-    let paymentFile = $("#lossDP2")[0].files[0];
-    let paymentFileName = rentalId + "-payment_slip-" + $("#lossDP2")[0].files[0].name;
-
-    var dataP = new FormData();
-
-    dataP.append("payment_slip", paymentFile, paymentFileName);
-
-    $.ajax({
-        url: baseURL + "rental/uploadImg/" + rentalId,
-        method: "Post",
+        url: baseURL + "rental/uploadImg/" + rentId,
+        method: 'post',
         async: true,
         contentType: false,
         processData: false,
-        data: dataP,
-        success: function (res) {
+        data: data,
+        success: function (resp) {
             console.log("Uploaded");
+            a(rentId);
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
@@ -501,8 +729,7 @@ function uploadPaymentSlipImages(rentalId) {
                 timer: 1500
             });
         },
-        error: function (error) {
-            let errorReason = JSON.parse(error.responseText);
+        error: function (err) {
             Swal.fire({
                 position: 'top-end',
                 icon: 'error',
@@ -512,4 +739,86 @@ function uploadPaymentSlipImages(rentalId) {
             });
         }
     });
+}
+//get added driver ids and updated driver availability
+function a(id){//kohenda mekata id eka enne..?
+    alert(id);
+    $.ajax({
+        url: baseURL + "driver?drivingLiNum="+id,
+        dataType:"Json",
+        method: "get",
+        success: function (resp) {
+            alert(resp.message);
+            alert(resp.data);
+
+            console.log("did"+resp.data.driver_id);
+            let Driver = {
+                driver_id: resp.data.driver_id,
+                nic:resp.data.nic,
+                name:resp.data.name,
+                drivingLicenceNum:resp.data.drivingLicenceNum,
+                availability: "unAvailable"
+
+            }
+
+
+            $.ajax({
+                url: baseURL + "driver",
+                method: "put",
+                data: JSON.stringify(Driver),
+                contentType: "application/json",
+                success: function (resp) {
+
+                    alert(resp.message);
+
+                },
+                error: function (error) {
+                    let prase = JSON.parse(error.responseText);
+                    alert(prase.message);
+
+                }
+
+            });
+
+        },
+        error: function (error) {
+            let prase = JSON.parse(error.responseText);
+            alert(prase.message);
+
+        }
+
+    });
+
+
+}
+
+
+                // =========================================================
+
+
+function getAllAvailableDriver(){
+    let available="Available";
+    $.ajax({
+        url: baseURL+"driver/availability/"+available,
+        dataType:"json",
+        method: "get",
+        success: function (resp) {
+            console.log(resp)
+            for (let r of resp.data) {
+                // console.log(r.driverId);
+                /* alert(r.driverId);
+                 alert(r.driverName);*/
+                driver_id = r.driver_id;
+                driverIds.push(r.driver_id);
+
+                //set all available drivers to array
+
+            }
+
+        }
+
+    });
+
+
+
 }

@@ -25,6 +25,7 @@ public class Rental {
     private double total_damage_waiver_payment;
     private String pickupLocation;
     private String returnLocation;
+    private String duration;
 
 
 

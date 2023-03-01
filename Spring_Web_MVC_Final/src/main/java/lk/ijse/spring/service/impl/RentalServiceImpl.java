@@ -3,10 +3,7 @@ package lk.ijse.spring.service.impl;
 import lk.ijse.spring.dto.RentalDTO;
 import lk.ijse.spring.entity.Customer;
 import lk.ijse.spring.entity.Rental;
-import lk.ijse.spring.repo.CarRepo;
-import lk.ijse.spring.repo.DriverRepo;
-import lk.ijse.spring.repo.RentalDetailsRepo;
-import lk.ijse.spring.repo.RentalRepo;
+import lk.ijse.spring.repo.*;
 import lk.ijse.spring.service.CarService;
 import lk.ijse.spring.service.PaymentService;
 import lk.ijse.spring.service.RentalService;
@@ -31,6 +28,9 @@ public class RentalServiceImpl implements RentalService {
 
     @Autowired
     DriverRepo driverRepo;
+
+    @Autowired
+    CustomerRepo customerRepo;
 
     @Autowired
     ModelMapper mapper;

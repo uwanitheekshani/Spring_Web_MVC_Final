@@ -27,7 +27,7 @@ $("#btnAddAdmin").click(function () {
                 showConfirmButton: false,
                 timer: 1500
             });
-            clearAdminTextFields();
+            // clearAdminTextFields();
         },
         error: function(error) {
             let prase = JSON.parse(error.responseText);
@@ -42,12 +42,12 @@ $("#btnAddAdmin").click(function () {
     });
 });
 
-function clearCarTextFields() {
-    $('#txtAdminId').val("");
-    $('#txtAdminEmail').val("");
-    $('#txtAUserName').val("");
-    $('#txtAPassword').val("");
-}
+// function clearCarTextFields() {
+//     $('#txtAdminId').val("");
+//     $('#txtAdminEmail').val("");
+//     $('#txtAUserName').val("");
+//     $('#txtAPassword').val("");
+// }
 
 
 $("#btnALogIn").click(function (){

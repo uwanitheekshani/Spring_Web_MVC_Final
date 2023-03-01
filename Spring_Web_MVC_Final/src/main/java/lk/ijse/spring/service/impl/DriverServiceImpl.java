@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -75,6 +76,16 @@ public class DriverServiceImpl implements DriverService {
     @Override
     public DriverDTO searchDriverBydriverLicenceNum(String driverLicenceNum) {
         return mapper.map( repo.getDriverByDrivingLicenceNum(driverLicenceNum), DriverDTO.class);
+    }
+
+    @Override
+    public List<DriverDTO> getAllByAvailability(String availability) {
+        List<DriverDTO> list= new ArrayList<>();
+        List<Driver> allByAvailability = repo.getAllByAvailability(availability);
+        for (Driver driver : allByAvailability) {
+            list.add(new DriverDTO(driver.getDriver_id()));
+        }
+        return list;
     }
 
 }

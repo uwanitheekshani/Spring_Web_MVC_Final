@@ -19,4 +19,8 @@ public class DriverDTO {
     private String drivingLicenceNum;
     private String availability;
     private List<RentDetails> rentalDetailsList;
+
+    public DriverDTO(String driver_id) {
+        this.driver_id = driver_id;
+    }
 }
