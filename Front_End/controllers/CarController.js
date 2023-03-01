@@ -387,6 +387,7 @@ $("#btnDelete").click(function () {
 
 
       //====================================Car Validations==============================================
+$("#txtRNber").focus();
 
 const carBrandRegEx = /^[A-z ]{3,10}$/;
 const carTrans = /^[A-z ]{4,7}$/;
@@ -400,7 +401,7 @@ const freeMile = /^[0-9]{1,}$/;
 const lastMile = /^[0-9]{1,}$/;
 const registrationNo = /^[A-z]{2}-[0-9]{4}$/;
 const carColour = /^[A-z ]{3,10}$/;
-const carModel = /^[A-z ]{3,10}$/;
+const carModel = /^[A-z0-9 ,/]{4,20}$/;
 
 let carValidations = [];
 carValidations.push({reg: carBrandRegEx, field: $('#txtCbrnd'),error:'Car Brand Pattern is Wrong' });
@@ -435,17 +436,17 @@ $("#txtCbrnd,#txtTrnsm,#txtType,#txtNoOPass,#txtFuel,#txtMRt,#txtMnthlyR,#txtPfE
 });
 
 
-$("#txtCbrnd").on('keydown', function (event) {
-    if (event.key == "Enter" && checkC(carBrandRegEx, $("#txtCbrnd"))) {
-        $("#txtTrnsm").focus();
+$("#txtRNber").on('keydown', function (event) {
+    if (event.key == "Enter" && checkC(registrationNo, $("#txtRNber"))) {
+        $("#txtType").focus();
     } else {
-        focusTextC($("#txtCbrnd"));
+        focusTextC($("#txtRNber"));
     }
 });
 
 
-$("#txtTrnsm").on('keydown', function (event) {
-    if (event.key == "Enter" && checkC(carTrans, $("#txtTrnsm"))) {
+$("#txtType").on('keydown', function (event) {
+    if (event.key == "Enter" && checkC(carType, $("#txtType"))) {
         focusTextC($("#txtType"));
     }
 });
@@ -453,28 +454,135 @@ $("#txtTrnsm").on('keydown', function (event) {
 
 $("#txtType").on('keydown', function (event) {
     if (event.key == "Enter" && checkC(carType, $("#txtType"))) {
-        focusTextC($("#txtNoOPass"));
-    }
-});
-
-$("#txtNoOPass").on('keydown', function (event) {
-    if (event.key == "Enter" && checkC(carNoP, $("#txtNoOPass"))) {
         focusTextC($("#txtFuel"));
     }
 });
 
-
 $("#txtFuel").on('keydown', function (event) {
     if (event.key == "Enter" && checkC(carFuel, $("#txtFuel"))) {
-        focusTextC($("#txtMRt"));
-    }
-});
-
-$("#txtMRt").on('keydown', function (event) {
-    if (event.key == "Enter" && checkC(carMonthlyRate, $("#txtMRt"))) {
         focusTextC($("#txtMnthlyR"));
     }
 });
+
+
+$("#txtMnthlyR").on('keydown', function (event) {
+    if (event.key == "Enter" && checkC(carDailyRate, $("#txtMnthlyR"))) {
+        focusTextC($("#txtFmlg"));
+    }
+});
+
+$("#txtFmlg").on('keydown', function (event) {
+    if (event.key == "Enter" && checkC(freeMile, $("#txtFmlg"))) {
+        focusTextC($("#txtCbrnd"));
+    }
+});
+
+
+
+$("#txtCbrnd").on('keydown', function (event) {
+    if (event.key == "Enter" && checkC(carBrandRegEx, $("#txtCbrnd"))) {
+        focusTextC($("#txtMdl"));
+    }
+});
+$("#txtMdl").on('keydown', function (event) {
+    if (event.key == "Enter" && checkC(model, $("#txtMdl"))) {
+        focusText($("#txtTrnsm"));
+    }
+});
+$("#txtTrnsm").on('keydown', function (event) {
+    if (event.key == "Enter" && checkC(carTrans, $("#txtTrnsm"))) {
+        focusTextC($("#txtNoOPass"));
+    }
+});
+$("#txtNoOPass").on('keydown', function (event) {
+    if (event.key == "Enter" && checkC(carNoP, $("#txtNoOPass"))) {
+        focusTextC($("#txtMRt"));
+    }
+});
+$("#txtMRt").on('keydown', function (event) {
+    if (event.key == "Enter" && checkC(carMonthlyRate, $("#txtMRt"))) {
+        focusTextC($("#txtPfExk"));
+    }
+});
+$("#txtPfExk").on('keydown', function (event) {
+    if (event.key == "Enter" && checkC(priceExtraKm, $("#txtPfExk"))) {
+        focusTextC($("#txtLSrm"));
+    }
+});
+
+$("#txtLSrm").on('keydown', function (event) {
+    if (event.key == "Enter" && checkC(lastMile, $("#txtLSrm"))) {
+        focusTextC($("#txtClr"));
+    }
+});
+
+$("#txtClr").on('keydown', function (event) {
+    if (event.key == "Enter" && checkC(carColour, $("#txtLSrm"))) {
+        let res = confirm("Do you want to create.?");
+        if (res) {
+            clearAllTextsC();
+        }
+    }
+});
+
+function checkCValidity() {
+    let errorCount=0;
+    for (let validation of carValidations) {
+        if (checkC(validation.reg,validation.field)) {
+            textSuccessC(validation.field,"");
+        } else {
+            errorCount=errorCount+1;
+            setTextErrorC(validation.field,validation.error);
+        }
+    }
+    setButtonStateC(errorCount);
+}
+
+function checkC(regex, txtField) {
+    let inputValue = txtField.val();
+    return regex.test(inputValue) ? true : false;
+}
+
+function setTextErrorC(txtField,error) {
+    if (txtField.val().length <= 0) {
+        defaultTextC(txtField,"");
+    } else {
+        txtField.css('border', '2px solid red');
+        txtField.parent().children('span').text(error);
+    }
+}
+
+function textSuccessC(txtField,error) {
+    if (txtField.val().length <= 0) {
+        defaultTextC(txtField,"");
+    } else {
+        txtField.css('border', '2px solid green');
+        txtField.parent().children('span').text(error);
+    }
+}
+
+function defaultTextC(txtField,error) {
+    txtField.css("border", "1px solid #ced4da");
+    txtField.parent().children('span').text(error);
+}
+
+function focusTextC(txtField) {
+    txtField.focus();
+}
+
+function setButtonStateC(value){
+    if (value>0){
+        $("#btnAddC2").attr('disabled',true);
+    }else{
+        $("#btnAddC2").attr('disabled',false);
+    }
+}
+
+function clearAllTextsC() {
+    $("#txtRNber").focus();
+    $("#txtRNber,#txtCbrnd,#txtTrnsm,#txtType,#txtNoOPass,#txtFuel,#txtMRt,#txtMnthlyR,#txtPfExk,#txtFmlg,#txtLSrm,#txtClr,#txtMdl").val("");
+    checkCValidity();
+}
 
 
 
