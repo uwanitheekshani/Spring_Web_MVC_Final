@@ -78,14 +78,25 @@ public class DriverServiceImpl implements DriverService {
         return mapper.map( repo.getDriverByDrivingLicenceNum(driverLicenceNum), DriverDTO.class);
     }
 
+//    @Override
+//    public DriverDTO getAllByAvailability() {
+////        List<DriverDTO> list= new ArrayList<>();
+////        Driver driver = repo.getAllByAvailability(availability);
+//////        for (Driver driver : allByAvailability) {
+//////            list.add(new DriverDTO(driver.getDriver_id()));
+//////        }
+////        return driver;
+//        return mapper.map( repo.getAllByAvailability(), DriverDTO.class);
+//    }
+
     @Override
-    public List<DriverDTO> getAllByAvailability(String availability) {
-        List<DriverDTO> list= new ArrayList<>();
-        List<Driver> allByAvailability = repo.getAllByAvailability(availability);
-        for (Driver driver : allByAvailability) {
-            list.add(new DriverDTO(driver.getDriver_id()));
-        }
-        return list;
+    public DriverDTO searchDriverByAvailabilty(String availability) {
+        return mapper.map(repo.getDriverByAvailability(availability), DriverDTO.class);
     }
+
+//    @Override
+//    public DriverDTO searchDriverBydriverId(String drivingId) {
+//        return mapper.map( repo.getDriverByDriver_id(drivingId), DriverDTO.class);
+//    }
 
 }

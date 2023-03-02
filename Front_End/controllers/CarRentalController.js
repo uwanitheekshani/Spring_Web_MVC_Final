@@ -120,6 +120,14 @@ function generateRentId() {
         }
     })
 }
+
+        //===============================================================================================
+
+$('body').on('dblclick','#CheckReTable>tr', function () {
+    $(this).remove();
+});
+
+
          // ===================================================
 
 // $("#btnsendReq").click(function (){
@@ -674,6 +682,7 @@ $("#btnsendReq").click(function (){
         data: Rdata,
         success: function (resp) {
             sendRentImagePath(rentId);
+            getAllAvailableDriver();
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
@@ -740,25 +749,30 @@ function sendRentImagePath(rentId) {
         }
     });
 }
+
 //get added driver ids and updated driver availability
 function a(id){//kohenda mekata id eka enne..?
     alert(id);
     $.ajax({
-        url: baseURL + "driver?drivingLiNum="+id,
+        url: baseURL + "driver",
         dataType:"Json",
         method: "get",
         success: function (resp) {
             alert(resp.message);
             alert(resp.data);
-
+      // for (const driver of resp.data) {
+      let Driver;
+      // }
             console.log("did"+resp.data.driver_id);
-            let Driver = {
-                driver_id: resp.data.driver_id,
-                nic:resp.data.nic,
-                name:resp.data.name,
-                drivingLicenceNum:resp.data.drivingLicenceNum,
-                availability: "unAvailable"
+            if (id==resp.data.driver_id) {
+                Driver = {
+                    driver_id: resp.data.driver_id,
+                    nic: resp.data.nic,
+                    name: resp.data.name,
+                    drivingLicenceNum: resp.data.drivingLicenceNum,
+                    availability: "unAvailable"
 
+                }
             }
 
 
@@ -796,28 +810,44 @@ function a(id){//kohenda mekata id eka enne..?
                 // =========================================================
 
 
-function getAllAvailableDriver(){
-    let available="Available";
-    $.ajax({
-        url: baseURL+"driver/availability/"+available,
-        dataType:"json",
-        method: "get",
-        success: function (resp) {
-            console.log(resp)
-            for (let r of resp.data) {
-                // console.log(r.driverId);
-                /* alert(r.driverId);
-                 alert(r.driverName);*/
-                driver_id = r.driver_id;
-                driverIds.push(r.driver_id);
+// function getAllAvailableDriver(){
+    // let available="Available";
+    // $.ajax({
+    //     url: baseURL+"driver/availability/drivers",
+    //     dataType:"json",
+    //     method: "get",
+    //     success: function (resp) {
+    //         console.log(resp)
+    //        alert(resp);
+    //             driverId = resp.data.driver_id;
+    //             driverIds.push(driverId);
+    //             //set all available drivers to array
+    //
+    //     }
+    //
+    // });
 
-                //set all available drivers to array
+    function getAllAvailableDriver(){
+        $.ajax({
+            url: baseURL+"driver?availability="+"Available",
+            dataType:"Json",
+            method: "get",
+            success: function (resp) {
+                console.log(resp)
+                for (const r of resp.data) {
+                    console.log(r.driver_id);
+                    /* alert(r.driverId);
+                     alert(r.driverName);*/
+                    driverId = r.driver_id;
+                    driverIds.push(r.driver_id);
+
+                    //set all available drivers to array
+
+                }
 
             }
 
-        }
-
-    });
+        });
 
 
 

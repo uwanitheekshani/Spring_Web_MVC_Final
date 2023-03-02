@@ -38,20 +38,28 @@ public class DriverController {
         return new ResponseUtil("200",dto.toString()+" Updated",null);
     }
 
-    @GetMapping(params = "drivingLiNum")
-    public ResponseUtil checkDriver(String drivingLiNum) {
-        System.out.println(drivingLiNum);
-        DriverDTO driverDTO = service.searchDriverBydriverLicenceNum(drivingLiNum);
-//        System.out.println(adminDTO);
+//    @GetMapping(params = "drivingLiNum")
+//    public ResponseUtil checkDriver(String drivingLiNum) {
+//        System.out.println(drivingLiNum);
+//        DriverDTO driverDTO = service.searchDriverBydriverLicenceNum(drivingLiNum);
+////        System.out.println(adminDTO);
+//        return new ResponseUtil("200", "Login Success", driverDTO);
+//    }
+
+
+//    @GetMapping(path = "availability/drivers")
+//    public ResponseUtil getAllByAvailability() {
+//        System.out.println();
+//
+////        System.out.println(adminDTO);
+//        return new ResponseUtil("200", "Login Success", service.getAllByAvailability());
+//    }
+
+
+    @GetMapping(params = "availability")
+    public ResponseUtil checkDriverAvailability(String availability) {
+        System.out.println(availability);
+        DriverDTO driverDTO = service.searchDriverByAvailabilty(availability);
         return new ResponseUtil("200", "Login Success", driverDTO);
-    }
-
-
-    @GetMapping(path = "/availability/{available}")
-    public ResponseUtil getAllByAvailability(@PathVariable String available) {
-        System.out.println(available);
-
-//        System.out.println(adminDTO);
-        return new ResponseUtil("200", "Login Success", service.getAllByAvailability(available));
     }
 }

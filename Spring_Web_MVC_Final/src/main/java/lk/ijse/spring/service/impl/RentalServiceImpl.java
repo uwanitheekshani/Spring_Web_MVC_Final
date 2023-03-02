@@ -1,11 +1,14 @@
 package lk.ijse.spring.service.impl;
 
 import lk.ijse.spring.dto.RentalDTO;
+import lk.ijse.spring.dto.RentalDetailsDTO;
 import lk.ijse.spring.entity.Customer;
+import lk.ijse.spring.entity.RentDetails;
 import lk.ijse.spring.entity.Rental;
 import lk.ijse.spring.repo.*;
 import lk.ijse.spring.service.CarService;
 import lk.ijse.spring.service.PaymentService;
+import lk.ijse.spring.service.RentalDetails;
 import lk.ijse.spring.service.RentalService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,6 +69,7 @@ public class RentalServiceImpl implements RentalService {
         }
         Rental entity = mapper.map(rentalDTO, Rental.class);
         repo.save(entity);
+
     }
 
     @Override

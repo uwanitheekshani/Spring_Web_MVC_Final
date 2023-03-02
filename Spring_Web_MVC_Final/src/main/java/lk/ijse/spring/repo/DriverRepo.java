@@ -13,7 +13,9 @@ import java.util.List;
 public interface DriverRepo extends JpaRepository<Driver,String> {
     Driver getDriverByDrivingLicenceNum(String driverLicenceNum);
 
-    @Query(value = "SELECT * from Driver where availability=:availability",nativeQuery = true)
-    List<Driver> getAllByAvailability(@Param("availability") String availability);
+    @Query(value = "SELECT * from Driver where availability 'Available' DESC LIMIT 1",nativeQuery = true)
+//    Driver getAllByAvailability();
 
+    Driver getDriverByAvailability(String email);
+//    Driver getDriverByDriver_id(String drivingId);
 }

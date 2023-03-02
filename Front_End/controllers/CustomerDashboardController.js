@@ -24,6 +24,7 @@ $("#account").click(function () {
 });
 
 $("#store").click(function () {
+    carAppend();
     $("#mainh").css('display','none');
     $("#main3").css('display','none');
     $("#foot").css('display','none');

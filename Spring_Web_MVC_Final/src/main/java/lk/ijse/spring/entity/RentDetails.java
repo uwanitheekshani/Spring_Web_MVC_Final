@@ -35,4 +35,5 @@ public class RentDetails {
     @ManyToOne
     @JoinColumn(name = "rentalId",referencedColumnName = "rentalId",insertable = false,updatable = false)
     private Rental rental;
+
 }

@@ -23,4 +23,5 @@ public class RentalDetailsDTO{
     private LocalDate pickupDate;
     private LocalDate returnDate;
     private String driverOption;
+
 }

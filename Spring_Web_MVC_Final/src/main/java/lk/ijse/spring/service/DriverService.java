@@ -23,5 +23,9 @@ public interface DriverService {
 
     DriverDTO searchDriverBydriverLicenceNum(String driverLicenceNum);
 
-    List<DriverDTO> getAllByAvailability(String availability);
+//    DriverDTO getAllByAvailability();
+
+    DriverDTO searchDriverByAvailabilty(String availability);
+
+//    DriverDTO searchDriverBydriverId(String drivingId);
 }
