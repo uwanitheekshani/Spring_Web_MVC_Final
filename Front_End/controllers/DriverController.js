@@ -122,3 +122,125 @@ function clearDriverLoginTextFields() {
     $('#txtDdUsNa').val("");
     $('#txtDdPass').val("");
 }
+
+
+      //========================================Driver Validation============================================
+
+const driverIdRegEx = /^(D00-)[0-9]{1,3}$/;
+const driverNameRegEx = /^[A-z ]{5,20}$/;
+const driverNicRegEx = /^[0-9/A-z. ,]{7,}$/;
+const driverLicenseRegEx = /^[0-9]{1,}$/;
+
+let DriverValidations = [];
+DriverValidations.push({reg: driverIdRegEx, field: $('#txtDriverId'),error:'Driver ID Pattern is Wrong' });
+DriverValidations.push({reg: driverNameRegEx, field: $('#txtDriverName'),error:'Driver Name Pattern is Wrong'});
+DriverValidations.push({reg: driverNicRegEx, field: $('#txtDriverNic'),error:'Driver License Number Pattern is Wrong'});
+DriverValidations.push({reg: driverLicenseRegEx, field: $('#txtDriverLiNum'),error:'Driver NIC  Pattern is Wrong'});
+
+
+$("#txtDriverId,#txtDriverName,#txtDriverNic,#txtDriverLiNum").on('keydown', function (event) {
+    if (event.key == "Tab") {
+        event.preventDefault();
+    }
+});
+
+
+$("#txtDriverId,#txtDriverName,#txtDriverNic,#txtDriverLiNum").on('keyup', function (event) {
+    checkDValidity();
+});
+
+$("#txtDriverId,#txtDriverName,#txtDriverNic,#txtDriverLiNum").on('blur', function (event) {
+    checkDValidity();
+});
+
+
+$("#txtDriverId").on('keydown', function (event) {
+    if (event.key == "Enter" && checkD(driverIdRegEx, $("#txtDriverId"))) {
+        $("#txtDriverName").focus();
+    } else {
+        focusTextD($("#txtDriverId"));
+    }
+});
+
+
+$("#txtDriverName").on('keydown', function (event) {
+    if (event.key == "Enter" && checkD(driverNameRegEx, $("#txtDriverName"))) {
+        focusTextD($("#txtDriverNic"));
+    }
+});
+
+
+$("#txtDriverNic").on('keydown', function (event) {
+    if (event.key == "Enter" && checkD(driverLicenseRegEx, $("#txtDriverNic"))) {
+        focusTextD($("#txtDriverLiNum"));
+    }
+});
+$("#txtDriverLiNum").on('keydown', function (event) {
+    if (event.key == "Enter" && checkD(driverNicRegEx, $("#txtDriverLiNum"))) {
+        let res = confirm("Do you want to create.?");
+        if (res) {
+            clearAllTextsD();
+        }
+    }
+});
+
+
+
+function checkDValidity() {
+    let errorCount=0;
+    for (let validation of DriverValidations) {
+        if (checkD(validation.reg,validation.field)) {
+            textSuccessD(validation.field,"");
+        } else {
+            errorCount=errorCount+1;
+            setTextErrorD(validation.field,validation.error);
+        }
+    }
+    setButtonStateD(errorCount);
+}
+
+function checkD(regex, txtField) {
+    let inputValue = txtField.val();
+    return regex.test(inputValue) ? true : false;
+}
+
+function setTextErrorD(txtField,error) {
+    if (txtField.val().length <= 0) {
+        defaultTextD(txtField,"");
+    } else {
+        txtField.css('border', '2px solid red');
+        txtField.parent().children('span').text(error);
+    }
+}
+
+function textSuccessD(txtField,error) {
+    if (txtField.val().length <= 0) {
+        defaultTextD(txtField,"");
+    } else {
+        txtField.css('border', '2px solid green');
+        txtField.parent().children('span').text(error);
+    }
+}
+
+function defaultTextD(txtField,error) {
+    txtField.css("border", "1px solid #ced4da");
+    txtField.parent().children('span').text(error);
+}
+
+function focusTextD(txtField) {
+    txtField.focus();
+}
+
+function setButtonStateD(value){
+    if (value>0){
+        $("#btnAddDriver").attr('disabled',true);
+    }else{
+        $("#btnAddDriver").attr('disabled',false);
+    }
+}
+
+function clearAllTextsD() {
+    $("#txtDriverId").focus();
+    $("#txtDriverId,#txtDriverName,#txtDriverNic,#txtDriverLiNum").val("");
+    checkDValidity();
+}
