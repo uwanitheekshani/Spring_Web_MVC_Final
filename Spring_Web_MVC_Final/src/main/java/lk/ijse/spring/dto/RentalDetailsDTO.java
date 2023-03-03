@@ -24,4 +24,10 @@ public class RentalDetailsDTO{
     private LocalDate returnDate;
     private String driverOption;
 
+//    public RentalDetailsDTO(String registrationId, String driver_id, String driverOption,String rentalId) {
+//        this.registrationId = registrationId;
+//        this.driver_id = driver_id;
+//        this.driverOption = driverOption;
+//        this.rentalId=rentalId;
+//    }
 }

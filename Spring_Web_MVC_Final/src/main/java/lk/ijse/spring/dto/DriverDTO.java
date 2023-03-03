@@ -23,4 +23,12 @@ public class DriverDTO {
     public DriverDTO(String driver_id) {
         this.driver_id = driver_id;
     }
+
+    public DriverDTO(String driver_id, String name, String nic, String drivingLicenceNum, String availability) {
+        this.driver_id = driver_id;
+        this.name = name;
+        this.nic = nic;
+        this.drivingLicenceNum = drivingLicenceNum;
+        this.availability = availability;
+    }
 }

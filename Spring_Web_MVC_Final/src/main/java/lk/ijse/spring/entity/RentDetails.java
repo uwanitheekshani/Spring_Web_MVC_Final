@@ -36,4 +36,19 @@ public class RentDetails {
     @JoinColumn(name = "rentalId",referencedColumnName = "rentalId",insertable = false,updatable = false)
     private Rental rental;
 
+
+//    public RentDetails(String registrationId, String driver_id, String driverOption) {
+//        this.registrationId = registrationId;
+//        this.driver_id = driver_id;
+//        this.driverOption = driverOption;
+////         this.rentalId=rentalId;
+//    }
+
+    public RentDetails(String registrationId, String driver_id, String driverOption, Rental rental) {
+        this.registrationId = registrationId;
+        this.driver_id = driver_id;
+        this.driverOption = driverOption;
+         this.rental=rental;
+    }
+
 }

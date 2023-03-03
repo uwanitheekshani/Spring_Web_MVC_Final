@@ -27,5 +27,7 @@ public interface DriverService {
 
     DriverDTO searchDriverByAvailabilty(String availability);
 
+//    DriverDTO getRandomDriver();
+
 //    DriverDTO searchDriverBydriverId(String drivingId);
 }

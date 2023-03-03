@@ -22,11 +22,22 @@ public class RentalDTO {
     private LocalDate returnDate;
     private String rental_status;
     private String payment_slip;
-    private String duration;
     private double amount;
     private double total_damage_waiver_payment;
     private String pickupLocation;
     private String returnLocation;
-    private List<RentDetails> rentDetails;
+    private List<RentalDetailsDTO> rentDetails;
 
+    public RentalDTO(String rentalId, Customer cusNic, LocalDate pickUpDate, LocalDate returnDate, String rental_status, String payment_slip, double amount, double total_damage_waiver_payment, String pickupLocation, String returnLocation) {
+        this.rentalId = rentalId;
+        this.cusNic = cusNic;
+        this.pickUpDate = pickUpDate;
+        this.returnDate = returnDate;
+        this.rental_status = rental_status;
+        this.payment_slip = payment_slip;
+        this.amount = amount;
+        this.total_damage_waiver_payment = total_damage_waiver_payment;
+        this.pickupLocation = pickupLocation;
+        this.returnLocation = returnLocation;
+    }
 }

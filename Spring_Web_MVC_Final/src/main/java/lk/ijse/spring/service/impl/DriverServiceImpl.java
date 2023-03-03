@@ -1,16 +1,10 @@
 package lk.ijse.spring.service.impl;
 
-import lk.ijse.spring.dto.AdminDTO;
-import lk.ijse.spring.dto.CustomerDTO;
 import lk.ijse.spring.dto.DriverDTO;
-import lk.ijse.spring.entity.Admin;
-import lk.ijse.spring.entity.Customer;
 import lk.ijse.spring.entity.Driver;
-import lk.ijse.spring.repo.AdminRepo;
 import lk.ijse.spring.repo.DriverRepo;
 import lk.ijse.spring.service.DriverService;
 import org.modelmapper.ModelMapper;
-import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,8 +39,8 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public void updateDriver(DriverDTO driverDTO) {
-        if (!repo.existsById(driverDTO.getDriver_id())){
-            throw new RuntimeException("Driver "+driverDTO.getDriver_id()+" Not Available to Update..!");
+        if (!repo.existsById(driverDTO.getDriver_id())) {
+            throw new RuntimeException("Driver " + driverDTO.getDriver_id() + " Not Available to Update..!");
         }
         Driver entity = mapper.map(driverDTO, Driver.class);
         repo.save(entity);
@@ -65,7 +59,13 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public List<DriverDTO> getAllDriverDetail() {
-        return mapper.map(repo.findAll(),new TypeToken<List<DriverDTO>>(){}.getType());
+        List<DriverDTO> list = new ArrayList<>();
+        List<Driver> all = repo.findAll();
+        for (Driver d : all) {
+            list.add( new DriverDTO(d.getDriver_id(),d.getName(),d.getNic(),d.getDrivingLicenceNum(),d.getAvailability()));
+        }
+        return list;
+        // return mapper.map(repo.findAll(),new TypeToken<List<DriverDTO>>(){}.getType());
     }
 
     @Override
@@ -75,7 +75,7 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public DriverDTO searchDriverBydriverLicenceNum(String driverLicenceNum) {
-        return mapper.map( repo.getDriverByDrivingLicenceNum(driverLicenceNum), DriverDTO.class);
+        return mapper.map(repo.getDriverByDrivingLicenceNum(driverLicenceNum), DriverDTO.class);
     }
 
 //    @Override
@@ -91,9 +91,17 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public DriverDTO searchDriverByAvailabilty(String availability) {
-        return mapper.map(repo.getDriverByAvailability(availability), DriverDTO.class);
+        Driver d = repo.getDriverByAvailability(availability);
+        return new DriverDTO(d.getDriver_id(),d.getName(),d.getNic(),d.getDrivingLicenceNum(),d.getAvailability());
     }
 
+//    @Override
+//    public DriverDTO getRandomDriver() {
+//            Driver driverRandomly = repo.findDriverRandomly();
+//            DriverDTO driverDTO = mapper.map(driverRandomly, DriverDTO.class);
+//            return driverDTO;
+//        }
+//
 //    @Override
 //    public DriverDTO searchDriverBydriverId(String drivingId) {
 //        return mapper.map( repo.getDriverByDriver_id(drivingId), DriverDTO.class);

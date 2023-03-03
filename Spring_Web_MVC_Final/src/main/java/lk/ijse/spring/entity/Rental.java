@@ -25,8 +25,6 @@ public class Rental {
     private double total_damage_waiver_payment;
     private String pickupLocation;
     private String returnLocation;
-    private String duration;
-
 
 
     @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
@@ -35,4 +33,17 @@ public class Rental {
 
     @OneToMany(mappedBy = "rental",cascade = CascadeType.ALL)
     private List<RentDetails> rentDetails;
+
+    public Rental(String rentalId, Customer cusNic, LocalDate pickUpDate, LocalDate returnDate, String rental_status, String payment_slip, double amount, double total_damage_waiver_payment, String pickupLocation, String returnLocation) {
+        this.rentalId = rentalId;
+        this.cusNic = cusNic;
+        this.pickUpDate = pickUpDate;
+        this.returnDate = returnDate;
+        this.rental_status = rental_status;
+        this.payment_slip = payment_slip;
+        this.amount = amount;
+        this.total_damage_waiver_payment = total_damage_waiver_payment;
+        this.pickupLocation = pickupLocation;
+        this.returnLocation = returnLocation;
+    }
 }
