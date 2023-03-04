@@ -615,6 +615,7 @@ var r;
 
 $("#btnsendReq").click(function () {
     addRental();
+    CustomerAccount();
 });
 
 function addRental(driver) {
