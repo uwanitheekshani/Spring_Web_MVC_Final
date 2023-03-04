@@ -613,24 +613,38 @@ $('body').on('dblclick', '#CheckReTable>tr', function () {
 var p;
 var r;
 
+// desable();
+// function desable(){
+//     let avilable = $("#CheckReTable").children().eq(0).children(":eq(8)").text();
+//     console.log(avilable)
+//     if (avilable == "Available"){
+//         $("#btnsendReq").prop('disabled',true);
+//     }
+// }
 $("#btnsendReq").click(function () {
+    // alert("Work");
+    // let avilable = $("#CheckReTable").children().eq(0).children(":eq(8)").text();
+    // if (avilable == "NotAvailable"){
+    //     alert("This Not Available!")
+    // }else {
+    //     addRental();
+    // }
     addRental();
     CustomerAccount();
 });
 
-function addRental(driver) {
+function addRental() {
 
     let driverOption = $("#selectDriver").val();
-
 
     p = $("#txtFromDate").val();
     r = $("#txtToDate").val();
 
 
-    var Rdata = new FormData();
+    // var Rdata = new FormData();
 
     let paymentSlipName = $("#lossDP2")[0].files[0].name;
-    let paymentSlipFile = $("#lossDP2")[0].files[0];
+    // let paymentSlipFile = $("#lossDP2")[0].files[0];
 
 
     let registrationId = $("#CheckReTable").children().eq(0).children(":eq(0)").text();
@@ -644,6 +658,7 @@ function addRental(driver) {
     let slipImgPath = paymentSlipName;
     let statusOfReq = "Pending";
     let cusId = $("#anic").text();
+    let driverID = $("#driverID").val();
     // let getDriverId = getDriverId(rentId);
 // console.log(driver);
 
@@ -658,20 +673,22 @@ function addRental(driver) {
         rental_status: statusOfReq,
         total_damage_waiver_payment: onHold,
         cusNic: cusId,
-        driver_id: driver,
-        registrationId: registrationId
+        driverID: driverID,
+        registrationID: registrationId
     }
+    console.log(JSON.stringify(rent))
 
-    Rdata.append("rImageFile", paymentSlipFile);
-    Rdata.append("carRental", new Blob([JSON.stringify(rent)], {type: "application/json"}))
+    // Rdata.append("rImageFile", paymentSlipFile);
+    // Rdata.append("carRental", new Blob([JSON.stringify(rent)], {type: "application/json"}))
 
     $.ajax({
         url: baseURL + "rental",
         method: "POST",
         async: true,
-        contentType: false,
-        processData: false,
-        data: Rdata,
+        contentType: "application/json",
+        // contentType: false,
+        // processData: false,
+        data: JSON.stringify(rent),
         success: function (resp) {
             sendRentImagePath(rentId);
             Swal.fire({
@@ -681,7 +698,7 @@ function addRental(driver) {
                 showConfirmButton: false,
                 timer: 1500
             });
-
+            // updateCarAvai();
         },
         error: function (error) {
             Swal.fire({
@@ -692,9 +709,29 @@ function addRental(driver) {
                 timer: 1500
             });
         }
-    })
+    });
 }
+// var carData = [];
+// function getAllCar(){
+//     $.ajax({
+//         url: baseURL+"car",
+//         dataType: "json",
+//         success: function (resp){
+//             for (let car of resp.data) {
+//                 let registrationId = car.registrationId;
+//                 carData = {registrationId:registrationId,Available:"Notavailable"}
+//             }
+//         }
+//     })
+// }
 
+// function updateCarAvai(){
+//     $.ajax({
+//         url: baseURL+"car",
+//         method: "put",
+//         data: JSON.stringify(carData)
+//     })
+// }
 
 // =====================================================================
 
@@ -811,25 +848,22 @@ function sendRentImagePath(rentId) {
 
 $('#selectDriver').change(function () {
     let driverOption = $('#selectDriver').find('option:selected').text();
-    console.log(driverOption);
-    if (driverOption==="Driver"){
-        randomDriver();
+    // console.log(driverOption);
+    if (driverOption == "Driver"){
+        // randomDriver();
     }
     else {
         addRental("None");
     }
 })
-
+randomDriver();
 function randomDriver(){
     $.ajax({
         url: baseURL + "driver/randomDriver",
-        method: "get",
+        dataType:"json",
         success: function (resp) {
-            for (let driver of resp.data){
-                console.log(driver);
-                addRental(driver.data.driver_id);
-            }
-
+            // console.log(resp.data.driver_id)
+            $("#driverID").val(resp.data.driverID);
         }
 
     });

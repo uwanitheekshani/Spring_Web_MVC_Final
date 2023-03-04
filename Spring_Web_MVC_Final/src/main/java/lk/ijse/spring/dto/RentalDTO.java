@@ -26,8 +26,8 @@ public class RentalDTO {
     private double total_damage_waiver_payment;
     private String pickupLocation;
     private String returnLocation;
-    private String driver_id;
-    private String registrationId;
+    private String driverID;
+    private String registrationID;
     private String driverOption;
 
 //    private List<RentalDetailsDTO> rentDetails;

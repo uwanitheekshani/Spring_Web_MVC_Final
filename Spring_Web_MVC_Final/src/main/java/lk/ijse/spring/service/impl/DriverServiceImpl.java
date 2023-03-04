@@ -5,7 +5,6 @@ import lk.ijse.spring.entity.Driver;
 import lk.ijse.spring.repo.DriverRepo;
 import lk.ijse.spring.service.DriverService;
 import org.modelmapper.ModelMapper;
-import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,8 +39,8 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public void updateDriver(DriverDTO driverDTO) {
-        if (!repo.existsById(driverDTO.getDriver_id())) {
-            throw new RuntimeException("Driver " + driverDTO.getDriver_id() + " Not Available to Update..!");
+        if (!repo.existsById(driverDTO.getDriverID())) {
+            throw new RuntimeException("Driver " + driverDTO.getDriverID() + " Not Available to Update..!");
         }
         Driver entity = mapper.map(driverDTO, Driver.class);
         repo.save(entity);
@@ -63,7 +62,7 @@ public class DriverServiceImpl implements DriverService {
         List<DriverDTO> list = new ArrayList<>();
         List<Driver> all = repo.findAll();
         for (Driver d : all) {
-            list.add( new DriverDTO(d.getDriver_id(),d.getName(),d.getNic(),d.getDrivingLicenceNum(),d.getAvailability()));
+            list.add( new DriverDTO(d.getDriverID(),d.getName(),d.getNic(),d.getDrivingLicenceNum(),d.getAvailability()));
         }
         return list;
         // return mapper.map(repo.findAll(),new TypeToken<List<DriverDTO>>(){}.getType());
@@ -93,15 +92,19 @@ public class DriverServiceImpl implements DriverService {
     @Override
     public DriverDTO searchDriverByAvailabilty(String availability) {
         Driver d = repo.getDriverByAvailability(availability);
-        return new DriverDTO(d.getDriver_id(),d.getName(),d.getNic(),d.getDrivingLicenceNum(),d.getAvailability());
+        return new DriverDTO(d.getDriverID(),d.getName(),d.getNic(),d.getDrivingLicenceNum(),d.getAvailability());
     }
 
     @Override
-    public List<DriverDTO> getRandomDriver() {
-        return mapper.map(repo.findDriverRandomly(), new TypeToken<List<DriverDTO>>() {
-        }.getType());
+    public DriverDTO generateDriver() {
+        return mapper.map(repo.findDriverRandomly(),DriverDTO.class);
+    }
 
-        }
+//    @Override
+//    public List<DriverDTO> getRandomDriver() {
+//        return mapper.map(repo.findDriverRandomly(), new TypeToken<List<DriverDTO>>() {
+//        }.getType());
+//    }
 //
 //    @Override
 //    public DriverDTO searchDriverBydriverId(String drivingId) {

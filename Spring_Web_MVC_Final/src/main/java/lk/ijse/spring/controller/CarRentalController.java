@@ -37,28 +37,34 @@ public class CarRentalController {
 //        return new ResponseUtil("200",dto.toString()+ " Added",null);
 //    }
 
-    @PostMapping(consumes = {MediaType.MULTIPART_FORM_DATA_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseUtil saveRental(@RequestPart("rImageFile") MultipartFile[] file, @RequestPart("carRental") RentalDTO rentalDTO) {
+//    @PostMapping(consumes = {MediaType.MULTIPART_FORM_DATA_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
+//    public ResponseUtil saveRental(@RequestPart("rImageFile") MultipartFile[] file, @RequestPart("carRental") RentalDTO rentalDTO) {
+//
+//        for (MultipartFile myFile : file) {
+//
+//            try {
+//                String projectPath = new File(this.getClass().getProtectionDomain().getCodeSource().getLocation().toURI()).getParentFile().getParentFile().getAbsolutePath();
+//                File uploadsDir = new File(projectPath + "/uploads");
+//                uploadsDir.mkdir();
+//                myFile.transferTo(new File(uploadsDir.getAbsolutePath() + "/" + myFile.getOriginalFilename()));
+//                System.out.println(projectPath);
+//            } catch (IOException | URISyntaxException e) {
+//                e.printStackTrace();
+//                return new ResponseUtil("500", "Registration Failed.Try Again Latter", null);
+//            }
+//        }
+//
+//
+//        service.saveRental(rentalDTO);
+//        return new ResponseUtil("200", "Registration Successfully....", rentalDTO);
+//    }
 
-        for (MultipartFile myFile : file) {
 
-            try {
-                String projectPath = new File(this.getClass().getProtectionDomain().getCodeSource().getLocation().toURI()).getParentFile().getParentFile().getAbsolutePath();
-                File uploadsDir = new File(projectPath + "/uploads");
-                uploadsDir.mkdir();
-                myFile.transferTo(new File(uploadsDir.getAbsolutePath() + "/" + myFile.getOriginalFilename()));
-                System.out.println(projectPath);
-            } catch (IOException | URISyntaxException e) {
-                e.printStackTrace();
-                return new ResponseUtil("500", "Registration Failed.Try Again Latter", null);
-            }
-        }
-
-
+    @PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseUtil saveRental(@RequestBody RentalDTO rentalDTO) {
         service.saveRental(rentalDTO);
         return new ResponseUtil("200", "Registration Successfully....", rentalDTO);
     }
-
 
     @PostMapping(path = "/uploadImg/{rentalId}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil uploadImagesAndPath(@RequestPart("payment_slip") MultipartFile payment_slip, @PathVariable String rentalId) {

@@ -32,13 +32,13 @@ public class Rental {
     @JoinColumn(name = "nic",referencedColumnName = "nic",nullable = false)
     private Customer cusNic;
 
-    @ManyToOne
-    @JoinColumn(name = "driver_id",referencedColumnName = "driver_id",insertable = false,updatable = false)
-    private Driver driver_id;
+    @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
+    @JoinColumn(name = "driver_id",referencedColumnName = "driverID")
+    private Driver driverID;
 
-    @ManyToOne
-    @JoinColumn(name = "registrationId",referencedColumnName = "registrationId",insertable = false,updatable = false)
-    private Car registrationId;
+    @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
+    @JoinColumn(name = "registrationId",referencedColumnName = "registrationId")
+    private Car registrationID;
 
 
 //    @OneToMany(mappedBy = "rental",cascade = CascadeType.ALL)

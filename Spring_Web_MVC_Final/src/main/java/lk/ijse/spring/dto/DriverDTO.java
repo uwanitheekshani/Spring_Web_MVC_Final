@@ -14,19 +14,19 @@ import java.util.List;
 @Data
 @ToString
 public class DriverDTO {
-    private String driver_id;
+    private String driverID;
     private String name;
     private String nic;
     private String drivingLicenceNum;
     private String availability;
     private List<Rental> rentalList;
 
-    public DriverDTO(String driver_id) {
-        this.driver_id = driver_id;
+    public DriverDTO(String driverID) {
+        this.driverID = driverID;
     }
 
     public DriverDTO(String driver_id, String name, String nic, String drivingLicenceNum, String availability) {
-        this.driver_id = driver_id;
+        this.driverID = driver_id;
         this.name = name;
         this.nic = nic;
         this.drivingLicenceNum = drivingLicenceNum;
