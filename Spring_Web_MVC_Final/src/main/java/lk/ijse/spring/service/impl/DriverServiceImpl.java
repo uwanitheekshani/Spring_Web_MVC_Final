@@ -5,6 +5,7 @@ import lk.ijse.spring.entity.Driver;
 import lk.ijse.spring.repo.DriverRepo;
 import lk.ijse.spring.service.DriverService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -80,12 +81,12 @@ public class DriverServiceImpl implements DriverService {
 
 //    @Override
 //    public DriverDTO getAllByAvailability() {
-////        List<DriverDTO> list= new ArrayList<>();
-////        Driver driver = repo.getAllByAvailability(availability);
-//////        for (Driver driver : allByAvailability) {
-//////            list.add(new DriverDTO(driver.getDriver_id()));
-//////        }
-////        return driver;
+//        List<DriverDTO> list= new ArrayList<>();
+//        Driver driver = repo.getAllByAvailability(availability);
+//        for (Driver driver : allByAvailability) {
+//            list.add(new DriverDTO(driver.getDriver_id()));
+//        }
+//        return driver;
 //        return mapper.map( repo.getAllByAvailability(), DriverDTO.class);
 //    }
 
@@ -95,12 +96,12 @@ public class DriverServiceImpl implements DriverService {
         return new DriverDTO(d.getDriver_id(),d.getName(),d.getNic(),d.getDrivingLicenceNum(),d.getAvailability());
     }
 
-//    @Override
-//    public DriverDTO getRandomDriver() {
-//            Driver driverRandomly = repo.findDriverRandomly();
-//            DriverDTO driverDTO = mapper.map(driverRandomly, DriverDTO.class);
-//            return driverDTO;
-//        }
+    @Override
+    public List<DriverDTO> getRandomDriver() {
+        return mapper.map(repo.findDriverRandomly(), new TypeToken<List<DriverDTO>>() {
+        }.getType());
+
+        }
 //
 //    @Override
 //    public DriverDTO searchDriverBydriverId(String drivingId) {

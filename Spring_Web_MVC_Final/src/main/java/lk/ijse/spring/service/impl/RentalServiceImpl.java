@@ -1,17 +1,20 @@
 package lk.ijse.spring.service.impl;
 
+import lk.ijse.spring.dto.CarDTO;
 import lk.ijse.spring.dto.RentalDTO;
-import lk.ijse.spring.dto.RentalDetailsDTO;
+//import lk.ijse.spring.dto.RentalDetailsDTO;
 import lk.ijse.spring.entity.Customer;
-import lk.ijse.spring.entity.RentDetails;
+//import lk.ijse.spring.entity.RentDetails;
 import lk.ijse.spring.entity.Rental;
 import lk.ijse.spring.repo.*;
 import lk.ijse.spring.service.RentalService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 
 @Service
 @Transactional
@@ -20,8 +23,8 @@ public class RentalServiceImpl implements RentalService {
     @Autowired
     RentalRepo repo;
 
-    @Autowired
-    RentalDetailsRepo rentalDetailsRepo;
+//    @Autowired
+//    RentalDetailsRepo rentalDetailsRepo;
 
     @Autowired
     CarRepo carRepo;
@@ -61,39 +64,48 @@ public class RentalServiceImpl implements RentalService {
 
     @Override
     public void saveRental(RentalDTO rentalDTO) {
-//        if (repo.existsById(rentalDTO.getRentalId())){
-//            throw new RuntimeException("Rental "+rentalDTO.getRentalId()+" Already Exist..!");
-//        }
-//        Rental entity = mapper.map(rentalDTO, Rental.class);
-//        repo.save(entity);
+        if (repo.existsById(rentalDTO.getRentalId())){
+            throw new RuntimeException("Rental "+rentalDTO.getRentalId()+" Already Exist..!");
+        }
+        Rental entity = mapper.map(rentalDTO, Rental.class);
+        repo.save(entity);
+    }
 
-        if (!repo.existsById(rentalDTO.getRentalId())) {
-            /*   Customer customer = customerRepo.findById(entity.getCustomer()).get();*/
-            Rental rental = new Rental(
-                    rentalDTO.getRentalId(),
-                    rentalDTO.getCusNic(),
-                    rentalDTO.getPickUpDate(),
-                    rentalDTO.getReturnDate(),
-                    rentalDTO.getRental_status(),
-                    "uploads/"+rentalDTO.getPayment_slip(),
-                    rentalDTO.getAmount(),
-                    rentalDTO.getTotal_damage_waiver_payment(),
-                    rentalDTO.getPickupLocation(),
-                    rentalDTO.getReturnLocation()
-            );
-
-            Rental IsRental = repo.save(rental);
-
-            if (IsRental != null) {
-                for (RentalDetailsDTO rentDetailsDTO : rentalDTO.getRentDetails()) {
-                    /* Booking booking1 = bookingRepo.findById(detailsDTO.getBookingId()).get();*/
-                    RentDetails rentDetails = new RentDetails(
-                            rentDetailsDTO.getRegistrationId(),
-                            rentDetailsDTO.getDriver_id(),
-                            rentDetailsDTO.getDriverOption(),
-                            rental
-                    );
-                   rentalDetailsRepo.save(rentDetails);
+//    @Override
+//    public void saveRental(RentalDTO rentalDTO) {
+////        if (repo.existsById(rentalDTO.getRentalId())){
+////            throw new RuntimeException("Rental "+rentalDTO.getRentalId()+" Already Exist..!");
+////        }
+////        Rental entity = mapper.map(rentalDTO, Rental.class);
+////        repo.save(entity);
+//
+//        if (!repo.existsById(rentalDTO.getRentalId())) {
+//            /*   Customer customer = customerRepo.findById(entity.getCustomer()).get();*/
+//            Rental rental = new Rental(
+//                    rentalDTO.getRentalId(),
+//                    rentalDTO.getCusNic(),
+//                    rentalDTO.getPickUpDate(),
+//                    rentalDTO.getReturnDate(),
+//                    rentalDTO.getRental_status(),
+//                    "uploads/"+rentalDTO.getPayment_slip(),
+//                    rentalDTO.getAmount(),
+//                    rentalDTO.getTotal_damage_waiver_payment(),
+//                    rentalDTO.getPickupLocation(),
+//                    rentalDTO.getReturnLocation()
+//            );
+//
+//            Rental IsRental = repo.save(rental);
+//
+//            if (IsRental != null) {
+//                for (RentalDetailsDTO rentDetailsDTO : rentalDTO.getRentDetails()) {
+//                    /* Booking booking1 = bookingRepo.findById(detailsDTO.getBookingId()).get();*/
+//                    RentDetails rentDetails = new RentDetails(
+//                            rentDetailsDTO.getRegistrationId(),
+//                            rentDetailsDTO.getDriver_id(),
+//                            rentDetailsDTO.getDriverOption(),
+//                            rental
+//                    );
+//                   rentalDetailsRepo.save(rentDetails);
 //                    RentDetails IsRentalDetails = rentalDetailsRepo.save(rentDetails);
 
 //                    if (IsRentalDetails != null) {
@@ -125,33 +137,38 @@ public class RentalServiceImpl implements RentalService {
 //                    }
 
 
-                }
+//                }
+//
+//
+//
+//            }
+//        } else {
+//            throw new RuntimeException("This Booking ID is Already Exist !");
+//        }
+//    }
 
 
 
-            }
-        } else {
-            throw new RuntimeException("This Booking ID is Already Exist !");
-        }
+//    @Override
+//    public void uploadRentalImages(String payment_slip, String rentalId) {
+//        if (repo.existsById(rentalId)) {
+//            repo.updatePaymentSlipFilePaths(payment_slip, rentalId);
+//        } else {
+//            throw new RuntimeException("Customer Not Found");
+//        }
+//    }
+
+    @Override
+    public ArrayList<RentalDTO> getAllRentals() {
+        return mapper.map(repo.findAll(),new TypeToken<ArrayList<RentalDTO>>(){}.getType());
     }
-
-
 
     @Override
     public void uploadRentalImages(String payment_slip, String rentalId) {
         if (repo.existsById(rentalId)) {
             repo.updatePaymentSlipFilePaths(payment_slip, rentalId);
         } else {
-            throw new RuntimeException("Customer Not Found");
+            throw new RuntimeException("Renal Not Found");
         }
     }
-
-//    @Override
-//    public void uploadRentalImages(String payment_slip, Rental rentalId) {
-//        if (rentalDetails.existsById(rentalId)) {
-//            rentalDetails.updatePaymentSlipFilePaths(payment_slip, rentalId);
-//        } else {
-//            throw new RuntimeException("Customer Not Found");
-//        }
-//    }
 }

@@ -57,17 +57,17 @@ public class DriverController {
 //    }
 
 
-    @GetMapping(params = "availability")
-    public ResponseUtil checkDriverAvailability(String availability) {
-        System.out.println(availability);
-        DriverDTO driverDTO = service.searchDriverByAvailabilty(availability);
-        return new ResponseUtil("200", "Login Success", driverDTO);
-    }
-
-
-//    @GetMapping(path = "randomDriver",produces = MediaType.APPLICATION_JSON_VALUE)
-//    public ResponseUtil getDriverRandom(){
-//        DriverDTO dto = service.getRandomDriver();
-//        return new ResponseUtil("200","OK",dto);
+//    @GetMapping(params = "availability")
+//    public ResponseUtil checkDriverAvailability(String availability) {
+//        System.out.println(availability);
+//        DriverDTO driverDTO = service.searchDriverByAvailabilty(availability);
+//        return new ResponseUtil("200", "Login Success", driverDTO);
 //    }
+
+
+    @GetMapping(path = "/randomDriver",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil getDriverRandom(){
+        List<DriverDTO> randomDriver = service.getRandomDriver();
+        return new ResponseUtil("200","OK",randomDriver);
+    }
 }

@@ -102,4 +102,13 @@
     width: 150px;
 }
 
+#anic{
+    position: absolute;
+    color: black;
+    z-index: 2;
+    top: 57px;
+    left: 1190px;
+    font-size: 18px;
+}
+
 

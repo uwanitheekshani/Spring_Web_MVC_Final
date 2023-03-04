@@ -20,30 +20,40 @@ public class Rental {
     private LocalDate pickUpDate;
     private LocalDate returnDate;
     private String payment_slip;
-    private double amount;
+//    private double amount;
     private String rental_status;
     private double total_damage_waiver_payment;
     private String pickupLocation;
     private String returnLocation;
+    private String driverOption;
 
 
     @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
     @JoinColumn(name = "nic",referencedColumnName = "nic",nullable = false)
     private Customer cusNic;
 
-    @OneToMany(mappedBy = "rental",cascade = CascadeType.ALL)
-    private List<RentDetails> rentDetails;
+    @ManyToOne
+    @JoinColumn(name = "driver_id",referencedColumnName = "driver_id",insertable = false,updatable = false)
+    private Driver driver_id;
 
-    public Rental(String rentalId, Customer cusNic, LocalDate pickUpDate, LocalDate returnDate, String rental_status, String payment_slip, double amount, double total_damage_waiver_payment, String pickupLocation, String returnLocation) {
-        this.rentalId = rentalId;
-        this.cusNic = cusNic;
-        this.pickUpDate = pickUpDate;
-        this.returnDate = returnDate;
-        this.rental_status = rental_status;
-        this.payment_slip = payment_slip;
-        this.amount = amount;
-        this.total_damage_waiver_payment = total_damage_waiver_payment;
-        this.pickupLocation = pickupLocation;
-        this.returnLocation = returnLocation;
-    }
+    @ManyToOne
+    @JoinColumn(name = "registrationId",referencedColumnName = "registrationId",insertable = false,updatable = false)
+    private Car registrationId;
+
+
+//    @OneToMany(mappedBy = "rental",cascade = CascadeType.ALL)
+//    private List<RentDetails> rentDetails;
+
+//    public Rental(String rentalId, Customer cusNic, LocalDate pickUpDate, LocalDate returnDate, String rental_status, String payment_slip, double amount, double total_damage_waiver_payment, String pickupLocation, String returnLocation) {
+//        this.rentalId = rentalId;
+//        this.cusNic = cusNic;
+//        this.pickUpDate = pickUpDate;
+//        this.returnDate = returnDate;
+//        this.rental_status = rental_status;
+//        this.payment_slip = payment_slip;
+//        this.amount = amount;
+//        this.total_damage_waiver_payment = total_damage_waiver_payment;
+//        this.pickupLocation = pickupLocation;
+//        this.returnLocation = returnLocation;
+//    }
 }

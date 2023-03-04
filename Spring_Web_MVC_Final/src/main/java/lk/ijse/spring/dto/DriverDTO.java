@@ -1,6 +1,7 @@
 package lk.ijse.spring.dto;
 
-import lk.ijse.spring.entity.RentDetails;
+//import lk.ijse.spring.entity.RentDetails;
+import lk.ijse.spring.entity.Rental;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,7 +19,7 @@ public class DriverDTO {
     private String nic;
     private String drivingLicenceNum;
     private String availability;
-    private List<RentDetails> rentalDetailsList;
+    private List<Rental> rentalList;
 
     public DriverDTO(String driver_id) {
         this.driver_id = driver_id;

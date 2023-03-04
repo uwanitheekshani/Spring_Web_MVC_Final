@@ -22,5 +22,5 @@ public class Driver {
     private String availability;
 
     @OneToMany(mappedBy = "driver_id")
-    private List<RentDetails> rentalDetailsList;
+    private List<Rental> rentalList;
 }

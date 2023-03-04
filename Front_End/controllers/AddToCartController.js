@@ -217,85 +217,88 @@
 //
 
 
-getCusNic();
-var cNic;
-var customer;
-function getCusNic() {
-    let email = $("#ae").text();
+          // =============================================================================
 
-    $.ajax({
-        url: baseURL + "customerLogin?email=" + email,
-        method: "get",
-        dataType: "json",
-        success: function (res) {
-
-            console.log(res.data);
-            // let userNic = res.data.nic;
-            customer=res.data;
-            cNic = res.data.nic;
-        },
-        error: function (error) {
-            var jsObject = JSON.parse(error.responseText);
-            // alert("Invalid email or password");
-        }
-    });
-}
-
-$("#btnsendReq").click(function () {
-    addbooking();
-});
-
-function addbooking(){
-
-    var rentId=$("#txtRentalId").val();
-    p = $("#txtFromDate").val();
-    r = $("#txtToDate").val();
-    let pickupLocation = $("#txtFPickL").val();
-    let returnLocation = $("#txtReturnL").val();
-
-    let statusOfReq = "Pending";
-    let total = 3000.00;
-    let cusId = cNic;
-    let totalDamageWaiverAmount =1000.00;
-    let rentDetail = getRentDetail(rentId);
-
-    var Rdata = new FormData();
-
-    let paymentSlipName = $("#lossDP2")[0].files[0].name;
-    let paymentSlipFile = $("#lossDP2")[0].files[0];
-
-
-    let rent = {
-        rentalId: rentId,
-        pickUpDate: p,
-        returnDate: r,
-        pickupLocation: pickupLocation,
-        returnLocation: returnLocation,
-        rental_status: statusOfReq,
-        amount: total,
-        total_damage_waiver_payment: totalDamageWaiverAmount,
-        // duration: 10,
-        // payment_slip: "uploads/" + slipImgPath,
-        payment_slip:paymentSlipName,
-        cusNic: cusId,
-        rentDetail: rentDetail
-
-    }
-
-    Rdata.append("rImageFile",paymentSlipFile);
-    Rdata.append("carRental",new Blob([JSON.stringify(rent)],{type:"application/json"}))
-
-    $.ajax({
-        url:baseURL + "rental",
-        method:"post",
-        async:true,
-        contentType:false,
-        processData:false,
-        data:Rdata,
-        success(resp){
-            swal("Your Reservation Successful  !", "Done", "success");
-            generateRentId();;
-        }
-    });
-
-}
+// getCusNic();
+// var cNic;
+// var customer;
+// function getCusNic() {
+//     let email = $("#ae").text();
+//
+//     $.ajax({
+//         url: baseURL + "customerLogin?email=" + email,
+//         method: "get",
+//         dataType: "json",
+//         success: function (res) {
+//
+//             console.log(res.data);
+//             // let userNic = res.data.nic;
+//             customer=res.data;
+//             cNic = res.data.nic;
+//         },
+//         error: function (error) {
+//             var jsObject = JSON.parse(error.responseText);
+//             // alert("Invalid email or password");
+//         }
+//     });
+// }
+//
+// $("#btnsendReq").click(function () {
+//     addbooking();
+//     CustomerAccount();
+// });
+//
+// function addbooking(){
+//
+//     var rentId=$("#txtRentalId").val();
+//     p = $("#txtFromDate").val();
+//     r = $("#txtToDate").val();
+//     let pickupLocation = $("#txtFPickL").val();
+//     let returnLocation = $("#txtReturnL").val();
+//
+//     let statusOfReq = "Pending";
+//     let total = 3000.00;
+//     let cusId = cNic;
+//     let totalDamageWaiverAmount =1000.00;
+//     let rentDetail = getRentDetail(rentId);
+//
+//     var Rdata = new FormData();
+//
+//     let paymentSlipName = $("#lossDP2")[0].files[0].name;
+//     let paymentSlipFile = $("#lossDP2")[0].files[0];
+//
+//
+//     let rent = {
+//         rentalId: rentId,
+//         pickUpDate: p,
+//         returnDate: r,
+//         pickupLocation: pickupLocation,
+//         returnLocation: returnLocation,
+//         rental_status: statusOfReq,
+//         amount: total,
+//         total_damage_waiver_payment: totalDamageWaiverAmount,
+//         // duration: 10,
+//         // payment_slip: "uploads/" + slipImgPath,
+//         payment_slip:paymentSlipName,
+//         cusNic: cusId,
+//         rentDetail: rentDetail
+//
+//     }
+//
+//     Rdata.append("rImageFile",paymentSlipFile);
+//     Rdata.append("carRental",new Blob([JSON.stringify(rent)],{type:"application/json"}))
+//
+//     $.ajax({
+//         url:baseURL + "rental",
+//         method:"post",
+//         async:true,
+//         contentType:false,
+//         processData:false,
+//         data:Rdata,
+//         success(resp){
+//             swal("Your Reservation Successful  !", "Done", "success");
+//             generateRentId();;
+//         }
+//     });
+//
+// }

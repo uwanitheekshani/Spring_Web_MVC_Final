@@ -1,6 +1,6 @@
 generateRentId();
 carAppend();
-// getAllAvailableDriver();
+
 
 
 function carAppend() {
@@ -518,7 +518,7 @@ $('body').on('dblclick', '#CheckReTable>tr', function () {
 // let customerId = null;
 // var driverId = "D005";
 // var Driver ={};
-var driverIds = [];
+
 
 // var onHoldAmount = 0;
 // var dailyRateAmount;
@@ -543,71 +543,52 @@ var driverIds = [];
 // }
 
 
-getAllAvailableDriver();
-var array = [];
+// getAllAvailableDriver();
+// getAllAvailableDriver();
+// var array = [];
+// var driverIds = [];
+// var driver_id = "D005";
+//
+// function getDriverId(rentId) {
+//     let rows = $("#CheckReTable").children().length;
+//
+//     /* let vid = "V001";*/
+//     let driverOption = $("#selectDriver").val();
+//
+//     if (driverOption == "Driver") {
+//         for (let i = 0; i < rows; i++) {
+//             array.push({
+//                 driver_id: driverIds[i]
+//             });
+//             a(driverIds[i]);
+//         }
+//
+//     } else {
+//         driverId = "None";
+//         for (let i = 0; i < rows; i++) {
+//             // let registrationId = $("#CheckReTable").children().eq(i).children(":eq(0)").text();
+//             // let onHold = $("#CheckReTable").children().eq(i).children(":eq(0)").text();
+//             array.push({
+//                 driver_id:driverId,
+//             });
+//
+//         }
+//     }
+//
+//     // getDamageWeiverTot();
+//     // getDailyRateTot();
+//     return array;
+// }
 
-function getRentDetail(rentId) {
-    let rows = $("#CheckReTable").children().length;
-
-    /* let vid = "V001";*/
-    let pickUpDate = $("#txtFromDate").val();
-    let driverOption = $("#selectDriver").val();
-    let returnDate = $("#txtToDate").val();
-    // let driverOption = $("#driverOpSelector").val();
-    // console.log(driverOption);
-
-
-    if (driverOption == "Driver") {
-        for (let i = 0; i < rows; i++) {
-            let registrationId = $("#CheckReTable").children().eq(i).children(":eq(0)").text();
-            // let onHold = $("#CheckReTable").children().eq(i).children(":eq(4)").text();
-            // let dailyRate = $("#CheckReTable").children().eq(i).children(":eq(2)").text();
-            array.push({
-                rentDetail: rentId,
-                registrationId: registrationId,
-                driverOption: driverOption,
-                pickupDate: pickUpDate,
-                returnDate: returnDate,
-                driver_id: driverIds[i]
-            });
-            a(driverIds[i]);
-
-            // onHoldArray.push({onHold});
-            // dailyRateArray.push({dailyRate});
-        }
-
-    } else {
-        driverId = "None";
-        for (let i = 0; i < rows; i++) {
-            let registrationId = $("#CheckReTable").children().eq(i).children(":eq(0)").text();
-            // let onHold = $("#CheckReTable").children().eq(i).children(":eq(4)").text();
-            // let dailyRate = $("#CheckReTable").children().eq(i).children(":eq(2)").text();
-            array.push({
-                rentDetail: rentId,
-                registrationId: registrationId,
-                driverOption: driverOption,
-                pickupDate: pickUpDate,
-                returnDate: returnDate,
-                driver_id: driver_id
-            });
-
-            // onHoldArray.push({onHold});
-            // dailyRateArray.push({dailyRate});
-        }
-    }
-
-    // getDamageWeiverTot();
-    // getDailyRateTot();
-    return array;
-}
 
 // getCusNic();
 
 // =====================meka rental eke nic ekata yawanna ==========================
-// var cNic;
+// var cNic="";
 //
 // function getCusNic() {
 //     let email = $("#ae").text();
+//
 //
 //     $.ajax({
 //         url: baseURL + "customerLogin?email=" + email,
@@ -618,7 +599,7 @@ function getRentDetail(rentId) {
 //             console.log(res.data);
 //             // let userNic = res.data.nic;
 //
-//             cNic = res.data.nic;
+//             cNic= res.data.nic;
 //         },
 //         error: function (error) {
 //             var jsObject = JSON.parse(error.responseText);
@@ -629,141 +610,133 @@ function getRentDetail(rentId) {
 
 
 //===================================rental ekak danna=======================================
-// var p;
-// var r;
-// $("#btnsendReq").click(function () {
-    //=======================Calculate rental==========================================
+var p;
+var r;
 
-    // p = $("#txtFromDate").val();
-    // r = $("#txtToDate").val();
+$("#btnsendReq").click(function () {
+    addRental();
+});
 
-    // var pick = new Date(p);
-    // var ret = new Date(r);
-    // var rentAmount = (ret.getDate() - (pick.getDate()) * dailyRateAmount);
-    // let duration = ((ret.getDate()) - (pick.getDate()));
+function addRental(driver) {
+
+    let driverOption = $("#selectDriver").val();
 
 
-    // var Rdata = new FormData();
-
-    // let paymentSlipName = $("#lossDP2")[0].files[0].name;
-    // let paymentSlipFile = $("#lossDP2")[0].files[0];
+    p = $("#txtFromDate").val();
+    r = $("#txtToDate").val();
 
 
-    // let rentId = $("#txtRentalId").val();
-    // let pickupLocation = $("#txtFPickL").val();
-    // let returnLocation = $("#txtReturnL").val();
-    // // let slipImgPath = paymentSlipName;
-    // let slipImgPath= $("#lossDP2")[0].files[0].name;
-    // let statusOfReq = "Pending";
-    // let total = 3000.00;
-    // let cusId = cNic;
-    // let totalDamageWaiverAmount =1000.00;
-    // let rentDetail = getRentDetail(rentId);
-    // console.log("date "+$("#DatPickDate").val())
+    var Rdata = new FormData();
 
-    // let rent = {
-    //     rentalId: rentId,
-    //     pickUpDate: p,
-    //     returnDate: r,
-    //     pickupLocation: pickupLocation,
-    //     returnLocation: returnLocation,
-    //     rental_status: statusOfReq,
-    //     amount: total,
-    //     total_damage_waiver_payment: totalDamageWaiverAmount,
-    //     duration: 10,
-    //     // payment_slip: "uploads/" + slipImgPath,
-    //     payment_slip:slipImgPath,
-    //     cusNic: cusId,
-    //     rentDetail: rentDetail
-    //
-    // }
-
-    // Rdata.append("rImageFile", paymentSlipFile);//meka wenama
-    // Rdata.append("rental", new Blob([JSON.stringify(rent)], {type: "application/json"}))//mekath wenama
+    let paymentSlipName = $("#lossDP2")[0].files[0].name;
+    let paymentSlipFile = $("#lossDP2")[0].files[0];
 
 
-//     $.ajax({
-//         url: baseURL + "rental",
-//         method: "post",
-//         dataType: "json",
-//         data:JSON.stringify(rent),
-//         contentType:"application/json",
-//         // async: true,
-//         // contentType: false,
-//         // processData: false,
-//         // data: Rdata,
-//         success: function (resp) {
-//             Swal.fire({
-//                 position: 'top-end',
-//                 icon: 'success',
-//                 title: "customer Added Successfully",
-//                 showConfirmButton: false,
-//                 timer: 1500
-//             });
-//             sendRentImagePath();
-//             // getAllAvailableDriver();
-//         },
-//         error: function (error) {
-//             alert(JSON.parse(error.responseText).message);
-//             Swal.fire({
-//                 position: 'top-end',
-//                 icon: 'error',
-//                 title: "customer Not Added Successfully",
-//                 showConfirmButton: false,
-//                 timer: 1500
-//             });
-//         }
-//     });
-//
-// });
+    let registrationId = $("#CheckReTable").children().eq(0).children(":eq(0)").text();
+    let onHold = $("#CheckReTable").children().eq(0).children(":eq(4)").text();
+
+    console.log(registrationId);
+
+    let rentId = $("#txtRentalId").val();
+    let pickupLocation = $("#txtFPickL").val();
+    let returnLocation = $("#txtReturnL").val();
+    let slipImgPath = paymentSlipName;
+    let statusOfReq = "Pending";
+    let cusId = $("#anic").text();
+    // let getDriverId = getDriverId(rentId);
+// console.log(driver);
+
+    let rent = {
+        rentalId: rentId,
+        driverOption: driverOption,
+        payment_slip: "uploads/" + slipImgPath,
+        pickUpDate: p,
+        returnDate: r,
+        pickupLocation: pickupLocation,
+        returnLocation: returnLocation,
+        rental_status: statusOfReq,
+        total_damage_waiver_payment: onHold,
+        cusNic: cusId,
+        driver_id: driver,
+        registrationId: registrationId
+    }
+
+    Rdata.append("rImageFile", paymentSlipFile);
+    Rdata.append("carRental", new Blob([JSON.stringify(rent)], {type: "application/json"}))
+
+    $.ajax({
+        url: baseURL + "rental",
+        method: "POST",
+        async: true,
+        contentType: false,
+        processData: false,
+        data: Rdata,
+        success: function (resp) {
+            sendRentImagePath(rentId);
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: "Rental Added Successfully",
+                showConfirmButton: false,
+                timer: 1500
+            });
+
+        },
+        error: function (error) {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: "Rental Not Added Successfully",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
+    })
+}
+
 
 // =====================================================================
 
-// function getCustomerId(id) {
-//     customerId = id;
-//     console.log("b" + customerId);
-// }
-//
-// function sendRentImagePath() {
-//     var data = new FormData();
-//
-//     // let file = $("#lossDP2")[0].files[0];
-//     // let fileName = rentId + "-payment_slip-" + $("#lossDP2")[0].files[0].name;
-//     // data.append("payment_slip", file, fileName);
-//
-//     let file = $("#lossDP2")[0].files[0];
-//     let fileName = $("#lossDP2")[0].files[0].name;
-//
-//     data.append("myFile", file, fileName);
-//
-//     $.ajax({
-//         url: baseURL + "api/rImageFile",
-//         method: 'post',
-//         async: true,
-//         contentType: false,
-//         processData: false,
-//         data: data,
-//         success: function (resp) {
-//             console.log("Uploaded");
-//             Swal.fire({
-//                 position: 'top-end',
-//                 icon: 'success',
-//                 title: "Images Upload Successfully",
-//                 showConfirmButton: false,
-//                 timer: 1500
-//             });
-//         },
-//         error: function (err) {
-//             Swal.fire({
-//                 position: 'top-end',
-//                 icon: 'error',
-//                 title: "Images Not Upload Successfully",
-//                 showConfirmButton: false,
-//                 timer: 1500
-//             });
-//         }
-//     });
-// }
+function sendRentImagePath(rentId) {
+    var data = new FormData();
+
+    // let file = $("#lossDP2")[0].files[0];
+    // let fileName = rentId + "-payment_slip-" + $("#lossDP2")[0].files[0].name;
+    // data.append("payment_slip", file, fileName);
+
+    let file = $("#lossDP2")[0].files[0];
+    let fileName = rentId + "-payment_slip-" +  $("#lossDP2")[0].files[0].name;
+
+    data.append("payment_slip", file, fileName);
+
+    $.ajax({
+        url: baseURL + "rental/uploadImg/" + rentId,
+        method: 'post',
+        async: true,
+        contentType: false,
+        processData: false,
+        data: data,
+        success: function (resp) {
+            console.log("Uploaded");
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: "Images Upload Successfully",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        },
+        error: function (err) {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: "Images Not Upload Successfully",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
+    });
+}
 
 //get added driver ids and updated driver availability
 // function a(id) {
@@ -814,9 +787,7 @@ function getRentDetail(rentId) {
 //     });
 // }
 
-
 // =========================================================
-
 
 // function getAllAvailableDriver(){
 // let available="Available";
@@ -837,6 +808,32 @@ function getRentDetail(rentId) {
 
 // ========================================
 
+$('#selectDriver').change(function () {
+    let driverOption = $('#selectDriver').find('option:selected').text();
+    console.log(driverOption);
+    if (driverOption==="Driver"){
+        randomDriver();
+    }
+    else {
+        addRental("None");
+    }
+})
+
+function randomDriver(){
+    $.ajax({
+        url: baseURL + "driver/randomDriver",
+        method: "get",
+        success: function (resp) {
+            for (let driver of resp.data){
+                console.log(driver);
+                addRental(driver.data.driver_id);
+            }
+
+        }
+
+    });
+}
+
 // function getAllAvailableDriver() {
 //     $.ajax({
 //         url: baseURL + "driver?availability=" + "Available",
@@ -845,14 +842,14 @@ function getRentDetail(rentId) {
 //         async:false,
 //         success: function (resp) {
 //                 driverIds.push(resp.data.driver_id);
+//             // driver_id=resp.data.driver_id;
+//
 //         }
 //
 //     });
 //
 //
 // }
-
-
 
 // ==============================================================================================
 

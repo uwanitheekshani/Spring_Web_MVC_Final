@@ -21,8 +21,8 @@ public interface DriverRepo extends JpaRepository<Driver,String> {
 
     Driver getDriverByAvailability(String availability);
 
-//    @Query(value = " select * from driver order by rand() limit 1; ", nativeQuery = true)
-//    Driver findDriverRandomly();
+    @Query(value = " select * from driver order by rand() limit 1; ", nativeQuery = true)
+    Driver findDriverRandomly();
 
 //    Driver getDriverByDriver_id(String drivingId);
 }
