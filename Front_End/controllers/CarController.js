@@ -196,7 +196,6 @@ function loadAllCars() {
             image_3=resp.image_3;
             image_4=resp.image_4;
 
-
             console.log(resp);
             for (let car of resp.data) {
                 var row = '<tr><td>' + car.registrationId + '</td><td>' + car.brand + '</td><td>' + car.type + '</td><td>' + car.fuelType + '</td><td>' + car.transmissionType + '</td><td>' + car.noOfPassengers + '</td><td>' + car.freeMileage + '</td><td>' + car.priceForExtraKm + '</td><td>' + car.dailyRate + '</td><td>' + car.monthlyRate + '</td></tr>';
@@ -214,7 +213,7 @@ function loadAllCars() {
 
 //Event binding for table rows
 function bindCarRowClickEvents() {
-    $("#carViewTable>tr").click(function () {
+       $("#carViewTable>tr").click(function () {
         let registrationId = $(this).children(":eq(0)").text();
         let brand = $(this).children(":eq(1)").text();
         let type = $(this).children(":eq(2)").text();

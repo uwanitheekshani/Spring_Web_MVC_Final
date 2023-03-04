@@ -15,4 +15,7 @@ public interface RentalService {
     void uploadRentalImages(String payment_slip, String rentalId);
 
     public ArrayList<RentalDTO> getAllRentals();
+
+    void deleteRental(String rentalId);
+
 }

@@ -164,6 +164,14 @@ public class RentalServiceImpl implements RentalService {
     }
 
     @Override
+    public void deleteRental(String rentalId) {
+        if (!repo.existsById(rentalId)){
+            throw new RuntimeException("Rental "+rentalId+" Not Available to Delete..!");
+        }
+        repo.deleteById(rentalId);
+    }
+
+    @Override
     public void uploadRentalImages(String payment_slip, String rentalId) {
         if (repo.existsById(rentalId)) {
             repo.updatePaymentSlipFilePaths(payment_slip, rentalId);

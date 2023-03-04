@@ -650,10 +650,58 @@
         <div id="editIm"></div>
         <h2 id="editIm2"><a id="editUserInfo">Edit User Informations</a></h2>
 
-<!--        <button class="btnUpdate" type="submit">Update</button>-->
-<!--        <button class="btnCancel" type="submit">Cancel</button>-->
+
+
+        <div class="row" style="position: absolute;left: 644px;top: 113px;">
+            <div class="col-6">
+                <div class="form-groupCPD">
+                    <div class="form-groupRNT">
+                        <input class="form-control" id="txtCusPickDate" placeholder="PickUp Date" type="text">
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-groupCRD">
+                    <input class="form-control" id="txtCusReturnDate" placeholder="Return Date" type="text">
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+
+        <div class="row" style="position: absolute;left: 644px;top: 175px;">
+            <div class="col-6">
+                <div class="form-groupCPL">
+                    <div class="form-groupRNT">
+                        <input class="form-control" id="txtCusPickLocation" placeholder="PickUp Location" type="text">
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-groupCRL">
+                    <input class="form-control" id="txtCusReturnLocation" placeholder="Return Location" type="text">
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="form-groupAC" style="position: absolute;left: 356px;top: 153px;">
+            <label for="cusrentId">RenatalId</label>
+            <input class="form-control" id="cusrentId" type="text" disabled>
+        </div>
+
+
+        <button class="btnUpdate" type="button" style="position: absolute;top: 134px;left: 1172px;">Update</button>
+        <button class="btnCancel" id="btnRentCancel" type="button">Cancel</button>
         <!--account details table-->
-        <div class="col-md-12 mt-4" id="acct" style="height:180px; overflow-y: scroll">
+        <div class="col-md-12 mt-4" id="acct" style="height:180px; overflow-y: scroll; top: 240px">
             <table class="table table-bordered text-white">
                 <thead class="bg-primary">
                 <tr>
@@ -663,8 +711,11 @@
                     <th>Pending Payment</th>
                     <th>From</th>
                     <th id="accTo">To</th>
+                    <th>PickUp Location</th>
+                    <th>Return Location</th>
 <!--                    <th id="accpick">Pickup location</th>-->
                     <th>Status</th>
+
                 </tr>
                 </thead>
                 <tbody class="bg-light text-dark" id="orderTable">

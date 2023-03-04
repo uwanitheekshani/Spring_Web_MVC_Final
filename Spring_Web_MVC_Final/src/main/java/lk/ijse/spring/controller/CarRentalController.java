@@ -95,6 +95,15 @@ public class CarRentalController {
         return new ResponseUtil("200"," Success",allRentals);
     }
 
+
+    @DeleteMapping(params = "rentalId")
+    public ResponseUtil deleteRental(String rentalId){
+        service.deleteRental(rentalId);
+        return new ResponseUtil("200",rentalId+" Deleted",null);
+    }
+
+
+
 }
 
 

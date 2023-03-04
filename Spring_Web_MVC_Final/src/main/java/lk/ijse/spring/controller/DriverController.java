@@ -67,7 +67,6 @@ public class DriverController {
 
     @GetMapping(path = "/randomDriver",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil getDriverRandom(){
-//        List<DriverDTO> randomDriver = service.getRandomDriver();
         DriverDTO driverDTO = service.generateDriver();
         return new ResponseUtil("200","OK",driverDTO);
     }
