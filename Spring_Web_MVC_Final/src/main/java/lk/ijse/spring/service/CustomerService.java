@@ -2,6 +2,7 @@ package lk.ijse.spring.service;
 
 import lk.ijse.spring.dto.CustomerDTO;
 
+import java.util.ArrayList;
 import java.util.List;
 //@Component
 public interface CustomerService {
@@ -14,7 +15,7 @@ public interface CustomerService {
 
     CustomerDTO getCustomerDetail(String nic);
 
-    List<CustomerDTO> getAllCustomerDetail();
+    ArrayList<CustomerDTO> getAllCustomerDetail();
 
     List<CustomerDTO> getTodayRegisteredCustomers();
 

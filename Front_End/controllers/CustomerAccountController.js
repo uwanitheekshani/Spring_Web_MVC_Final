@@ -15,23 +15,4 @@ function CustomerAccount(){
 
             }
         });
-//
-//     // $.ajax({
-//     //     url: baseURL+"rentalDetails",
-//     //     dataType: "json",
-//     //     success: function (resp) {
-//     //         console.log(resp);
-//     //         for (let i = 0; i < resp; i++) {
-//     //             resp.data.registrationId=$("#orderTable").children().eq(i).children(":eq(1)").text();
-//     //             resp.data.driver_id=$("#orderTable").children().eq(i).children(":eq(2)").text();
-//     //             resp.data.pickUpDate=$("#orderTable").children().eq(i).children(":eq(4)").text();
-//     //             resp.data.returnDate=$("#orderTable").children().eq(i).children(":eq(5)").text();
-//     //             // var row = '<tr><td>' + cus.id + '</td><td>' + cus.name + '</td><td>' + cus.address + '</td><td>' + cus.salary + '</td></tr>';
-//     //             // $("#tblCustomer").append(row);
-//     //         }
-//     //
-//     //     }
-//     // });
-//
-//
 }

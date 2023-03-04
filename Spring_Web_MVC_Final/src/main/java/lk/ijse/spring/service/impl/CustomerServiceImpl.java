@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -55,8 +56,8 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public List<CustomerDTO> getAllCustomerDetail() {
-        return mapper.map(repo.findAll(),new TypeToken<List<CustomerDTO>>(){}.getType());
+    public ArrayList<CustomerDTO> getAllCustomerDetail() {
+        return mapper.map(repo.findAll(),new TypeToken<ArrayList<CustomerDTO>>(){}.getType());
     }
 
     @Override

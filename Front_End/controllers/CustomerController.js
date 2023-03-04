@@ -1,8 +1,10 @@
 let baseURL="http://localhost:8080/Spring_Web_MVC_Final_war/";
 
+viewAllUsers();
 
 $("#btnLogIn2").click(function (){
     addCustomer();
+    viewAllUsers();
 });
 
 function addCustomer() {
@@ -236,6 +238,26 @@ $("#btnUpCus").click(function () {
     });
 });
 
+
+
+              //==============================================view all register customers=====================
+
+function viewAllUsers(){
+    $("#vercusTable").empty();
+    $.ajax({
+        url: baseURL+"customer",
+        dataType: "json",
+        success: function (resp) {
+            console.log(resp);
+            for (let user of resp.data) {
+                var row = '<tr><td>' + user.cusName + '</td><td>' + user.address + '</td><td>' + user.nic + '</td><td>' + user.email + '</td><td>' + user.contactNo + '</td><td>' + user.drivingLicenceNumber + '</td></tr>';
+                $("#vercusTable").append(row);
+
+            }
+
+        }
+    });
+}
 
 
              // ===============================Customer validation===========================================
