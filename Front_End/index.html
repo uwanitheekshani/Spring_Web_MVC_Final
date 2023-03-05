@@ -656,7 +656,7 @@
             <div class="col-6">
                 <div class="form-groupCPD">
                     <div class="form-groupRNT">
-                        <input class="form-control" id="txtCusPickDate" placeholder="PickUp Date" type="text">
+                        <input class="form-control" id="txtCusPickDate" placeholder="PickUp Date" type="date">
                     </div>
 
                 </div>
@@ -664,7 +664,7 @@
 
             <div class="col-6">
                 <div class="form-groupCRD">
-                    <input class="form-control" id="txtCusReturnDate" placeholder="Return Date" type="text">
+                    <input class="form-control" id="txtCusReturnDate" placeholder="Return Date" type="date">
                 </div>
             </div>
         </div>
@@ -691,14 +691,19 @@
 
 
 
-
         <div class="form-groupAC" style="position: absolute;left: 356px;top: 153px;">
             <label for="cusrentId">RenatalId</label>
             <input class="form-control" id="cusrentId" type="text" disabled>
         </div>
 
+        <select aria-label="Default select example" style="position: relative;top: 90px;left: 996px;width: 143px;
+        height: 36px;" class="form-brand" id="aDOption">
+        <option selected>Driver</option>
+        <option>None</option>
+        </select>
 
-        <button class="btnUpdate" type="button" style="position: absolute;top: 134px;left: 1172px;">Update</button>
+
+        <button class="btnUpdate" id="btnRentUpdate" type="button" style="position: absolute;top: 134px;left: 1172px;">Update</button>
         <button class="btnCancel" id="btnRentCancel" type="button">Cancel</button>
         <!--account details table-->
         <div class="col-md-12 mt-4" id="acct" style="height:180px; overflow-y: scroll; top: 240px">
@@ -713,6 +718,7 @@
                     <th id="accTo">To</th>
                     <th>PickUp Location</th>
                     <th>Return Location</th>
+                    <th>Slip</th>
 <!--                    <th id="accpick">Pickup location</th>-->
                     <th>Status</th>
 
@@ -1391,38 +1397,87 @@
         <h3 id="vrfyRes">Verify Reservations</h3>
         <div id="vrfyRes1"></div>
 
-        <button class="btn btn-primary" id="btnAacceptReq" type="button" style="position: absolute;left: 1168px;top: 100px;">Accept Request</button>
-        <button class="btn btn-primary" id="btnAncceptReq" type="button" style="position: absolute;left: 1077px;top: 100px;background-color: brown;">Deny</button>
+        <button class="btn btn-primary" id="btnAacceptReq" type="button" style="position: absolute;left: 1168px;top: 180px;">Accept Request</button>
+        <button class="btn btn-primary" id="btnAdenyReq" type="button" style="position: absolute;left: 1167px;top: 128px;background-color: brown;">Deny</button>
+
+
+        <div class="row" style="position: absolute;left: 644px;top: 113px;">
+            <div class="col-6">
+                <div class="form-groupCRentSt">
+                    <div class="form-groupRNTStatus">
+                        <input class="form-control" id="txtCusRentStatus" placeholder="Rental Status" type="text">
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-groupCNic">
+                    <input class="form-control" id="txtCustomerNic" placeholder="Customer NIC" type="text">
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+
+        <div class="row" style="position: absolute;left: 644px;top: 175px;">
+            <div class="col-6">
+                <div class="form-groupCRRId">
+                    <div class="form-groupCRregiId">
+                        <input class="form-control" id="txtCusRegistrationId" placeholder="Registration Id" type="text">
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-groupCRD">
+                    <input class="form-control" id="txtCusDriverID" placeholder="Driver Id" type="text">
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="form-groupRA" style="position: absolute;left: 356px;top: 151px;">
+            <label for="customerRentId">RenatalId</label>
+            <input class="form-control" id="customerRentId" type="text" disabled>
+        </div>
+
+
 
         <!--customer verify details table-->
         <div class="col-md-12 mt-4" id="verRes" style="height:180px; overflow-y: scroll">
             <table class="table table-bordered text-white">
                 <thead class="bg-primary">
                 <tr>
-                    <th>Customer</th>
-                    <th>Vehicle</th>
-                    <th>Driver</th>
+                    <th>Rental Id</th>
+                    <th>Customer Nic</th>
+                    <th>Registration Id</th>
                     <th>Pick Up Date</th>
                     <th>Return Date</th>
                     <th>Pick Up Location</th>
                     <th>Return Location</th>
+                    <th>Loss Damage Amount</th>
                     <th>Image</th>
                     <th>Status</th>
                 </tr>
                 </thead>
                 <tbody class="bg-light text-dark" id="veryresTable">
-                <tr>
-                    <td>Uwani Theekshani</td>
-                    <td>NB-6889</td>
-                    <td>D00-001</td>
-                    <td>13/02/2023</td>
-                    <td>13/02/2023</td>
-                    <td>Store</td>
-                    <td>Kaluthara</td>
-                    <td>view</td>
-                    <td>pending</td>
+<!--                <tr>-->
+<!--                    <td>Uwani Theekshani</td>-->
+<!--                    <td>NB-6889</td>-->
+<!--                    <td>D00-001</td>-->
+<!--                    <td>13/02/2023</td>-->
+<!--                    <td>13/02/2023</td>-->
+<!--                    <td>Store</td>-->
+<!--                    <td>Kaluthara</td>-->
+<!--                    <td>view</td>-->
+<!--                    <td>pending</td>-->
 
-                </tr>
+<!--                </tr>-->
                 </tbody>
             </table>
         </div>
@@ -1770,6 +1825,7 @@
 <script src="controllers/CarRentalDetails.js"></script>
 <script src="controllers/CustomerController.js"></script>
 <script src="controllers/CustomerAccountController.js"></script>
+<script src="controllers/ReservationController.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.37/dist/sweetalert2.all.min.js"></script>
 <!--<script src="controllers/PurchaseOrderController.js"></script>-->

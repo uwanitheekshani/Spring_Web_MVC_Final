@@ -102,6 +102,30 @@ public class CarRentalController {
         return new ResponseUtil("200",rentalId+" Deleted",null);
     }
 
+    @PutMapping
+    public ResponseUtil updateRental(@RequestBody RentalDTO dto){
+        service.updateRental(dto);
+        return new ResponseUtil("200",dto.toString()+" Updated",null);
+    }
+
+
+    //======================================================================
+//
+//    @GetMapping(path = "/get/{status}", produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseUtil getAllRentsByStatus(@PathVariable String status) {
+//        return new ResponseUtil("200", "Done", service.getCarRentsByStatus(status));
+//    }
+//
+//    @GetMapping(path = "/{rentId}", produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseUtil searchRent(@PathVariable String rentId) {
+//        return new ResponseUtil("200", "Done", service.searchRent(rentId));
+//    }
+//
+//    @PutMapping(path = "/{rentId}/{status}", produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseUtil updateRentStatus(@PathVariable String rentId, @PathVariable String status) {
+//        service.updateCarRentStatus(rentId, status);
+//        return new ResponseUtil("200", "Done", null);
+//    }
 
 
 }

@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 public interface RentalRepo extends JpaRepository<Rental,String> {
 
@@ -18,7 +19,13 @@ public interface RentalRepo extends JpaRepository<Rental,String> {
     void updatePaymentSlipFilePaths(@Param("payment_slip") String payment_slip, @Param("rentalId") String rentalId);
 
 
-
     @Query(value = "SELECT rentalId FROM Rental ORDER BY rentalId DESC LIMIT 1", nativeQuery = true)
     String generateRentalId();
+
+//    List<Rental> getAllByStatus(String status);
+//
+//    @Modifying
+//    @Transactional
+//    @Query(value = "UPDATE Rental SET rental_status=:rental_status WHERE rentalId=:rentalId", nativeQuery = true)
+//    void updateCarRentStatus(@Param("rentalId") String rentalId, @Param("rental_status") String rental_status);
 }

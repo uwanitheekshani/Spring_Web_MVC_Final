@@ -5,6 +5,7 @@ import lk.ijse.spring.dto.RentalDTO;
 import lk.ijse.spring.entity.Rental;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface RentalService {
 
@@ -18,4 +19,13 @@ public interface RentalService {
 
     void deleteRental(String rentalId);
 
+    void updateRental(RentalDTO dto);
+
+    //====================================================
+
+//    List<RentalDTO> getCarRentsByStatus(String status);
+//
+//    RentalDTO searchRent(String rentId);
+//
+//    void updateCarRentStatus(String rentID, String status);
 }

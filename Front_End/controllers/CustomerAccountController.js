@@ -6,9 +6,10 @@ function CustomerAccount(){
             url: baseURL+"rental",
             dataType: "json",
             success: function (resp) {
-                console.log(resp);
+
+
                 for (let acc of resp.data) {
-                    var row = '<tr><td>' + acc.rentalId + '</td><td>' + acc.registrationID + '</td><td>' + acc.driverID + '</td><td>' + acc.total_damage_waiver_payment + '</td><td>' + acc.pickUpDate + '</td><td>' + acc.returnDate + '</td><td>' + acc.pickupLocation + '</td><td>' + acc.returnLocation + '</td><td>' + acc.rental_status + '</td></tr>';
+                    var row = '<tr><td>' + acc.rentalId + '</td><td>' + acc.registrationID + '</td><td>' + acc.driverID + '</td><td>' + acc.total_damage_waiver_payment + '</td><td>' + acc.pickUpDate + '</td><td>' + acc.returnDate + '</td><td>' + acc.pickupLocation + '</td><td>' + acc.returnLocation + '</td><td>' + acc.payment_slip + '</td><td>' + acc.rental_status + '</td></tr>';
                     $("#orderTable").append(row);
 
                 }
@@ -54,3 +55,77 @@ function bindRentRowClickEvents() {
         $("#txtCusReturnLocation").val(returnLocation);
     });
 }
+
+   //==================================================
+
+
+// Update rent details
+$("#btnRentUpdate").click(function () {
+
+    let rentalId = $("#cusrentId").val();
+    let cusNic = $("#anic").text();
+    let pickUpDate = $("#txtCusPickDate").val();
+    let returnDate =$("#txtCusReturnDate").val();
+    let pickupLocation = $("#txtCusPickLocation").val();
+    let returnLocation = $("#txtCusReturnLocation").val();
+    let driverOption = $("#aDOption").val();
+
+    console.log(rentalId);
+    let rental_status = $("#orderTable").children().eq(0).children(":eq(9)").text();
+    let payment_slip = $("#orderTable").children().eq(0).children(":eq(8)").text();
+    let total_damage_waiver_payment = $("#orderTable").children().eq(0).children(":eq(3)").text();
+    let driverID = $("#orderTable").children().eq(0).children(":eq(2)").text();
+    let registrationID = $("#orderTable").children().eq(0).children(":eq(1)").text();
+
+
+    var rentAcc = {
+        rentalId: rentalId,
+        cusNic: cusNic,
+        pickUpDate: pickUpDate,
+        returnDate: returnDate,
+        rental_status: rental_status,
+        payment_slip: payment_slip,
+
+        total_damage_waiver_payment: total_damage_waiver_payment,
+        pickupLocation: pickupLocation,
+        returnLocation: returnLocation,
+        driverID: driverID,
+
+        registrationID: registrationID,
+        driverOption: driverOption,
+
+    }
+
+    console.log(rentAcc);
+
+    $.ajax({
+        url: baseURL+'rental',
+        method: 'put',
+        contentType:"application/json",
+        data:JSON.stringify(rentAcc),
+        // dataType:"json",
+        success: function (res) {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: "Rental Updated Successfully",
+                showConfirmButton: false,
+                timer: 1500
+            });
+            CustomerAccount();
+        },
+        error:function (error){
+            let cause= JSON.parse(error.responseText).message;
+            alert(cause);
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: "Rental Updated Failed",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
+
+    });
+});
+
