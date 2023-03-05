@@ -39,35 +39,15 @@ public class DriverController {
         return new ResponseUtil("200",dto.toString()+" Updated",null);
     }
 
-//    @GetMapping(params = "drivingLiNum")
-//    public ResponseUtil checkDriver(String drivingLiNum) {
-//        System.out.println(drivingLiNum);
-//        DriverDTO driverDTO = service.searchDriverBydriverLicenceNum(drivingLiNum);
-////        System.out.println(adminDTO);
-//        return new ResponseUtil("200", "Login Success", driverDTO);
-//    }
-
-
-//    @GetMapping(path = "availability/drivers")
-//    public ResponseUtil getAllByAvailability() {
-//        System.out.println();
-//
-////        System.out.println(adminDTO);
-//        return new ResponseUtil("200", "Login Success", service.getAllByAvailability());
-//    }
-
-
-//    @GetMapping(params = "availability")
-//    public ResponseUtil checkDriverAvailability(String availability) {
-//        System.out.println(availability);
-//        DriverDTO driverDTO = service.searchDriverByAvailabilty(availability);
-//        return new ResponseUtil("200", "Login Success", driverDTO);
-//    }
-
-
     @GetMapping(path = "/randomDriver",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil getDriverRandom(){
         DriverDTO driverDTO = service.generateDriver();
         return new ResponseUtil("200","OK",driverDTO);
+    }
+
+    @PutMapping(path = "/updateNonAvailable/{driverID}/{status}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil updateDriverStatus(@PathVariable String driverID, @PathVariable String status) {
+        service.updateCarRentStatus(driverID, status);
+        return new ResponseUtil("200", "Done", null);
     }
 }

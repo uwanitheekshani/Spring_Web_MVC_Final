@@ -5,9 +5,11 @@ import lk.ijse.spring.entity.Admin;
 import lk.ijse.spring.entity.Customer;
 import lk.ijse.spring.entity.Driver;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 public interface DriverRepo extends JpaRepository<Driver,String> {
@@ -23,6 +25,11 @@ public interface DriverRepo extends JpaRepository<Driver,String> {
 
     @Query(value = " select * from driver order by rand() limit 1; ", nativeQuery = true)
     Driver findDriverRandomly();
+
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE Driver SET availability=:availability WHERE driverID=:driverID", nativeQuery = true)
+    void updateDriverAvailabilityStatus(@Param("driverID") String driverID, @Param("availability") String availability);
 
 //    Driver getDriverByDriver_id(String drivingId);
 }

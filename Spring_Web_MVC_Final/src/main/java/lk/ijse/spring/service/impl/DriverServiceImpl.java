@@ -100,6 +100,15 @@ public class DriverServiceImpl implements DriverService {
         return mapper.map(repo.findDriverRandomly(),DriverDTO.class);
     }
 
+    @Override
+    public void updateCarRentStatus(String driverID, String status) {
+        if (repo.existsById(driverID)) {
+            repo.updateDriverAvailabilityStatus(driverID, status);
+        } else {
+            throw new RuntimeException("Driver "+driverID+" Not Exist to Update Status....!");
+        }
+    }
+
 //    @Override
 //    public List<DriverDTO> getRandomDriver() {
 //        return mapper.map(repo.findDriverRandomly(), new TypeToken<List<DriverDTO>>() {

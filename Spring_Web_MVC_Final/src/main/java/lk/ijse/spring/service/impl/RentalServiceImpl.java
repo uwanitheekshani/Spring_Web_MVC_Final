@@ -122,7 +122,7 @@ public class RentalServiceImpl implements RentalService {
             throw new RuntimeException("Rent "+rentalId+" Not Exist....!");
         }
     }
-//
+
     @Override
     public void updateCarRentStatus(String rentID, String status) {
         if (repo.existsById(rentID)) {

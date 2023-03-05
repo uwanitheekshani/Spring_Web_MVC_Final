@@ -17,8 +17,6 @@ function loadPendingRentals() {
                 } else {
                     driverId = carRent.driverID.driverID;
                 }
-                // let row = `<tr><td>${carRent.rentalId}</td><td>${carRent.cusNic}</td><td>${carRent.registrationID}</td><td>${carRent.pickUpDate}</td><td>${carRent.returnDate}</td><td>${carRent.pickupLocation}</td><td>${carRent.returnLocation}</td><td>${carRent.total_damage_waiver_payment}</td><td>src=${carRent.payment_slip}</td><td>${carRent.rental_status}</td></tr>`;
-                // $('#veryresTable').append(row);
 
                 var row = '<tr><td>' + carRent.rentalId + '</td><td>' + carRent.cusNic + '</td><td>' + carRent.registrationID + '</td><td>' + carRent.pickUpDate + '</td><td>' + carRent.returnDate + '</td><td>' + carRent.pickupLocation + '</td><td>' + carRent.returnLocation + '</td><td>' + carRent.total_damage_waiver_payment + '</td><td>' + carRent.payment_slip + '</td><td>' + carRent.rental_status + '</td></tr>';
                 $("#veryresTable").append(row);
@@ -166,10 +164,11 @@ function updateCarStatus() {
 
 function updateDriverStatus() {
     let driverID = $('#txtCusDriverID').val();
+    let status = "Not Available";
 
-    if (driverID != "No Driver") {
+    if (driverID != "None") {
         $.ajax({
-            url: baseURL + "driver/updateNonAvailable/" + driverID,
+            url: baseURL + "driver/updateNonAvailable/" + driverID +"/" +status,
             method: "PUT",
             success: function (res) {
                 // loadAllDrivers();
