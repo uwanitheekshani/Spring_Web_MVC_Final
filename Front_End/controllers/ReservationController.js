@@ -200,67 +200,67 @@ function updateDriverStatus() {
 //
 // }
 
-// $('#btnRentReqDeny').click(function () {
-//
-//     if ($('#customerRentId').val() != "" && $('#inputReqReasonDeny').val() != "") {
-//         let rentId = $('#inputReqRentID').val();
-//         Swal.fire({
-//             title: 'Are you sure?',
-//             text: "You won't be able to revert this!",
-//             icon: 'warning',
-//             showCancelButton: true,
-//             confirmButtonColor: '#3085d6',
-//             cancelButtonColor: '#d33',
-//             confirmButtonText: 'Yes, Deny!'
-//         }).then((result) => {
-//             if (result.isConfirmed) {
-//                 rejectRentals(rentId);
-//                 Swal.fire(
-//                     'Deny!',
-//                     'Request has been Denied.',
-//                     'success'
-//                 )
-//             }
-//         })
-//
-//     } else {
-//         Swal.fire({
-//             position: 'top-end',
-//             icon: 'info',
-//             title: "Please Select Car Rent from Table Or Send Reason To Deny Request",
-//             showConfirmButton: false,
-//             timer: 1500
-//         });
-//     }
-// })
+$('#btnAdenyReq').click(function () {
 
-// function rejectRentals(rentId) {
-//     $.ajax({
-//         url: baseUrl + "rent?rentId=" + rentId,
-//         method: "DELETE",
-//         success: function (res) {
-//             loadAllRents();
-//             loadPendingRentals();
-//             loadTodayRents()
-//             clearRentRequestFields();
-//             Swal.fire({
-//                 position: 'top-end',
-//                 icon: 'success',
-//                 title: "Car Rental Deny",
-//                 timer: 1500
-//             });
-//
-//         },
-//         error: function (ob) {
-//             Swal.fire({
-//                 position: 'top-end',
-//                 icon: 'error',
-//                 title: "Car Rental Not Deny",
-//                 timer: 1500
-//             });
-//         }
-//     })
-// }
+    if ($('#customerRentId').val() != "") {
+        let rentId = $('#customerRentId').val();
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Deny!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                rejectRentals(rentId);
+                Swal.fire(
+                    'Deny!',
+                    'Request has been Denied.',
+                    'success'
+                )
+            }
+        })
+
+    } else {
+        Swal.fire({
+            position: 'top-end',
+            icon: 'info',
+            title: "Please Select Car Rent from Table Or Send Reason To Deny Request",
+            showConfirmButton: false,
+            timer: 1500
+        });
+    }
+})
+
+function rejectRentals(rentId) {
+    $.ajax({
+        url: baseURL + "rental?rentId=" + rentId,
+        method: "DELETE",
+        success: function (res) {
+            // loadAllRents();
+            loadPendingRentals();
+            // loadTodayRents()
+            // clearRentRequestFields();
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: "Car Rental Deny",
+                timer: 1500
+            });
+
+        },
+        error: function (ob) {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: "Car Rental Not Deny",
+                timer: 1500
+            });
+        }
+    })
+}
 
 // $("#btnRefreshRentRequest").click(function (){
 //     clearRentRequestFields();

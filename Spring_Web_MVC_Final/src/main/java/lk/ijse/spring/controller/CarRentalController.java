@@ -128,6 +128,13 @@ public class CarRentalController {
     }
 
 
+    @DeleteMapping(path = "rentalId/{rentId}")
+    public ResponseUtil denyRental(String rentId){
+        service.denyRental(rentId);
+        return new ResponseUtil("200",rentId+" Canceled",null);
+    }
+
+
 }
 
 

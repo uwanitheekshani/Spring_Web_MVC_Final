@@ -28,4 +28,7 @@ public interface RentalService {
     RentalDTO searchRent(String rentalId);
 //
     void updateCarRentStatus(String rentID, String status);
+
+    void denyRental(String rentId);
+
 }
