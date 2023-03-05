@@ -116,16 +116,16 @@ public class CarRentalController {
 //        return new ResponseUtil("200", "Done", service.getCarRentsByStatus(status));
 //    }
 //
-//    @GetMapping(path = "/{rentId}", produces = MediaType.APPLICATION_JSON_VALUE)
-//    public ResponseUtil searchRent(@PathVariable String rentId) {
-//        return new ResponseUtil("200", "Done", service.searchRent(rentId));
-//    }
+    @GetMapping(path = "/search/{rentalId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil searchRent(@PathVariable String rentalId) {
+        return new ResponseUtil("200", "Done", service.searchRent(rentalId));
+    }
 //
-//    @PutMapping(path = "/{rentId}/{status}", produces = MediaType.APPLICATION_JSON_VALUE)
-//    public ResponseUtil updateRentStatus(@PathVariable String rentId, @PathVariable String status) {
-//        service.updateCarRentStatus(rentId, status);
-//        return new ResponseUtil("200", "Done", null);
-//    }
+    @PutMapping(path = "/{rentId}/{status}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil updateRentStatus(@PathVariable String rentId, @PathVariable String status) {
+        service.updateCarRentStatus(rentId, status);
+        return new ResponseUtil("200", "Done", null);
+    }
 
 
 }

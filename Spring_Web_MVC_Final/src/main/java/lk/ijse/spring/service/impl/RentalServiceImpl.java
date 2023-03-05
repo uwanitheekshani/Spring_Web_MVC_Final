@@ -110,27 +110,27 @@ public class RentalServiceImpl implements RentalService {
 
 //    @Override
 //    public List<RentalDTO> getCarRentsByStatus(String status) {
-//        return mapper.map(repo.getAllByStatus(status), new TypeToken<List<RentalDTO>>() {
+//        return mapper.map(repo.getAllByRental_status(status), new TypeToken<List<RentalDTO>>() {
 //        }.getType());
 //    }
 //
-//    @Override
-//    public RentalDTO searchRent(String rentId) {
-//        if (repo.existsById(rentId)) {
-//            return mapper.map(repo.findById(rentId).get(), RentalDTO.class);
-//        } else {
-//            throw new RuntimeException("Rent "+rentId+" Not Exist....!");
-//        }
-//    }
+    @Override
+    public RentalDTO searchRent(String rentalId) {
+        if (repo.existsById(rentalId)) {
+            return mapper.map(repo.findById(rentalId).get(), RentalDTO.class);
+        } else {
+            throw new RuntimeException("Rent "+rentalId+" Not Exist....!");
+        }
+    }
 //
-//    @Override
-//    public void updateCarRentStatus(String rentID, String status) {
-//        if (repo.existsById(rentID)) {
-//            repo.updateCarRentStatus(rentID, status);
-//        } else {
-//            throw new RuntimeException("Rent "+rentID+" Not Exist to Update Status....!");
-//        }
-//    }
+    @Override
+    public void updateCarRentStatus(String rentID, String status) {
+        if (repo.existsById(rentID)) {
+            repo.updateCarRentStatus(rentID, status);
+        } else {
+            throw new RuntimeException("Rent "+rentID+" Not Exist to Update Status....!");
+        }
+    }
 
 
 }

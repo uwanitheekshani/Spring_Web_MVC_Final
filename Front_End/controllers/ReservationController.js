@@ -1,22 +1,27 @@
 loadPendingRentals();
 //--------------------requests start-------------------------------------------
 function loadPendingRentals() {
-    let status = "Pending";
+    // let status = "Pending";
 
     $('#veryresTable').empty();
     $.ajax({
-        url: baseURL + "rental/get/" + status,
-        method: "GET",
+        // url: baseURL + "rental/get/" + status,
+        // method: "GET",
+        url: baseURL+"rental",
+        dataType: "json",
         success: function (res) {
-            for (const carRent of res.data) {
+            for (let carRent of res.data) {
                 let driverId;
-                if (carRent.driverID === null) {
+                if (carRent.driverOption === "None") {
                     driverId = "No Driver";
                 } else {
                     driverId = carRent.driverID.driverID;
                 }
-                let row = `<tr><td>${carRent.rentalId}</td><td>${carRent.cusNic}</td><td>${carRent.registrationId}</td><td>${carRent.pickUpDate}</td><td>${carRent.returnDate}</td><td>${carRent.pickupLocation}</td><td>${carRent.returnLocation}</td><td>${carRent.total_damage_waiver_payment}</td><td>src=${"http://localhost:8080/Spring_Web_MVC_Final_war/uploads/" + carRent.payment_slip}</td><td>${carRent.rental_status}</td></tr>`;
-                $('#veryresTable').append(row);
+                // let row = `<tr><td>${carRent.rentalId}</td><td>${carRent.cusNic}</td><td>${carRent.registrationID}</td><td>${carRent.pickUpDate}</td><td>${carRent.returnDate}</td><td>${carRent.pickupLocation}</td><td>${carRent.returnLocation}</td><td>${carRent.total_damage_waiver_payment}</td><td>src=${carRent.payment_slip}</td><td>${carRent.rental_status}</td></tr>`;
+                // $('#veryresTable').append(row);
+
+                var row = '<tr><td>' + carRent.rentalId + '</td><td>' + carRent.cusNic + '</td><td>' + carRent.registrationID + '</td><td>' + carRent.pickUpDate + '</td><td>' + carRent.returnDate + '</td><td>' + carRent.pickupLocation + '</td><td>' + carRent.returnLocation + '</td><td>' + carRent.total_damage_waiver_payment + '</td><td>' + carRent.payment_slip + '</td><td>' + carRent.rental_status + '</td></tr>';
+                $("#veryresTable").append(row);
             }
             bindRentalRequestTableClickEvents();
         }
@@ -30,38 +35,29 @@ function bindRentalRequestTableClickEvents(){
     })
 }
 
-function findRentReq(rentId) {
+function findRentReq(rentalId) {
     $.ajax({
-        url: baseURL + "rental/" + rentId,
+        url: baseURL + "rental/search/" + rentalId,
         method: "GET",
         success: function (resp) {
             let rent = resp.data;
 
             let driverId;
             let driverName;
-            if (rent.driverID === null) {
+            if (rent.driverOption === "None") {
                 driverId = "No Driver";
                 driverName ="No Driver";
             } else {
-                driverId = rent.driverID.driverID;
+                driverId = rent.driverID;
                 // driverName = rent.driverID.name
             }
 
             $('#customerRentId').val(rent.rentalId);
             $('#txtCusDriverID').val(driverId);
-            $('#txtCusRegistrationId').val(rent.registrationId);
+            $('#txtCusRegistrationId').val(rent.registrationID);
             $('#txtCustomerNic').val(rent.cusNic);
             $('#txtCusRentStatus').val(rent.rental_status);
-            // $('#inputReqPickUpDate').val(rent.pickUpDate);
-            // $('#inputReqPickUpTime').val(rent.pickUpTime);
-            // $('#inputReqPickUpVenue').val(rent.pickUpVenue);
-            // $('#inputReqReturnDate').val(rent.returnDate);
-            // $('#inputReqReturnTime').val(rent.returnTime);
-            // $('#inputReqReturnVenue').val(rent.returnVenue);
-            // $('#inputReqDriverID').val(driverId);
-            // $('#inputReqNameOfDriver').val(driverName);
-            // $('#inputReqLossDamageWaiver').val(rent.lossDamageWaiver);
-            // $('#inputReqRentStatus').val(rent.status);
+
 
             // searchAndLoadRentReqBankSlipImgs(rentId);
 

@@ -17,6 +17,9 @@ $("#btnLogInE").click(function (){
                     showConfirmButton: false,
                     timer: 1500
                 });
+                updateCarStatus();
+                loadAllCars();
+                carAppend();
                 $("#storeContent").css('display','block');
                 $("#mainh").css('display','none');
                 $("#main3").css('display','none');

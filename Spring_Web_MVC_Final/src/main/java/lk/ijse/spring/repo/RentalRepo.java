@@ -22,10 +22,10 @@ public interface RentalRepo extends JpaRepository<Rental,String> {
     @Query(value = "SELECT rentalId FROM Rental ORDER BY rentalId DESC LIMIT 1", nativeQuery = true)
     String generateRentalId();
 
-//    List<Rental> getAllByStatus(String status);
+//    List<Rental> getAllByRental_status(String status);
 //
-//    @Modifying
-//    @Transactional
-//    @Query(value = "UPDATE Rental SET rental_status=:rental_status WHERE rentalId=:rentalId", nativeQuery = true)
-//    void updateCarRentStatus(@Param("rentalId") String rentalId, @Param("rental_status") String rental_status);
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE Rental SET rental_status=:rental_status WHERE rentalId=:rentalId", nativeQuery = true)
+    void updateCarRentStatus(@Param("rentalId") String rentalId, @Param("rental_status") String rental_status);
 }

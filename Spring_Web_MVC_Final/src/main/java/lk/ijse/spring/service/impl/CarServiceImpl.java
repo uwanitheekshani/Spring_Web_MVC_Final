@@ -112,6 +112,15 @@ public class CarServiceImpl implements CarService {
         return mapper.map( repo.getCarByRegistrationId(registrationId),CarDTO.class);
     }
 
+    @Override
+    public void updateCarRentStatus(String registrationNo, String status) {
+        if (repo.existsById(registrationNo)) {
+            repo.updateCarAvailabilityStatus(registrationNo, status);
+        } else {
+            throw new RuntimeException("Car "+registrationNo+" Not Exist to Update Status....!");
+        }
+    }
+
 //    @Override
 //    public CarDTO searchCar(String brand) {
 //        return mapper.map(repo.findCarByBrand(brand), CarDTO.class);

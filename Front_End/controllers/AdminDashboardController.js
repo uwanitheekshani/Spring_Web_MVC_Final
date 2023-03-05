@@ -32,6 +32,7 @@ $("#carim1").click(function () {
 });
 
 $("#resl1").click(function () {
+    loadPendingRentals();
     $("#adminDash").css('display','none');
     $("#carContent").css('display','none');
     $("#veriCusDet").css('display','none');

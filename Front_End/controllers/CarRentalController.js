@@ -323,6 +323,7 @@ $("#btnsendReq").click(function () {
     // }
     addRental();
     CustomerAccount();
+    loadPendingRentals();
 });
 
 function addRental() {

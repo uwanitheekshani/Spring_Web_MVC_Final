@@ -33,5 +33,7 @@ public interface CarService {
 
     CarDTO searchCarByRegistrationId(String registrationId);
 
+    void updateCarRentStatus(String registrationNo, String status);
+
 //    CarDTO searchCar(String brand);
 }

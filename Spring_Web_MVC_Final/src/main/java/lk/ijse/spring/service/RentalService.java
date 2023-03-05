@@ -25,7 +25,7 @@ public interface RentalService {
 
 //    List<RentalDTO> getCarRentsByStatus(String status);
 //
-//    RentalDTO searchRent(String rentId);
+    RentalDTO searchRent(String rentalId);
 //
-//    void updateCarRentStatus(String rentID, String status);
+    void updateCarRentStatus(String rentID, String status);
 }

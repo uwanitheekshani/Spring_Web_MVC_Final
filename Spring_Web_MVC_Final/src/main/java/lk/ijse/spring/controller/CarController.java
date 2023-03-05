@@ -145,6 +145,12 @@ public class CarController {
         return new ResponseUtil("200","Get",carDetail);
     }
 
+    @PutMapping(path = "/updateCarAvailability/{registrationNo}/{status}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil updateCarStatus(@PathVariable String registrationNo, @PathVariable String status) {
+        service.updateCarRentStatus(registrationNo, status);
+        return new ResponseUtil("200", "Done", null);
+    }
+
 //    @GetMapping(params = {"registrationId"},produces = MediaType.APPLICATION_JSON_VALUE)
 //    public ResponseUtil checkCar(String registrationId) {
 //        CarDTO carDTO = service.searchCarByRegistrationId(registrationId);

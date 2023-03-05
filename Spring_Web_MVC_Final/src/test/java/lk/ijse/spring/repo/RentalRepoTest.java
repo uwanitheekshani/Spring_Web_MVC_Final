@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class RentalRepoTest {
@@ -14,14 +16,12 @@ class RentalRepoTest {
     @Autowired
     RentalRepo repo;
 
-    @Test
-    public void test1(){
-
-//        Rental rental = repo.updateCarRentStatus("GH-7383","Unvailable");
-//        System.out.println(rental.toString());
-
-//        void updateCarRentStatus(@Param("rentalId") String rentalId, @Param("rental_status") String rental_status);
-//        System.out.println(driverRandomly);
-    }
+//    @Test
+//    public void testOne() {
+//        List<Rental> dasunPerera = repo.getAllByRental_status("Available");
+//        for (Rental rental : dasunPerera) {
+//            System.out.println(rental.toString());
+//        }
+//    }
 
 }
