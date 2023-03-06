@@ -1,6 +1,6 @@
 generateRentId();
 carAppend();
-
+// CustomerAccount();
 
 
 function carAppend() {

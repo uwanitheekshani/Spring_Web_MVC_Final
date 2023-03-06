@@ -129,7 +129,7 @@ public class DriverServiceImpl implements DriverService {
     }
 
     @Override
-    public void updateCarRentStatus(String driverID, String status) {
+    public void updateDriverStatus(String driverID, String status) {
         if (repo.existsById(driverID)) {
             repo.updateDriverAvailabilityStatus(driverID, status);
         } else {

@@ -44,6 +44,7 @@ $("#resl1").click(function () {
 });
 
 $("#payl1").click(function () {
+    loadAllRentalsId();
     $("#adminDash").css('display','none');
     $("#carContent").css('display','none');
     $("#veriCusDet").css('display','none');

@@ -32,7 +32,7 @@ public interface DriverService {
 //    public List<DriverDTO> getRandomDriver();
     DriverDTO generateDriver();
 
-    void updateCarRentStatus(String driverID, String status);
+    void updateDriverStatus(String driverID, String status);
 
 //    DriverDTO searchDriverBydriverId(String drivingId);
 }

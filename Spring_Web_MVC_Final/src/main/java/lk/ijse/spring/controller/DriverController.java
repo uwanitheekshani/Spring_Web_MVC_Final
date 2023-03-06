@@ -54,7 +54,7 @@ public class DriverController {
 
     @PutMapping(path = "/updateNonAvailable/{driverID}/{status}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil updateDriverStatus(@PathVariable String driverID, @PathVariable String status) {
-        service.updateCarRentStatus(driverID, status);
+        service.updateDriverStatus(driverID, status);
         return new ResponseUtil("200", "Done", null);
     }
 

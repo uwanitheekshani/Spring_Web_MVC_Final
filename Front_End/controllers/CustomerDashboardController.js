@@ -11,7 +11,9 @@ $("#home").click(function () {
 
 });
 
+
 $("#account").click(function () {
+    CustomerAccount();
     $("#mainh").css('display','none');
     $("#main3").css('display','none');
     $("#foot").css('display','none');

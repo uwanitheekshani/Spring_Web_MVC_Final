@@ -100,6 +100,7 @@ $("#btnAacceptReq").click(function (){
     if ($('#customerRentId').val() != "") {
         acceptRental();
         addSchedule();
+        loadAllRentals();
     } else {
         Swal.fire({
             position: 'top-end',
