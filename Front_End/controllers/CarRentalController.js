@@ -127,180 +127,6 @@ $('body').on('dblclick', '#CheckReTable>tr', function () {
 
 
 
-
-
-
-//==============car eke status eka update karanna================================
-
-// function getCarId() {
-//     for (let i = 0; i < carDetailArray.length; i++) {
-//         if ( carRegiId = carDetailArray[i].registrationId){
-//             return carRegiId;
-//         }
-//     }
-// }
-// function updateCarStatus(registationId,availability,brand,colour,dailyrate,freeMileage,fuelType,image_1,image_2,image_3,image_4,lastServiceMileage,model,monthlyRate,noOfpassengers,priceForExtraKm,transmissionType,type){
-//     var upCarStat="";
-//     if (carRegiId=registationId) {
-//          upCarStat = {
-//             registrationId: carRegiId,
-//             availability: "Unvailable",
-//             brand: brand,
-//             colour: colour,
-//             dailyRate: dailyrate,
-//             freeMileage: freeMileage,
-//             fuelType: fuelType,
-//             image_1: image_1,
-//             image_2: image_2,
-//             image_3: image_3,
-//             image_4: image_4,
-//             lastServiceMileage: lastServiceMileage,
-//             model: model,
-//             monthlyRate: monthlyRate,
-//             noOfpassengers: noOfpassengers,
-//             priceForExtraKm: priceForExtraKm,
-//             transmissionType: transmissionType,
-//             type: type
-//         }
-//         return upCarStat;
-//     }
-//
-//     $.ajax({
-//         url: baseURL+'car',
-//         method: 'put',
-//         contentType:"application/json",
-//         data:JSON.stringify(upCarStat),
-//         dataType:"json",
-//         success: function (res) {
-//             alert(res.message);
-//             // loadAllCustomers();
-//         },
-//         error:function (error){
-//             let cause= JSON.parse(error.responseText).message;
-//             alert(cause);
-//         }
-//
-//     });
-//
-// }
-
-
-// function getCarDet(){
-//
-//     $.ajax({
-//         url: baseURL+'car',
-//         method: 'get',
-//         dataType:"json",
-//         success: function (res) {
-//              updateCarStatus(res.data.registrationId,res.data.availability,res.data.brand,res.colour,res.data.dailyRate,
-//                  res.data.freeMileage,res.data.fuelType,res.data.image_1,res.data.image_2,res.data.image_3,res.data.image_4,res.data.lastServiceMileage,
-//                  res.data.model,res.data.monthlyRate,res.data.noOfPassengers,res.data.priceForExtraKm,res.data.transmissionType,res.data.type);
-//
-//             // alert(res.message);
-//         },
-//         error:function (error){
-//             let cause= JSON.parse(error.responseText).message;
-//             alert(cause);
-//         }
-//     });
-// }
-
-// var driStatus;
-
-// ===============driver eke status eka upadate karanna==============================
-
-// function getDrId() {
-//     for (let i = 0; i < carDetailArray.length; i++) {
-//         if (driverId = carDetailArray[i].driverId) {
-//             return driverId;
-//         }
-//     }
-// }
-//
-// function updateDriverStatus(driver_id,availability,drivingLicenceNumber,name,nic){
-//     var upDriStat="";
-//
-//     if (driverId=driver_id) {
-//         upDriStat = {
-//             driver_id:driverId,
-//             availability:"Unavailable",
-//             driverLicenceNum:drivingLicenceNumber,
-//             name:name,
-//             nic:nic
-//         }
-//         return upDriStat;
-//     }
-//
-//     $.ajax({
-//         url: baseURL+'driver',
-//         method: 'put',
-//         contentType:"application/json",
-//         data:JSON.stringify(upDriStat),
-//         dataType:"json",
-//         success: function (res) {
-//
-//             for (let dri of res.data){
-//                 if (dri.driver_id=driverId){
-//                     dri.data.availability="Unavailable";
-//                 }
-//             }
-//             alert(res.message);
-//         },
-//         error:function (error){
-//             let cause= JSON.parse(error.responseText).message;
-//             alert(cause);
-//         }
-//     });
-// }
-
-// function getDriDet(){
-//
-//     $.ajax({
-//         url: baseURL+'driver',
-//         method: 'get',
-//         dataType:"json",
-//         success: function (res) {
-//             updateDriverStatus(res.data.driver_id,res.data.availability,res.data.drivingLicenceNumber,res.data.name,res.data.nic);
-//             // alert(res.message);
-//         },
-//         error:function (error){
-//             let cause= JSON.parse(error.responseText).message;
-//             alert(cause);
-//         }
-//     });
-// }
-
-
-
-// ===========================================================================
-
-
-// =====================meka rental eke nic ekata yawanna ==========================
-// var cNic="";
-//
-// function getCusNic() {
-//     let email = $("#ae").text();
-//
-//
-//     $.ajax({
-//         url: baseURL + "customerLogin?email=" + email,
-//         method: "get",
-//         dataType: "json",
-//         success: function (res) {
-//
-//             console.log(res.data);
-//             // let userNic = res.data.nic;
-//
-//             cNic= res.data.nic;
-//         },
-//         error: function (error) {
-//             var jsObject = JSON.parse(error.responseText);
-//             // alert("Invalid email or password");
-//         }
-//     });
-// }
-
-
 //===================================rental ekak danna=======================================
 var p;
 var r;
@@ -324,6 +150,7 @@ $("#btnsendReq").click(function () {
     addRental();
     CustomerAccount();
     loadPendingRentals();
+
 });
 
 function addRental() {
@@ -395,27 +222,6 @@ function addRental() {
         }
     });
 }
-// var carData = [];
-// function getAllCar(){
-//     $.ajax({
-//         url: baseURL+"car",
-//         dataType: "json",
-//         success: function (resp){
-//             for (let car of resp.data) {
-//                 let registrationId = car.registrationId;
-//                 carData = {registrationId:registrationId,Available:"Notavailable"}
-//             }
-//         }
-//     })
-// }
-
-// function updateCarAvai(){
-//     $.ajax({
-//         url: baseURL+"car",
-//         method: "put",
-//         data: JSON.stringify(carData)
-//     })
-// }
 
 // =====================================================================
 

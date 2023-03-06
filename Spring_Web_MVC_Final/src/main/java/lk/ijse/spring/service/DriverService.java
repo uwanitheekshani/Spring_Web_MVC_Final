@@ -15,13 +15,15 @@ public interface DriverService {
 
     void deleteDriver(String id);
 
+    public String generateDriverId();
+
     DriverDTO getDriverDetail(String id);
 
     List<DriverDTO> getAllDriverDetail();
 
     List<DriverDTO> getTodayAvailableAndOccupiedDrivers(String status);
 
-    DriverDTO searchDriverBydriverLicenceNum(String driverLicenceNum);
+    DriverDTO searchDriverByLicence(String driverLicenceNum);
 
 //    DriverDTO getAllByAvailability();
 

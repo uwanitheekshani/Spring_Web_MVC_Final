@@ -21,6 +21,13 @@ public class DriverController {
     DriverService service;
 
 
+    @GetMapping(path = "/generateDriverId", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil generateDriverId() {
+        String s = service.generateDriverId();
+        return new ResponseUtil("200", "Ok", s);
+    }
+
+
     @PostMapping
     public ResponseUtil saveDriver(@RequestBody DriverDTO dto){
         service.saveDriver(dto);
@@ -49,5 +56,13 @@ public class DriverController {
     public ResponseUtil updateDriverStatus(@PathVariable String driverID, @PathVariable String status) {
         service.updateCarRentStatus(driverID, status);
         return new ResponseUtil("200", "Done", null);
+    }
+
+    @GetMapping(params = "drivingLiNum")
+    public ResponseUtil checkDriver(String drivingLiNum) {
+        System.out.println(drivingLiNum);
+        DriverDTO driverDTO = service.searchDriverByLicence(drivingLiNum);
+        System.out.println(driverDTO);
+        return new ResponseUtil("200", "Login Success", driverDTO);
     }
 }

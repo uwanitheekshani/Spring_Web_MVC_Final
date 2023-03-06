@@ -52,6 +52,29 @@ public class DriverServiceImpl implements DriverService {
     }
 
     @Override
+    public String generateDriverId() {
+        String lastId = repo.generateDriverId();
+        String id = "";
+
+        if (lastId != null) {
+            int tempId = Integer.parseInt(lastId.split("-")[1]);
+            tempId = tempId + 1;
+            if (tempId <= 9) {
+                id = "D00-000" + tempId;
+            } else if (tempId <= 99) {
+                id = "D00-00" + tempId;
+            } else if (tempId <= 999) {
+                id = "D00-0" + tempId;
+            } else if (tempId <= 9999) {
+                id = "D00-" + tempId;
+            }
+        } else {
+            id = "D00-0001";
+        }
+        return id;
+    }
+
+    @Override
     public DriverDTO getDriverDetail(String id) {
         return null;
     }
@@ -74,9 +97,14 @@ public class DriverServiceImpl implements DriverService {
     }
 
     @Override
-    public DriverDTO searchDriverBydriverLicenceNum(String driverLicenceNum) {
+    public DriverDTO searchDriverByLicence(String driverLicenceNum) {
         return mapper.map(repo.getDriverByDrivingLicenceNum(driverLicenceNum), DriverDTO.class);
     }
+
+//    @Override
+//    public DriverDTO searchDriverBydriverLicenceNum(String driverLicenceNum) {
+//        return mapper.map(repo.getDriverByDrivingLicenceNum(driverLicenceNum), DriverDTO.class);
+//    }
 
 //    @Override
 //    public DriverDTO getAllByAvailability() {
@@ -117,7 +145,7 @@ public class DriverServiceImpl implements DriverService {
 //
 //    @Override
 //    public DriverDTO searchDriverBydriverId(String drivingId) {
-//        return mapper.map( repo.getDriverByDriver_id(drivingId), DriverDTO.class);
+//        return mapper.map( repo.getDriverByDrivingLicenceNum(drivingId), DriverDTO.class);
 //    }
 
 }

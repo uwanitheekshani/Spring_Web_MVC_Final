@@ -18,6 +18,9 @@ public interface DriverRepo extends JpaRepository<Driver,String> {
 //    @Query(value = "SELECT * from Driver where availability 'Available' DESC LIMIT 1",nativeQuery = true)
 //    Driver getAllByAvailability();
 
+    @Query(value = "SELECT driverID FROM Driver ORDER BY driverID DESC LIMIT 1", nativeQuery = true)
+    String generateDriverId();
+
     @Query(value = "SELECT * from Driver where availability 'Available'",nativeQuery = true)
     Driver getAllByAvailability();
 
@@ -31,5 +34,7 @@ public interface DriverRepo extends JpaRepository<Driver,String> {
     @Query(value = "UPDATE Driver SET availability=:availability WHERE driverID=:driverID", nativeQuery = true)
     void updateDriverAvailabilityStatus(@Param("driverID") String driverID, @Param("availability") String availability);
 
-//    Driver getDriverByDriver_id(String drivingId);
+//    Object getDriverByDriver_id(String drivingId);
+
+//    Driver getDriverByDrivingLicenceNum(String drivingId);
 }
