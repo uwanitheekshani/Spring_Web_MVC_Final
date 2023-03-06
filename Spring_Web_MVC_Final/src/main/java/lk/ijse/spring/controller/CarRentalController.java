@@ -120,7 +120,7 @@ public class CarRentalController {
     public ResponseUtil searchRent(@PathVariable String rentalId) {
         return new ResponseUtil("200", "Done", service.searchRent(rentalId));
     }
-//
+
     @PutMapping(path = "/{rentId}/{status}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil updateRentStatus(@PathVariable String rentId, @PathVariable String status) {
         service.updateCarRentStatus(rentId, status);
