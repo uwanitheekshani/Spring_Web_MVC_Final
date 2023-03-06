@@ -204,6 +204,7 @@ $('#btnAdenyReq').click(function () {
 
     if ($('#customerRentId').val() != "") {
         let rentId = $('#customerRentId').val();
+        // rejectRentals(rentId);
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -236,7 +237,7 @@ $('#btnAdenyReq').click(function () {
 
 function rejectRentals(rentId) {
     $.ajax({
-        url: baseURL + "rental?rentId=" + rentId,
+        url: baseURL + "rental?rentalId=" + rentId,
         method: "DELETE",
         success: function (res) {
             // loadAllRents();
