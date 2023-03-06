@@ -483,7 +483,7 @@ $("#txtCbrnd").on('keydown', function (event) {
         focusTextC($("#txtMdl"));
     }
 });
-$("#txtMdl").on('keydown', function (event) {
+$("#txtMdl").on('keyup', function (event) {
     if (event.key == "Enter" && checkC(model, $("#txtMdl"))) {
         focusText($("#txtTrnsm"));
     }

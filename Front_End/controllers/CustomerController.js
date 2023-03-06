@@ -257,6 +257,28 @@ function viewAllUsers(){
 
         }
     });
+
+    function countAllRegisterCustomers(){
+        let customerCount=$("#lblRegisterdUsers").val();
+        $.ajax({
+            url: baseURL+"customer/count",
+            dataType: "json",
+            success: function (res) {
+                for (let carRent of res.data) {
+                    let driverId;
+                    if (carRent.driverOption === "None") {
+                        driverId = "No Driver";
+                    } else {
+                        driverId = carRent.driverID.driverID;
+                    }
+
+                    var row = '<tr><td>' + carRent.rentalId + '</td><td>' + carRent.cusNic + '</td><td>' + carRent.registrationID + '</td><td>' + carRent.pickUpDate + '</td><td>' + carRent.returnDate + '</td><td>' + carRent.pickupLocation + '</td><td>' + carRent.returnLocation + '</td><td>' + carRent.total_damage_waiver_payment + '</td><td>' + carRent.payment_slip + '</td><td>' + carRent.rental_status + '</td></tr>';
+                    $("#veryresTable").append(row);
+                }
+
+            }
+        })
+    }
 }
 
 

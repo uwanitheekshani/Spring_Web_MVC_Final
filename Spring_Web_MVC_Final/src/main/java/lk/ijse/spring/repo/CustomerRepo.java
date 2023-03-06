@@ -16,4 +16,6 @@ public interface CustomerRepo extends JpaRepository<Customer,String> {
 void updateCustomerFilePaths(@Param("imageLocation") String imageLocation, @Param("nic") String nic);
 
     Customer getCustomerByEmail(String email);
+
+//    Long countByNic();
 }

@@ -476,7 +476,8 @@ function randomDriver(){
         dataType:"json",
         success: function (resp) {
             // console.log(resp.data.driver_id)
-            $("#driverID").val(resp.data.driverID);
+                $("#driverID").val(resp.data.driverID);
+
         }
 
     });

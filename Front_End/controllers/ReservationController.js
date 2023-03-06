@@ -1,12 +1,9 @@
 loadPendingRentals();
 //--------------------requests start-------------------------------------------
 function loadPendingRentals() {
-    // let status = "Pending";
 
     $('#veryresTable').empty();
     $.ajax({
-        // url: baseURL + "rental/get/" + status,
-        // method: "GET",
         url: baseURL+"rental",
         dataType: "json",
         success: function (res) {
@@ -126,7 +123,7 @@ function acceptRental() {
             // loadTodayRents();
             updateDriverStatus();
             updateCarStatus();
-            // clearRentRequestFields();
+            clearRentRequestFields();
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
@@ -178,27 +175,14 @@ function updateDriverStatus() {
     }
 }
 
-// function clearRentRequestFields(){
-//     $('#inputReqRentID').val("");
-//     $('#inputReqRentDate').val("");
-//     $('#inputReqCarRegNo').val("");
-//     $('#inputReqUserID').val("");
-//     $('#inputReqNameOfUser').val("");
-//     $('#inputReqPickUpDate').val("");
-//     $('#inputReqPickUpTime').val("");
-//     $('#inputReqPickUpVenue').val("");
-//     $('#inputReqReturnDate').val("");
-//     $('#inputReqReturnTime').val("");
-//     $('#inputReqReturnVenue').val("");
-//     $('#inputReqDriverID').val("");
-//     $('#inputReqNameOfDriver').val("");
-//     $('#inputReqLossDamageWaiver').val("");
-//     $('#inputReqRentStatus').val("");
-//     $('#inputReqImageOfBankSlip').empty();
-//     $('#inputRentReqSearch').val("");
-//     $('#inputReqReasonDeny').val("");
-//
-// }
+function clearRentRequestFields(){
+$('#customerRentId').val("");
+$('#txtCusDriverID').val("");
+$('#txtCusRegistrationId').val("");
+$('#txtCustomerNic').val("");
+$('#txtCusRentStatus').val("");
+
+}
 
 $('#btnAdenyReq').click(function () {
 
@@ -243,7 +227,7 @@ function rejectRentals(rentId) {
             // loadAllRents();
             loadPendingRentals();
             // loadTodayRents()
-            // clearRentRequestFields();
+            clearRentRequestFields();
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',

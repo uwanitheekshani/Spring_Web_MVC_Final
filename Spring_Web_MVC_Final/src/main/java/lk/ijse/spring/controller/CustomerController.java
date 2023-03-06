@@ -97,5 +97,11 @@ public class CustomerController {
         return new ResponseUtil("200",dto.toString()+" Updated",null);
     }
 
+//    @GetMapping(path = "/count", produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseUtil getAllCustomerCount() {
+//        String s = service.getAllCustomerCount();
+//        return new ResponseUtil("200", "Ok", s);
+//    }
+
 
 }
