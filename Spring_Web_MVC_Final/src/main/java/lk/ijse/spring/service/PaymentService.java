@@ -5,7 +5,7 @@ import lk.ijse.spring.dto.PaymentDTO;
 import java.util.List;
 
 public interface PaymentService {
-    String generateReservationBillIdId();
+    String generatePaymentId();
 
     void makePaymentForReservation(PaymentDTO paymentDTO);
 
