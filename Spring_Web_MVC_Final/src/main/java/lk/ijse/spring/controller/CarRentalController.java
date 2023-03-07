@@ -146,16 +146,7 @@ public class CarRentalController {
         long count = service.count();
         return new ResponseUtil("200"," Success",count);
     }
-
-//    @GetMapping(path = "/driverSearch/{driverId}", produces = MediaType.APPLICATION_JSON_VALUE)
-//    public ResponseUtil driverSearchRent(@PathVariable String driverId) {
-//        return new ResponseUtil("200", "Done", service.searchDriverRent(driverId));
-//    }
-
-
 }
-
-
 
 //             ===============================================================================
 

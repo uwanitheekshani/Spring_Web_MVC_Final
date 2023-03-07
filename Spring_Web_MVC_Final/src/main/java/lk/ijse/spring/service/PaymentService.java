@@ -16,4 +16,11 @@ public interface PaymentService {
     void savePayment(PaymentDTO dto);
 
     long count();
+
+    double getDailyIncome(String date);
+
+    String getMonthlyIncome();
+
+    String getAnnuallyIncome();
+
 }
