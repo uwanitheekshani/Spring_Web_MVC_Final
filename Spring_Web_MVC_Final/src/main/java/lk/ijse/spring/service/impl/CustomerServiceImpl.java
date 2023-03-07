@@ -79,6 +79,11 @@ public class CustomerServiceImpl implements CustomerService {
         return mapper.map( repo.getCustomerByEmail(email),CustomerDTO.class);
     }
 
+    @Override
+    public long count() {
+        return repo.count();
+    }
+
 //    @Override
 //    public void getAllCustomerCount() {
 //        Long cusCount = repo.countByNic();

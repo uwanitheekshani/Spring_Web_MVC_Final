@@ -847,14 +847,14 @@
                     <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                         <div class="icon-box" style="position: absolute; width: 217px;">
                             <h4><a >Registered Users</a></h4>
-                            <h3><a id="lblRegisterdUsers" >900</a></h3>
+                            <h3><span id="lblRegisterdUsers" ></span></h3>
                         </div>
                     </div>
 
                     <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200" style="position: absolute;left: 242px;">
                         <div class="icon-box" style="position: absolute; width: 227px;">
                             <h4><a >Bookings</a></h4>
-                            <h3><a id="lblBookings">150</a></h3>
+                            <h3><a id="lblBookings"></a></h3>
                         </div>
                     </div>
 
@@ -1514,28 +1514,28 @@
 
 <!--        <h3 id="viewshed"><a id="linkViewDriSche">View Driver Schedule</a></h3>-->
 
-        <div>
-            <select class="form-selectCT" aria-label="Default select example" id="selectCType">
-                <option selected>Type</option>
-                <option >One</option>
-                <option >Two</option>
-                <option >Three</option>
-            </select>
+<!--        <div>-->
+<!--            <select class="form-selectCT" aria-label="Default select example" id="selectCType">-->
+<!--                <option selected>Type</option>-->
+<!--                <option >One</option>-->
+<!--                <option >Two</option>-->
+<!--                <option >Three</option>-->
+<!--            </select>-->
 
-            <select class="form-selectCB" aria-label="Default select example" id="selectCBrand">
-                <option selected>Brand</option>
-                <option >One</option>
-                <option >Two</option>
-                <option >Three</option>
-            </select>
+<!--            <select class="form-selectCB" aria-label="Default select example" id="selectCBrand">-->
+<!--                <option selected>Brand</option>-->
+<!--                <option >One</option>-->
+<!--                <option >Two</option>-->
+<!--                <option >Three</option>-->
+<!--            </select>-->
 
-            <select class="form-selectCN" aria-label="Default select example" id="selectCNum">
-                <option selected>Car Num</option>
-                <option >One</option>
-                <option >Two</option>
-                <option >Three</option>
-            </select>
-        </div>
+<!--            <select class="form-selectCN" aria-label="Default select example" id="selectCNum">-->
+<!--                <option selected>Car Num</option>-->
+<!--                <option >One</option>-->
+<!--                <option >Two</option>-->
+<!--                <option >Three</option>-->
+<!--            </select>-->
+<!--        </div>-->
 
         <div class="d-flex flex-row mb-3" id="v1" style="position: absolute;top: 180px;left: 285px;">
             <div class="p-2">
@@ -1619,25 +1619,41 @@
 
 
 
-        <div class=".sub-detail-container" style="position: absolute;top: 67px;width: 50%;left: 586px;">
-            <div class="w-100 d-flex justify-content-between">
+<!--        <div class=".sub-detail-container" style="position: relative;top: 67px;width: 50%;left: 586px;">-->
+<!--            <div class="w-100 d-flex justify-content-between">-->
 
-                <div class="btn-group d-flex ms-auto mb-5 w-25">
-                    <button class="btn btn-dark" type="button">Action</button>
-                    <button aria-expanded="false" class="btn btn-dark dropdown-toggle dropdown-toggle-split"
-                            data-bs-toggle="dropdown" type="button">
-                        <span class="visually-hidden">Toggle Dropdown</span>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-dark">
-                        <li><a class="dropdown-item" id="admin-car-underMaintain">Under Maintaining</a></li>
-                        <li><a class="dropdown-item" id="admin-car-needMaintain">Need Maintain</a></li>
-                        <li><a class="dropdown-item" id="admin-car-available">Available</a></li>
-                        <li><a class="dropdown-item" id="admin-car-unavailable">Unavailable</a></li>
-                    </ul>
-                </div>
+<!--                <div class="btn-group d-flex ms-auto mb-5 w-25">-->
+<!--                    <button class="btn btn-dark" type="button">Action</button>-->
+<!--                    <button aria-expanded="false" class="btn btn-dark dropdown-toggle dropdown-toggle-split"-->
+<!--                            data-bs-toggle="dropdown" type="button">-->
+<!--                        <span class="visually-hidden">Toggle Dropdown</span>-->
+<!--                    </button>-->
+<!--                    <ul class="dropdown-menu dropdown-menu-dark">-->
+<!--                        <li><a class="dropdown-item" id="admin-car-underMaintain">Maintanance</a></li>-->
+<!--&lt;!&ndash;                        <li><a class="dropdown-item" id="admin-car-needMaintain">Need Maintain</a></li>&ndash;&gt;-->
+<!--                        <li><a class="dropdown-item" id="admin-car-available">Available</a></li>-->
+<!--                        <li><a class="dropdown-item" id="admin-car-unavailable">Unavailable</a></li>-->
+<!--                    </ul>-->
+<!--                </div>-->
 
-            </div>
+<!--            </div>-->
+<!--        </div>-->
+
+        <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown link
+            </a>
+
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
         </div>
+
+
+
+
 
         <button class="btn btn-primary" id="btnUpdate">Update</button>
         <button class="btn btn-primary" id="btnDelete">Delete</button>
@@ -1678,6 +1694,55 @@
         </div>
 
     </section>
+
+
+<!--    =============================================Maintanance========================================-->
+
+
+<!--    <section class="viewCar" id="viewMaintananceAvaUnva" style="display: none">-->
+<!--&lt;!&ndash;        <h3 id="vwC">View Cars</h3>&ndash;&gt;-->
+
+<!--        <div class="col-md-12 mt-4" id="carViewMAV" style="height:180px; overflow-y: scroll;left:210px; ">-->
+<!--            <table class="table table-bordered text-white">-->
+<!--                <thead class="bg-primary">-->
+<!--                <tr>-->
+<!--                    <th>CarNum</th>-->
+<!--                    <th>Brand</th>-->
+<!--                    <th>Type</th>-->
+<!--                    <th>Fuel</th>-->
+<!--                    <th>Transmission</th>-->
+<!--                    <th>No_Passengers</th>-->
+<!--                    <th>FreeMile</th>-->
+<!--                    <th>CostExtrakm</th>-->
+<!--                    <th>Daily</th>-->
+<!--                    <th>Monthly</th>-->
+<!--                </tr>-->
+<!--                </thead>-->
+<!--                <tbody class="bg-light text-dark" id="carViewMVUTable">-->
+<!--                &lt;!&ndash;                <tr>&ndash;&gt;-->
+<!--                &lt;!&ndash;                    <td>Suzuki Alto</td>&ndash;&gt;-->
+<!--                &lt;!&ndash;                    <td>NB-6889</td>&ndash;&gt;-->
+<!--                &lt;!&ndash;                    <td>General</td>&ndash;&gt;-->
+<!--                &lt;!&ndash;                    <td>Petrol</td>&ndash;&gt;-->
+<!--                &lt;!&ndash;                    <td>Auto</td>&ndash;&gt;-->
+<!--                &lt;!&ndash;                    <td>6</td>&ndash;&gt;-->
+<!--                &lt;!&ndash;                    <td>100</td>&ndash;&gt;-->
+<!--                &lt;!&ndash;                    <td>15000</td>&ndash;&gt;-->
+<!--                &lt;!&ndash;                    <td>49.50</td>&ndash;&gt;-->
+<!--                &lt;!&ndash;                    <td>5000</td>&ndash;&gt;-->
+<!--                &lt;!&ndash;                    <td>110330</td>&ndash;&gt;-->
+<!--                &lt;!&ndash;                </tr>&ndash;&gt;-->
+
+<!--                </tbody>-->
+<!--            </table>-->
+<!--        </div>-->
+
+<!--    </section>-->
+
+
+
+
+
 
 <!--    &lt;!&ndash;   ==============================Driver schedule==================================&ndash;&gt;-->
 <!--    <section class="driverSchedule" id="DriverSche" style="display: none">-->

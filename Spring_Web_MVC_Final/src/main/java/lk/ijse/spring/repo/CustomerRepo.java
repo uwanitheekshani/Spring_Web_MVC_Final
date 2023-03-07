@@ -17,5 +17,6 @@ void updateCustomerFilePaths(@Param("imageLocation") String imageLocation, @Para
 
     Customer getCustomerByEmail(String email);
 
-//    Long countByNic();
+    @Override
+    long count();
 }

@@ -103,7 +103,7 @@ function makePayment(){
 
                     let paymentId=$('#paymentId').val();
                     let damageCost= $("#txtDmCost").val();
-                    let extraKmCost= $("#txtExtraKC").val();
+                    let extraKmCost= parseFloat($("#txtExtraKC").val()) || 0;
                     let damageDes= $("#txtDaDes").val();
                     let paymentStatus="Paid";
                     let date=$("#txtAdPAyDate").val();

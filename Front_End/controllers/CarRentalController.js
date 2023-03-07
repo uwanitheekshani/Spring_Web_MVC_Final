@@ -131,22 +131,15 @@ $('body').on('dblclick', '#CheckReTable>tr', function () {
 var p;
 var r;
 
-// desable();
-// function desable(){
-//     let avilable = $("#CheckReTable").children().eq(0).children(":eq(8)").text();
-//     console.log(avilable)
-//     if (avilable == "Available"){
-//         $("#btnsendReq").prop('disabled',true);
-//     }
-// }
+desable();
+function desable(){
+    let status = $("#CheckReTable").children().eq(0).children(":eq(8)").text();
+    if (status == "Available"){
+        $("#btnsendReq").prop('disabled',true);
+    }
+
+}
 $("#btnsendReq").click(function () {
-    // alert("Work");
-    // let avilable = $("#CheckReTable").children().eq(0).children(":eq(8)").text();
-    // if (avilable == "NotAvailable"){
-    //     alert("This Not Available!")
-    // }else {
-    //     addRental();
-    // }
     addRental();
     CustomerAccount();
     loadPendingRentals();
@@ -288,23 +281,6 @@ function randomDriver(){
 
     });
 }
-
-// function getAllAvailableDriver() {
-//     $.ajax({
-//         url: baseURL + "driver?availability=" + "Available",
-//         dataType: "Json",
-//         method: "get",
-//         async:false,
-//         success: function (resp) {
-//                 driverIds.push(resp.data.driver_id);
-//             // driver_id=resp.data.driver_id;
-//
-//         }
-//
-//     });
-//
-//
-// }
 
 // ==============================================================================================
 

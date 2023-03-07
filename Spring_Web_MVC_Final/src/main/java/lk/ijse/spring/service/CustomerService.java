@@ -25,4 +25,5 @@ public interface CustomerService {
 
 //    void getAllCustomerCount();
 
+    long count();
 }

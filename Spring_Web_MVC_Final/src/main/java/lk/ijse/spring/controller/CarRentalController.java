@@ -135,7 +135,7 @@ public class CarRentalController {
     }
 
 
-    @GetMapping(path = "/getCarRents/{status}/{driverId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/getCarRents/{status}/{driverId}")
     public ResponseUtil getAllCarRentsByDrivingID(@PathVariable String status, @PathVariable String driverId) {
         return new ResponseUtil("200", "Done", service.getAllByDriverID(status, driverId));
     }
