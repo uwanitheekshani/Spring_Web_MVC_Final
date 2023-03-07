@@ -1,7 +1,8 @@
 generateRentId();
 carAppend();
 // CustomerAccount();
-
+rentalsCount();
+activeBookingsCount();
 
 function carAppend() {
     $("#selectCar").empty();
@@ -290,6 +291,38 @@ function randomDriver(){
 
 // ==============================================================================================
 
+function rentalsCount(){
+    $.ajax({
+        url: baseURL+"rental/rentalCount",
+        dataType: "json",
+        success: function (res) {
+            $("#lblBookings").text(res.data);
+        }
+    })
+}
 
+function activeBookingsCount(){
+    $.ajax({
+        url: baseURL+"rental/rentalCount",
+        dataType: "json",
+        success: function (res) {
+            // $("#lblBookings").text(res.data);
+
+            let allRentals=res.data;
+            let payCount=null;
+
+            $.ajax({
+                url: baseURL+"payment/paymentCount",
+                dataType: "json",
+                success: function (res) {
+                   payCount=res.data;
+                }
+            })
+            let sumTot=allRentals-payCount;
+            $("#lblActiveBookings").text(sumTot);
+
+        }
+    })
+}
 
 

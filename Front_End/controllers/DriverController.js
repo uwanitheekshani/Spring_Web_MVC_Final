@@ -1,5 +1,7 @@
 loadDriverSchedule();
 generateDriverId();
+driversCount();
+
 $("#btnAddDriver").click(function () {
 
     let driverId =  $("#txtDriverId").val();
@@ -203,7 +205,17 @@ function loadDriverSchedule() {
     })
 }
 
+   //======================================================
 
+function driversCount(){
+    $.ajax({
+        url: baseURL+"driver/driverCount",
+        dataType: "json",
+        success: function (res) {
+            $("#lblAvailableDrivers").text(res.data);
+        }
+    })
+}
 
 
       //========================================Driver Validation============================================

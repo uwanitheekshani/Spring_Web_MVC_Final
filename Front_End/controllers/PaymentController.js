@@ -1,6 +1,7 @@
 generatePaymentId();
 loadAllRentalsId();
 // selectReservation();
+paymentsCount();
 
 function generatePaymentId() {
     $.ajax({
@@ -181,56 +182,21 @@ function makePayment(){
         }
     });
 
-
-
-
-
-    //
-    // let total=rentAmount+(totalDamageWaiwerAmount-damageCost);
-
-    // var payment = {
-    //     paymentId: paymentId,
-    //     date: date,
-    //     rent_amount: rentAmount,
-    //     extra_mileage: extraKmCost,
-    //     total: total,
-    //     damage_cost: damageCost,
-    //     damageDescription: damageDes,
-    //     payment_status: paymentStatus,
-    //     rentalId: rentalId,
-    // }
-
-    // console.log(payment)
-    // $.ajax({
-    //     url: baseURL+"payment",
-    //     method: "post",
-    //     data : JSON.stringify(payment),
-    //     contentType:"application/json",
-    //     success: function (resp) {
-    //         console.log(resp);
-    //         Swal.fire({
-    //             position: 'top-end',
-    //             icon: 'success',
-    //             title: "Payment Added Successfully",
-    //             showConfirmButton: false,
-    //             timer: 1500
-    //         });
-    //         // clearDriverTextFields();
-    //     },
-    //     error: function(error) {
-    //         let prase = JSON.parse(error.responseText);
-    //         Swal.fire({
-    //             position: 'top-end',
-    //             icon: 'error',
-    //             title: "Payment Not Added Successfully",
-    //             showConfirmButton: false,
-    //             timer: 1500
-    //         });
-    //     }
-    // });
-
-
 }
+
+//======================================================
+
+function paymentsCount(){
+    $.ajax({
+        url: baseURL+"payment/paymentCount",
+        dataType: "json",
+        success: function (res) {
+            $("#lblTotalPayments").text(res.data);
+        }
+    })
+}
+
+
 
 
    //===================================Incomes=============================================
