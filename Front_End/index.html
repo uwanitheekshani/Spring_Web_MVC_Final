@@ -1293,17 +1293,17 @@
 
         <div id="cus1">
             <h4 id="CD">Customer</h4>
-            <h4 id="CDN">K.A.D. Uwani Theekshani</h4>
+            <h4  ><span id="CDN"></span></h4>
         </div>
 
         <div id="cus2">
             <h4 id="CPD">Pick up date</h4>
-            <h4 id="CPDd">13/02/2023</h4>
+            <h4 id="CPDd"></h4>
         </div>
 
         <div id="cus3">
             <h4 id="CRD">Return date</h4>
-            <h4 id="CRDd">14/02/2023</h4>
+            <h4 id="CRDd"></h4>
         </div>
 
         <div class="form-groupRA" style="position: absolute;left: 1073px;top: 81px;">
@@ -1363,14 +1363,14 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="form-groupRDWA">
-                            <label for="txtRetDamA">Returning Damage Amount</label>
+                            <label for="txtRetDamA">Rent Amount</label>
                             <input class="form-control" id="txtRetDamA" type="text">
                             <span class="control-error" id="lblretdama"></span>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="form-groupDW">
-                            <label for="txtDriverWag">Driver Wages</label>
+                            <label for="txtDriverWag">Total</label>
                             <input class="form-control" id="txtDriverWag" type="text">
                             <span class="control-error" id="lbldriverwag"></span>
                         </div>
@@ -1397,9 +1397,17 @@
                     </div>
                 </div>
 
+                <div class="col-6">
+                    <div class="form-groupPaD">
+                        <label for="txtAdPAyDate">Date</label>
+                        <input class="form-control" id="txtAdPAyDate" type="date">
+                        <span class="control-error" id="lbladpayday"></span>
+                    </div>
+                </div>
+
             </form>
 
-            <button class="btn btn-primary" id="btnPay">Pay</button>
+            <button class="btn btn-primary" id="btnPay" type="button">Pay</button>
 
         </div>
 
@@ -1767,10 +1775,10 @@
             <table class="table table-bordered text-white">
                 <thead class="bg-primary">
                 <tr>
-                    <th>Customer</th>
-<!--                    <th>Driver</th>-->
+                    <th>Driver ID</th>
+                    <th>Rental ID</th>
                     <th>Car Num</th>
-<!--                    <th>Brand</th>-->
+                    <th>Customer NIC</th>
                     <th>Pick Up Date</th>
                     <th>Return Date</th>
                     <th>Pick Up Location</th>

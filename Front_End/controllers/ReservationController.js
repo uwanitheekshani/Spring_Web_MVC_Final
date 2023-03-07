@@ -99,8 +99,8 @@ function findRentReq(rentalId) {
 $("#btnAacceptReq").click(function (){
     if ($('#customerRentId').val() != "") {
         acceptRental();
-        addSchedule();
-        loadAllRentals();
+        loadDriverSchedule();
+        // loadAllRentals();
     } else {
         Swal.fire({
             position: 'top-end',

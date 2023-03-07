@@ -1,4 +1,4 @@
-addSchedule();
+loadDriverSchedule();
 generateDriverId();
 $("#btnAddDriver").click(function () {
 
@@ -76,7 +76,7 @@ $("#btnDLogIn").click(function (){
                 $("#CDNs").text(res.data.name);
                 $("#DNIs").text(res.data.nic);
                 $("#DLNs").text(res.data.drivingLicenceNum);
-                   addSchedule();
+                loadDriverSchedule();
                     $("#dId").text(res.data.driverID);
                     $("#mainh").css('display','none');
                     $("#main3").css('display','none');
@@ -142,44 +142,60 @@ function generateDriverId() {
     })
 }
 
-function addSchedule(){
+// function addSchedule(){
+//     let driverId = $("#dId").text();
+//     $.ajax({
+//         url: baseURL + "driver/search/" + driverId,
+//         method: "GET",
+//         success: function (resp) {
+//             let driver = resp.data;
+//
+//             // $("#CDNs").val(driver.name);
+//             // $("#DNIs").val(driver.nic);
+//             // $("#DLNs").val(driver.drivingLicenceNum);
+//
+//
+//             $("#driScheduTable").empty();
+//             $.ajax({
+//                 url: baseURL + "rental",
+//                 method: "GET",
+//                 success: function (res) {
+//                     // let rent = resp.data;
+//
+//                     for (let rent of res.data) {
+//                         if (rent.driverID===driverId) {
+//                             var row = '<tr><td>' + rent.cusNic + '</td><td>' + rent.registrationID + '</td><td>' + rent.pickUpDate + '</td><td>' + rent.returnDate + '</td><td>' + rent.pickupLocation + '</td><td>' + rent.returnLocation + '</td></tr>';
+//                             $("#driScheduTable").append(row);
+//                         }
+//                     }
+//
+//                 },
+//                 error: function (error) {
+//                     let prase = JSON.parse(error.responseText);
+//                     alert(prase.message);
+//                 }
+//             });
+//
+//         },
+//         error: function (error) {
+//             let prase = JSON.parse(error.responseText);
+//             alert(prase.message);
+//         }
+//     })
+// }
+
+function loadDriverSchedule() {
+    $('#tblDriverSchedule').empty();
+    let status = "Accepted";
     let driverId = $("#dId").text();
     $.ajax({
-        url: baseURL + "driver/search/" + driverId,
-        method: "GET",
-        success: function (resp) {
-            let driver = resp.data;
-
-            // $("#CDNs").val(driver.name);
-            // $("#DNIs").val(driver.nic);
-            // $("#DLNs").val(driver.drivingLicenceNum);
-
-
-            $("#driScheduTable").empty();
-            $.ajax({
-                url: baseURL + "rental",
-                method: "GET",
-                success: function (res) {
-                    // let rent = resp.data;
-
-                    for (let rent of res.data) {
-                        if (rent.driverID===driverId) {
-                            var row = '<tr><td>' + rent.cusNic + '</td><td>' + rent.registrationID + '</td><td>' + rent.pickUpDate + '</td><td>' + rent.returnDate + '</td><td>' + rent.pickupLocation + '</td><td>' + rent.returnLocation + '</td></tr>';
-                            $("#driScheduTable").append(row);
-                        }
-                    }
-
-                },
-                error: function (error) {
-                    let prase = JSON.parse(error.responseText);
-                    alert(prase.message);
-                }
-            });
-
-        },
-        error: function (error) {
-            let prase = JSON.parse(error.responseText);
-            alert(prase.message);
+        url:baseURL+"rental/getCarRents/" + status + "/" + driverId,
+        method:"GET",
+        success:function (res) {
+            for (let carRent of res.data) {
+                var row = '<tr><td>' + carRent.driverID + '</td><td>' + carRent.rentalId + '</td><td>' + carRent.registrationID + '</td><td>' + carRent.cusNic + '</td><td>' + carRent.pickUpDate + '</td><td>' + carRent.returnDate + '</td><td>' + carRent.pickupLocation + '</td><td>' + carRent.returnLocation + '</td></tr>';
+                $("#tblDriverSchedule").append(row);
+            }
         }
     })
 }
@@ -189,7 +205,7 @@ function addSchedule(){
 
       //========================================Driver Validation============================================
 
-const driverIdRegEx = /^(D00-)[0-9]{1,3}$/;
+const driverIdRegEx = /^(D00-)[0-9]{1,4}$/;
 const driverNameRegEx = /^[A-z ]{5,20}$/;
 const driverNicRegEx = /^[0-9/A-z. ,]{7,}$/;
 const driverLicenseRegEx = /^[0-9]{1,}$/;

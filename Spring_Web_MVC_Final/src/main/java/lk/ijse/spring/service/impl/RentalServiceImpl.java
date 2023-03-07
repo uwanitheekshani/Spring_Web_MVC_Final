@@ -140,6 +140,13 @@ public class RentalServiceImpl implements RentalService {
         repo.deleteById(rentId);
     }
 
+
+    @Override
+    public List<RentalDTO> getAllByDriverID(String status, String driverId) {
+        return mapper.map(repo.getAllByDriverID(status, driverId), new TypeToken<List<RentalDTO>>() {
+        }.getType());
+    }
+
 //    @Override
 //    public RentalDTO searchDriverRent(String driverId) {
 //        if (repo.existsByDriverID(driverId)) {

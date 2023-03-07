@@ -31,6 +31,7 @@ public interface RentalService {
 
     void denyRental(String rentId);
 
+    public List<RentalDTO> getAllByDriverID(String status, String driverId);
 //    RentalDTO searchDriverRent(String driverId);
 
 }

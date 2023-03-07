@@ -1,6 +1,7 @@
 package lk.ijse.spring.service.impl;
 
 import lk.ijse.spring.dto.PaymentDTO;
+import lk.ijse.spring.entity.Payment;
 import lk.ijse.spring.repo.DriverRepo;
 import lk.ijse.spring.repo.PaymentRepo;
 import lk.ijse.spring.service.PaymentService;
@@ -57,5 +58,14 @@ public class PaymentServiceImpl implements PaymentService {
     @Override
     public List<PaymentDTO> getTodayIncomeList() {
         return null;
+    }
+
+    @Override
+    public void savePayment(PaymentDTO dto) {
+        if (!repo.existsById(dto.getPaymentId())) {
+            repo.save(mapper.map(dto, Payment.class));
+        } else {
+            throw new RuntimeException("Payment "+dto.getPaymentId()+" Already Exist....!");
+        }
     }
 }

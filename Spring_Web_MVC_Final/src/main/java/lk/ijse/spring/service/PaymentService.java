@@ -12,4 +12,7 @@ public interface PaymentService {
     String getIncomeByDate(String type, String start_date, String end_date);
 
     List<PaymentDTO> getTodayIncomeList();
+
+    void savePayment(PaymentDTO dto);
+
 }

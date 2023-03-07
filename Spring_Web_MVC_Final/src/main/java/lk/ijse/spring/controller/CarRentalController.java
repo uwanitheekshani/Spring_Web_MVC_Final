@@ -134,6 +134,12 @@ public class CarRentalController {
         return new ResponseUtil("200",rentId+" Canceled",null);
     }
 
+
+    @GetMapping(path = "/getCarRents/{status}/{driverId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil getAllCarRentsByDrivingID(@PathVariable String status, @PathVariable String driverId) {
+        return new ResponseUtil("200", "Done", service.getAllByDriverID(status, driverId));
+    }
+
 //    @GetMapping(path = "/driverSearch/{driverId}", produces = MediaType.APPLICATION_JSON_VALUE)
 //    public ResponseUtil driverSearchRent(@PathVariable String driverId) {
 //        return new ResponseUtil("200", "Done", service.searchDriverRent(driverId));

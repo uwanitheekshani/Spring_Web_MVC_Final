@@ -2,6 +2,7 @@ package lk.ijse.spring.service;
 
 import lk.ijse.spring.dto.AdminDTO;
 import lk.ijse.spring.dto.DriverDTO;
+import lk.ijse.spring.dto.RentalDTO;
 
 import java.util.List;
 
@@ -33,6 +34,7 @@ public interface DriverService {
     DriverDTO generateDriver();
 
     void updateDriverStatus(String driverID, String status);
+
 
 //    DriverDTO searchDriverBydriverId(String drivingId);
 }

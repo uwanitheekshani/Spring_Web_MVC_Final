@@ -1,10 +1,12 @@
 package lk.ijse.spring.service.impl;
 
 import lk.ijse.spring.dto.DriverDTO;
+import lk.ijse.spring.dto.RentalDTO;
 import lk.ijse.spring.entity.Driver;
 import lk.ijse.spring.repo.DriverRepo;
 import lk.ijse.spring.service.DriverService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -136,6 +138,7 @@ public class DriverServiceImpl implements DriverService {
             throw new RuntimeException("Driver "+driverID+" Not Exist to Update Status....!");
         }
     }
+
 
 //    @Override
 //    public List<DriverDTO> getRandomDriver() {
