@@ -17,6 +17,8 @@ public interface PaymentService {
 
     long count();
 
+    //=======================================================================================
+
     double getDailyIncome(String date);
 
     String getMonthlyIncome();

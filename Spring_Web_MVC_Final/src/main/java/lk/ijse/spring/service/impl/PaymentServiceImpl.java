@@ -74,6 +74,8 @@ public class PaymentServiceImpl implements PaymentService {
         return repo.count();
     }
 
+    //============================================================================
+
     @Override
     public double getDailyIncome(String date) {
         return mapper.map(repo.dailyIncome(date),double.class);

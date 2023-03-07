@@ -38,4 +38,26 @@ public class PaymentController {
         long count = service.count();
         return new ResponseUtil("200"," Success",count);
     }
+
+    //===============================================================================
+
+    @GetMapping(params = "date")
+    public ResponseUtil getDailyIncome(String date){
+        double dailyIncome = service.getDailyIncome(date);
+        return new ResponseUtil("200","Success",dailyIncome);
+    }
+
+    @GetMapping("/monthlyIncome")
+    public ResponseUtil getMonthlyIncome(){
+        String monthlyIncome = service.getMonthlyIncome();
+        return new ResponseUtil("200","Success",monthlyIncome);
+    }
+
+    @GetMapping("/annuallyIncome")
+    public ResponseUtil getAnnuallyIncome(){
+        String annuallyIncome = service.getAnnuallyIncome();
+        return new ResponseUtil("200","Success",annuallyIncome);
+    }
+
+
 }

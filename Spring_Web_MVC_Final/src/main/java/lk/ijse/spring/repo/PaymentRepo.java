@@ -13,6 +13,8 @@ public interface PaymentRepo extends JpaRepository<Payment,String> {
     @Override
     long count();
 
+    //========================================================================================
+
     @Query(value = "SELECT SUM(total) FROM Payment WHERE date = ?", nativeQuery = true)
     double dailyIncome(String date);
 
