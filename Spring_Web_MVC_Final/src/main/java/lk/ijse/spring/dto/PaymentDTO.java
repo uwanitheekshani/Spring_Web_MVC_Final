@@ -16,7 +16,7 @@ public class PaymentDTO {
     private String paymentId;
     private LocalDate date;
     private double rent_amount;
-    private long extra_mileage;
+    private double extra_mileage;
     private double total;
     private double damage_cost;
     private String damageDescription;

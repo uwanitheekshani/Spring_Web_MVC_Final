@@ -1,5 +1,6 @@
 generatePaymentId();
 loadAllRentalsId();
+// selectReservation();
 
 function generatePaymentId() {
     $.ajax({
@@ -16,6 +17,7 @@ function generatePaymentId() {
 
 function loadAllRentalsId() {
     $("#selectReservation").empty();
+    $("#selectReservation").prepend(`<option>---Select Id---</option>`)
     $.ajax({
         url: baseURL + "rental",
         dataType: "json",
@@ -70,50 +72,109 @@ $("#selectReservation").change(function () {
 
 });
 
+
 $("#btnPay").click(function () {
 
     makePayment();
 });
 
 function makePayment(){
-    let paymentId=$('#paymentId').val();
-    let damageCost= $("#txtDmCost").val();
-    let extraKmCost= $("#txtDaDes").val();
-    // let DamageDes= $("#txtDmCost").val();
     let rentalId= $("#txtAdRenId").val();
-    let totalDamageWaiwerAmount;
-    let registrationId;
-    let dailyRate;
-    let paymentStatus="Paid";
-    let date=$("#txtAdPAyDate").val();
-    let pickUpDate= $("#CPDd").text();
-    let returnDate= $("#CRDd").text();
-
-    // let pickUpDate="";
-    // let returnDate="";
-
-    console.log(pickUpDate);
-    var pickupDate = new Date(pickUpDate);
-    var day = new Date(returnDate)
-    var differenceInTime = day.getTime() - pickupDate.getTime();
-    var differenceIndays = differenceInTime / (1000 * 3600 * 24);
-    // console.log("date difference : "+differenceIndays);
-
-    let rentAmount=(differenceIndays*dailyRate);
-    $("#txtRetDamA").val(rentAmount)
-    let total=rentAmount+(totalDamageWaiwerAmount-damageCost);
 
     $.ajax({
         url: baseURL + "rental",
         dataType: "json",
         success: function (resp) {
-            console.log(resp);
+
+            let totalDamageWaiwerAmount = null;
+            let registrationId = null;
+
             for (let rent of resp.data) {
                 if(rent.rentalId==rentalId) {
-                  totalDamageWaiwerAmount=rent.total_damage_waiver_payment;
+                    let pickUpDate= new Date($("#CPDd").text());
+                    let returnDate= new Date($("#CRDd").text());
+
+                    totalDamageWaiwerAmount=rent.total_damage_waiver_payment;
                     registrationId=rent.registrationID;
-                    pickUpDate=rent.pickUpDate;
-                    returnDate=rent.returnDate;
+
+                    var differenceInTime = pickUpDate.getTime() - returnDate.getTime();
+                    var differenceIndays = differenceInTime / (1000 * 3600 * 24);
+
+
+                    let paymentId=$('#paymentId').val();
+                    let damageCost= $("#txtDmCost").val();
+                    let extraKmCost= $("#txtExtraKC").val();
+                    let damageDes= $("#txtDaDes").val();
+                    let paymentStatus="Paid";
+                    let date=$("#txtAdPAyDate").val();
+
+                    $.ajax({
+                        url: baseURL + "car",
+                        dataType: "json",
+                        success: function (resp) {
+                            let dailyRate=0;
+
+                            for (let car of resp.data) {
+                                if(car.registrationId==registrationId) {
+                                    dailyRate=car.dailyRate;
+
+                                }
+                            }
+
+                            var rentAmount = -(differenceIndays*dailyRate);
+                            console.log(rentAmount)
+
+                            let total=rentAmount+(totalDamageWaiwerAmount-damageCost)+extraKmCost;
+                            // let allTot=total;
+
+                            $('#txtRetDamA').val(rentAmount);
+                            $('#txtDriverWag').val(total);
+
+                            var payment = {
+                                paymentId: paymentId,
+                                date: date,
+                                rent_amount: rentAmount,
+                                extra_mileage: extraKmCost,
+                                total: total,
+                                damage_cost: damageCost,
+                                damageDescription: damageDes,
+                                payment_status: paymentStatus,
+                                rentalId: rentalId,
+                            }
+
+
+                            $.ajax({
+                                url: baseURL+"payment",
+                                method: "post",
+                                data : JSON.stringify(payment),
+                                contentType:"application/json",
+                                success: function (resp) {
+                                    console.log(resp);
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: "Payment Added Successfully",
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    // clearDriverTextFields();
+                                },
+                                error: function(error) {
+                                    let prase = JSON.parse(error.responseText);
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'error',
+                                        title: "Payment Not Added Successfully",
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                }
+                            });
+
+                        }
+                    });
+
+
                 }
             }
 
@@ -121,60 +182,52 @@ function makePayment(){
     });
 
 
-    $.ajax({
-        url: baseURL + "car",
-        dataType: "json",
-        success: function (resp) {
-            console.log(resp);
-            for (let car of resp.data) {
-                if(car.registrationId==registrationId) {
-                    dailyRate=car.dailyRate;
-                }
-            }
-
-        }
-    });
 
 
-    var payment = {
-        paymentId: paymentId,
-        date: date,
-        rent_amount: rentAmount,
-        extra_mileage: extraKmCost,
-        total: total,
-        damage_cost: damageCost,
-        damageDescription: DamageDes,
-        payment_status: paymentStatus,
-        rentalId: rentalId,
-    }
 
-    $.ajax({
-        url: baseURL+"payment",
-        method: "post",
-        data : JSON.stringify(payment),
-        contentType:"application/json",
-        success: function (resp) {
-            console.log(resp);
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: "Payment Added Successfully",
-                showConfirmButton: false,
-                timer: 1500
-            });
-            // clearDriverTextFields();
-        },
-        error: function(error) {
-            let prase = JSON.parse(error.responseText);
-            Swal.fire({
-                position: 'top-end',
-                icon: 'error',
-                title: "Payment Not Added Successfully",
-                showConfirmButton: false,
-                timer: 1500
-            });
-        }
-    });
+    //
+    // let total=rentAmount+(totalDamageWaiwerAmount-damageCost);
+
+    // var payment = {
+    //     paymentId: paymentId,
+    //     date: date,
+    //     rent_amount: rentAmount,
+    //     extra_mileage: extraKmCost,
+    //     total: total,
+    //     damage_cost: damageCost,
+    //     damageDescription: damageDes,
+    //     payment_status: paymentStatus,
+    //     rentalId: rentalId,
+    // }
+
+    // console.log(payment)
+    // $.ajax({
+    //     url: baseURL+"payment",
+    //     method: "post",
+    //     data : JSON.stringify(payment),
+    //     contentType:"application/json",
+    //     success: function (resp) {
+    //         console.log(resp);
+    //         Swal.fire({
+    //             position: 'top-end',
+    //             icon: 'success',
+    //             title: "Payment Added Successfully",
+    //             showConfirmButton: false,
+    //             timer: 1500
+    //         });
+    //         // clearDriverTextFields();
+    //     },
+    //     error: function(error) {
+    //         let prase = JSON.parse(error.responseText);
+    //         Swal.fire({
+    //             position: 'top-end',
+    //             icon: 'error',
+    //             title: "Payment Not Added Successfully",
+    //             showConfirmButton: false,
+    //             timer: 1500
+    //         });
+    //     }
+    // });
 
 
 }
@@ -182,17 +235,20 @@ function makePayment(){
 
    //===================================Incomes=============================================
 
-function loadAllDailyIncomes() {
-    $('#tblDailyIncome').empty();
-    $.ajax({
-        url: baseUrl + "payment/dailyIncome",
-        method: "GET",
-        success: function (res) {
-            for (const income of res.data) {
-                console.log(income);
-                let row = <tr><td>${income.rentPrice}</td><td>${income.totalPayment}</td></tr>;
-                $('#tblDailyIncome').append(row);
-            }
-        }
-    })
-}
+// function loadAllDailyIncomes() {
+//     // $('#tblDailyIncome').empty();
+//     $.ajax({
+//         url: baseURL + "payment/dailyIncome",
+//         method: "GET",
+//         success: function (res) {
+//             let tot=0;
+//             for (let income of res.data) {
+//                 console.log(income);
+//                 for (i=0;i<income.length;i++) {
+//                     tot+ = income.total;
+//                     $("#admin-daily-income").text(tot);
+//                 }
+//             }
+//         }
+//     })
+// }
