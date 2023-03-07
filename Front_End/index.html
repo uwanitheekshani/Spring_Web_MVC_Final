@@ -919,15 +919,8 @@
         </section><!-- End Services Section -->
 
 
-<!--        <button class="btn btn-outline-dark border-0 fw-bold mb-2 w-75 d-flex justify-content-start  fs-5"-->
-<!--                id="income1">-->
-<!--            <i class="fa-solid fs-4 fa-gauge mt-1 me-3" id="income2"></i>Income-->
-<!--        </button>-->
-
         <button class="btn btn-primary" id="btnIncom" style="left: 646px;position: absolute;top: 559px;background-color: crimson">Income</button>
 
-<!--        <h3 id="Aic">Income</h3>-->
-<!--        <div id="dsl2"></div>-->
 <!--              ////////////////////////////Income///////////////-->
 <!--        <div class="admin-dashboard-sub-container" id="adminDailySummary" style="display:block;margin-top:3%">-->
 <!--            <div class="row-1">-->
@@ -961,6 +954,60 @@
 <!--                </div>-->
 <!--            </div>-->
 <!--        </div>-->
+
+    </section>
+
+    <!--   ==============================Income==================================-->
+    <section class="viewCar" id="viewIncomeDet" style="display: none">
+        <h3 id="vwIn" style="position: absolute;left: 230px;top: 10px;color: darkmagenta;">View Incomes</h3>
+
+<!--        //Daily-->
+        <h4 id="daily1" style="position: absolute;left: 583px;top: 91px;">Daily Income</h4>
+        <div class="col-md-12 mt-4" id="dailyIncomeViewTb" style="height: 117px;overflow-y: scroll;width: 100px;position: absolute;left: 608px; top: 113px;">
+            <table class="table table-bordered text-white">
+                <thead class="bg-primary">
+                <tr>
+                    <th>Daily</th>
+                </tr>
+                </thead>
+                <tbody class="bg-light text-dark" id="dailyIncomeViewTable">
+
+                </tbody>
+            </table>
+        </div>
+
+        <!--        //Monthly-->
+        <h4 id="monthly1" style="position: absolute;left: 583px;top: 287px;">Monthly Income</h4>
+        <div class="col-md-12 mt-4" id="monthlyIncomeViewTb" style="height: 113px;overflow-y: scroll;left: 517px;position: absolute;width: 300px;top: 299px;">
+            <table class="table table-bordered text-white">
+                <thead class="bg-primary">
+                <tr>
+                    <th>Year</th>
+                    <th>Month</th>
+                    <th>Total</th>
+                </tr>
+                </thead>
+                <tbody class="bg-light text-dark" id="monthlyIncomeViewTable">
+
+                </tbody>
+            </table>
+        </div>
+
+        <!--        //Annually-->
+        <h4 id="anually1" style="position: absolute;left: 583px;top: 461px;">Daily Income</h4>
+        <div class="col-md-12 mt-4" id="annuallyIncomeViewTb" style="height: 117px;overflow-y: scroll;left: 512px;position: absolute;width: 300px;top: 475px;">
+            <table class="table table-bordered text-white">
+                <thead class="bg-primary">
+                <tr>
+                    <th>Year</th>
+                    <th>Total</th>
+                </tr>
+                </thead>
+                <tbody class="bg-light text-dark" id="annuallyIncomeViewTable">
+
+                </tbody>
+            </table>
+        </div>
 
     </section>
 
@@ -1520,30 +1567,6 @@
         <h3 id="vwC">View Cars</h3>
         <div id="vwC1"></div>
 
-<!--        <h3 id="viewshed"><a id="linkViewDriSche">View Driver Schedule</a></h3>-->
-
-<!--        <div>-->
-<!--            <select class="form-selectCT" aria-label="Default select example" id="selectCType">-->
-<!--                <option selected>Type</option>-->
-<!--                <option >One</option>-->
-<!--                <option >Two</option>-->
-<!--                <option >Three</option>-->
-<!--            </select>-->
-
-<!--            <select class="form-selectCB" aria-label="Default select example" id="selectCBrand">-->
-<!--                <option selected>Brand</option>-->
-<!--                <option >One</option>-->
-<!--                <option >Two</option>-->
-<!--                <option >Three</option>-->
-<!--            </select>-->
-
-<!--            <select class="form-selectCN" aria-label="Default select example" id="selectCNum">-->
-<!--                <option selected>Car Num</option>-->
-<!--                <option >One</option>-->
-<!--                <option >Two</option>-->
-<!--                <option >Three</option>-->
-<!--            </select>-->
-<!--        </div>-->
 
         <div class="d-flex flex-row mb-3" id="v1" style="position: absolute;top: 180px;left: 285px;">
             <div class="p-2">
@@ -1625,44 +1648,6 @@
 
         </div>
 
-
-
-<!--        <div class=".sub-detail-container" style="position: relative;top: 67px;width: 50%;left: 586px;">-->
-<!--            <div class="w-100 d-flex justify-content-between">-->
-
-<!--                <div class="btn-group d-flex ms-auto mb-5 w-25">-->
-<!--                    <button class="btn btn-dark" type="button">Action</button>-->
-<!--                    <button aria-expanded="false" class="btn btn-dark dropdown-toggle dropdown-toggle-split"-->
-<!--                            data-bs-toggle="dropdown" type="button">-->
-<!--                        <span class="visually-hidden">Toggle Dropdown</span>-->
-<!--                    </button>-->
-<!--                    <ul class="dropdown-menu dropdown-menu-dark">-->
-<!--                        <li><a class="dropdown-item" id="admin-car-underMaintain">Maintanance</a></li>-->
-<!--&lt;!&ndash;                        <li><a class="dropdown-item" id="admin-car-needMaintain">Need Maintain</a></li>&ndash;&gt;-->
-<!--                        <li><a class="dropdown-item" id="admin-car-available">Available</a></li>-->
-<!--                        <li><a class="dropdown-item" id="admin-car-unavailable">Unavailable</a></li>-->
-<!--                    </ul>-->
-<!--                </div>-->
-
-<!--            </div>-->
-<!--        </div>-->
-
-<!--        <div class="dropdown">-->
-<!--            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
-<!--                Dropdown link-->
-<!--            </a>-->
-
-<!--            <ul class="dropdown-menu">-->
-<!--                <li><a class="dropdown-item" href="#">Action</a></li>-->
-<!--                <li><a class="dropdown-item" href="#">Another action</a></li>-->
-<!--                <li><a class="dropdown-item" href="#">Something else here</a></li>-->
-<!--            </ul>-->
-<!--        </div>-->
-
-
-
-
-
         <button class="btn btn-primary" id="btnUpdate">Update</button>
         <button class="btn btn-primary" id="btnDelete">Delete</button>
 
@@ -1683,26 +1668,12 @@
                 </tr>
                 </thead>
                 <tbody class="bg-light text-dark" id="carViewTable">
-<!--                <tr>-->
-<!--                    <td>Suzuki Alto</td>-->
-<!--                    <td>NB-6889</td>-->
-<!--                    <td>General</td>-->
-<!--                    <td>Petrol</td>-->
-<!--                    <td>Auto</td>-->
-<!--                    <td>6</td>-->
-<!--                    <td>100</td>-->
-<!--                    <td>15000</td>-->
-<!--                    <td>49.50</td>-->
-<!--                    <td>5000</td>-->
-<!--                    <td>110330</td>-->
-<!--                </tr>-->
 
                 </tbody>
             </table>
         </div>
 
     </section>
-
 
 <!--    =============================================Maintanance========================================-->
 

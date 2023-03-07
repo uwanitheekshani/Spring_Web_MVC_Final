@@ -7,6 +7,7 @@ $("#dashl1").click(function () {
     $("#reservDet").css('display','none');
     $("#viewCarDet").css('display','none');
     $("#DriverSche").css('display','none');
+    $("#viewIncomeDet").css('display','none');
 });
 
 $("#cusl1").click(function () {
@@ -18,6 +19,7 @@ $("#cusl1").click(function () {
     $("#reservDet").css('display','none');
     $("#viewCarDet").css('display','none');
     $("#DriverSche").css('display','none');
+    $("#viewIncomeDet").css('display','none');
 });
 
 $("#carim1").click(function () {
@@ -29,6 +31,7 @@ $("#carim1").click(function () {
     $("#reservDet").css('display','none');
     $("#viewCarDet").css('display','none');
     $("#DriverSche").css('display','none');
+    $("#viewIncomeDet").css('display','none');
 });
 
 $("#resl1").click(function () {
@@ -41,6 +44,7 @@ $("#resl1").click(function () {
     $("#reservDet").css('display','block');
     $("#viewCarDet").css('display','none');
     $("#DriverSche").css('display','none');
+    $("#viewIncomeDet").css('display','none');
 });
 
 $("#payl1").click(function () {
@@ -53,6 +57,7 @@ $("#payl1").click(function () {
     $("#reservDet").css('display','none');
     $("#viewCarDet").css('display','none');
     $("#DriverSche").css('display','none');
+    $("#viewIncomeDet").css('display','none');
 });
 
 $("#emplo1").click(function () {
@@ -64,6 +69,7 @@ $("#emplo1").click(function () {
     $("#reservDet").css('display','none');
     $("#viewCarDet").css('display','none');
     $("#DriverSche").css('display','none');
+    $("#viewIncomeDet").css('display','none');
 });
 
 $("#btnViewAllCars").click(function () {
@@ -75,6 +81,7 @@ $("#btnViewAllCars").click(function () {
     $("#reservDet").css('display','none');
     $("#viewCarDet").css('display','block');
     $("#DriverSche").css('display','none');
+    $("#viewIncomeDet").css('display','none');
 });
 
 $("#linkViewDriSche").click(function () {
@@ -86,6 +93,7 @@ $("#linkViewDriSche").click(function () {
     $("#mainh").css('display','none');
     $("#headContent").css('display','none');
     $("#drivershe2").css('display','block');
+    $("#viewIncomeDet").css('display','none');
 });
 
 $("#hn1").click(function () {
@@ -102,7 +110,7 @@ $("#hn1").click(function () {
     $("#main3").css('display','none');
     $("#mainh").css('display','none');
     $("#headContent").css('display','none');
-
+    $("#viewIncomeDet").css('display','none');
 });
 
 // $("#btnALogIn").click(function () {
@@ -136,6 +144,7 @@ $("#btnlogOut").click(function () {
     $("#main3").css('display','block');
     $("#mainh").css('display','block');
     $("#headContent").css('display','block');
+    $("#viewIncomeDet").css('display','none');
 
 });
 
@@ -150,7 +159,20 @@ $("#btnAlogOut").click(function () {
     $("#cusRegiContent").css('display','none');
     $("#cusUpdateContent").css('display','none');
     $("#headContent").css('display','block');
+    $("#viewIncomeDet").css('display','none');
 
+});
+
+$("#btnIncom").click(function () {
+    $("#adminDash").css('display','none');
+    $("#carContent").css('display','none');
+    $("#veriCusDet").css('display','none');
+    $("#employeeAdd").css('display','none');
+    $("#paymentsDet").css('display','none');
+    $("#reservDet").css('display','none');
+    $("#viewCarDet").css('display','none');
+    $("#DriverSche").css('display','none');
+    $("#viewIncomeDet").css('display','block');
 });
 
 
