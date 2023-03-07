@@ -3,6 +3,7 @@ loadAllRentalsId();
 // selectReservation();
 paymentsCount();
 monthlyIncome();
+annuallyIncome();
 
 function generatePaymentId() {
     $.ajax({
@@ -152,6 +153,7 @@ function makePayment(){
                                 contentType:"application/json",
                                 success: function (resp) {
                                     monthlyIncome();
+                                    annuallyIncome();
                                     console.log(resp);
                                     Swal.fire({
                                         position: 'top-end',
