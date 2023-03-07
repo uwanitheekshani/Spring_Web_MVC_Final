@@ -34,4 +34,5 @@ public interface RentalService {
      List<RentalDTO> getAllByDriverID(String status, String driverId);
 //    RentalDTO searchDriverRent(String driverId);
 
+    long count();
 }

@@ -147,6 +147,11 @@ public class RentalServiceImpl implements RentalService {
         }.getType());
     }
 
+    @Override
+    public long count() {
+        return repo.count();
+    }
+
 //    @Override
 //    public RentalDTO searchDriverRent(String driverId) {
 //        if (repo.existsByDriverID(driverId)) {

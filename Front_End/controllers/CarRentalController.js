@@ -12,11 +12,17 @@ function carAppend() {
         method: "Get",
         success: function (resp) {
 
+
             let i = resp.data.type;
             // if (resp.data.registrationId==)
             console.log(resp.data);
 
             for (let car of resp.data) {
+
+                // if(car.availability==="Available") {
+                //     $("#cStatusV").css({'color': 'red'});
+                // }
+
                 // console.log(resp.data.imag);
                 var d = `<div class="swiper-slide">
                         <div class="testimonial-wrap">

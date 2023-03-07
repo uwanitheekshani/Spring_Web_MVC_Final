@@ -121,6 +121,11 @@ public class CarServiceImpl implements CarService {
         }
     }
 
+    @Override
+    public long count() {
+        return repo.count();
+    }
+
 //    @Override
 //    public CarDTO searchCar(String brand) {
 //        return mapper.map(repo.findCarByBrand(brand), CarDTO.class);

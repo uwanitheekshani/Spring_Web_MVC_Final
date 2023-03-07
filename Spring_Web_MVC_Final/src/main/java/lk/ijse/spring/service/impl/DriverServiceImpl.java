@@ -139,6 +139,11 @@ public class DriverServiceImpl implements DriverService {
         }
     }
 
+    @Override
+    public long count() {
+        return repo.count();
+    }
+
 
 //    @Override
 //    public List<DriverDTO> getRandomDriver() {

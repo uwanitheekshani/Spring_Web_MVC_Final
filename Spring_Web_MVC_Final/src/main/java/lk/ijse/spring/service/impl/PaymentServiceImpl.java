@@ -68,4 +68,9 @@ public class PaymentServiceImpl implements PaymentService {
             throw new RuntimeException("Payment "+dto.getPaymentId()+" Already Exist....!");
         }
     }
+
+    @Override
+    public long count() {
+        return repo.count();
+    }
 }

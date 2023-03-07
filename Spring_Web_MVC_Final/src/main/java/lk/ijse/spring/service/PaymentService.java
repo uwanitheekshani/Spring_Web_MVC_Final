@@ -15,4 +15,5 @@ public interface PaymentService {
 
     void savePayment(PaymentDTO dto);
 
+    long count();
 }

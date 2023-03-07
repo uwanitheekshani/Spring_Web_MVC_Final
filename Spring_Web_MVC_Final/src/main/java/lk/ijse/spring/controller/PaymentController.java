@@ -32,4 +32,10 @@ public class PaymentController {
         service.savePayment(dto);
         return new ResponseUtil("200","Payment Added Successfully "+dto.toString(),null);
     }
+
+    @GetMapping(path = "/paymentCount")
+    public ResponseUtil getAllPaymentCount(){
+        long count = service.count();
+        return new ResponseUtil("200"," Success",count);
+    }
 }

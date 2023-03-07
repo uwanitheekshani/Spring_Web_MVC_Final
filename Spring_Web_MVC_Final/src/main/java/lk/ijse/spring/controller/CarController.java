@@ -151,6 +151,12 @@ public class CarController {
         return new ResponseUtil("200", "Done", null);
     }
 
+    @GetMapping(path = "/carCount")
+    public ResponseUtil getAllCarCount(){
+        long count = service.count();
+        return new ResponseUtil("200"," Success",count);
+    }
+
 //    @GetMapping(params = {"registrationId"},produces = MediaType.APPLICATION_JSON_VALUE)
 //    public ResponseUtil checkCar(String registrationId) {
 //        CarDTO carDTO = service.searchCarByRegistrationId(registrationId);

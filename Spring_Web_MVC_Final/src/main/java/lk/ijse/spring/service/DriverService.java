@@ -35,6 +35,7 @@ public interface DriverService {
 
     void updateDriverStatus(String driverID, String status);
 
+    long count();
 
 //    DriverDTO searchDriverBydriverId(String drivingId);
 }

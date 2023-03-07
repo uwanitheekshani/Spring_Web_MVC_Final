@@ -38,4 +38,6 @@ public interface RentalRepo extends JpaRepository<Rental,String> {
 //    Rental existsByDriverID(String driverId);
 //
 //    Rental findByDriverID(String driverId);
+@Override
+long count();
 }

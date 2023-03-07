@@ -123,6 +123,7 @@ function acceptRental() {
             // loadAllRents();
             loadPendingRentals();
             // loadTodayRents();
+
             updateDriverStatus();
             updateCarStatus();
             clearRentRequestFields();
@@ -148,7 +149,6 @@ function acceptRental() {
 function updateCarStatus() {
     let registrationNo = $('#txtCusRegistrationId').val();
     let status = "Not Available";
-
     $.ajax({
         url: baseURL + "car/updateCarAvailability/" + registrationNo + "/" + status,
         method: "PUT",

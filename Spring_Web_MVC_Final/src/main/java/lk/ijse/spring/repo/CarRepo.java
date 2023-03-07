@@ -23,7 +23,8 @@ public interface CarRepo extends JpaRepository<Car,String> {
     @Query(value = "UPDATE Car SET availability=:availability WHERE registrationId=:registrationId", nativeQuery = true)
     void updateCarAvailabilityStatus(@Param("registrationId") String registrationId, @Param("availability") String availability);
 
-
+    @Override
+    long count();
 //    @Query(value = "UPDATE Car SET availability=:availability WHERE registrationId=:registrationId", nativeQuery = true)
 //    void updateCarRentStatus(@Param("availability") String availability,@Param("registrationId") String registrationId);
 //    Car findCarByBrand(String brand);
