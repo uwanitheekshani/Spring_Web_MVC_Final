@@ -196,25 +196,21 @@ function paymentsCount(){
     })
 }
 
-
-
-
    //===================================Incomes=============================================
 
-// function loadAllDailyIncomes() {
-//     // $('#tblDailyIncome').empty();
-//     $.ajax({
-//         url: baseURL + "payment/dailyIncome",
-//         method: "GET",
-//         success: function (res) {
-//             let tot=0;
-//             for (let income of res.data) {
-//                 console.log(income);
-//                 for (i=0;i<income.length;i++) {
-//                     tot+ = income.total;
-//                     $("#admin-daily-income").text(tot);
-//                 }
-//             }
-//         }
-//     })
-// }
+            //Daily
+function dailyIncome() {
+    $("#dailyIncomeViewTable").empty();
+    let incomeDate = $("#incomeDate").val();
+    $.ajax({
+        url: baseURL + "payment?date=" + incomeDate,
+        dataType: "json",
+        success: function (resp) {
+            let total = resp.data;
+            var row = '<tr><td> ' + total + '.00</td></tr>';
+            $("#dailyIncomeViewTable").append(row);
+        }
+    });
+}
+
+
