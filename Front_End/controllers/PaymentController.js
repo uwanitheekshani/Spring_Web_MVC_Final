@@ -79,6 +79,7 @@ $("#selectReservation").change(function () {
 $("#btnPay").click(function () {
 
     makePayment();
+
 });
 
 function makePayment(){
@@ -152,6 +153,9 @@ function makePayment(){
                                 data : JSON.stringify(payment),
                                 contentType:"application/json",
                                 success: function (resp) {
+
+                                    $("#rentPayTable").append(`<tr><td>${paymentId}</td><td>${rentalId}</td><td>${damageDes}</td><td>${damageCost}</td><td>${date}</td><td>${extraKmCost}</td><td>${rentAmount}</td><td>${total}</td><td>${paymentStatus}</td></tr>`);
+
                                     monthlyIncome();
                                     annuallyIncome();
                                     console.log(resp);
