@@ -2,6 +2,7 @@ generatePaymentId();
 loadAllRentalsId();
 // selectReservation();
 paymentsCount();
+dailyIncome();
 
 function generatePaymentId() {
     $.ajax({
@@ -150,6 +151,8 @@ function makePayment(){
                                 data : JSON.stringify(payment),
                                 contentType:"application/json",
                                 success: function (resp) {
+
+                                    dailyIncome();
                                     console.log(resp);
                                     Swal.fire({
                                         position: 'top-end',
@@ -201,7 +204,7 @@ function paymentsCount(){
             //Daily
 function dailyIncome() {
     $("#dailyIncomeViewTable").empty();
-    let incomeDate = $("#incomeDate").val();
+    let incomeDate = $("#txtAdIncDate").val();
     $.ajax({
         url: baseURL + "payment?date=" + incomeDate,
         dataType: "json",
