@@ -133,7 +133,7 @@ $("#hn1").click(function () {
 $("#btnlogOut").click(function () {
     $("#admindashMain1").css('display','none');
     $("#admindashMain2").css('display','none');
-    $("#adminDashLogin").css('display','none');
+    // $("#adminDashLogin").css('display','none');
     $("#accountContent").css('display','none');
     $("#checkOutContent").css('display','none');
     $("#storeContent").css('display','none');
@@ -160,7 +160,8 @@ $("#btnAlogOut").click(function () {
     $("#cusUpdateContent").css('display','none');
     $("#headContent").css('display','block');
     $("#viewIncomeDet").css('display','none');
-
+    $("#admindashMain1").css('display','none');
+    $("#adminDashLogin").css('display','none');
 });
 
 $("#btnIncom").click(function () {

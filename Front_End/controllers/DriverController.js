@@ -34,6 +34,7 @@ $("#btnAddDriver").click(function () {
                 timer: 1500
             });
             clearDriverTextFields();
+            generateDriverId();
         },
         error: function(error) {
             let prase = JSON.parse(error.responseText);
@@ -80,7 +81,7 @@ $("#btnDLogIn").click(function (){
                 $("#CDNs").text(res.data.name);
                 $("#DNIs").text(res.data.nic);
                 $("#DLNs").text(res.data.drivingLicenceNum);
-                loadDriverSchedule();
+
                     $("#dId").text(res.data.driverID);
                     $("#mainh").css('display','none');
                     $("#main3").css('display','none');
@@ -103,7 +104,7 @@ $("#btnDLogIn").click(function (){
                     $("#paymentsDet").css('display','none');
                     $("#reservDet").css('display','none');
                     $("#viewCarDet").css('display','none');
-
+                loadDriverSchedule();
             }else {
                 Swal.fire({
                     position: 'center',

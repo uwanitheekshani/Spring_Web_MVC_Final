@@ -73,7 +73,7 @@ $("#btnALogIn").click(function (){
                 $("#cusRegiContent").css('display','none');
                 $("#loginContent").css('display','none');
                 $("#foot").css('display','none');
-                $("#btnALogIn").css('display','none');
+                // $("#btnALogIn").css('display','none');
                 $("#main3").css('display','none');
                 $("#mainh").css('display','none');
                 $("#headContent").css('display','none');
