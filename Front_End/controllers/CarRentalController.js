@@ -107,7 +107,22 @@ function loadCheckCars(id) {
 }
 
 $('body').on('click', '.cart1', function () {
-    alert("Add to cart " + this.id);
+    // alert("Add to cart " + this.id);
+    $("#checkOutContent").css('display','block');
+    $("#admindashMain1").css('display','none');
+    $("#admindashMain2").css('display','none');
+    $("#adminDashLogin").css('display','none');
+    $("#accountContent").css('display','none');
+    $("#storeContent").css('display','none');
+    $("#cusUpdateContent").css('display','none');
+    $("#cusRegiContent").css('display','none');
+    $("#loginContent").css('display','none');
+    $("#foot").css('display','none');
+    $("#main3").css('display','none');
+    $("#mainh").css('display','none');
+    $("#headContent").css('display','block');
+    $("#viewIncomeDet").css('display','none');
+
     loadCheckCars(this.id);
 });
 
