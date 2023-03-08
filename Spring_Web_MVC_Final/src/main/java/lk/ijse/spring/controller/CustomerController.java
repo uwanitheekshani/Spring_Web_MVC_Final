@@ -96,11 +96,5 @@ public class CustomerController {
         long count = service.count();
         return new ResponseUtil("200"," Success",count);
     }
-//    @GetMapping(path = "/count", produces = MediaType.APPLICATION_JSON_VALUE)
-//    public ResponseUtil getAllCustomerCount() {
-//        String s = service.getAllCustomerCount();
-//        return new ResponseUtil("200", "Ok", s);
-//    }
-
 
 }
