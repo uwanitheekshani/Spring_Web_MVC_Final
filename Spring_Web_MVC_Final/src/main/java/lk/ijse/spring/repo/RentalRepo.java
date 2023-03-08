@@ -22,8 +22,7 @@ public interface RentalRepo extends JpaRepository<Rental,String> {
     @Query(value = "SELECT rentalId FROM Rental ORDER BY rentalId DESC LIMIT 1", nativeQuery = true)
     String generateRentalId();
 
-//    List<Rental> getAllByRental_status(String status);
-//
+
     @Modifying
     @Transactional
     @Query(value = "UPDATE Rental SET rental_status=:rental_status WHERE rentalId=:rentalId", nativeQuery = true)
@@ -33,11 +32,6 @@ public interface RentalRepo extends JpaRepository<Rental,String> {
     @Query(value = "SELECT * from Rental where rental_status=:rental_status AND driverID=:driverID", nativeQuery = true)
     List<Rental> getAllByDriverID(@Param("rental_status") String rental_status, @Param("driverID") String driverID);
 
-//     Rental findByRentalIdAndDriverID(String rentalId,String driverId);
-
-//    Rental existsByDriverID(String driverId);
-//
-//    Rental findByDriverID(String driverId);
 @Override
 long count();
 }

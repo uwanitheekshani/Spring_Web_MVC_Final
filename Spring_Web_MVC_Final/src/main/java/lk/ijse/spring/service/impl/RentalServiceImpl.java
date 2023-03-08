@@ -152,14 +152,5 @@ public class RentalServiceImpl implements RentalService {
         return repo.count();
     }
 
-//    @Override
-//    public RentalDTO searchDriverRent(String driverId) {
-//        if (repo.existsByDriverID(driverId)) {
-//            return mapper.map(repo.findByDriverID(driverId).getDriverID(), RentalDTO.class);
-//        } else {
-//            throw new RuntimeException("Rent "+driverId+" Not Exist....!");
-//        }
-//    }
-
 
 }

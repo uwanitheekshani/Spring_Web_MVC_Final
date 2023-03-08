@@ -103,22 +103,6 @@ public class DriverServiceImpl implements DriverService {
         return mapper.map(repo.getDriverByDrivingLicenceNum(driverLicenceNum), DriverDTO.class);
     }
 
-//    @Override
-//    public DriverDTO searchDriverBydriverLicenceNum(String driverLicenceNum) {
-//        return mapper.map(repo.getDriverByDrivingLicenceNum(driverLicenceNum), DriverDTO.class);
-//    }
-
-//    @Override
-//    public DriverDTO getAllByAvailability() {
-//        List<DriverDTO> list= new ArrayList<>();
-//        Driver driver = repo.getAllByAvailability(availability);
-//        for (Driver driver : allByAvailability) {
-//            list.add(new DriverDTO(driver.getDriver_id()));
-//        }
-//        return driver;
-//        return mapper.map( repo.getAllByAvailability(), DriverDTO.class);
-//    }
-
     @Override
     public DriverDTO searchDriverByAvailabilty(String availability) {
         Driver d = repo.getDriverByAvailability(availability);
@@ -143,17 +127,5 @@ public class DriverServiceImpl implements DriverService {
     public long count() {
         return repo.count();
     }
-
-
-//    @Override
-//    public List<DriverDTO> getRandomDriver() {
-//        return mapper.map(repo.findDriverRandomly(), new TypeToken<List<DriverDTO>>() {
-//        }.getType());
-//    }
-//
-//    @Override
-//    public DriverDTO searchDriverBydriverId(String drivingId) {
-//        return mapper.map( repo.getDriverByDrivingLicenceNum(drivingId), DriverDTO.class);
-//    }
 
 }
