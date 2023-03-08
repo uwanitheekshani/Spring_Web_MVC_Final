@@ -27,8 +27,8 @@ class RentalRepoTest {
 
     @Test
     public void testOne() {
-//         Rental rental = repo.findByRentalIdAndDriverID("R00-0001","D00-0001");
-//         System.out.println(rental);
+        List<Rental> rental = repo.getAllByCusNic("64754245");
+         System.out.println(rental);
     }
 
 }

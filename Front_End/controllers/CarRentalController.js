@@ -318,7 +318,6 @@ function activeBookingsCount(){
         url: baseURL+"rental/rentalCount",
         dataType: "json",
         success: function (res) {
-            // $("#lblBookings").text(res.data);
 
             let allRentals=res.data;
             let payCount=null;

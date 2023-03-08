@@ -152,5 +152,22 @@ public class RentalServiceImpl implements RentalService {
         return repo.count();
     }
 
+    @Override
+    public List<RentalDTO> getAllByCusNic(String nic) {
+        return mapper.map(repo.getAllByCusNic(nic), new TypeToken<List<RentalDTO>>() {
+        }.getType());
+    }
+
+
+    //=============================================================
+//    @Override
+//    public RentalDTO getAllByCustomerId(String nic) {
+//        if (repo.existsById(nic)) {
+//            return mapper.map(repo.findById(nic).get(), RentalDTO.class);
+//        } else {
+//            throw new RuntimeException("Rent "+nic+" Not Exist....!");
+//        }
+//    }
+
 
 }

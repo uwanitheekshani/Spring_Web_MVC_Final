@@ -141,6 +141,15 @@ public class CarRentalController {
         long count = service.count();
         return new ResponseUtil("200"," Success",count);
     }
+
+
+    //==========================================================================
+
+    @GetMapping(path = "/getCustomerRents/{nic}")
+    public ResponseUtil getAllCarRentsByCusNic(@PathVariable String nic) {
+        return new ResponseUtil("200", "Done", service.getAllByCusNic(nic));
+    }
+
 }
 
 //             ===============================================================================

@@ -1,22 +1,48 @@
 CustomerAccount();
+// function CustomerAccount(){
+//         $("#orderTable").empty();
+//         $.ajax({
+//             url: baseURL+"rental",
+//             dataType: "json",
+//             success: function (resp) {
+//
+//
+//                 for (let acc of resp.data) {
+//                     var row = '<tr><td>' + acc.rentalId + '</td><td>' + acc.registrationID + '</td><td>' + acc.driverID + '</td><td>' + acc.total_damage_waiver_payment + '</td><td>' + acc.pickUpDate + '</td><td>' + acc.returnDate + '</td><td>' + acc.pickupLocation + '</td><td>' + acc.returnLocation + '</td><td>' + acc.payment_slip + '</td><td>' + acc.rental_status + '</td></tr>';
+//                     $("#orderTable").append(row);
+//
+//                 }
+//                 bindRentRowClickEvents();
+//             }
+//         });
+// }
 
-function CustomerAccount(){
-        $("#orderTable").empty();
-        $.ajax({
-            url: baseURL+"rental",
-            dataType: "json",
-            success: function (resp) {
+//=========================================================
 
+function CustomerAccount() {
+    $("#orderTable").empty();
+    let nic = $("#anic").text();
 
-                for (let acc of resp.data) {
-                    var row = '<tr><td>' + acc.rentalId + '</td><td>' + acc.registrationID + '</td><td>' + acc.driverID + '</td><td>' + acc.total_damage_waiver_payment + '</td><td>' + acc.pickUpDate + '</td><td>' + acc.returnDate + '</td><td>' + acc.pickupLocation + '</td><td>' + acc.returnLocation + '</td><td>' + acc.payment_slip + '</td><td>' + acc.rental_status + '</td></tr>';
-                    $("#orderTable").append(row);
+    $.ajax({
+        url:baseURL+"rental/getCustomerRents/" + nic,
+        dataType: "json",
+        success: function (resp) {
 
-                }
-                bindRentRowClickEvents();
+            for (let acc of resp.data) {
+                var row = '<tr><td>' + acc.rentalId + '</td><td>' + acc.registrationID + '</td><td>' + acc.driverID + '</td><td>' + acc.total_damage_waiver_payment + '</td><td>' + acc.pickUpDate + '</td><td>' + acc.returnDate + '</td><td>' + acc.pickupLocation + '</td><td>' + acc.returnLocation + '</td><td>' + acc.payment_slip + '</td><td>' + acc.rental_status + '</td></tr>';
+                $("#orderTable").append(row);
+
             }
-        });
+            bindRentRowClickEvents();
+        }
+
+    });
 }
+
+
+//=================================================
+
+
 
 $("#btnRentCancel").click(function () {
     let rentalID = $("#cusrentId").val();

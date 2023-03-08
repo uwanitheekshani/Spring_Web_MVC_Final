@@ -35,4 +35,9 @@ public interface RentalService {
 //    RentalDTO searchDriverRent(String driverId);
 
     long count();
+
+    //===========================================
+//    RentalDTO getAllByCusNic(String nic);
+    List<RentalDTO> getAllByCusNic(String nic);
+
 }
