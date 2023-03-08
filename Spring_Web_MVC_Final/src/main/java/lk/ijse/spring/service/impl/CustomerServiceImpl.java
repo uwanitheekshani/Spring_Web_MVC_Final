@@ -83,16 +83,4 @@ public class CustomerServiceImpl implements CustomerService {
     public long count() {
         return repo.count();
     }
-
-//    @Override
-//    public void getAllCustomerCount() {
-//        Long cusCount = repo.countByNic();
-//        return cusCount;
-//    }
-
-
-//    @Override
-//    public CustomerDTO searchCustomerByPassword(String password) {
-//        return mapper.map( repo.findCustomerByUserName(password),CustomerDTO.class);
-//    }
 }

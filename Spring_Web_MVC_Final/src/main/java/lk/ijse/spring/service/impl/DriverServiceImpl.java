@@ -32,9 +32,6 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public void saveDriver(DriverDTO driverDTO) {
-//        if (repo.existsById(driverDTO.getDriver_id())){
-//            throw new RuntimeException("Driver "+driverDTO.getDriver_id()+" Already Exist..!");
-//        }
         Driver entity = mapper.map(driverDTO, Driver.class);
         repo.save(entity);
     }
@@ -90,7 +87,6 @@ public class DriverServiceImpl implements DriverService {
             list.add( new DriverDTO(d.getDriverID(),d.getName(),d.getNic(),d.getDrivingLicenceNum(),d.getAvailability()));
         }
         return list;
-        // return mapper.map(repo.findAll(),new TypeToken<List<DriverDTO>>(){}.getType());
     }
 
     @Override

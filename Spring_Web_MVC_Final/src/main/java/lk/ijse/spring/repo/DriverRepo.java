@@ -34,7 +34,4 @@ public interface DriverRepo extends JpaRepository<Driver,String> {
     @Override
     long count();
 
-//    Object getDriverByDriver_id(String drivingId);
-
-//    Driver getDriverByDrivingLicenceNum(String drivingId);
 }
