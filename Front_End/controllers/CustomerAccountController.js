@@ -39,10 +39,7 @@ function CustomerAccount() {
     });
 }
 
-
 //=================================================
-
-
 
 $("#btnRentCancel").click(function () {
     let rentalID = $("#cusrentId").val();
