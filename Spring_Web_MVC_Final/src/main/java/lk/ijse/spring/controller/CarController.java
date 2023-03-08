@@ -23,12 +23,6 @@ public class CarController {
     @Autowired
     CarService service;
 
-//    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-//    public ResponseUtil saveCar(@RequestBody CarDTO carDTO){
-//        service.saveCar(carDTO);
-//        return new ResponseUtil("200",carDTO.toString()+ " Added",null);
-//    }
-
     @PostMapping(consumes = {MediaType.MULTIPART_FORM_DATA_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseUtil addVehicle(@RequestPart("vImageFile") MultipartFile[] file, @RequestPart("vehicle") CarDTO carDTO) {
 
@@ -89,42 +83,11 @@ public class CarController {
     return null;
     }
 
-
-
-
-
     @PutMapping
     public ResponseUtil updateCar(@RequestBody CarDTO dto){
         service.updateCar(dto);
         return new ResponseUtil("200",dto.toString()+" Updated",null);
     }
-
-
-//    @PostMapping(consumes = {MediaType.MULTIPART_FORM_DATA_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
-//    public ResponseUtil updateCar(@RequestPart("vImageFile") MultipartFile[] file, @RequestPart("vehicle") CarDTO carDTO) {
-//
-//
-//        for (MultipartFile myFile : file) {
-//
-//            try {
-//                String projectPath = new File(this.getClass().getProtectionDomain().getCodeSource().getLocation().toURI()).getParentFile().getParentFile().getAbsolutePath();
-//                File uploadsDir = new File(projectPath + "/uploads");
-//                uploadsDir.mkdir();
-//                myFile.transferTo(new File(uploadsDir.getAbsolutePath() + "/" + myFile.getOriginalFilename()));
-//                System.out.println(projectPath);
-//            } catch (IOException | URISyntaxException e) {
-//                e.printStackTrace();
-//                return new ResponseUtil("500", "Registration Failed.Try Again Latter", null);
-//            }
-//        }
-//
-//
-//
-//
-//        service.updateCar(carDTO);
-//        return new ResponseUtil("200", "Registration Successfully....", carDTO);
-//    }
-
 
     @GetMapping
     public ResponseUtil getAllCars(){
@@ -157,10 +120,5 @@ public class CarController {
         return new ResponseUtil("200"," Success",count);
     }
 
-//    @GetMapping(params = {"registrationId"},produces = MediaType.APPLICATION_JSON_VALUE)
-//    public ResponseUtil checkCar(String registrationId) {
-//        CarDTO carDTO = service.searchCarByRegistrationId(registrationId);
-//        return new ResponseUtil("200", "Ok", carDTO);
-//    }
 
 }
