@@ -70,32 +70,6 @@ function findRentReq(rentalId) {
     })
 }
 
-// function searchAndLoadRentReqBankSlipImgs(rentId) {
-//     $('#inputReqImageOfBankSlip').empty();
-//
-// //     $.ajax({
-// //         url: baseUrl + "rent/" + rentId,
-// //         method: "GET",
-// //         success: function (res) {
-// //             let rent = res.data;
-// //             console.log(rent)
-// //             let bankSlipPath = rent.bankSlip;
-// //             let bankSlipImg = bankSlipPath.split("E:\\Working Directory\\works\\GitUplode\\Car Rental System\\Car_Rental_System_With_SpringWebMVC\\Spring_Front_End\\assests\\savedImages\\Rent")[1];
-// //             let bankSlipImgScr = "../assests/savedImages/Rent" + bankSlipImg;
-// //             console.log(bankSlipImgScr);
-// //
-// //             let slipImage = `<img src=${bankSlipImgScr} alt="Bank Slip" style="background-size: cover;width: 100%;height: 100%">`;
-// //             $('#inputReqImageOfBankSlip').append(slipImage);
-// //
-// //         }
-// //     })
-// }
-
-// $("#btnSearchRentReq").click(function (){
-//     var rentId = $('#inputRentReqSearch').val();
-//     findRentReq(rentId);
-// });
-
 $("#btnAacceptReq").click(function (){
     if ($('#customerRentId').val() != "") {
         acceptRental();

@@ -254,33 +254,6 @@ function setCarTextFieldValues(registrationId, brand, type, fuelType,transmissio
     $("#txtFT").val(fuelType);
 }
 
-
-
-// var frontImageView;
-// var backImageView;
-// var sideImageView;
-// var interiorImageView;
-
-
-
-// function getCarDetails(){
-//     let registrationId =  $("#txtCNu").text();
-//     $.ajax({
-//         url: baseURL+"car?registrationId=" + registrationId,
-//         method: "get",
-//         success(resp) {
-//
-//             frontImageView=resp.data.image_1;
-//             backImageView=resp.data.image_2;
-//
-//             $("#txtBManageCustomerID").val(resp.data.customer.custNICNumber);
-//             $("#txtBManageCustomerName").val(resp.data.customer.custName);
-//
-//
-//         }
-//     });
-// }
-
 var model;
 var colour;
 var lastServiceMileage;
@@ -303,10 +276,6 @@ $("#btnUpdate").click(function () {
     let priceForExtraKm = $("#txtVCcperex").val();
     let dailyRate =  $("#txtDai").val();
     let monthlyRate = $("#txtMn").val();
-    // let frontView = $("#uploadUImFV").val();
-    // let backView = $("#uploadUImBV").val();
-    // let sideView =  $("#uploadUImSV").val();
-    // let interiorView = $("#uploadUIImV").val();
 
 
     var car = {

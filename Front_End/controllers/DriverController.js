@@ -147,48 +147,6 @@ function generateDriverId() {
     })
 }
 
-// function addSchedule(){
-//     let driverId = $("#dId").text();
-//     $.ajax({
-//         url: baseURL + "driver/search/" + driverId,
-//         method: "GET",
-//         success: function (resp) {
-//             let driver = resp.data;
-//
-//             // $("#CDNs").val(driver.name);
-//             // $("#DNIs").val(driver.nic);
-//             // $("#DLNs").val(driver.drivingLicenceNum);
-//
-//
-//             $("#driScheduTable").empty();
-//             $.ajax({
-//                 url: baseURL + "rental",
-//                 method: "GET",
-//                 success: function (res) {
-//                     // let rent = resp.data;
-//
-//                     for (let rent of res.data) {
-//                         if (rent.driverID===driverId) {
-//                             var row = '<tr><td>' + rent.cusNic + '</td><td>' + rent.registrationID + '</td><td>' + rent.pickUpDate + '</td><td>' + rent.returnDate + '</td><td>' + rent.pickupLocation + '</td><td>' + rent.returnLocation + '</td></tr>';
-//                             $("#driScheduTable").append(row);
-//                         }
-//                     }
-//
-//                 },
-//                 error: function (error) {
-//                     let prase = JSON.parse(error.responseText);
-//                     alert(prase.message);
-//                 }
-//             });
-//
-//         },
-//         error: function (error) {
-//             let prase = JSON.parse(error.responseText);
-//             alert(prase.message);
-//         }
-//     })
-// }
-
 function loadDriverSchedule() {
     $('#driScheduTable').empty();
     let status = "Accepted";
