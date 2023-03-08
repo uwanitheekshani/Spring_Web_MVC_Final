@@ -110,12 +110,7 @@ public class CarRentalController {
 
 
     //======================================================================
-//
-//    @GetMapping(path = "/get/{status}", produces = MediaType.APPLICATION_JSON_VALUE)
-//    public ResponseUtil getAllRentsByStatus(@PathVariable String status) {
-//        return new ResponseUtil("200", "Done", service.getCarRentsByStatus(status));
-//    }
-//
+
     @GetMapping(path = "/search/{rentalId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil searchRent(@PathVariable String rentalId) {
         return new ResponseUtil("200", "Done", service.searchRent(rentalId));
