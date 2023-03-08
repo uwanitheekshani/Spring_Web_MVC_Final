@@ -169,7 +169,7 @@ header {
 #linkbtnBook{
     position: absolute;
     right: 0;
-    left: 660px;
+    left: 582px;
     top: 438px;
     /*z-index: 5;*/
     z-index: 8;
@@ -180,4 +180,9 @@ header {
     font-weight: bold;
     height: 54px;
     width: 179px;
+}
+
+#linkbtnBook:hover{
+    background-color: #6F1E51;
+    /*box-shadow: 2px solid white;*/
 }
