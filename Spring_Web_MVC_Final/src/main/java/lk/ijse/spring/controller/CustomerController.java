@@ -22,13 +22,6 @@ public class CustomerController {
     @Autowired
     CustomerService service;
 
-
-//    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-//    public ResponseUtil saveCustomer(@RequestBody CustomerDTO dto){
-//        service.saveCustomer(dto);
-//        return new ResponseUtil("200",dto.toString()+ " Added",null);
-//    }
-
     @PostMapping(consumes = {MediaType.MULTIPART_FORM_DATA_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseUtil addVehicle(@RequestPart("cImageFile") MultipartFile[] file, @RequestPart("user") CustomerDTO customerDTO) {
 
