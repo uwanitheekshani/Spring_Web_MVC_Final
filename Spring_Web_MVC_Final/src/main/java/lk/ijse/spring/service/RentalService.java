@@ -37,7 +37,6 @@ public interface RentalService {
     long count();
 
     //===========================================
-//    RentalDTO getAllByCusNic(String nic);
     List<RentalDTO> getAllByCusNic(String nic);
 
 }

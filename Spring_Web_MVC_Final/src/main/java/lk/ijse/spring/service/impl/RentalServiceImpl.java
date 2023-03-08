@@ -160,14 +160,6 @@ public class RentalServiceImpl implements RentalService {
 
 
     //=============================================================
-//    @Override
-//    public RentalDTO getAllByCustomerId(String nic) {
-//        if (repo.existsById(nic)) {
-//            return mapper.map(repo.findById(nic).get(), RentalDTO.class);
-//        } else {
-//            throw new RuntimeException("Rent "+nic+" Not Exist....!");
-//        }
-//    }
 
 
 }
