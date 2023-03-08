@@ -31,6 +31,7 @@ $("#btnLogInE").click(function (){
                 $("#cusUpdateContent").css('display','none');
                 $("#ae").text(email);
                 $("#anic").text(res.data.nic);
+                $("#an").text(res.data.cusName);
                 $("#store").css('pointer-events','auto');
                 $("#checkout").css('pointer-events','auto');
                 $("#account").css('pointer-events','auto');
